@@ -1,9 +1,14 @@
+import ormFramework.core.EntityManager;
+import ormFramework.core.EntityManagerFactory;
+
+import java.net.URISyntaxException;
+import java.sql.SQLException;
 
 /**
 
   1) Създаваме клас (EntityManagerFactory), в който да регистрираме настройките за връзка с базата данни
   - вид база, потребителско име и парола, както и името на базата данни.
-   Този клас в ответ ще върне обект, който ще може да управлява на абстрактно ниво базата данни.
+   Този клас в ответ ще върне обект, който ще може да управлява на абстрактно ниво базата данни, а именно EntityManagerImpl.
 
   2) Преди да се върне такъв обект, искаме да обиколим всички класове в проекта и да намерим тези, които са
  анотирани с анотацията @Entity (това ще е наша анотация, която ще създадем)
@@ -19,7 +24,15 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println("hi");
+  public static void main(String[] args) throws SQLException, URISyntaxException, ClassNotFoundException {
+    EntityManager entityManager = EntityManagerFactory.create(
+            "mysql",
+            "localhost",
+            3306,
+            "root",
+            "",
+            "test_orm",
+            Main.class
+    );
   }
 }

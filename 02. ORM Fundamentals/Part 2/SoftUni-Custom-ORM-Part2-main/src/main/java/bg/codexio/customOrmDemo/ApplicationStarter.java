@@ -4,8 +4,6 @@ package bg.codexio.customOrmDemo;
 import bg.codexio.customOrmDemo.entity.Address;
 import bg.codexio.customOrmDemo.entity.Department;
 import bg.codexio.customOrmDemo.entity.Employee;
-
-import bg.codexio.customOrmDemo.entity.User;
 import ormFramework.core.EntityManager;
 import ormFramework.core.EntityManagerFactory;
 
@@ -38,32 +36,17 @@ public class ApplicationStarter {
                 "localhost",
                 3306,
                 "root",
-                "00000",
+                "",
                 "test_orm",
                 ApplicationStarter.class
         );
 
-        //User user = new User("Pesho1", 17);
-//        User maria = new User("Maria", 25);
+        Employee byId = entityManager.findById(25, Employee.class);
 
-//        entityManager.persist(maria);
-
-        //User pesho = entityManager.findById(1, User.class);
-       // User maria = entityManager.findById(3, User.class);
-//        pesho.setAge(30);
-//        entityManager.persist(user);
-
-        //entityManager.delete(maria);
-//        User user = new User();
-
-
-//
-//        Address softUniAddress = entityManager.findById(1, Address.class);
-//        Address codexioAddress = entityManager.findById(2, Address.class);
+        Address softUniAddress = entityManager.findById(1, Address.class);
+        Address codexioAddress = entityManager.findById(2, Address.class);
 //        Department byId1 = entityManager.findById(30, Department.class);
 
-
-    //    entityManager.alterTable(User.class);
 
     }
 }

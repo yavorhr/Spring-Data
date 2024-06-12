@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="custom-orm-demo" target="16" />
+      <module name="custom-orm-demo" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -73,7 +73,7 @@ public class ApplicationStarter {
             "localhost",
             3306,
             "root",
-            "",
+            "00000",
             "test_orm",
             ApplicationStarter.class
     );
@@ -99,7 +99,6 @@ public class ApplicationStarter {
 
 
     //    entityManager.alterTable(User.class);
-
   }
 }
 

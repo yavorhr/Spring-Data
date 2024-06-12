@@ -38,7 +38,7 @@ public class ApplicationStarter {
                 "localhost",
                 3306,
                 "root",
-                "12345",
+                "00000",
                 "test_orm",
                 ApplicationStarter.class
         );

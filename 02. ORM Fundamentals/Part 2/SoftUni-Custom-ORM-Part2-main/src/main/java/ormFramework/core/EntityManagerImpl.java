@@ -12,9 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class EntityManagerImpl implements EntityManager {
@@ -100,6 +98,26 @@ public class EntityManagerImpl implements EntityManager {
     return preparedStatement.execute();
   }
 
+  @Override
+  public <T> boolean alterTable(T entity) throws SQLException {
+    Set<String> columnsInTable = getAllColumnsInTableBy(entity);
+    return false;
+  }
+
+  private <T> Set<String> getAllColumnsInTableBy(T entity) throws SQLException {
+    String tableName = getTableNameByEntity(entity);
+    Set<String> allColumns = new HashSet<>();
+
+    String query = "";
+    PreparedStatement preparedStatement = connection.prepareStatement(query);
+    ResultSet resultSet = preparedStatement.executeQuery(query);
+
+    while (resultSet.next()) {
+      //Todo: allColumns.add();
+    }
+
+    return allColumns;
+  }
   // Helpers
 
   private <T> Field getIdFieldFromEntity(T entity) {

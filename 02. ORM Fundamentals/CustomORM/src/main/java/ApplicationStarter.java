@@ -39,10 +39,18 @@ import java.sql.SQLException;
   Накрая execute-ваме statement-a, което ще създаде таблиците в базата данни : connection.createStatement().execute(sql);
   N.B. Няма проверка за това дали вече има такива създадени таблици!
 
-  4) Класчето, което ще се върне от т.1. (EntityManagerFactory) ще има операции :
-  - за извличане на обект по ИД find(id, Class);
+  4) EntityManagerImpl / EntityManager e класът, който ще държи логиакта за създаване на query-та към базата данни.
+  Както видяхме от т.1, Factory функцията връща инстанция от него, като му подава и Connection параметър, който
+  ще е нужен за statement()-ите, които ще правим към базата данни.
+
+  EntityManagerImpl може да извършва следните query-та към базата :
+  - за извличане на обект по ИД findById(id, Class<T> type);
   - записване на нов или редакция на съществуващ обект persist(Object)
   - изтриване на обект по ИД delete(id, Class)
+
+ 4.1) findById(id, Class)
+ Методът приема id, по което ще търсим, и Class<T> type или в коя таблица ще търсим - Employee, Department или Address.
+
  */
 
 public class ApplicationStarter {

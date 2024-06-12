@@ -6,9 +6,12 @@ import java.sql.SQLException;
 
 /**
 
-  1) Създаваме клас (EntityManagerFactory), в който да регистрираме настройките за връзка с базата данни
-  - вид база, потребителско име и парола, както и името на базата данни.
-   Този клас в ответ ще върне обект, който ще може да управлява на абстрактно ниво базата данни, а именно EntityManagerImpl.
+  1) Създаваме Factory клас ( EntityManagerFactory ), който ще върне инстанция от класа EntityManagerImpl.
+    EntityManagerImpl е класът, който ще може да управлява на абстрактно ниво базата данни с Java
+ методи.
+  - EntityManagerImpl ще се нуждае от Connection (връзка) с базата данни. Затова конструкторът му приема Connection dependency.
+    В create() методът в EntityManagerFactory ще подадем като параметри :
+    dbType, host, port, user, pass, dbName, които ще са нужни на DriverManager класа (createConnection() използва JDBC API и DriverManager).
 
   2) Преди да се върне такъв обект, искаме да обиколим всички класове в проекта и да намерим тези, които са
  анотирани с анотацията @Entity (това ще е наша анотация, която ще създадем)
@@ -23,7 +26,7 @@ import java.sql.SQLException;
 
  */
 
-public class Main {
+public class ApplicationStarter {
   public static void main(String[] args) throws SQLException, URISyntaxException, ClassNotFoundException {
     EntityManager entityManager = EntityManagerFactory.create(
             "mysql",
@@ -31,8 +34,8 @@ public class Main {
             3306,
             "root",
             "",
-            "test_orm",
-            Main.class
+            "orm_test",
+            ApplicationStarter.class
     );
   }
 }

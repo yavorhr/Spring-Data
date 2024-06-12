@@ -22,7 +22,7 @@ public class User {
 
 
     public User() {
-    }
+    };
 
     public User(String username, int age) {
         this.username = username;

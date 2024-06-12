@@ -1,8 +1,11 @@
 package ormFramework.core;
 
+import ormFramework.annotation.Column;
 import ormFramework.annotation.Entity;
+import ormFramework.annotation.Id;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +28,7 @@ public class EntityManagerFactory {
 
     List<Class<?>> classes = getEntities(mainClass);
 
-//        createTables(connection, classes);
+        createTables(connection, classes);
 
     return new EntityManagerImpl(connection);
   }
@@ -44,6 +47,34 @@ public class EntityManagerFactory {
             classes
     );
     return classes;
+  }
+
+  private static void createTables(Connection connection, List<Class<?>> classes) throws SQLException {
+    for (Class classInfo : classes) {
+      Entity entityInfo = (Entity) classInfo.getAnnotation(Entity.class);
+      String sql = "CREATE TABLE ";
+
+      String tableName = entityInfo.tableName();
+
+      sql += tableName + " (\n";
+      String primaryKeyDef = "";
+
+      for (Field field : classInfo.getDeclaredFields()) {
+        if (field.isAnnotationPresent(Id.class)) {
+          sql += "  " + field.getName() + " int auto_increment,\n";
+          primaryKeyDef = "constraint " + tableName + "_pk primary key (" + field.getName() + ")";
+        } else if (field.isAnnotationPresent(Column.class)) {
+          Column columnInfo = field.getAnnotation(Column.class);
+          sql += "  " + columnInfo.name() + " " + columnInfo.columnDefinition() + ",\n";
+        }
+      }
+
+      sql += "  " + primaryKeyDef + "\n);";
+
+      System.out.println(sql);
+
+      connection.createStatement().execute(sql);
+    }
   }
 
   private static void scanEntities(File dir, String packageName, List<Class<?>> classes) throws ClassNotFoundException {

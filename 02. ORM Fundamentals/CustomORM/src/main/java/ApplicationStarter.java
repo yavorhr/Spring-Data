@@ -29,10 +29,16 @@ import java.sql.SQLException;
   Ако не е директория, значи е файл, затова проверяваме дали е .class file.
   Ако е .class file, проверяваме дали има анотация isAnnotationPresent(Entity.class),
   Ако има такава, добавяме класа при всички класове, които ще запишем в базата данни.
-  <p>
-  3) Ще гледаме дали такава таблица има в базата, ако няма - ще я създадем по предварително описани @Id
-  и @Column(име, тип)
-  <p>
+
+  3) След като сме сканирали всички класове в проекта и сме ги запазили, е време да си създадем таблиците в базата данни.
+  В createTables() във Factory класа приемаме Connection и анотираните класове.
+  Обхождаме всеки един клас и създаваме String query statement, като взимаме :
+  - името на таблицата - entityInfo.tableName();
+  - @id Primary Key -   if (field.isAnnotationPresent(Id.class)){...}
+  - fields, или колоните в базата данни - else if (field.isAnnotationPresent(Column.class)){...}
+  Накрая execute-ваме statement-a, което ще създаде таблиците в базата данни : connection.createStatement().execute(sql);
+  N.B. Няма проверка за това дали вече има такива създадени таблици!
+
   4) Класчето, което ще се върне от т.1. (EntityManagerFactory) ще има операции :
   - за извличане на обект по ИД find(id, Class);
   - записване на нов или редакция на съществуващ обект persist(Object)

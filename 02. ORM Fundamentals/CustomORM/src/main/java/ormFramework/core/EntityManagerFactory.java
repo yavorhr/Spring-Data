@@ -28,7 +28,7 @@ public class EntityManagerFactory {
 
     List<Class<?>> classes = getEntities(mainClass);
 
-        createTables(connection, classes);
+    createTables(connection, classes);
 
     return new EntityManagerImpl(connection);
   }

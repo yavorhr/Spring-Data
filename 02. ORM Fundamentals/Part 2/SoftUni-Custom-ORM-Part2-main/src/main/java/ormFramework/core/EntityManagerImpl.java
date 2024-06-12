@@ -82,6 +82,24 @@ public class EntityManagerImpl implements EntityManager {
     return doUpdate(id, entity);
   }
 
+  @Override
+  public <T> boolean delete(T entity) throws IllegalAccessException, SQLException {
+    Field fieldId = getIdFieldFromEntity(entity);
+    fieldId.setAccessible(true);
+    int id = (int) fieldId.get(entity);
+
+    String tableName = getTableNameByEntity(entity);
+
+    String deleteQuery = String.format("DELETE FROM %s WHERE id = ?",
+            tableName);
+
+    PreparedStatement preparedStatement = connection
+            .prepareStatement(deleteQuery);
+    preparedStatement.setInt(1, id);
+
+    return preparedStatement.execute();
+  }
+
   // Helpers
 
   private <T> Field getIdFieldFromEntity(T entity) {

@@ -228,5 +228,4 @@ public class EntityManagerImpl implements EntityManager {
     }
     return String.format(" %s ", field.get(entity));
   }
-
 }

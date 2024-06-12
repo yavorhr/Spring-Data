@@ -66,4 +66,9 @@ public class EntityManagerImpl implements EntityManager {
 
     return entity;
   }
+
+  @Override
+  public <T> boolean persist(T entity) throws IllegalAccessException, SQLException {
+    return false;
+  }
 }

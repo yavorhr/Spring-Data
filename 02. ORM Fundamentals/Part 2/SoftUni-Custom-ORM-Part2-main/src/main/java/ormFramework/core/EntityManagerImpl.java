@@ -79,7 +79,6 @@ public class EntityManagerImpl implements EntityManager {
     if (id == 0) {
       return doInsert(entity);
     }
-
     return doUpdate(id, entity);
   }
 

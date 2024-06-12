@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class EntityManagerImpl implements EntityManager {
@@ -78,7 +80,7 @@ public class EntityManagerImpl implements EntityManager {
       return doInsert(entity);
     }
 
-//    return doUpdate(id, entity);
+    return doUpdate(id, entity);
   }
 
   // Helpers
@@ -105,6 +107,46 @@ public class EntityManagerImpl implements EntityManager {
             .prepareStatement(query);
 
     return preparedStatement.execute();
+  }
+
+  private <T> boolean doUpdate(int id, T entity) throws SQLException {
+    String tableName = getTableNameByEntity(entity);
+
+    String fieldsNamesAndValues = getFieldAndValuesAsMap(entity).entrySet()
+            .stream()
+            .map(kvp -> String.format(" %s = %s ", kvp.getKey(), kvp.getValue()))
+            .collect(Collectors.joining(", "));
+
+    String updateQuery = String.format("UPDATE %s SET %s WHERE id = ?;",
+            tableName, fieldsNamesAndValues);
+
+    PreparedStatement preparedStatement = connection
+            .prepareStatement(updateQuery);
+    preparedStatement.setInt(1, id);
+
+    return preparedStatement.execute();
+  }
+
+  private <T> Map<String, String> getFieldAndValuesAsMap(T entity) {
+    Map<String, String> resultMap = new LinkedHashMap<>();
+
+    Arrays.stream(entity
+            .getClass()
+            .getDeclaredFields())
+            .filter(field -> field.isAnnotationPresent(Column.class))
+            .forEach(field -> {
+              field.setAccessible(true);
+              String fieldName = field.getAnnotation(Column.class).name();
+              String fieldValue = null;
+              try {
+                fieldValue = getValueToString(field, entity);
+              } catch (IllegalAccessException e) {
+                e.printStackTrace();
+              }
+              resultMap.put(fieldName, fieldValue);
+            });
+
+    return resultMap;
   }
 
   private <T> String getFieldsValuesAsStr(T entity) {

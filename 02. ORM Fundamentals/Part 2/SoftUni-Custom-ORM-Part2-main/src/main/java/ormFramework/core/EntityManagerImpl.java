@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class EntityManagerImpl implements EntityManager {
 
@@ -69,6 +70,86 @@ public class EntityManagerImpl implements EntityManager {
 
   @Override
   public <T> boolean persist(T entity) throws IllegalAccessException, SQLException {
-    return false;
+    Field idField = getIdFieldFromEntity(entity);
+    idField.setAccessible(true);
+    int id = (int) idField.get(entity);
+
+    if (id == 0) {
+      return doInsert(entity);
+    }
+
+//    return doUpdate(id, entity);
   }
+
+  // Helpers
+
+  private <T> Field getIdFieldFromEntity(T entity) {
+    return Arrays.stream(entity
+            .getClass().getDeclaredFields())
+            .filter(field -> field.isAnnotationPresent(Id.class))
+            .findFirst()
+            .orElseThrow(() -> new UnsupportedOperationException("Entity doesn't have id"));
+  }
+
+  private <T> boolean doInsert(T entity) throws SQLException {
+    String tableName = getTableNameByEntity(entity);
+
+    String fieldsNames = getFieldNamesBy(entity.getClass());
+
+    String fieldValues = getFieldsValuesAsStr(entity);
+
+    String query = String.format("INSERT INTO %s (%s) VALUES (%s) ",
+            tableName, fieldsNames, fieldValues);
+
+    PreparedStatement preparedStatement = connection
+            .prepareStatement(query);
+
+    return preparedStatement.execute();
+  }
+
+  private <T> String getFieldsValuesAsStr(T entity) {
+    return Arrays.stream(entity
+            .getClass()
+            .getDeclaredFields())
+            .filter(field -> field.isAnnotationPresent(Column.class))
+            .map(field -> {
+              try {
+                return getValueToString(field, entity);
+              } catch (IllegalAccessException e) {
+                e.printStackTrace();
+              }
+              return null;
+            })
+            .collect(Collectors.joining(", "));
+  }
+
+  private String getFieldNamesBy(Class<?> aClass) {
+    return Arrays.stream(aClass
+            .getDeclaredFields())
+            .filter(field -> field.isAnnotationPresent(Column.class))
+            .map(field -> field.getAnnotation(Column.class).name())
+            .collect(Collectors.joining(" ,"));
+  }
+
+  private <T> String getTableNameByEntity(T entity) {
+    return entity
+            .getClass()
+            .getAnnotation(Entity.class)
+            .tableName();
+  }
+
+  private <T> String getValueToString(Field field, T entity) throws IllegalAccessException {
+    field.setAccessible(true);
+    String type = field.getAnnotation(Column.class).columnDefinition();
+
+    if (type.equals("DATE") || type.startsWith("VARCHAR")) {
+      try {
+        return String.format(" '%s' ", field.get(entity));
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    }
+    return String.format(" %s ", field.get(entity));
+  }
+
 }

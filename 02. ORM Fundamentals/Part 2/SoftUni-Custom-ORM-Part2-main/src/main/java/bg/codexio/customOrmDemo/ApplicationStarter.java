@@ -14,20 +14,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 1) Класче (EntityManagerFactory), в което да регистрираме настройките за връзка с базата данни
- * - вид база, потребителско име
- и парола, както и името на базата данни. Това класче в ответ ще върне обект, който ще може да управлява
- на абстрактно ниво базата данни.
- *
- * 2) Преди да се върне такъв обект, искаме да обиколим всички класове в проекта и да намерим тези, които са
- анотирани с анотацията @Entity (това ще е наша анотация)
+ * 1) Създаваме Factory клас ( EntityManagerFactory ), който ще върне инстанция от класа EntityManagerImpl.
+ EntityManagerImpl е класът, който ще управлява на абстрактно ниво базата данни с Java методи.
+ 1.1)  EntityManagerImpl ще се нуждае от Connection (връзка) с базата данни. Затова конструкторът му приема Connection dependency.
+ В create() методът във Factory класа ще подадем като параметри :
+ dbType, host, port, user, pass, dbName,
+ които ще са нужни на DriverManager класа (createConnection() използва JDBC API и DriverManager).
+ 1.2) Създаваме си наши анотации, които ще използваме при създаването на таблици в базата данни.
+ Анотациите са вид интерфейс, които приемат :
+ @Retention - кога да се използват. Избираме Runtime.
 
-   3) Ще гледаме дали такава таблица има в базата, ако няма - ще я създадем по предварително описани @Id
- и @Column(име, тип)
+ @Target - върху какво парче код можем да ги използваме - методи, класове и т.н. Избираме Type за клас, и .Field за полетата.
+ 2) Преди да върнем EntityManagerImpl и създадената Connection като инстанция от Factory класа,
+ искаме да обиколим всички класове в проекта и да намерим тези, които са анотирани с анотацията @Entity.
+ Това се случва в getEntities(mainClass) и scanEntities() във Factory класа.
+ 2.1 ) getEntities() приема като стартова точка ApplicationStarter класа, т.е. Main, от който се стартира програмата.
+ С reflection взимаме името на директорията, в което се намира ApplicationStarter, и от която директория ще започнем
+ да търсим със scanEntities() класове, анотирани с @entity.
+ 2.2) scanEntities() използва отново reflection за да сканира всички класове в проекта с анотаиця @entity.
+ По-конкретно в scanEntities() се проверява всеки File в package name-a, който зададохме от getEntities() метода.
+ Тъй като файл може да е и директория и файл, първо проверяваме дали първо е директория.
+ Ако е директория, с рекурсия отново се извиква същия метод, за да се проверят и файловете в нея.
+ Ако не е директория, значи е файл, затова проверяваме дали е .class file.
+ Ако е .class file, проверяваме дали има анотация isAnnotationPresent(Entity.class),
+ Ако има такава, добавяме класа при всички класове, които ще запишем в базата данни.
 
-   4) Класчето, което ще се върне от т.1. (EntityManager) ще има операции за извличане на обект по ИД
- find(id, Class); записване на нов или редакция на съществуващ обект persist(Object) и изтриване на обект
- по ИД delete(id, Class)
+ 3) След като сме сканирали всички класове в проекта и сме ги запазили, е време да си създадем таблиците в базата данни.
+ В createTables() във Factory класа приемаме Connection и анотираните класове.
+ Обхождаме всеки един клас и създаваме String query statement, като взимаме :
+ - името на таблицата - entityInfo.tableName();
+ - @id Primary Key -   if (field.isAnnotationPresent(Id.class)){...}
+ - fields, или колоните в базата данни - else if (field.isAnnotationPresent(Column.class)){...}
+ Накрая execute-ваме statement-a, което ще създаде таблиците в базата данни : connection.createStatement().execute(sql);
+ N.B. Няма проверка за това дали вече има такива създадени таблици!
+
+ 4) EntityManagerImpl / EntityManager e класът, който ще държи логиакта за създаване на query-та към базата данни.
+ Както видяхме от т.1, Factory функцията връща инстанция от него, като му подава и Connection параметър, който
+ ще е нужен за statement()-ите, които ще правим към базата данни.
+
+ EntityManagerImpl може да извършва следните query-та към базата :
+ - за извличане на обект по ИД findById(id, Class<T> type);
+ - записване на нов или редакция на съществуващ обект persist(Object)
+ - изтриване на обект по ИД delete(id, Class)
+
+ 4.1) findById(id, Class)
+ Методът приема id, по което ще търсим, и Class<T> type или в коя таблица ще търсим - Employee, Department или Address.
+ 4.2) boolean persist(T entity)
+
+
+
  */
 public class ApplicationStarter {
     public static void main(String[] args) throws SQLException, URISyntaxException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {

@@ -33,6 +33,7 @@
 
         <!-- List of XML mapping files -->
         <mapping resource = "User.hbm.xml"/>
+        <mapping resource = "City.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

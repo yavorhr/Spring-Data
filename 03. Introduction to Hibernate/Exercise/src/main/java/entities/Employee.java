@@ -2,7 +2,6 @@ package entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -20,7 +19,6 @@ public class Employee {
     private BigDecimal salary;
     private Address address;
     private Set<Project> projects;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

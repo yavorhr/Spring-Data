@@ -22,6 +22,8 @@ public class Main {
     List<User> resultList = query.getResultList();
 
     resultList.forEach(u -> System.out.println(u.getUsername()));
+
+
 //    //create user
 //    var user = new User();
 //    user.setUsername("Pesho");

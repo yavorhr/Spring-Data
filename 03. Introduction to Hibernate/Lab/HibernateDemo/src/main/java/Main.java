@@ -17,7 +17,7 @@ public class Main {
 
     EntityManager session = sessionFactory.openSession();
 
-    TypedQuery<User> query = session.createQuery("FROM User u WHERE u.city.name = :city_name", User.class);
+    TypedQuery<User> query = session.createQuery("SELECT u FROM User u JOIN FETCH u.city c WHERE c.name =:city_name", User.class);
     query.setParameter("city_name", "Sofia");
     query.getResultList().forEach(u -> System.out.println(u));
 

@@ -37,4 +37,5 @@ public class User {
   public void setCity(City city) {
     this.city = city;
   }
+
 }

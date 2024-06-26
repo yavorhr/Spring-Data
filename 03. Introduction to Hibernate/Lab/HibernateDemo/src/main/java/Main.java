@@ -17,11 +17,15 @@ public class Main {
 
     EntityManager session = sessionFactory.openSession();
 
-    TypedQuery<User> query = session.createQuery("SELECT u FROM User u where u.username = :un", User.class);
-    query.setParameter("un", "pesho");
-    List<User> resultList = query.getResultList();
+    TypedQuery<User> query = session.createQuery("FROM User u WHERE u.city.name = :city_name", User.class);
+    query.setParameter("city_name", "Sofia");
+    query.getResultList().forEach(u -> System.out.println(u));
 
-    resultList.forEach(u -> System.out.println(u.getUsername()));
+//    TypedQuery<User> query = session.createQuery("SELECT u FROM User u where u.username = :un", User.class);
+//    query.setParameter("un", "pesho");
+//    List<User> resultList = query.getResultList();
+//
+//    resultList.forEach(u -> System.out.println(u.getUsername()));
 
 
 //    //create user
@@ -41,7 +45,7 @@ public class Main {
 //    var peshoUser = session.get(User.class,1);
 //    session.update(peshoUser);
 //
-    transaction.commit();
+
   }
 }
 

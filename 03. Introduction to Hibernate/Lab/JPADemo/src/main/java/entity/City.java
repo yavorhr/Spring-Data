@@ -1,10 +1,17 @@
 package entity;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "cities")
 public class City {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String name;
+
+  @OneToMany(cascade = CascadeType.PERSIST)
   private Set<User> users;
 
   public int getId() {

@@ -1,50 +1,30 @@
 
+import entity.City;
 import entity.User;
-import javax.persistence.TypedQuery;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Main {
   public static void main(String[] args) {
 
-    String SessionFactory sessionFactory = new Configuration()
-            .configure()
-            .buildSessionFactory();
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("softuni");
+    EntityManager entityManager = emf.createEntityManager();
 
-    Session session = sessionFactory.openSession();
+    entityManager.getTransaction().begin();
 
-    Transaction transaction = session.beginTransaction();
+    var sofia = new City();
+    sofia.setName("Sofia");
 
-    TypedQuery<User> query = session.createQuery("SELECT u FROM User u JOIN FETCH u.city c WHERE c.name =:city_name", User.class);
-    query.setParameter("city_name", "Sofia");
-    query.getResultList().forEach(u -> System.out.println(u));
+    var pesho = new User();
+    pesho.setUsername("Pesho");
+    pesho.setPassword("123");
+    pesho.setCity(sofia);
 
-//    TypedQuery<User> query = session.createQuery("SELECT u FROM User u where u.username = :un", User.class);
-//    query.setParameter("un", "pesho");
-//    List<User> resultList = query.getResultList();
-//
-//    resultList.forEach(u -> System.out.println(u.getUsername()));
+    entityManager.persist(pesho);
 
-
-//    //create user
-//    var user = new User();
-//    user.setUsername("Pesho");
-//    user.setPassword("Password");
-//    session.save(user);
-//
-//    // getById
-//    var userPesho = session.get(User.class, 1);
-//    System.out.println(userPesho.getId());
-//
-//    //delete user
-//    session.delete(userPesho);
-//
-//    //getById and rename user
-//    var peshoUser = session.get(User.class,1);
-//    session.update(peshoUser);
-//
-
-    transaction.commit();
-    ;
-
+    entityManager.getTransaction().commit();
   }
 }
 

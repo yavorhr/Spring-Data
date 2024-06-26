@@ -1,9 +1,18 @@
 package entity;
 
+import javax.persistence.*;
+import java.lang.annotation.Target;
+
+@Entity
+@Table(name ="users")
 public class User {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String username;
   private String password;
+
+  @ManyToOne(cascade = CascadeType.PERSIST)
   private City city;
 
   public int getId() {

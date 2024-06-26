@@ -4,17 +4,21 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "entity.City" table = "cities">
-<!--        <meta attribute = "class-description">-->
-<!--            This class contains the employee detail.-->
-<!--        </meta>-->
+    <class name="entity.City" table="cities">
+        <!--        <meta attribute = "class-description">-->
+        <!--            This class contains the employee detail.-->
+        <!--        </meta>-->
 
-        <id name = "id" type = "int" column = "id">
+        <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
 
-        <property name = "name" column = "name" type = "string"/>
+        <property name="name" column="name" type="string"/>
 
+        <set name="users" inverse="true" cascade="all">
+            <key column="city_id" not-null="false"/>
+            <one-to-many class="entity.User"/>
+        </set>
 
     </class>
 </hibernate-mapping>

@@ -4,6 +4,7 @@ public class User {
   private int id;
   private String username;
   private String password;
+  private City city;
 
   public int getId() {
     return id;
@@ -27,5 +28,13 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public City getCity() {
+    return city;
+  }
+
+  public void setCity(City city) {
+    this.city = city;
   }
 }

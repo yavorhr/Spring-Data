@@ -1,8 +1,11 @@
 package entity;
 
+import java.util.Set;
+
 public class City {
   private int id;
   private String name;
+  private Set<User> users;
 
   public int getId() {
     return id;
@@ -18,5 +21,13 @@ public class City {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Set<User> getUsers() {
+    return users;
+  }
+
+  public void setUsers(Set<User> users) {
+    this.users = users;
   }
 }

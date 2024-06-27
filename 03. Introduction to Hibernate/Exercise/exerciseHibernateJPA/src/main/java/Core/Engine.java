@@ -40,11 +40,27 @@ public class Engine implements Runnable {
         case 8 -> ex8getEmployeeById();
         case 9 -> ex9findLatest10Projects();
         case 10 -> ex10updateSalary();
+        case 11 -> ex11findEmployeesByFirstName();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex11findEmployeesByFirstName() throws IOException {
+    System.out.println("Please enter required pattern: ");
+    String input = bufferedReader.readLine();
+
+    String pattern = input + "%";
+    this.entityManager.createQuery("SELECT e FROM Employee AS e" +
+            " WHERE e.firstName " +
+            "LIKE :patt", Employee.class)
+            .setParameter("patt", pattern)
+            .getResultStream()
+            .forEach(e -> {
+              System.out.printf("%s %s - %s - ($%.2f)%n", e.getFirstName(), e.getLastName(), e.getJobTitle(), e.getSalary());
+            });
   }
 
   private void ex10updateSalary() {

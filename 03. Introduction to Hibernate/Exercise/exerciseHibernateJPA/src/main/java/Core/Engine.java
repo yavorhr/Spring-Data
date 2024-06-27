@@ -1,10 +1,14 @@
 package Core;
 
+import entities.Employee;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.util.List;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -24,12 +28,31 @@ public class Engine implements Runnable {
       switch (exNumber) {
         case 2 -> ex2changeCasing();
         case 3 -> ex3containsEmployee();
+        case 4 -> ex4salaryOver50000();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
+
+  private void ex4salaryOver50000() {
+    entityManager.createQuery("SELECT e FROM Employee e " +
+            "WHERE e.salary > :min_salary", Employee.class)
+            .setParameter("min_salary", BigDecimal.valueOf(50000L))
+            .getResultList()
+            .stream()
+            .map(Employee::getFirstName)
+            .forEach(System.out::println);
+
+//    entityManager.createQuery("SELECT e FROM Employee e " +
+//            "WHERE e.salary > :min_salary", Employee.class)
+//            .setParameter("min_salary", BigDecimal.valueOf(50000L))
+//            .getResultStream()
+//            .map(Employee::getFirstName)
+//            .forEach(System.out::println);
+  }
+
 
   private void ex3containsEmployee() throws IOException {
     String[] fullName = bufferedReader.readLine().split("\\s+");
@@ -53,9 +76,7 @@ public class Engine implements Runnable {
 
     this.entityManager.getTransaction().begin();
     query.executeUpdate();
-
-    System.out.println(query.executeUpdate());
-
+//    System.out.println(query.executeUpdate());
     this.entityManager.getTransaction().commit();
   }
 }

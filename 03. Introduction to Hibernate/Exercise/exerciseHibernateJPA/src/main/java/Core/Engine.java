@@ -11,9 +11,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -38,11 +37,32 @@ public class Engine implements Runnable {
         case 6 -> ex6addNewAddressAndUpdateEmployee();
         case 7 -> ex7addressesEmployeeCount();
         case 8 -> ex8getEmployeeById();
+        case 9 -> ex9findLatest10Projects();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex9findLatest10Projects() {
+    List<Project> resultList = this.entityManager.createQuery("SELECT p FROM Project AS p " +
+            "ORDER BY p.startDate DESC", Project.class)
+            .setMaxResults(10)
+            .getResultList();
+
+    resultList.sort(Comparator.comparing(Project::getName));
+
+    StringBuilder sb = new StringBuilder();
+
+    resultList.forEach(p -> {
+      sb.append("Project name: " + p.getName()).append(System.lineSeparator());
+      sb.append("Project Description: ").append(p.getDescription()).append(System.lineSeparator());
+      sb.append("Project Start Date: ").append(p.getStartDate()).append(System.lineSeparator());
+      sb.append("Project End Date: ").append(p.getEndDate()).append(System.lineSeparator());
+    });
+
+    System.out.println(sb);
   }
 
   private void ex8getEmployeeById() throws IOException {

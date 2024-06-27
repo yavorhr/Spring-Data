@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -131,22 +132,22 @@ public class Engine implements Runnable {
     }
 
     private void ex9findLatest10Projects() {
+        List<Project> resultList = this.entityManager.createQuery("SELECT p FROM Project AS p " +
+                "ORDER BY p.startDate DESC", Project.class)
+                .setMaxResults(10)
+                .getResultList();
+
+        resultList.sort(Comparator.comparing(Project::getName));
+
         StringBuilder sb = new StringBuilder();
 
-        entityManager.createQuery("SELECT p FROM Project p " +
-                        "ORDER BY p.endDate DESC"
-                , Project.class)
-                .setMaxResults(10)
-                .getResultStream()
-                .forEach(project -> {
-                    sb.append("Project name: " + project.getName()).append("\n");
-                    sb.append("Project Description: ").append(project.getDescription()).append("\n");
-                    sb.append("Project Start Date: ").append(project.getStartDate()).append("\n");
-                    sb.append("Project End Date: ").append(project.getEndDate()).append("\n");
-                });
-
-        System.out.println(sb.toString());
-
+        resultList.forEach(p -> {
+            sb.append("Project name: " + p.getName()).append(System.lineSeparator());
+            sb.append("Project Description: ").append(p.getDescription()).append(System.lineSeparator());
+            sb.append("Project Start Date: ").append(p.getStartDate()).append(System.lineSeparator());
+            sb.append("Project End Date: ").append(p.getEndDate()).append(System.lineSeparator());
+        });
+        System.out.println(sb);
     }
 
     private void ex8getEmployeeById() throws IOException {

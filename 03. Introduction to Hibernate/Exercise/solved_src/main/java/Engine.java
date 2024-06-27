@@ -30,7 +30,7 @@ public class Engine implements Runnable {
             int exNumber = Integer.parseInt(bufferedReader.readLine());
 
             switch (exNumber) {
-                case 2 -> ex2changeCasing();
+                case 2 -> ex2changeCasing();;
                 case 3 -> ex3containsEmployee();
                 case 4 -> ex4salaryOver50000();
                 case 5 -> ex5getEmployeesFromDepartment();

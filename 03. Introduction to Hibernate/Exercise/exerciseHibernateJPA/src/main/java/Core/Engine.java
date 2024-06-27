@@ -112,17 +112,9 @@ public class Engine implements Runnable {
     this.entityManager.createQuery("SELECT e FROM Employee e " +
             "WHERE e.salary > :min_salary", Employee.class)
             .setParameter("min_salary", BigDecimal.valueOf(50000L))
-            .getResultList()
-            .stream()
+            .getResultStream()
             .map(Employee::getFirstName)
             .forEach(System.out::println);
-
-//    entityManager.createQuery("SELECT e FROM Employee e " +
-//            "WHERE e.salary > :min_salary", Employee.class)
-//            .setParameter("min_salary", BigDecimal.valueOf(50000L))
-//            .getResultStream()
-//            .map(Employee::getFirstName)
-//            .forEach(System.out::println);
   }
 
 

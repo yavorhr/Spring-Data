@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -38,11 +39,25 @@ public class Engine implements Runnable {
         case 7 -> ex7addressesEmployeeCount();
         case 8 -> ex8getEmployeeById();
         case 9 -> ex9findLatest10Projects();
+        case 10 -> ex10updateSalary();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex10updateSalary() {
+    Query query = this.entityManager.createQuery(
+            "UPDATE Employee AS e " +
+                    "SET e.salary = e.salary *1.2" +
+                    "WHERE e.department.id IN :ids")
+            .setParameter("ids", Set.of(1, 2, 4, 11));
+
+    this.entityManager.getTransaction().begin();
+    System.out.println(query.executeUpdate());
+    this.entityManager.getTransaction().commit();
+
   }
 
   private void ex9findLatest10Projects() {

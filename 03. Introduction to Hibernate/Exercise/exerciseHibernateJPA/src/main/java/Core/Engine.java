@@ -41,11 +41,46 @@ public class Engine implements Runnable {
         case 10 -> ex10updateSalary();
         case 11 -> ex11findEmployeesByFirstName();
         case 12 -> ex12employeeMaxSalaries();
+        case 13 -> ex13removeTowns();
+
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex13removeTowns() throws IOException {
+    System.out.println("Please enter town name: ");
+    String townName = bufferedReader.readLine();
+
+    Town town = entityManager
+            .createQuery("SELECT t FROM Town t " +
+                    "WHERE t.name = :t_name", Town.class)
+            .setParameter("t_name", townName)
+            .getSingleResult();
+
+    int affectedRows = removeAddressesByTownId(town.getId());
+
+    entityManager.getTransaction().begin();
+    entityManager.remove(town);
+    entityManager.getTransaction().commit();
+
+    System.out.printf("%d address in %s deleted",affectedRows,town.getName());
+  }
+
+  private int removeAddressesByTownId(Integer id) {
+    List<Address> addresses = entityManager.createQuery(
+            "SELECT a FROM Address a" +
+                    " WHERE a.town.id = :p_id", Address.class)
+            .setParameter("p_id", id)
+            .getResultList();
+
+    entityManager.getTransaction().begin();
+    addresses.forEach(entityManager::remove);
+    entityManager.getTransaction().commit();
+
+    return addresses.size();
   }
 
   @SuppressWarnings("unchecked")
@@ -72,7 +107,7 @@ public class Engine implements Runnable {
 //      String departmentName = (String) result[0];
 //      BigDecimal maxSalary = (BigDecimal) result[1];
 //      System.out.println("Department: " + departmentName + ", Max Salary: " + maxSalary);
-    }
+  }
 
   private void ex11findEmployeesByFirstName() throws IOException {
     System.out.println("Please enter required pattern: ");

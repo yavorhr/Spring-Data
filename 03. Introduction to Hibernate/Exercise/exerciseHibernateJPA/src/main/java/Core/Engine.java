@@ -1,12 +1,11 @@
 package Core;
 
-import entities.Address;
-import entities.Employee;
-import entities.Project;
-import entities.Town;
+import entities.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,12 +40,39 @@ public class Engine implements Runnable {
         case 9 -> ex9findLatest10Projects();
         case 10 -> ex10updateSalary();
         case 11 -> ex11findEmployeesByFirstName();
+        case 12 -> ex12employeeMaxSalaries();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
+
+  @SuppressWarnings("unchecked")
+  private void ex12employeeMaxSalaries() {
+    List<Object[]> resultList = entityManager.createNativeQuery(
+            "SELECT d.name, MAX(e.salary) AS `m_salary`\n" +
+                    "FROM departments AS d\n" +
+                    "JOIN employees e on d.department_id = e.department_id\n" +
+                    "GROUP BY d.name\n" +
+                    "HAVING `m_salary` NOT BETWEEN 30000 AND 70000;")
+            .getResultList();
+
+    resultList.forEach(obj -> System.out.println(obj[0] + " " + obj[1]));
+
+//    String jpql = "SELECT d.name, MAX(e.salary) " +
+//            "FROM Department d JOIN d.employees e " +
+//            "GROUP BY d.name " +
+//            "HAVING MAX(e.salary) NOT BETWEEN 30000 AND 70000";
+//
+//    TypedQuery<Object[]> query = this.entityManager.createQuery(jpql, Object[].class);
+//    List<Object[]> results = query.getResultList();
+//
+//    for (Object[] result : results) {
+//      String departmentName = (String) result[0];
+//      BigDecimal maxSalary = (BigDecimal) result[1];
+//      System.out.println("Department: " + departmentName + ", Max Salary: " + maxSalary);
+    }
 
   private void ex11findEmployeesByFirstName() throws IOException {
     System.out.println("Please enter required pattern: ");

@@ -87,7 +87,8 @@ public class Engine implements Runnable {
 
     @SuppressWarnings("unchecked")
     private void ex12employeeMaxSalaries() {
-        List<Object[]> resultList = entityManager.createNativeQuery("SELECT d.name, MAX(e.salary) AS `m_salary`\n" +
+        List<Object[]> resultList = entityManager.createNativeQuery(
+                "SELECT d.name, MAX(e.salary) AS `m_salary`\n" +
                 "FROM departments AS d\n" +
                 "JOIN employees e on d.department_id = e.department_id\n" +
                 "GROUP BY d.name\n" +

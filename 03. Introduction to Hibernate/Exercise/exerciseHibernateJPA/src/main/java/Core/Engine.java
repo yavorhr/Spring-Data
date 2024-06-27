@@ -2,6 +2,7 @@ package Core;
 
 import entities.Address;
 import entities.Employee;
+import entities.Project;
 import entities.Town;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -34,11 +37,30 @@ public class Engine implements Runnable {
         case 5 -> ex5getEmployeesFromDepartment();
         case 6 -> ex6addNewAddressAndUpdateEmployee();
         case 7 -> ex7addressesEmployeeCount();
+        case 8 -> ex8getEmployeeById();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex8getEmployeeById() throws IOException {
+    int employeeId = Integer.parseInt(this.bufferedReader.readLine());
+
+    Employee employee = entityManager.find(Employee.class, employeeId);
+
+    StringBuilder sb = new StringBuilder();
+
+    employee
+            .getProjects()
+            .forEach(project -> sb.append(project.getName()).append("\n"));
+
+    System.out.printf("%s %s - %s\n %s",
+            employee.getFirstName(),
+            employee.getLastName(),
+            employee.getJobTitle(),
+            sb.toString());
   }
 
   private void ex7addressesEmployeeCount() {

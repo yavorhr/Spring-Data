@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -32,11 +33,27 @@ public class Engine implements Runnable {
         case 4 -> ex4salaryOver50000();
         case 5 -> ex5getEmployeesFromDepartment();
         case 6 -> ex6addNewAddressAndUpdateEmployee();
+        case 7 -> ex7addressesEmployeeCount();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex7addressesEmployeeCount() {
+    List<Address> addresses = this.entityManager.createQuery(
+            "SELECT a FROM Address AS a " +
+                    "ORDER BY a.employees.size DESC", Address.class)
+            .setMaxResults(10)
+            .getResultList();
+
+    addresses.forEach(address -> {
+      System.out.printf("%s, %s - %d employees%n",
+              address.getText(),
+              address.getTown() == null ? "Unknown" : address.getTown().getName(),
+              address.getEmployees().size());
+    });
   }
 
   private void ex6addNewAddressAndUpdateEmployee() throws IOException {

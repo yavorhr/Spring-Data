@@ -1,6 +1,8 @@
 package Core;
 
+import entities.Address;
 import entities.Employee;
+import entities.Town;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -29,11 +31,48 @@ public class Engine implements Runnable {
         case 3 -> ex3containsEmployee();
         case 4 -> ex4salaryOver50000();
         case 5 -> ex5getEmployeesFromDepartment();
+        case 6 -> ex6addNewAddressAndUpdateEmployee();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex6addNewAddressAndUpdateEmployee() throws IOException {
+    System.out.println("Please enter employee last name: ");
+    String lastName = this.bufferedReader.readLine();
+
+    Employee employee = this.entityManager.createQuery("SELECT e FROM Employee AS e " +
+            "WHERE e.lastName = :ln", Employee.class)
+            .setParameter("ln", lastName)
+            .getSingleResult();
+
+    Address address = initAddressWithTown();
+
+    this.entityManager.getTransaction().begin();
+    employee.setAddress(address);
+    this.entityManager.getTransaction().commit();
+  }
+
+  private Address initAddressWithTown() {
+    Address address = new Address();
+    address.setText("Vitoshka 15");
+    Town town = getTown("Sofia");
+
+    address.setTown(town);
+
+    this.entityManager.getTransaction().begin();
+    this.entityManager.persist(address);
+    this.entityManager.getTransaction().commit();
+
+    return address;
+  }
+
+  private Town getTown(String sofia) {
+    return this.entityManager.createQuery("SELECT t FROM Town t " +
+            "WHERE t.name = 'Sofia'", Town.class)
+            .getSingleResult();
   }
 
   private void ex5getEmployeesFromDepartment() {

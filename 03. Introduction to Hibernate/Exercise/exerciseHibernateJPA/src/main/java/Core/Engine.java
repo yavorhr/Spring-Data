@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class Engine implements Runnable {
   private final EntityManager entityManager;
@@ -29,6 +28,7 @@ public class Engine implements Runnable {
         case 2 -> ex2changeCasing();
         case 3 -> ex3containsEmployee();
         case 4 -> ex4salaryOver50000();
+        case 5 -> ex5getEmployeesFromDepartment();
       }
 
     } catch (IOException e) {
@@ -36,8 +36,24 @@ public class Engine implements Runnable {
     }
   }
 
+  private void ex5getEmployeesFromDepartment() {
+    entityManager.createQuery(
+            "SELECT e FROM Employee e " +
+                    "WHERE e.department.name = :d_name " +
+                    "ORDER BY e.salary, e.id", Employee.class)
+            .setParameter("d_name", "Research and Development")
+            .getResultStream()
+            .forEach(employee -> {
+              System.out.printf("%s %s from %s - $%.2f%n",
+                      employee.getFirstName(),
+                      employee.getLastName(),
+                      employee.getDepartment().getName(),
+                      employee.getSalary());
+            });
+  }
+
   private void ex4salaryOver50000() {
-    entityManager.createQuery("SELECT e FROM Employee e " +
+    this.entityManager.createQuery("SELECT e FROM Employee e " +
             "WHERE e.salary > :min_salary", Employee.class)
             .setParameter("min_salary", BigDecimal.valueOf(50000L))
             .getResultList()

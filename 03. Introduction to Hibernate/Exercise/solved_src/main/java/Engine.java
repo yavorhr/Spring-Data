@@ -259,6 +259,7 @@ public class Engine implements Runnable {
 
     private void ex2changeCasing() {
         entityManager.getTransaction().begin();
+
         Query query = entityManager.createQuery("UPDATE Town t SET t.name = upper(t.name) " +
                 "WHERE length(t.name) <= 5");
 

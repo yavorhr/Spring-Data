@@ -21,13 +21,29 @@ public class Engine implements Runnable {
     try {
       int exNumber = Integer.parseInt(this.bufferedReader.readLine());
 
-      if (exNumber == 2) {
-        ex2changeCasing();
+      switch (exNumber) {
+        case 2 -> ex2changeCasing();
+        case 3 -> ex3containsEmployee();
       }
 
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void ex3containsEmployee() throws IOException {
+    String[] fullName = bufferedReader.readLine().split("\\s+");
+    String firstName = fullName[0];
+    String lastName = fullName[1];
+
+    Long singleResult = this.entityManager.createQuery(
+            "SELECT count(e) FROM Employee e " +
+                    "WHERE e.firstName=:fn AND e.lastName=:ln", Long.class)
+            .setParameter("fn", firstName)
+            .setParameter("ln", lastName)
+            .getSingleResult();
+
+    System.out.println(singleResult == 0 ? "No" : "Yes");
   }
 
   private void ex2changeCasing() {

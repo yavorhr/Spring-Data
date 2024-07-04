@@ -1,4 +1,4 @@
-package entities;
+package TABLE_PER_CLASS.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,7 +11,5 @@ public class Bike extends Vehicle {
   public Bike(){
     super(type);
   }
-
-
 }
 

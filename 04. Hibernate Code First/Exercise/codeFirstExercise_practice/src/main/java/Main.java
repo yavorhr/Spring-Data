@@ -30,9 +30,9 @@ public class Main {
     sale.setProduct(product);
     em.persist(product);
 
-    //Delete product
-    Product findProduct = em.find(Product.class, 1);
-    em.remove(findProduct);
+//    //Delete product
+//    Product findProduct = em.find(Product.class, 1);
+//    em.remove(findProduct);
 
     em.getTransaction().commit();
 

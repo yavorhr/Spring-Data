@@ -1,7 +1,4 @@
 package SINGLE_TABLE;
-
-import JOIN_TABLE.entities.PassengerVehicle;
-
 import javax.persistence.Entity;
 
 @Entity

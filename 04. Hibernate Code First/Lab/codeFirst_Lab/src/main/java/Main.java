@@ -1,9 +1,8 @@
-package TABLE_PER_CLASS;
 
 
-import JOIN_TABLE.entities.Car;
-import JOIN_TABLE.entities.Truck;
-import JOIN_TABLE.entities.Vehicle;
+import SINGLE_TABLE.Car;
+import SINGLE_TABLE.Truck;
+import SINGLE_TABLE.Vehicle;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,7 +26,7 @@ public class Main {
 //
 //    em.getTransaction().commit();
 
-    // JOIN TABLE STRATEGY
+    // JOIN TABLE STRATEGY / SINGLE_TABLE
 
     em.getTransaction().begin();
 

@@ -1,5 +1,5 @@
 package SINGLE_TABLE;
-import JOIN_TABLE.entities.Vehicle;
+
 
 import javax.persistence.MappedSuperclass;
 

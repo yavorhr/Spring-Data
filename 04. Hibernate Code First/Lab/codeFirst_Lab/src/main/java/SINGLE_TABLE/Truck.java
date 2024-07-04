@@ -1,6 +1,5 @@
 package SINGLE_TABLE;
 
-import JOIN_TABLE.entities.TransportationVehicle;
 
 import javax.persistence.Entity;
 

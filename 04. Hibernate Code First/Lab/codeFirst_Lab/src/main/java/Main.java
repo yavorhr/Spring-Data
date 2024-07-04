@@ -1,26 +1,22 @@
+import entities.Bike;
 import entities.Car;
-import entities.Truck;
+import entities.Vehicle;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Main {
   public static void main(String[] args) {
-    Engine engineTruck = new Engine("truck_engine");
-    Engine engineCar = new Engine("car_engine");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("soft_uni");
+    EntityManager em = emf.createEntityManager();
 
-    Vehicle car = new Car("Mercedes", "AMG", 300, engineCar);
-    Vehicle truck = new Truck("Volvo", "322S", 500, engineTruck);
+    Vehicle bike = new Bike();
+    Vehicle car = new Car();
 
-    List<Vehicle> vehicleList = new ArrayList<>();
-    vehicleList.add(car);
-    vehicleList.add(truck);
-
-    vehicleList.forEach(v -> {
-      System.out.printf("Vehicle is from type %s. Vehicle is starting the engine...",
-              v.getClass().getSimpleName());
-      v.ignite();
-    });
-
+    em.getTransaction().begin();
+    em.persist(bike);
+    em.persist(car);
+    em.getTransaction().commit();
   }
 }

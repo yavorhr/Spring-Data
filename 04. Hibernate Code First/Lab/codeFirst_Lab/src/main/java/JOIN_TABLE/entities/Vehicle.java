@@ -9,7 +9,9 @@ public abstract class Vehicle {
   private int id;
   private String type;
 
-  protected Vehicle() {}
+  protected Vehicle() {
+  }
+
   protected Vehicle(String type) {
     this.type = type;
   }

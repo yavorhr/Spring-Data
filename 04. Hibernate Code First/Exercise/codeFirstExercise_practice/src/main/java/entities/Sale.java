@@ -2,9 +2,11 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name ="sales")
 public class Sale extends BaseEntity {
   private Product product;
   private Customer customer;

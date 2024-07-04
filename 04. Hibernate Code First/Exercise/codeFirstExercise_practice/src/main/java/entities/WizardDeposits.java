@@ -2,10 +2,12 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "wizard_deposits")
 public class WizardDeposits extends BaseEntity {
 
   private String firstName;

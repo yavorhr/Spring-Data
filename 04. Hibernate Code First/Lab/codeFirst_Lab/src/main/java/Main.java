@@ -13,6 +13,8 @@ public class Main {
     EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("soft_uni");
     EntityManager em = emf.createEntityManager();
+    //TODO : all 3 demos are using one persistence.xml cfg.
+    // Don't forget to comment the classes in the other demos, when you are testing one of the 3
 
     // TABLE PER CLASS STRATEGY
 

@@ -1,15 +1,15 @@
-package TABLE_PER_CLASS.entities;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "bikes")
-public class Bike extends Vehicle {
-  private final static String type = "BIKE";
-
-  public Bike(){
-    super(type);
-  }
-}
-
+//package TABLE_PER_CLASS.entities;
+//
+//import javax.persistence.Entity;
+//import javax.persistence.Table;
+//
+//@Entity
+//@Table(name = "bikes")
+//public class Bike extends Vehicle {
+//  private final static String type = "BIKE";
+//
+//  public Bike(){
+//    super(type);
+//  }
+//}
+//

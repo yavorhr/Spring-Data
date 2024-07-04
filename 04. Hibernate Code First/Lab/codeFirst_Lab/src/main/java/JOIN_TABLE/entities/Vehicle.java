@@ -19,18 +19,21 @@ public abstract class Vehicle {
   @Id
   @GeneratedValue(strategy = GenerationType.TABLE)
   public int getId() {
-    return id;
+    return this.id;
   }
 
   public void setId(int id) {
     this.id = id;
   }
 
+  @Basic
   public String getType() {
-    return type;
+    return this.type;
   }
 
   public void setType(String type) {
     this.type = type;
   }
 }
+
+

@@ -9,16 +9,18 @@ public abstract class TransportationVehicle extends Vehicle {
   public TransportationVehicle(){
   }
 
-  public TransportationVehicle(String type,int loadCapacity) {
+  protected TransportationVehicle(String type,int loadCapacity) {
     super(type);
     this.loadCapacity = loadCapacity;
   }
 
   public int getLoadCapacity() {
-    return loadCapacity;
+    return this.loadCapacity;
   }
 
   public void setLoadCapacity(int loadCapacity) {
     this.loadCapacity = loadCapacity;
   }
+
+
 }

@@ -14,10 +14,6 @@ public class Truck extends TransportationVehicle {
     super(type,loadCapacity);
     this.numOfContainers = numOfContainers; }
 
-  @Override
-  public static String getType() {
-    return this.type;
-  }
 
   public int getNumOfContainers() {
     return numOfContainers;

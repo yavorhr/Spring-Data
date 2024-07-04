@@ -13,8 +13,4 @@ public class Car extends PassengerVehicle {
     super(type, numOfPassengers);
   }
 
-  @Override
-  public static String getType() {
-    return type;
-  }
 }

@@ -22,7 +22,6 @@ public class Product extends BaseEntity {
     @OneToMany(mappedBy = "product",cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private Set<Sale> sales;
 
-
     public Set<Sale> getSales() {
         return sales;
     }

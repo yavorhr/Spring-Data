@@ -1,11 +1,9 @@
 package entities;
 
-import com.mysql.cj.jdbc.Blob;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "patients")
@@ -15,10 +13,17 @@ public class Patient extends BaseEntity {
   private String address;
   private String email;
   private LocalDate dateOfBirth;
-  private Blob picture;
+  private String picture;
   private boolean medicalInsurance;
+  private Set<Medicament> medicaments;
 
   public Patient() {
+    this.medicaments = new HashSet<>();
+  }
+
+  @ManyToMany
+  public Set<Medicament> getMedicaments() {
+    return medicaments;
   }
 
   @Column(name = "first_name", length = 60, nullable = false)
@@ -47,8 +52,8 @@ public class Patient extends BaseEntity {
   }
 
   @Column(name = "picture")
-  public Blob getPicture() {
-    return picture;
+  public String getPicture() {
+    return this.picture;
   }
 
   @Column(name = "medical_insurance")
@@ -76,11 +81,16 @@ public class Patient extends BaseEntity {
     this.dateOfBirth = dateOfBirth;
   }
 
-  public void setPicture(Blob picture) {
+  public void setPicture(String picture) {
     this.picture = picture;
   }
 
   public void setMedicalInsurance(boolean medicalInsurance) {
     this.medicalInsurance = medicalInsurance;
   }
+  public void setMedicaments(Set<Medicament> medicaments) {
+    this.medicaments = medicaments;
+  }
+
+
 }

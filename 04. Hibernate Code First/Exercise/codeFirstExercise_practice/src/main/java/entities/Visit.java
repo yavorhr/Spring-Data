@@ -7,13 +7,17 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "visitations")
-public class Visitation extends BaseEntity {
+@Table(name = "visits")
+public class Visit extends BaseEntity {
   private LocalDateTime dateAndTime;
   private String comment;
   private Patient patient;
 
-  public Visitation() {
+  public Visit() {
+  }
+
+  public Visit(LocalDateTime dateAndTime) {
+    this.dateAndTime = dateAndTime;
   }
 
   @ManyToOne

@@ -1,9 +1,6 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,19 +8,22 @@ import java.util.Set;
 @Table(name = "medicaments")
 public class Medicament extends BaseEntity {
   private String name;
-  private Set<Patient> patients;
+  private Patient patient;
 
   public Medicament() {
-    this.patients = new HashSet<>();
   }
 
-  @ManyToMany
-  public Set<Patient> getPatients() {
-    return this.patients;
+  public Medicament(String name) {
+    this.name = name;
   }
 
-  public void setPatients(Set<Patient> patients) {
-    this.patients = patients;
+  @ManyToOne
+  public Patient getPatient() {
+    return this.patient;
+  }
+
+  public void setPatient(Patient patient) {
+    this.patient = patient;
   }
 
   @Column(name = "name", unique = true)

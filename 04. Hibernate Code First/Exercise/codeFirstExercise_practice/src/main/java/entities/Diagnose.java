@@ -9,15 +9,18 @@ import java.util.Set;
 public class Diagnose extends BaseEntity {
   private String name;
   private String comment;
-  private Set<Patient> patients;
+  private Patient patient;
 
   public Diagnose() {
-    this.patients = new HashSet<>();
   }
 
-  @ManyToMany
-  public Set<Patient> getPatients() {
-    return patients;
+  public Diagnose(String name) {
+    this.name = name;
+  }
+
+  @ManyToOne
+  public Patient getPatient() {
+    return patient;
   }
 
   @Column(name = "name", nullable = false, unique = true)
@@ -38,7 +41,7 @@ public class Diagnose extends BaseEntity {
     this.comment = comment;
   }
 
-  public void setPatients(Set<Patient> patients) {
-    this.patients = patients;
+  public void setPatient(Patient patient) {
+    this.patient = patient;
   }
 }

@@ -16,31 +16,39 @@ public class Patient extends BaseEntity {
   private String picture;
   private boolean medicalInsurance;
   private Set<Medicament> medicaments;
-  private Set<Visitation> visitations;
+  private Set<Visit> visitations;
   private Set<Diagnose> diagnoses;
 
   public Patient() {
+  }
+
+  public Patient(String firstName, String lastName, String email, LocalDate dateOfBirth) {
     this.medicaments = new HashSet<>();
     this.visitations = new HashSet<>();
     this.diagnoses = new HashSet<>();
+
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.dateOfBirth = dateOfBirth;
   }
 
-  @ManyToMany(mappedBy = "patients")
+  @OneToMany(mappedBy = "patient", cascade = CascadeType.PERSIST)
   public Set<Medicament> getMedicaments() {
-    return medicaments;
+    return this.medicaments;
   }
 
-  @OneToMany(mappedBy = "patient")
-  public Set<Visitation> getVisitations() {
+  @OneToMany(mappedBy = "patient",cascade = CascadeType.PERSIST)
+  public Set<Visit> getVisitations() {
     return visitations;
   }
 
-  @ManyToMany(mappedBy = "patients")
+  @OneToMany(mappedBy = "patient",cascade = CascadeType.PERSIST)
   public Set<Diagnose> getDiagnoses() {
     return diagnoses;
   }
 
-  public void setVisitations(Set<Visitation> visitations) {
+  public void setVisitations(Set<Visit> visitations) {
     this.visitations = visitations;
   }
 

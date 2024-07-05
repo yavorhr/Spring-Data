@@ -1,17 +1,24 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "teachers")
 public class Teacher extends User {
   private String email;
   private BigDecimal salaryPerHour;
+  private Set<Course> courses;
 
   public Teacher() {
+    this.courses = new HashSet<>();
+  }
+
+  @OneToMany(mappedBy = "teacher", cascade = CascadeType.PERSIST)
+  public Set<Course> getCourses() {
+    return this.courses;
   }
 
   @Column(name = "email", nullable = false, unique = true)
@@ -31,4 +38,9 @@ public class Teacher extends User {
   public void setSalaryPerHour(BigDecimal salaryPerHour) {
     this.salaryPerHour = salaryPerHour;
   }
+
+  public void setCourses(Set<Course> courses) {
+    this.courses = courses;
+  }
+
 }

@@ -1,16 +1,27 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "students")
-public class Student extends User{
+public class Student extends User {
   private double averageGrade;
   private int attendance;
+  private Set<Course> courses;
 
   public Student() {
+    this.courses = new HashSet<>();
+  }
+
+  @ManyToMany (mappedBy = "students")
+  public Set<Course> getCourses() {
+    return this.courses;
+  }
+
+  public void setCourses(Set<Course> courses) {
+    this.courses = courses;
   }
 
   @Column(name = "average_grade", nullable = false)

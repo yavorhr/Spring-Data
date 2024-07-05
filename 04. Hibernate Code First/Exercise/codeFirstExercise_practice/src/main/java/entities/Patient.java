@@ -16,14 +16,32 @@ public class Patient extends BaseEntity {
   private String picture;
   private boolean medicalInsurance;
   private Set<Medicament> medicaments;
+  private Set<Visitation> visitations;
+  private Set<Diagnose> diagnoses;
 
   public Patient() {
     this.medicaments = new HashSet<>();
+    this.visitations = new HashSet<>();
+    this.diagnoses = new HashSet<>();
   }
 
-  @ManyToMany
+  @ManyToMany(mappedBy = "patients")
   public Set<Medicament> getMedicaments() {
     return medicaments;
+  }
+
+  @OneToMany(mappedBy = "patient")
+  public Set<Visitation> getVisitations() {
+    return visitations;
+  }
+
+  @ManyToMany(mappedBy = "patients")
+  public Set<Diagnose> getDiagnoses() {
+    return diagnoses;
+  }
+
+  public void setVisitations(Set<Visitation> visitations) {
+    this.visitations = visitations;
   }
 
   @Column(name = "first_name", length = 60, nullable = false)
@@ -88,9 +106,13 @@ public class Patient extends BaseEntity {
   public void setMedicalInsurance(boolean medicalInsurance) {
     this.medicalInsurance = medicalInsurance;
   }
+
   public void setMedicaments(Set<Medicament> medicaments) {
     this.medicaments = medicaments;
   }
 
+  public void setDiagnoses(Set<Diagnose> diagnoses) {
+    this.diagnoses = diagnoses;
+  }
 
 }

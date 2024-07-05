@@ -15,6 +15,9 @@ public class Main {
 
     em.getTransaction().begin();
 
+    //     04. Hospital Database
+    
+
 //    // 03. University System
 //    Teacher teacher = new Teacher();
 //
@@ -57,7 +60,7 @@ public class Main {
 //    Product findProduct = em.find(Product.class, 1);
 //    em.remove(findProduct);
 
-//    em.getTransaction().commit();
+    em.getTransaction().commit();
 
   }
 }

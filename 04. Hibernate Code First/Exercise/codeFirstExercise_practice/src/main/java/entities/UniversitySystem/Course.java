@@ -1,4 +1,6 @@
-package entities;
+package entities.UniversitySystem;
+
+import entities.BaseEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

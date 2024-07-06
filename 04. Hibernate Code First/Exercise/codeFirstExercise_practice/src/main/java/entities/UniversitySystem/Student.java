@@ -1,4 +1,4 @@
-package entities;
+package entities.UniversitySystem;
 
 import javax.persistence.*;
 import java.util.HashSet;

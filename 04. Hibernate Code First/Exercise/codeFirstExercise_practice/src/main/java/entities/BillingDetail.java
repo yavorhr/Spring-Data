@@ -3,7 +3,7 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "billing_detail")
+@Table(name = "billing_details")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class BillingDetail extends BaseEntity {
 
@@ -25,7 +25,7 @@ public class BillingDetail extends BaseEntity {
   @Column(name = "owner")
   @ManyToOne
   public BankUser getOwner() {
-    return owner;
+    return this.owner;
   }
 
   public void setOwner(BankUser owner) {

@@ -1,4 +1,4 @@
-package entities;
+package entities.BillsPaymentSystem;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

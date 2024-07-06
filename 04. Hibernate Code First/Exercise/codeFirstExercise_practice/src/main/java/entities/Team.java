@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "teams")
-public class Team extends BaseEntityWithName {
+public class Team extends BaseEntity {
+  private String name;
   private String logo;
   private InitialsEnum initials;
   private Color primaryKitColor;
@@ -17,6 +18,21 @@ public class Team extends BaseEntityWithName {
   private BigDecimal budget;
 
   public Team() {
+  }
+
+  public Team(String name, String logo, InitialsEnum initials, Color primaryKitColor, Color secondaryKitColor, Town town, BigDecimal budget) {
+    this.name = name;
+    this.logo = logo;
+    this.initials = initials;
+    this.primaryKitColor = primaryKitColor;
+    this.secondaryKitColor = secondaryKitColor;
+    this.town = town;
+    this.budget = budget;
+  }
+
+  @Column(name = "name", nullable = false)
+  public String getName() {
+    return this.name;
   }
 
   @Column(name = "logo")
@@ -49,6 +65,9 @@ public class Team extends BaseEntityWithName {
     return this.budget;
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
   public void setLogo(String logo) {
     this.logo = logo;
   }

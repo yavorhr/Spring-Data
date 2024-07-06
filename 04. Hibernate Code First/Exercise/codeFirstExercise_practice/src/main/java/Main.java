@@ -15,39 +15,39 @@ public class Main {
     EntityManager em = emf.createEntityManager();
 
     em.getTransaction().begin();
-
-    //     04. Hospital Database
-    // Create Patient
-    Patient patient = new Patient(
-            "Ivan",
-            "Ivanov",
-            "ivanov@abv.bg",
-            LocalDate.of(1991, 10, 12));
-
-    //Create Medicaments
-    Medicament med1 = new Medicament("Analgin");
-    Medicament med2 = new Medicament("teraflu");
-    med1.setPatient(patient);
-    med2.setPatient(patient);
-
-    //Create Visit
-    Visit firstVisit = new Visit(LocalDateTime.now());
-    Visit secondVisit = new Visit(LocalDateTime.now());
-    firstVisit.setPatient(patient);
-    secondVisit.setPatient(patient);
-
-    //Create diagnoses
-    Diagnose firstDiagnose = new Diagnose("Flu");
-    Diagnose secondDiagnose = new Diagnose("Headache");
-    firstDiagnose.setPatient(patient);
-    secondDiagnose.setPatient(patient);
-
-    patient.setVisitations(Set.of(firstVisit, secondVisit));
-    patient.setMedicaments(Set.of(med1,med2));
-    patient.setDiagnoses(Set.of(firstDiagnose, secondDiagnose));
-    patient.setDiagnoses(Set.of(firstDiagnose,secondDiagnose));
-
-    em.persist(patient);
+//
+//    //     04. Hospital Database
+//    // Create Patient
+//    Patient patient = new Patient(
+//            "Ivan",
+//            "Ivanov",
+//            "ivanov@abv.bg",
+//            LocalDate.of(1991, 10, 12));
+//
+//    //Create Medicaments
+//    Medicament med1 = new Medicament("Analgin");
+//    Medicament med2 = new Medicament("teraflu");
+//    med1.setPatient(patient);
+//    med2.setPatient(patient);
+//
+//    //Create Visit
+//    Visit firstVisit = new Visit(LocalDateTime.now());
+//    Visit secondVisit = new Visit(LocalDateTime.now());
+//    firstVisit.setPatient(patient);
+//    secondVisit.setPatient(patient);
+//
+//    //Create diagnoses
+//    Diagnose firstDiagnose = new Diagnose("Flu");
+//    Diagnose secondDiagnose = new Diagnose("Headache");
+//    firstDiagnose.setPatient(patient);
+//    secondDiagnose.setPatient(patient);
+//
+//    patient.setVisitations(Set.of(firstVisit, secondVisit));
+//    patient.setMedicaments(Set.of(med1,med2));
+//    patient.setDiagnoses(Set.of(firstDiagnose, secondDiagnose));
+//    patient.setDiagnoses(Set.of(firstDiagnose,secondDiagnose));
+//
+//    em.persist(patient);
 //    // 03. University System
 //    Teacher teacher = new Teacher();
 //

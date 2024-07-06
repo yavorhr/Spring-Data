@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "billing_details")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class BillingDetail extends BaseEntity {
+public abstract class BillingDetail extends BaseEntity {
 
   private String number;
   private BankUser owner;
@@ -17,12 +17,11 @@ public class BillingDetail extends BaseEntity {
   public BillingDetail() {
   }
 
-  @Column(name = "number")
+  @Column(name = "number", unique = true)
   public String getNumber() {
     return this.number;
   }
 
-  @Column(name = "owner")
   @ManyToOne
   public BankUser getOwner() {
     return this.owner;

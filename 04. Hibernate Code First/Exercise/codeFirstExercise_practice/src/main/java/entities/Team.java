@@ -26,10 +26,12 @@ public class Team extends BaseEntityWithName {
     return this.initials;
   }
 
+  @ManyToOne
   public Color getPrimaryKitColor() {
     return this.primaryKitColor;
   }
 
+  @ManyToOne
   public Color getSecondaryKitColor() {
     return this.secondaryKitColor;
   }

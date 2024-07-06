@@ -1,5 +1,6 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,10 +19,12 @@ public class Team extends BaseEntityWithName {
   public Team() {
   }
 
+  @Column(name = "logo")
   public String getLogo() {
     return this.logo;
   }
 
+  @Column(name = "initials")
   public InitialsEnum getInitials() {
     return this.initials;
   }
@@ -41,6 +44,7 @@ public class Team extends BaseEntityWithName {
     return this.town;
   }
 
+  @Column(name = "budget", nullable = false)
   public BigDecimal getBudget() {
     return this.budget;
   }

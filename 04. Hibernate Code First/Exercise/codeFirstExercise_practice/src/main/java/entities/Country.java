@@ -1,10 +1,11 @@
 package entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Table
-@Column(name = "countries")
+@Entity
+@Table(name = "countries")
 public class Country extends BaseEntity {
   private String name;
 

@@ -1,4 +1,6 @@
-package entities;
+package entities.HospitalDatabase;
+
+import entities.BaseEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;

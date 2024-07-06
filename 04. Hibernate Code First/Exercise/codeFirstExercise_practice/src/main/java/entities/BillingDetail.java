@@ -1,9 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "billing_detail")
@@ -13,12 +10,26 @@ public class BillingDetail extends BaseEntity {
   private String number;
   private BankUser owner;
 
+  public BillingDetail(String number) {
+    this.number = number;
+  }
+
   public BillingDetail() {
   }
 
-
+  @Column(name = "number")
   public String getNumber() {
-    return number;
+    return this.number;
+  }
+
+  @Column(name = "owner")
+  @ManyToOne
+  public BankUser getOwner() {
+    return owner;
+  }
+
+  public void setOwner(BankUser owner) {
+    this.owner = owner;
   }
 
   public void setNumber(String number) {

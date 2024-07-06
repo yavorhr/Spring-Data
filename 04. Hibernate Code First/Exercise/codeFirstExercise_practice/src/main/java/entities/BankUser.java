@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,23 +24,24 @@ public class BankUser extends BaseEntity {
   public BankUser() {
   }
 
+  @OneToMany(mappedBy = "owner")
   public BillingDetail getBillingDetail() {
-    return billingDetail;
+    return this.billingDetail;
   }
 
   @Column(nullable = false,name="first_name")
   public String getFirstName() {
-    return firstName;
+    return this.firstName;
   }
 
   @Column(nullable = false,name="last_name")
   public String getLastName() {
-    return lastName;
+    return this.lastName;
   }
 
   @Column(nullable = false,name="email")
   public String getEmail() {
-    return email;
+    return this.email;
   }
 
   @Column(nullable = false,name="password")

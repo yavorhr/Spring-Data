@@ -1,4 +1,4 @@
-package entities;
+package entities.FootballBettingDatabase;
 
 public enum PredictionsEnum {
   HOME_TEAM_WIN("Home team win"),

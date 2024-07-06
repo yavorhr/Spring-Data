@@ -1,11 +1,13 @@
-package entities;
+package entities.FootballBettingDatabase;
+
+import entities.BaseEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "result_predictions")
-public class ResultPredictions extends BaseEntity  {
+public class ResultPredictions extends BaseEntity {
   PredictionsEnum prediction;
 
   public ResultPredictions() {

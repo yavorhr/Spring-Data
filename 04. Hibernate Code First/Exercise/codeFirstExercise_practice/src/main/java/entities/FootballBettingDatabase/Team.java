@@ -1,4 +1,6 @@
-package entities;
+package entities.FootballBettingDatabase;
+
+import entities.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

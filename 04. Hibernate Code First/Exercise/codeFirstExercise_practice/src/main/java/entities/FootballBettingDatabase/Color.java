@@ -1,23 +1,23 @@
-package entities;
-
+package entities.FootballBettingDatabase;
+import entities.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "continents")
-public class Continent extends BaseEntity {
+@Table(name = "colors")
+public class Color extends BaseEntity {
   private String name;
 
-  public Continent() {
-  }
-
-  public Continent(String name) {
+  public Color(String name) {
     this.name = name;
   }
 
-  @Column(name = "name", nullable = false, unique = true)
+  public Color() {
+  }
+
+  @Column(name = "name", nullable = false,unique = true)
   public String getName() {
     return this.name;
   }

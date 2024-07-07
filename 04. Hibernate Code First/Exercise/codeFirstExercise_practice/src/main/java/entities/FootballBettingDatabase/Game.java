@@ -25,7 +25,7 @@ public class Game extends BaseEntity {
 
   public Game() {
   }
-  
+
   @ManyToOne
   public Team getHomeTeam() {
     return this.homeTeam;

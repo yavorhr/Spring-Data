@@ -13,18 +13,18 @@ import java.util.Set;
 @Table(name = "continents")
 public class Continent extends BaseEntity {
   private String name;
-  private Set<Country> countries;
+  private Set<Country> country;
 
   public Continent() {
   }
 
   @ManyToMany(mappedBy = "continents")
   public Set<Country> getCountries() {
-    return this.countries;
+    return this.country;
   }
 
   public void setCountries(Set<Country> countries) {
-    this.countries = countries;
+    this.country = countries;
   }
 
   public Continent(String name) {

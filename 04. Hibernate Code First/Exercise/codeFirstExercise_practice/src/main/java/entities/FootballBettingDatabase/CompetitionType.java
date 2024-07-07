@@ -9,21 +9,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "competition_types")
 public class CompetitionType extends BaseEntity {
-    private String type;
+    private String competition_type;
 
   public CompetitionType(String type) {
-    this.type = type;
+    this.competition_type = type;
   }
 
   public CompetitionType() {
   }
 
   @Column(name = "type", nullable = false)
-  public String getType() {
-    return this.type;
+  public String getCompetition_type() {
+    return this.competition_type;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setCompetition_type(String type) {
+    this.competition_type = type;
   }
 }

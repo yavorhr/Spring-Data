@@ -9,18 +9,18 @@ import java.util.Set;
 @Table(name = "countries")
 public class Country extends BaseEntity {
   private String name;
-  private Set<Continent> continents;
+  private Set<Continent> continent;
 
   public Country() {
   }
 
   @ManyToMany
   public Set<Continent> getContinents() {
-    return this.continents;
+    return this.continent;
   }
 
-  public void setContinents(Set<Continent> continents) {
-    this.continents = continents;
+  public void setContinents(Set<Continent> continent) {
+    this.continent = continent;
   }
 
   public Country(String name) {

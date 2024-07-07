@@ -7,13 +7,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "result_predictions")
-public class ResultPredictions extends BaseEntity {
+public class ResultPrediction extends BaseEntity {
   PredictionsEnum prediction;
 
-  public ResultPredictions() {
+  public ResultPrediction() {
   }
 
-  public ResultPredictions(PredictionsEnum prediction) {
+  public ResultPrediction(PredictionsEnum prediction) {
     this.prediction = prediction;
   }
 

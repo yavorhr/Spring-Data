@@ -2,16 +2,25 @@ package entities.FootballBettingDatabase;
 
 import entities.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "countries")
 public class Country extends BaseEntity {
   private String name;
+  private Set<Continent> continents;
 
   public Country() {
+  }
+
+  @ManyToMany
+  public Set<Continent> getContinents() {
+    return this.continents;
+  }
+
+  public void setContinents(Set<Continent> continents) {
+    this.continents = continents;
   }
 
   public Country(String name) {

@@ -5,14 +5,26 @@ import entities.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "continents")
 public class Continent extends BaseEntity {
   private String name;
+  private Set<Country> countries;
 
   public Continent() {
+  }
+
+  @ManyToMany(mappedBy = "continents")
+  public Set<Country> getCountries() {
+    return this.countries;
+  }
+
+  public void setCountries(Set<Country> countries) {
+    this.countries = countries;
   }
 
   public Continent(String name) {

@@ -1,6 +1,7 @@
 package entities.FootballBettingDatabase;
 
 import entities.BaseEntity;
+import entities.FootballBettingDatabase.Enums.PredictionsEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

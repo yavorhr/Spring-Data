@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
 
@@ -21,7 +20,6 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
     }
-
 
     @Override
     public void registerUser(String username, int age, BigDecimal initialAmount) throws UsernameAlreadyExistsException {

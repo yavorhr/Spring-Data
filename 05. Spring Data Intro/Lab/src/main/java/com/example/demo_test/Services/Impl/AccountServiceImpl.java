@@ -7,16 +7,10 @@ import com.example.demo_test.Repositories.AccountRepository;
 import com.example.demo_test.Services.AccountService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.naming.InsufficientResourcesException;
 import java.math.BigDecimal;
-import java.util.function.BiFunction;
-
 
 @Service
 public class AccountServiceImpl implements AccountService {
-
-
     private final AccountRepository accountRepository;
 
     public AccountServiceImpl(AccountRepository accountRepository) {

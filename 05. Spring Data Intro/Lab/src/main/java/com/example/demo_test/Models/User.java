@@ -26,16 +26,16 @@ public class User {
 
     @Column(unique = true)
     public String getUsername() {
-        return username;
+        return this.username;
     }
     @Column
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     @OneToMany(mappedBy = "user")
     public Set<Account> getAccount() {
-        return account;
+        return this.account;
     }
 
     public void setUsername(String username) {

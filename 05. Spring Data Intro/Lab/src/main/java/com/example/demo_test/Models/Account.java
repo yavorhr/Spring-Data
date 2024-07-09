@@ -1,7 +1,4 @@
 package com.example.demo_test.Models;
-
-import org.hibernate.annotations.Columns;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -20,7 +17,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public Account() {
@@ -28,12 +25,12 @@ public class Account {
 
     @ManyToOne
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     @Column
     public BigDecimal getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public void setBalance(BigDecimal balance) {

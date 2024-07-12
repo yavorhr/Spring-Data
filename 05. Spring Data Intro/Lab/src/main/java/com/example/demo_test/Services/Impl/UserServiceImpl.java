@@ -40,15 +40,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addAccount(BigDecimal amount, Long id) throws UserNotFoundException {
         User user = this.userRepository.findById(id).orElseThrow(UserNotFoundException::new);
-
         this.saveAccount(amount, user);
     }
-
 
     private void saveAccount(BigDecimal amount, User user) {
         Account account = new Account();
         account.setBalance(amount);
-
         account.setUser(user);
         this.accountRepository.save(account);
     }

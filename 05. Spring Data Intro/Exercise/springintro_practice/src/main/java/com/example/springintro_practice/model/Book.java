@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -18,7 +17,6 @@ public class Book extends BaseEntity {
   private Integer copies;
   private LocalDate releaseDate;
   private AgeRestrictionEnum ageRestriction;
-
   private Author author;
   private Set<Category> categories;
 

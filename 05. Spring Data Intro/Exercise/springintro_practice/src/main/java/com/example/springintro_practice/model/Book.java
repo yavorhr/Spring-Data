@@ -49,16 +49,17 @@ public class Book extends BaseEntity {
   }
 
   @Enumerated(EnumType.STRING)
+  @Column(name="edition_type",nullable = false)
   public EditionTypeEnum getEditionType() {
     return this.editionType;
   }
 
-  @Column(name = "price")
+  @Column(name = "price", nullable = false)
   public BigDecimal getPrice() {
     return this.price;
   }
 
-  @Column(name = "copies")
+  @Column(name = "copies", nullable = false)
   public Integer getCopies() {
     return this.copies;
   }
@@ -69,6 +70,7 @@ public class Book extends BaseEntity {
   }
 
   @Enumerated(EnumType.ORDINAL)
+  @Column(name="age_restriction",nullable = false)
   public AgeRestrictionEnum getAgeRestriction() {
     return this.ageRestriction;
   }

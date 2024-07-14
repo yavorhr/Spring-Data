@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>springintro_practice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springintro_practice</name>
+    <name>spring_intro_practice</name>
     <description>Demo project for Spring Boot</description>
     <url/>
     <licenses>
@@ -27,7 +27,7 @@
         <url/>
     </scm>
     <properties>
-        <java.version>22</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

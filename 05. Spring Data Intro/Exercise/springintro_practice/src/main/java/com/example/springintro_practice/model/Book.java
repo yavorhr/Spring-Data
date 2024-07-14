@@ -18,7 +18,7 @@ public class Book extends BaseEntity {
   private LocalDate releaseDate;
   private AgeRestrictionEnum ageRestriction;
   private Author author;
-  private Set<Category> categories;
+  private Set<Category> category;
 
   public Book() {
   }
@@ -32,7 +32,7 @@ public class Book extends BaseEntity {
     this.releaseDate = releaseDate;
     this.ageRestriction = ageRestriction;
     this.author = author;
-    this.categories = categories;
+    this.category = categories;
   }
 
 
@@ -79,8 +79,8 @@ public class Book extends BaseEntity {
   }
 
   @ManyToMany
-  public Set<Category> getCategories() {
-    return this.categories;
+  public Set<Category> getCategory() {
+    return this.category;
   }
 
   public void setTitle(String title) {
@@ -115,8 +115,8 @@ public class Book extends BaseEntity {
     this.author = author;
   }
 
-  public void setCategories(Set<Category> categories) {
-    this.categories = categories;
+  public void setCategory(Set<Category> categories) {
+    this.category = categories;
   }
 
 }

@@ -1,5 +1,7 @@
 package com.example.springintro_practice.service;
 
+import java.io.IOException;
+
 public interface BookService {
-  void seedBooks();
+  void seedBooks() throws IOException;
 }

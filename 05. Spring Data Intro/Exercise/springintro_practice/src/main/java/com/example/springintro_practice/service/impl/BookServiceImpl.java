@@ -45,21 +45,21 @@ public class BookServiceImpl implements BookService {
   }
 
   @Override
-  public String findAllBooksAfterYear(int year) {
+  public List<String> findAllBooksAfterYear(int year) {
    return this.bookRepository.findAllByReleaseDateAfter(LocalDate.of(2000,12,31))
             .stream()
             .map(b -> String.format("%s", b.getTitle()))
-            .collect(Collectors.joining("\n"));
+            .collect(Collectors.toList());
   }
 
   @Override
-  public String findAllBooksAuthorsWithBooksBeforeYear(int year) {
+  public List<String> findAllBooksAuthorsWithBooksBeforeYear(int year) {
     return bookRepository
             .findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))
             .stream()
             .map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
             .distinct()
-            .collect(Collectors.joining("\n"));
+            .collect(Collectors.toList());
   }
 
   @Override

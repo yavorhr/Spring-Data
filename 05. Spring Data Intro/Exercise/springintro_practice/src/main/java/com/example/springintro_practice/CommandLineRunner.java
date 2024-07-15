@@ -38,10 +38,10 @@ public class CommandLineRunner implements org.springframework.boot.CommandLineRu
             .forEach(System.out::println);
   }
 
-
   // Helpers
   private void printAllBooksAfterYear(int year) {
-    System.out.println(this.bookService.findAllBooksAfterYear(2000));
+   this.bookService.findAllBooksAfterYear(2000)
+           .forEach(System.out::println);
   }
 
   private void printAllAuthorsAndNumberOfTheirBooks() {
@@ -51,8 +51,9 @@ public class CommandLineRunner implements org.springframework.boot.CommandLineRu
   }
 
   private void printAllAuthorsNamesWithBooksWithReleaseDateBefore1990(int year) {
-    System.out.println(this.bookService
-            .findAllBooksAuthorsWithBooksBeforeYear(year));
+    this.bookService
+            .findAllBooksAuthorsWithBooksBeforeYear(year)
+    .forEach(System.out::println);
   }
 
   private void seedData() throws IOException {

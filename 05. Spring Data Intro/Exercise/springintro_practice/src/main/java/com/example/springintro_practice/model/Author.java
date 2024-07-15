@@ -1,15 +1,24 @@
 package com.example.springintro_practice.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.Columns;
+import jakarta.persistence.*;;
+import java.util.Set;
 
 @Entity
 @Table(name = "authors")
 public class Author extends BaseEntity {
+
   private String firstName;
   private String lastName;
+  private Set<Book> books;
+
+  @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
+  public Set<Book> getBooks() {
+    return this.books;
+  }
+
+  public void setBooks(Set<Book> books) {
+    this.books = books;
+  }
 
   public Author() {
   }
@@ -21,12 +30,12 @@ public class Author extends BaseEntity {
 
   @Column(name = "first_name")
   public String getFirstName() {
-    return this.firstName;
+    return firstName;
   }
 
   @Column(name = "last_name", nullable = false)
   public String getLastName() {
-    return this.lastName;
+    return lastName;
   }
 
   public void setFirstName(String firstName) {

@@ -28,12 +28,21 @@ public class CommandLineRunner implements org.springframework.boot.CommandLineRu
 
     //printAllBooksAfterYear(2000);
     //printAllAuthorsNamesWithBooksWithReleaseDateBefore1990(1990);
+    printAllAuthorsAndNumberOfTheirBooks();
   }
+
+
 
 
   // Helpers
   private void printAllBooksAfterYear(int year) {
     System.out.println(this.bookService.findAllBooksAfterYear(2000));
+  }
+
+  private void printAllAuthorsAndNumberOfTheirBooks() {
+    this.authorService
+            .getAllAuthorsOrderByCountOfTheirBooks()
+            .forEach(System.out::println);
   }
 
   private void printAllAuthorsNamesWithBooksWithReleaseDateBefore1990(int year) {

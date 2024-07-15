@@ -34,6 +34,15 @@ public class Book extends BaseEntity {
     this.category = categories;
   }
 
+  @ManyToOne
+  public Author getAuthor() {
+    return this.author;
+  }
+
+  @ManyToMany
+  public Set<Category> getCategory() {
+    return this.category;
+  }
 
   @Column(name = "title", length = 50, nullable = false)
   public String getTitle() {
@@ -70,16 +79,6 @@ public class Book extends BaseEntity {
   @Column(name="age_restriction", nullable = false)
   public AgeRestrictionEnum getAgeRestriction() {
     return this.ageRestriction;
-  }
-
-  @ManyToOne
-  public Author getAuthor() {
-    return this.author;
-  }
-
-  @ManyToMany
-  public Set<Category> getCategory() {
-    return this.category;
   }
 
   public void setTitle(String title) {

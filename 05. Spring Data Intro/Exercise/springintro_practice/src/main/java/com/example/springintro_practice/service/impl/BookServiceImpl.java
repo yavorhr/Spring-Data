@@ -52,6 +52,16 @@ public class BookServiceImpl implements BookService {
             .collect(Collectors.joining("\n"));
   }
 
+  @Override
+  public String findAllBooksAuthorsWithBooksBeforeYear(int year) {
+    return bookRepository
+            .findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))
+            .stream()
+            .map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+            .distinct()
+            .collect(Collectors.joining("\n"));
+  }
+
   private Book createBook(String row) {
     String[] bookInfo = row.split("\\s+");
 

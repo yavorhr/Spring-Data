@@ -27,7 +27,6 @@ public class AuthorServiceImpl implements AuthorService {
 
     Files.readAllLines(Path.of(FilePath.AUTHORS_FILE_PATH))
             .forEach(this::saveAuthorToDatabase);
-
   }
 
   @Override

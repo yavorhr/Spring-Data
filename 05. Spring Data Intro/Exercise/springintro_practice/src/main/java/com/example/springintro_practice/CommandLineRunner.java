@@ -4,6 +4,7 @@ import com.example.springintro_practice.service.AuthorService;
 import com.example.springintro_practice.service.BookService;
 import com.example.springintro_practice.service.CategoryService;
 import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -25,12 +26,19 @@ public class CommandLineRunner implements org.springframework.boot.CommandLineRu
   public void run(String... args) throws Exception {
     seedData();
 
-    printAllBooksAfterYear(2000);
+    //printAllBooksAfterYear(2000);
+    //printAllAuthorsNamesWithBooksWithReleaseDateBefore1990(1990);
   }
+
 
   // Helpers
   private void printAllBooksAfterYear(int year) {
-    System.out.println( this.bookService.findAllBooksAfterYear(2000));
+    System.out.println(this.bookService.findAllBooksAfterYear(2000));
+  }
+
+  private void printAllAuthorsNamesWithBooksWithReleaseDateBefore1990(int year) {
+    System.out.println(this.bookService
+            .findAllBooksAuthorsWithBooksBeforeYear(year));
   }
 
   private void seedData() throws IOException {

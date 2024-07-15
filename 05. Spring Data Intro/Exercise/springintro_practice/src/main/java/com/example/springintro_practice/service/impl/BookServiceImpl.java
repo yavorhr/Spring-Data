@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -59,6 +60,18 @@ public class BookServiceImpl implements BookService {
             .map(book -> String.format("%s %s", book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
             .distinct()
             .collect(Collectors.joining("\n"));
+  }
+
+  @Override
+  public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName,String lastName) {
+    return bookRepository
+            .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName,lastName)
+            .stream()
+            .map(book -> String.format("%s %s %d",
+                    book.getTitle(),
+                    book.getReleaseDate(),
+                    book.getCopies()))
+            .collect(Collectors.toList());
   }
 
   private Book createBook(String row) {

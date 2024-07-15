@@ -20,12 +20,11 @@ public class Book extends BaseEntity {
   private Author author;
   private Set<Category> category;
 
-  public Book(EditionTypeEnum editionType, LocalDate releaseDate, Integer copies, BigDecimal price, AgeRestrictionEnum ageRestriction, String title, Author author, Set<Category> categories) {
+  public Book() {
   }
 
-  public Book(String title, String description, EditionTypeEnum editionType, BigDecimal price, Integer copies, LocalDate releaseDate, AgeRestrictionEnum ageRestriction, Author author, Set<Category> categories) {
+  public Book(String title, EditionTypeEnum editionType, BigDecimal price, Integer copies, LocalDate releaseDate, AgeRestrictionEnum ageRestriction, Author author, Set<Category> categories) {
     this.title = title;
-    this.description = description;
     this.editionType = editionType;
     this.price = price;
     this.copies = copies;
@@ -68,7 +67,7 @@ public class Book extends BaseEntity {
   }
 
   @Enumerated(EnumType.ORDINAL)
-  @Column(name="age_restriction",nullable = false)
+  @Column(name="age_restriction", nullable = false)
   public AgeRestrictionEnum getAgeRestriction() {
     return this.ageRestriction;
   }

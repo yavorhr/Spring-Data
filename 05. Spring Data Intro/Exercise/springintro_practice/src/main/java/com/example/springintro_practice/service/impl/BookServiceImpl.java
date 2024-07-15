@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
 
   @Override
   public void seedBooks() throws IOException {
-    if (this.bookRepository.count() >0){
+    if (this.bookRepository.count() > 0) {
       return;
     }
 
@@ -59,6 +59,6 @@ public class BookServiceImpl implements BookService {
     Author author = this.authorService.getRandomAuthor();
     Set<Category> categories = this.categoryService.getRandomCategories();
 
-    return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
+    return new Book(title, editionType, price, copies, releaseDate, ageRestriction, author, categories);
   }
 }

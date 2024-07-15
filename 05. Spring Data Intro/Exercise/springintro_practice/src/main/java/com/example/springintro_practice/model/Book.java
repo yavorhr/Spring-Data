@@ -20,7 +20,7 @@ public class Book extends BaseEntity {
   private Author author;
   private Set<Category> category;
 
-  public Book() {
+  public Book(EditionTypeEnum editionType, LocalDate releaseDate, Integer copies, BigDecimal price, AgeRestrictionEnum ageRestriction, String title, Author author, Set<Category> categories) {
   }
 
   public Book(String title, String description, EditionTypeEnum editionType, BigDecimal price, Integer copies, LocalDate releaseDate, AgeRestrictionEnum ageRestriction, Author author, Set<Category> categories) {

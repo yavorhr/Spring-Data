@@ -59,8 +59,6 @@ public class BookServiceImpl implements BookService {
     Author author = this.authorService.getRandomAuthor();
     Set<Category> categories = this.categoryService.getRandomCategories();
 
-
     return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
-
   }
 }

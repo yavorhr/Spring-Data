@@ -1,5 +1,6 @@
 package com.example.advquerying.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface IngredientService {
@@ -9,5 +10,7 @@ public interface IngredientService {
 
   void removeIngredientByName(String name);
 
-  void increaseIngredientsPriceBy10percent();
+  int increaseIngredientsPriceBy10percent();
+
+  int increaseSelectedIngredientsByMultiplier(BigDecimal multiplier, List<String> ingredients);
 }

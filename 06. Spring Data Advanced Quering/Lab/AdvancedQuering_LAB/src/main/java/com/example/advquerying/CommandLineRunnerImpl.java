@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -41,12 +40,23 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 8 -> selectShampoosByIngredientsCount();
       case 9 -> deleteIngredientByName();
       case 10 -> updateIngredientsPriceBy10Percents();
+      case 11 -> updateSelectedIngredientsPrices();
     }
   }
 
+  private void updateSelectedIngredientsPrices() {
+    System.out.println("How many times you would like to multiply the prices ?");
+    BigDecimal multiplier = new BigDecimal (scanner.nextLine());
+    System.out.println("Please provide the ingredient's names, which need to be updated?");
+    List<String> ingredients = Arrays.stream(scanner.nextLine().split("\\s+")).toList();
+
+    int updatedIngredients = this.ingredientService.increaseSelectedIngredientsByMultiplier(multiplier, ingredients);
+    System.out.printf("%d ingredient's prices were multiplied by %.0f times!\n", updatedIngredients, multiplier);
+  }
+
   private void updateIngredientsPriceBy10Percents() {
-    this.ingredientService.increaseIngredientsPriceBy10percent();
-    System.out.println("All ingredient's prices are increased with 10 percents!");
+    int ingredientsCountUpdated = this.ingredientService.increaseIngredientsPriceBy10percent();
+    System.out.printf("%d ingredient's prices were increased with 10%%n", ingredientsCountUpdated);
   }
 
   private void deleteIngredientByName() {

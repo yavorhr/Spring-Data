@@ -19,4 +19,8 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
   @Query("DELETE FROM Ingredient i WHERE i.name = :name")
   @Modifying
   void deleteIngredientByName(String name);
+
+  @Query("UPDATE Ingredient i SET i.price = i.price *1.10")
+  @Modifying
+  void increaseIngredientPriceBy10Percent();
 }

@@ -44,4 +44,10 @@ public class IngredientServiceImpl implements IngredientService {
   public void removeIngredientByName(String name) {
     this.ingredientRepository.deleteIngredientByName(name);
   }
+
+  @Override
+  @Transactional
+  public void increaseIngredientsPriceBy10percent() {
+    this.ingredientRepository.increaseIngredientPriceBy10Percent();
+  }
 }

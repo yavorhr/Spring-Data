@@ -9,4 +9,5 @@ public interface IngredientService {
 
   void removeIngredientByName(String name);
 
+  void increaseIngredientsPriceBy10percent();
 }

@@ -68,8 +68,6 @@ public class ShampooServiceImpl implements ShampooService {
             .stream()
             .map(Shampoo::getBrand)
             .collect(Collectors.toSet());
-
-
   }
 
   @Override

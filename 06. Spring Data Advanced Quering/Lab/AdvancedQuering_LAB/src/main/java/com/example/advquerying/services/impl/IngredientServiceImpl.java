@@ -4,6 +4,7 @@ import com.example.advquerying.entities.Ingredient;
 import com.example.advquerying.repositories.IngredientRepository;
 import com.example.advquerying.services.IngredientService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,6 +37,11 @@ public class IngredientServiceImpl implements IngredientService {
             .stream()
             .map(Ingredient::getName)
             .collect(Collectors.toList());
+  }
 
+  @Override
+  @Transactional
+  public void removeIngredientByName(String name) {
+    this.ingredientRepository.deleteIngredientByName(name);
   }
 }

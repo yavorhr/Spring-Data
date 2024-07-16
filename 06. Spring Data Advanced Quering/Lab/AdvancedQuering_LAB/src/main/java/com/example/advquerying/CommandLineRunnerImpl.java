@@ -39,7 +39,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 6 -> countShampoosByPriceLowerThenGiven();
       case 7 -> selectShampoosByIngredients();
       case 8 -> selectShampoosByIngredientsCount();
+      case 9 -> deleteIngredientByName();
     }
+  }
+
+  private void deleteIngredientByName() {
+    System.out.println("Please enter ingredient name to remove: ");
+    String name = scanner.nextLine();
+
+   this.ingredientService.removeIngredientByName(name);
   }
 
   private void selectShampoosByIngredientsCount() {

@@ -24,4 +24,7 @@ public interface ShampooRepository extends JpaRepository<Shampoo,Long> {
 
   @Query("SELECT s FROM Shampoo s JOIN s.ingredients i WHERE i.name IN :names")
   List<Shampoo> findAllByIngredients(List<String> names);
+
+  @Query("SELECT s FROM Shampoo s JOIN s.ingredients i GROUP BY s.id HAVING COUNT(i) < :count")
+  List<Shampoo> findAllByIngredientsLassThan(long count);
 }

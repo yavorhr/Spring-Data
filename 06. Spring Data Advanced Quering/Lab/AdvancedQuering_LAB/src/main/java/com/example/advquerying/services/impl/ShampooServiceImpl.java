@@ -71,4 +71,14 @@ public class ShampooServiceImpl implements ShampooService {
 
 
   }
+
+  @Override
+  public Set<String> findAllShampoosByIngredientsCountLessThanGiven(long count) {
+    List<Shampoo> allByIngredientsLassThan = this.shampooRepository.findAllByIngredientsLassThan(count);
+
+    return allByIngredientsLassThan
+            .stream()
+            .map(Shampoo::getBrand)
+            .collect(Collectors.toSet());
+  }
 }

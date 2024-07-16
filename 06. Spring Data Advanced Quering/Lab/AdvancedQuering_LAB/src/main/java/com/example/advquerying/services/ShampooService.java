@@ -18,4 +18,6 @@ public interface ShampooService {
   long countShampoosByPriceLowerThenGiven(BigDecimal price);
 
   Set<String> findAllByIngredients(List<String> ingredients);
+
+  Set<String> findAllShampoosByIngredientsCountLessThanGiven(long count);
 }

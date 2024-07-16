@@ -38,7 +38,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 5 -> selectAllIngredientsFromList();
       case 6 -> countShampoosByPriceLowerThenGiven();
       case 7 -> selectShampoosByIngredients();
+      case 8 -> selectShampoosByIngredientsCount();
     }
+  }
+
+  private void selectShampoosByIngredientsCount() {
+    System.out.println("Please select count of ingredients: ");
+    long count = Long.parseLong(scanner.nextLine());
+
+    Set<String> allByIngredientsCount =
+            this.shampooService.findAllShampoosByIngredientsCountLessThanGiven(count);
+
+    allByIngredientsCount.forEach(System.out::println);
   }
 
   private void selectShampoosByIngredients() {

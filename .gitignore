@@ -80,3 +80,14 @@
 05. Spring Data Intro/Exercise/.idea/vcs.xml
 05. Spring Data Intro/Exercise/springintro.iml
 05. Spring Data Intro/Lab/src/main/java/com/example/demo_test/Repositories/UserRepository.java
+*.sql
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/test-classes/com/example/advquerying/AdvqueryingApplicationTests.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/entities/Size.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/entities/Shampoo.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/entities/Label.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/entities/Ingredient.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/entities/BaseEntity.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/com/example/advquerying/AdvqueryingApplication.class
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/target/classes/application.properties
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/.idea/dataSources.xml
+06. Spring Data Advanced Quering/Lab/AdvancedQuering_LAB/.idea/dataSources.xml

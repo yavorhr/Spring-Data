@@ -53,4 +53,10 @@ public class ShampooServiceImpl implements ShampooService {
             .map(Shampoo::getBrand)
             .collect(Collectors.toList());
   }
+
+  @Override
+  public long countShampoosByPriceLowerThenGiven(BigDecimal price) {
+
+    return this.shampooRepository.countAllByPriceIsLessThan(price);
+  }
 }

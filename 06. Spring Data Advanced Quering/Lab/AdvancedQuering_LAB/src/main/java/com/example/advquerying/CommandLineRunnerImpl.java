@@ -8,11 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -36,7 +34,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 3 -> selectShampoosByHigherPrice();
       case 4 -> selectAllIngredientsByFirstLetters();
       case 5 -> selectAllIngredientsFromList();
+      case 6 -> countShampoosByPriceLowerThenGiven();
     }
+  }
+
+  private void countShampoosByPriceLowerThenGiven() {
+    System.out.println("Please enter price: ");
+    BigDecimal price = new BigDecimal(scanner.nextLine());
+    long count = this.shampooService.countShampoosByPriceLowerThenGiven(price);
+
+    System.out.println(count);
   }
 
   private void selectAllIngredientsFromList() {
@@ -47,7 +54,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     allIngredientsFromList.forEach(System.out::println);
   }
-  
+
   private void selectAllIngredientsByFirstLetters() {
     System.out.println("Please enter the first letter/s, which the ingredient/s start/s with: ");
     String letters = scanner.nextLine();

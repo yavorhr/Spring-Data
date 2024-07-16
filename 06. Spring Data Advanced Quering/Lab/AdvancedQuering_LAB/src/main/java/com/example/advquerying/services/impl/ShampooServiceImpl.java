@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -56,7 +57,18 @@ public class ShampooServiceImpl implements ShampooService {
 
   @Override
   public long countShampoosByPriceLowerThenGiven(BigDecimal price) {
-
     return this.shampooRepository.countAllByPriceIsLessThan(price);
+  }
+
+  @Override
+  public Set<String> findAllByIngredients(List<String> ingredients) {
+    List<Shampoo> allByIngredients = this.shampooRepository.findAllByIngredients(ingredients);
+
+    return allByIngredients
+            .stream()
+            .map(Shampoo::getBrand)
+            .collect(Collectors.toSet());
+
+
   }
 }

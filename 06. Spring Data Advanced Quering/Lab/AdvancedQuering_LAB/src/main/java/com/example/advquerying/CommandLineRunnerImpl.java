@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -35,7 +37,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 4 -> selectAllIngredientsByFirstLetters();
       case 5 -> selectAllIngredientsFromList();
       case 6 -> countShampoosByPriceLowerThenGiven();
+      case 7 -> selectShampoosByIngredients();
     }
+  }
+
+  private void selectShampoosByIngredients() {
+    System.out.println("Please enter ingredients: ");
+    List<String> ingredients = Arrays.stream(scanner.nextLine().split("\\s+")).toList();
+
+    Set<String> allByIngredients = this.shampooService.findAllByIngredients(ingredients);
+    allByIngredients.forEach(System.out::println);
   }
 
   private void countShampoosByPriceLowerThenGiven() {

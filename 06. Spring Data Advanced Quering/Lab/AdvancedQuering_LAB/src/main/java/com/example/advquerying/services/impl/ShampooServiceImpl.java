@@ -6,6 +6,7 @@ import com.example.advquerying.repositories.ShampooRepository;
 import com.example.advquerying.services.ShampooService;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +35,18 @@ public class ShampooServiceImpl implements ShampooService {
     List<Shampoo> shampoos =
             this.shampooRepository
                     .findAllBySizeOrLabelIdOrderByPriceAsc(size, labelId);
+
+    return shampoos
+            .stream()
+            .map(Shampoo::getBrand)
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<String> findAllShampoosByPrice(BigDecimal price) {
+    List<Shampoo> shampoos =
+            this.shampooRepository
+                    .findAllByPriceGreaterThanOrderByPriceDesc(price);
 
     return shampoos
             .stream()

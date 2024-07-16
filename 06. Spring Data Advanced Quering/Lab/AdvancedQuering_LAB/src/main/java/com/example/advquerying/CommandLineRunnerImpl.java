@@ -5,6 +5,7 @@ import com.example.advquerying.services.ShampooService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,7 +26,19 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (taskNumber) {
       case 1 -> selectShampooBySize();
       case 2 -> selectShampooBySizeOrLabel();
+      case 3 -> selectShampoosByHigherPrice();
     }
+  }
+
+  private void selectShampoosByHigherPrice() {
+    System.out.println("Please enter price criteria: ");
+
+    BigDecimal price = new BigDecimal(scanner.nextLine());
+
+    List<String> allShampoosByPrice =
+            this.shampooService.findAllShampoosByPrice(price);
+
+    allShampoosByPrice.forEach(System.out::println);
   }
 
   private void selectShampooBySizeOrLabel() {
@@ -33,20 +46,19 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     String size = scanner.nextLine();
     long labelId = Long.parseLong(scanner.nextLine());
 
-    List<String> shampoos = this.shampooService
-            .findAllShampoosBySizeOrLabel(Size.valueOf("MEDIUM"), labelId);
+    List<String> shampoosBySizeOrLabel = this.shampooService
+            .findAllShampoosBySizeOrLabel(Size.valueOf(size), labelId);
 
-    shampoos.forEach(System.out::println);
-
+    shampoosBySizeOrLabel.forEach(System.out::println);
   }
 
   private void selectShampooBySize() {
     System.out.println("Please enter shampoo size :");
     String size = scanner.nextLine();
 
-    List<String> shampoos = this.shampooService
+    List<String> shampoosBySize = this.shampooService
             .findAllShampoosBySize(size);
 
-    shampoos.forEach(System.out::println);
+    shampoosBySize.forEach(System.out::println);
   }
 }

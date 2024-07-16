@@ -36,6 +36,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void selectAllIngredientsByFirstLetters() {
+    System.out.println("Please enter the first letter/s, which the ingredient/s start/s with: ");
+    String letters = scanner.nextLine();
+
+    List<String> allIngredientsByFirstLetters =
+            this.ingredientService.findAllIngredientsByFirstLetters(letters);
+
+    allIngredientsByFirstLetters.forEach(System.out::println);
   }
 
   private void selectShampoosByHigherPrice() {

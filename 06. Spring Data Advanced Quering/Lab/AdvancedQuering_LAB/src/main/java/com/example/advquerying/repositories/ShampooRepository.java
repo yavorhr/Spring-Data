@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface ShampooRepository extends JpaRepository<Shampoo,Long> {
   List<Shampoo> findAllBySizeOrderById (Size size);
+
+  List<Shampoo> findAllBySizeOrLabelIdOrderByPriceAsc(Size size, Long labelId);
 }

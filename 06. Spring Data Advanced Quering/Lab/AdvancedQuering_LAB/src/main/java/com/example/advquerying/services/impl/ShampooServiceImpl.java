@@ -23,6 +23,21 @@ public class ShampooServiceImpl implements ShampooService {
     List<Shampoo> shampoos =
             this.shampooRepository.findAllBySizeOrderById(Size.valueOf(size));
 
-    return shampoos.stream().map(Shampoo::getBrand).collect(Collectors.toList());
+    return shampoos
+            .stream()
+            .map(Shampoo::getBrand)
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<String> findAllShampoosBySizeOrLabel(Size size, long labelId) {
+    List<Shampoo> shampoos =
+            this.shampooRepository
+                    .findAllBySizeOrLabelIdOrderByPriceAsc(size, labelId);
+
+    return shampoos
+            .stream()
+            .map(Shampoo::getBrand)
+            .collect(Collectors.toList());
   }
 }

@@ -1,6 +1,8 @@
 package com.example.advquerying;
 
 import com.example.advquerying.entities.Size;
+
+import com.example.advquerying.services.IngredientService;
 import com.example.advquerying.services.ShampooService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,9 +15,11 @@ import java.util.Scanner;
 public class CommandLineRunnerImpl implements CommandLineRunner {
   Scanner scanner = new Scanner(System.in);
   private final ShampooService shampooService;
+  private final IngredientService ingredientService;
 
-  public CommandLineRunnerImpl(ShampooService shampooService) {
+  public CommandLineRunnerImpl(ShampooService shampooService, IngredientService ingredientService) {
     this.shampooService = shampooService;
+    this.ingredientService = ingredientService;
   }
 
   @Override
@@ -27,7 +31,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> selectShampooBySize();
       case 2 -> selectShampooBySizeOrLabel();
       case 3 -> selectShampoosByHigherPrice();
+      case 4 -> selectAllIngredientsByFirstLetters();
     }
+  }
+
+  private void selectAllIngredientsByFirstLetters() {
   }
 
   private void selectShampoosByHigherPrice() {

@@ -31,5 +31,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     String size = scanner.nextLine();
 
     List<String> shampoos = this.shampooService.findAllShampoosBySize(size);
+    shampoos.forEach(System.out::println);
   }
 }

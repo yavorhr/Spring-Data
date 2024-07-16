@@ -8,10 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -45,9 +42,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void updateSelectedIngredientsPrices() {
-    System.out.println("How many times you would like to multiply the prices ?");
-    BigDecimal multiplier = new BigDecimal (scanner.nextLine());
-    System.out.println("Please provide the ingredient's names, which need to be updated?");
+    System.out.println("How many times you would like to increase the prices ?");
+    BigDecimal multiplier = new BigDecimal(scanner.nextLine());
+    System.out.println("Please provide the ingredient's names, which you want to update: ");
     List<String> ingredients = Arrays.stream(scanner.nextLine().split("\\s+")).toList();
 
     int updatedIngredients = this.ingredientService.increaseSelectedIngredientsByMultiplier(multiplier, ingredients);
@@ -73,7 +70,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     Set<String> allByIngredientsCount =
             this.shampooService.findAllShampoosByIngredientsCountLessThanGiven(count);
 
-    allByIngredientsCount.forEach(System.out::println);
+    printCollection(allByIngredientsCount);
   }
 
   private void selectShampoosByIngredients() {
@@ -81,24 +78,26 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     List<String> ingredients = Arrays.stream(scanner.nextLine().split("\\s+")).toList();
 
     Set<String> allByIngredients = this.shampooService.findAllByIngredients(ingredients);
-    allByIngredients.forEach(System.out::println);
+
+    printCollection(allByIngredients);
   }
 
   private void countShampoosByPriceLowerThenGiven() {
     System.out.println("Please enter price: ");
     BigDecimal price = new BigDecimal(scanner.nextLine());
-    long count = this.shampooService.countShampoosByPriceLowerThenGiven(price);
 
+    long count = this.shampooService.countShampoosByPriceLowerThenGiven(price);
     System.out.println(count);
   }
 
   private void selectAllIngredientsFromList() {
     System.out.println("Please paster the ingredients, which you are looking for:");
     List<String> collect = Arrays.asList(scanner.nextLine().split("\\s+"));
+
     List<String> allIngredientsFromList =
             this.ingredientService.findAllIngredientsFromList(collect);
 
-    allIngredientsFromList.forEach(System.out::println);
+    printCollection(allIngredientsFromList);
   }
 
   private void selectAllIngredientsByFirstLetters() {
@@ -108,7 +107,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     List<String> allIngredientsByFirstLetters =
             this.ingredientService.findAllIngredientsByFirstLetters(letters);
 
-    allIngredientsByFirstLetters.forEach(System.out::println);
+    printCollection(allIngredientsByFirstLetters);
   }
 
   private void selectShampoosByHigherPrice() {
@@ -119,7 +118,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     List<String> allShampoosByPrice =
             this.shampooService.findAllShampoosByPrice(price);
 
-    allShampoosByPrice.forEach(System.out::println);
+    printCollection(allShampoosByPrice);
   }
 
   private void selectShampooBySizeOrLabel() {
@@ -130,7 +129,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     List<String> shampoosBySizeOrLabel = this.shampooService
             .findAllShampoosBySizeOrLabel(Size.valueOf(size), labelId);
 
-    shampoosBySizeOrLabel.forEach(System.out::println);
+    printCollection(shampoosBySizeOrLabel);
   }
 
   private void selectShampooBySize() {
@@ -140,6 +139,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     List<String> shampoosBySize = this.shampooService
             .findAllShampoosBySize(size);
 
-    shampoosBySize.forEach(System.out::println);
+    printCollection(shampoosBySize);
+  }
+
+  // Helpers
+  void printCollection(Collection<String> collection){
+    collection.forEach(System.out::println);
   }
 }

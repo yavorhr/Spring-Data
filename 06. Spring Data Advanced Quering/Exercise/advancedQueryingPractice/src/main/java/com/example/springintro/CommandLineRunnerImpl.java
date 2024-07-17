@@ -35,6 +35,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (number) {
       case 1 -> printBooksTitlesByAgeRestriction();
       case 2 -> printOnlyGoldenBooksEditionWithLessThan5000Copies();
+      case 3 -> printBooksByPriceRange();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
@@ -42,7 +43,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  /* ============= 2.	2.	Golden Books ===================================== */
+  /* =================== 3. Books By Price ==================================== */
+  private void printBooksByPriceRange() {
+    bookService
+            .findAllBookTitlesWithPriceLessThan5MoreThan40()
+            .forEach(System.out::println);
+  }
+
+  /* =================== 2. Golden Books ===================================== */
   private void printOnlyGoldenBooksEditionWithLessThan5000Copies() {
     this.bookService
             .findAllGoldBookTitlesWithCopiesLessThan5000()
@@ -50,7 +58,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   }
 
-  /* ============= 1.	Books Titles by Age Restriction ====================== */
+  /* ============= 1. Books Titles by Age Restriction ======================== */
   private void printBooksTitlesByAgeRestriction() throws IOException {
     System.out.println("Please enter age restriction: ");
     AgeRestriction ageRestriction = AgeRestriction.valueOf(this.bufferedReader.readLine().toUpperCase());

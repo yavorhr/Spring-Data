@@ -97,6 +97,15 @@ public class BookServiceImpl implements BookService {
             .collect(Collectors.toList());
   }
 
+  @Override
+  public List<String> findAllBookTitlesWithPriceLessThan5MoreThan40() {
+    return this.bookRepository
+            .findAllByPriceLessThanOrPriceGreaterThan(BigDecimal.valueOf(5L), BigDecimal.valueOf(40L))
+            .stream()
+            .map(b -> String.format("%s - $%.2f", b.getTitle(), b.getPrice()))
+            .collect(Collectors.toList());
+  }
+
   private Book createBookFromInfo(String[] bookInfo) {
     EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
     LocalDate releaseDate = LocalDate

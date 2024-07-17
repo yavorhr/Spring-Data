@@ -42,11 +42,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 4 -> printAllNotReleasedBooksByYear();
       case 5 -> printAllBooksReleasedBeforeDate();
       case 6 -> printAuthorsFirstNameEnding();
+      case 7 -> printAllBooksWithTitleContain();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  /* =================== 7.	Book Search ========================== */
+  private void printAllBooksWithTitleContain() throws IOException {
+    System.out.println("Please enter a key word: ");
+    String keyWord = this.bufferedReader.readLine();
+
+    this.bookService
+            .findAllBookTitlesWhereTitleContainString(keyWord)
+            .forEach(System.out::println);
   }
 
   /* =================== 6.	Authors Search ========================== */

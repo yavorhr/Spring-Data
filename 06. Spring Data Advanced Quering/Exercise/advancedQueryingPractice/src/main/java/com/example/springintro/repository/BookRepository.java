@@ -13,17 +13,19 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    List<Book> findAllByReleaseDateAfter(LocalDate releaseDateAfter);
+  List<Book> findAllByReleaseDateAfter(LocalDate releaseDateAfter);
 
-    List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
+  List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
 
-    List<Book> findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(String author_firstName, String author_lastName);
+  List<Book> findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(String author_firstName, String author_lastName);
 
-    List<Book> findAllByAgeRestriction(AgeRestriction ageRestriction);
+  List<Book> findAllByAgeRestriction(AgeRestriction ageRestriction);
 
-    List<Book> findAllByEditionTypeAndCopiesLessThan(EditionType editionType, Integer copies);
+  List<Book> findAllByEditionTypeAndCopiesLessThan(EditionType editionType, Integer copies);
 
-    List<Book> findAllByPriceLessThanOrPriceGreaterThan(BigDecimal lowerBound, BigDecimal higherBound);
+  List<Book> findAllByPriceLessThanOrPriceGreaterThan(BigDecimal lowerBound, BigDecimal higherBound);
 
-    List<Book> findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate lower, LocalDate upper);
+  List<Book> findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate lower, LocalDate upper);
+
+  List<Book> findAllByTitleContains(String string);
 }

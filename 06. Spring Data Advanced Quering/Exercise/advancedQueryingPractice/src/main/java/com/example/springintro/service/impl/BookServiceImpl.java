@@ -20,9 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class BookServiceImpl implements BookService {
-
   private static final String BOOKS_FILE_PATH = "src/main/resources/files/books.txt";
-
   private final BookRepository bookRepository;
   private final AuthorService authorService;
   private final CategoryService categoryService;
@@ -123,6 +121,14 @@ public class BookServiceImpl implements BookService {
     return this.bookRepository.findAllByReleaseDateBefore(date)
             .stream()
             .map(b -> String.format("%s %s %.2f",b.getTitle(), b.getEditionType().name(), b.getPrice()))
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<String> findAllBookTitlesWhereTitleContainString(String keyWord) {
+    return this.bookRepository.findAllByTitleContains(keyWord)
+            .stream()
+            .map(Book::getTitle)
             .collect(Collectors.toList());
   }
 

@@ -27,4 +27,5 @@ public interface BookService {
   List<String> findAllBooksBeforeDate(LocalDate date);
 
 
+  List<String> findAllBookTitlesWhereTitleContainString(String keyWord);
 }

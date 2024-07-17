@@ -41,11 +41,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 3 -> printBooksByPriceRange();
       case 4 -> printAllNotReleasedBooksByYear();
       case 5 -> printAllBooksReleasedBeforeDate();
+      case 6 -> printAuthorsFirstNameEnding();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  /* =================== 6.	Authors Search ========================== */
+  private void printAuthorsFirstNameEnding() throws IOException {
+    System.out.println("Please enter how the first name should end: ");
+    String endStr = this.bufferedReader.readLine();
+
+    this.authorService
+            .findAuthorFirstNameEndsWithStr(endStr)
+            .forEach(System.out::println);
   }
 
   /* =================== 5. Books Released Before Date ========================== */

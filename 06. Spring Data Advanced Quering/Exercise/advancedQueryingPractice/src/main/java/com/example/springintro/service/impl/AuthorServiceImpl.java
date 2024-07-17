@@ -14,9 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
-
     private static final String AUTHORS_FILE_PATH = "src/main/resources/files/authors.txt";
-
     private final AuthorRepository authorRepository;
 
     public AuthorServiceImpl(AuthorRepository authorRepository) {
@@ -59,6 +57,14 @@ public class AuthorServiceImpl implements AuthorService {
                         author.getFirstName(),
                         author.getLastName(),
                         author.getBooks().size()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAuthorFirstNameEndsWithStr(String endStr) {
+        return this.authorRepository.findAllByFirstNameEndingWith(endStr)
+                .stream()
+                .map(a -> String.format("%s %s", a.getFirstName(),a.getLastName()))
                 .collect(Collectors.toList());
     }
 }

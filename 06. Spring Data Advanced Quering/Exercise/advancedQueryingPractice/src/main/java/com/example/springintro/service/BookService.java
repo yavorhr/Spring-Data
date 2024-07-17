@@ -20,4 +20,6 @@ public interface BookService {
   List<String> findAllGoldBookTitlesWithCopiesLessThan5000();
 
   List<String> findAllBookTitlesWithPriceLessThan5MoreThan40();
+
+  List<String> findNotReleasedBookTitlesInYear(int year);
 }

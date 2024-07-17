@@ -36,6 +36,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> printBooksTitlesByAgeRestriction();
       case 2 -> printOnlyGoldenBooksEditionWithLessThan5000Copies();
       case 3 -> printBooksByPriceRange();
+      case 4 -> printAllNotReleasedBooksByYear();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
@@ -43,9 +44,21 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
+  /* =================== 4. Not Released Books ================================= */
+  private void printAllNotReleasedBooksByYear() throws IOException {
+    System.out.println("Please enter year: ");
+    int year = Integer.parseInt(this.bufferedReader.readLine());
+
+    this.bookService
+            .findNotReleasedBookTitlesInYear(year)
+            .forEach(System.out::println);
+
+
+  }
+
   /* =================== 3. Books By Price ==================================== */
   private void printBooksByPriceRange() {
-    bookService
+    this.bookService
             .findAllBookTitlesWithPriceLessThan5MoreThan40()
             .forEach(System.out::println);
   }

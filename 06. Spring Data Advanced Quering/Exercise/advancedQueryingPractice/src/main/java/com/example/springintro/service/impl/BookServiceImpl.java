@@ -106,6 +106,18 @@ public class BookServiceImpl implements BookService {
             .collect(Collectors.toList());
   }
 
+  @Override
+  public List<String> findNotReleasedBookTitlesInYear(int year) {
+    LocalDate lower = LocalDate.of(year, 1, 1);
+    LocalDate upper = LocalDate.of(year, 12, 31);
+
+    return this.bookRepository
+            .findAllByReleaseDateBeforeOrReleaseDateAfter(lower, upper)
+            .stream()
+            .map(Book::getTitle)
+            .collect(Collectors.toList());
+  }
+
   private Book createBookFromInfo(String[] bookInfo) {
     EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
     LocalDate releaseDate = LocalDate

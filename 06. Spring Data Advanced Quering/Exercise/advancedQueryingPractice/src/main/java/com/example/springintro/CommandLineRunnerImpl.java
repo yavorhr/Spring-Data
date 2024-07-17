@@ -5,11 +5,14 @@ import com.example.springintro.model.entity.Book;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
+import net.bytebuddy.asm.Advice;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -37,11 +40,25 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 2 -> printOnlyGoldenBooksEditionWithLessThan5000Copies();
       case 3 -> printBooksByPriceRange();
       case 4 -> printAllNotReleasedBooksByYear();
+      case 5 -> printAllBooksReleasedBeforeDate();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  /* =================== 5. Books Released Before Date ========================== */
+  private void printAllBooksReleasedBeforeDate() throws IOException {
+    System.out.println("Please enter date: ");
+
+    LocalDate date = LocalDate.parse(this.bufferedReader.readLine(),
+            DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+    this.bookService
+            .findAllBooksBeforeDate(date)
+            .forEach(System.out::println);
+
   }
 
   /* =================== 4. Not Released Books ================================= */
@@ -52,8 +69,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     this.bookService
             .findNotReleasedBookTitlesInYear(year)
             .forEach(System.out::println);
-
-
   }
 
   /* =================== 3. Books By Price ==================================== */

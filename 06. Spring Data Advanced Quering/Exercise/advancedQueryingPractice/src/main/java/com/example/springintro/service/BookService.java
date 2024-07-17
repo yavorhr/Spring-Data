@@ -4,6 +4,7 @@ import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookService {
@@ -22,4 +23,6 @@ public interface BookService {
   List<String> findAllBookTitlesWithPriceLessThan5MoreThan40();
 
   List<String> findNotReleasedBookTitlesInYear(int year);
+
+  List<String> findAllBooksBeforeDate(LocalDate date);
 }

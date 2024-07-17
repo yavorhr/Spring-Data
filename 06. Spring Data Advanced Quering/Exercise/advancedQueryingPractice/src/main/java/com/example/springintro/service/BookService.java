@@ -28,4 +28,6 @@ public interface BookService {
 
 
   List<String> findAllBookTitlesWhereTitleContainString(String keyWord);
+
+  List<String> findAllTitleWithAuthorWithLastNameStartsWith(String startStr);
 }

@@ -120,13 +120,22 @@ public class BookServiceImpl implements BookService {
   public List<String> findAllBooksBeforeDate(LocalDate date) {
     return this.bookRepository.findAllByReleaseDateBefore(date)
             .stream()
-            .map(b -> String.format("%s %s %.2f",b.getTitle(), b.getEditionType().name(), b.getPrice()))
+            .map(b -> String.format("%s %s %.2f", b.getTitle(), b.getEditionType().name(), b.getPrice()))
             .collect(Collectors.toList());
   }
 
   @Override
   public List<String> findAllBookTitlesWhereTitleContainString(String keyWord) {
     return this.bookRepository.findAllByTitleContains(keyWord)
+            .stream()
+            .map(Book::getTitle)
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<String> findAllTitleWithAuthorWithLastNameStartsWith(String startStr) {
+    return this.bookRepository
+            .findAllByAuthor_LastNameStartsWith(startStr)
             .stream()
             .map(Book::getTitle)
             .collect(Collectors.toList());

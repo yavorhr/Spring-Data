@@ -5,7 +5,6 @@ import com.example.springintro.model.entity.Book;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
-import net.bytebuddy.asm.Advice;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -43,11 +42,21 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 5 -> printAllBooksReleasedBeforeDate();
       case 6 -> printAuthorsFirstNameEnding();
       case 7 -> printAllBooksWithTitleContain();
+      case 8 -> printAllBooksWithAuthorsLastNameStartingWith();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  private void printAllBooksWithAuthorsLastNameStartingWith() throws IOException {
+    System.out.println("Please enter how the author's first name starts: ");
+    String startStr = this.bufferedReader.readLine();
+
+    bookService
+            .findAllTitleWithAuthorWithLastNameStartsWith(startStr)
+            .forEach(System.out::println);
   }
 
   /* =================== 7.	Book Search ========================== */

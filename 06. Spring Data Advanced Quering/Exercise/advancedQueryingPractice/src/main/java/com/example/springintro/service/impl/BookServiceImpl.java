@@ -5,6 +5,7 @@ import com.example.springintro.repository.BookRepository;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -175,6 +176,12 @@ public class BookServiceImpl implements BookService {
                     b.getAgeRestriction().name(),
                     b.getPrice()))
             .collect(Collectors.toList());
+  }
+
+  @Override
+  @Transactional
+  public int removeALlBooksWithLowerCopiesThan(int copies) {
+    return this.bookRepository.removeAllByCopiesLessThan(copies);
   }
 
 

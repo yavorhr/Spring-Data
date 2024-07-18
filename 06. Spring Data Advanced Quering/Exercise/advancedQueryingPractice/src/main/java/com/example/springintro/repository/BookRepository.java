@@ -44,4 +44,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
   int updateBooksCopiesAfterYear(@Param(value = "titles") List<String> titles,
                                   @Param(value = "copies") int copies);
 
+  @Modifying
+  int removeAllByCopiesLessThan(Integer copies);
+
 }

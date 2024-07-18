@@ -38,4 +38,6 @@ public interface BookService {
   String findCountOfBooksWithTitleLengthLongerThan(int titleLength);
 
   List<String> findInformationAboutBook(String bookInput);
+
+  int removeALlBooksWithLowerCopiesThan(int copies);
 }

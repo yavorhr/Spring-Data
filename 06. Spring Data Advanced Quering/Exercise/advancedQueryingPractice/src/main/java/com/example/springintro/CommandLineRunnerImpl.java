@@ -8,6 +8,7 @@ import com.example.springintro.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -48,11 +49,20 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 10 -> printTotalBooksCopies();
       case 11 -> printReducedBookInfoByTitle();
       case 12 -> increaseBookCopies();
+      case 13 -> removeBooksWithCopiesLowerThan();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  private void removeBooksWithCopiesLowerThan() throws IOException {
+    System.out.println("Please enter copies: ");
+    int copies = Integer.parseInt(this.bufferedReader.readLine());
+
+    int affectedRows = this.bookService.removeALlBooksWithLowerCopiesThan(copies);
+    System.out.printf("%d books were deleted!", affectedRows);
   }
 
   private void increaseBookCopies() throws IOException {
@@ -74,7 +84,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     System.out.printf("%d books are released after %s, so total of %d book copies were added",
             titlesToUpdate.size(),
             dateInput,
-            copies*titlesToUpdate.size());
+            copies * titlesToUpdate.size());
 
   }
 

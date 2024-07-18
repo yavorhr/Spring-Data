@@ -45,11 +45,21 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 8 -> printAllBooksWithAuthorsLastNameStartingWith();
       case 9 -> printAllBooksWithTitleLengthMoreThan();
       case 10 -> printTotalBooksCopies();
+      case 11 -> printReducedBookInfoByTitle();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  private void printReducedBookInfoByTitle() throws IOException {
+    System.out.println("Please enter book title: ");
+    String bookInput = bufferedReader.readLine();
+
+    this.bookService
+            .findInformationAboutBook(bookInput)
+            .forEach(System.out::println);
   }
 
   private void printTotalBooksCopies() {

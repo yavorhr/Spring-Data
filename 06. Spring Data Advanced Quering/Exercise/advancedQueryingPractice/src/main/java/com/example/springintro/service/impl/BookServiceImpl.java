@@ -149,6 +149,19 @@ public class BookServiceImpl implements BookService {
             booksCount, length);
   }
 
+  @Override
+  public List<String> findInformationAboutBook(String title) {
+    return this.bookRepository
+            .findAllByTitle(title)
+            .stream()
+            .map(b -> String.format("%s %s %s %.2f",
+                    b.getTitle(),
+                    b.getEditionType().name(),
+                    b.getAgeRestriction().name(),
+                    b.getPrice()))
+            .collect(Collectors.toList());
+  }
+
 
   private Book createBookFromInfo(String[] bookInfo) {
     EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

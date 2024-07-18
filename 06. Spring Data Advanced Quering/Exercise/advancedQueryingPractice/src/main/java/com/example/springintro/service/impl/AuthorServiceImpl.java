@@ -82,8 +82,9 @@ public class AuthorServiceImpl implements AuthorService {
             ).collect(Collectors.toList());
   }
 
+  // Helpers
   private int getTotalCopies(Set<Book> books) {
-   return books
+    return books
             .stream()
             .mapToInt(Book::getCopies)
             .sum();

@@ -141,6 +141,14 @@ public class BookServiceImpl implements BookService {
             .collect(Collectors.toList());
   }
 
+  @Override
+  public String findCountOfBooksWithTitleLengthLongerThan(int length) {
+    int booksCount = this.bookRepository.countAllByTitleLengthMoreThan(length);
+
+    return String.format("There are %d books with longer title than %d symbols",
+            booksCount, length);
+  }
+
 
   private Book createBookFromInfo(String[] bookInfo) {
     EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

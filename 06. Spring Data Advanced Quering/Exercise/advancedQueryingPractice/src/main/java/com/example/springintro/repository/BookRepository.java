@@ -32,7 +32,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
   List<Book> findAllByTitleContains(String string);
 
   List<Book> findAllByAuthor_LastNameStartsWith(String startsStr);
-  
+
   @Query("SELECT count(b) FROM Book b WHERE LENGTH(b.title) >:param ")
   int countAllByTitleLengthMoreThan(@Param(value = "param") int length);
+
+
 }

@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -50,11 +51,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 11 -> printReducedBookInfoByTitle();
       case 12 -> increaseBookCopies();
       case 13 -> removeBooksWithCopiesLowerThan();
+      case 14 -> storedProcedureForWrittenBooksByAuthorNames();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  private void storedProcedureForWrittenBooksByAuthorNames() throws IOException {
+    System.out.println("Please insert authors name: ");
+    String[] tokens = this.bufferedReader.readLine().split(" ");
+    String firstName = tokens[0];
+    String lastName = tokens[1];
+
+    int count = this.authorService.findAuthorsBooksCount(firstName,lastName);
+    System.out.printf("%s %s has written %d books",firstName,lastName, count);
   }
 
   private void removeBooksWithCopiesLowerThan() throws IOException {

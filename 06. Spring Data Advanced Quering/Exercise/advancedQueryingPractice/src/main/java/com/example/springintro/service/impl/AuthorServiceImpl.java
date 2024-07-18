@@ -82,6 +82,11 @@ public class AuthorServiceImpl implements AuthorService {
             ).collect(Collectors.toList());
   }
 
+  @Override
+  public int findAuthorsBooksCount(String firstName, String lastName) {
+    return this.authorRepository.countAuthorBooks(firstName,lastName);
+  }
+
   // Helpers
   private int getTotalCopies(Set<Book> books) {
     return books

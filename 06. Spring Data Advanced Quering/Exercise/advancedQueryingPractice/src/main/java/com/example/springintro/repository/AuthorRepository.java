@@ -3,6 +3,7 @@ package com.example.springintro.repository;
 import com.example.springintro.model.entity.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     List<Author> findAllByFirstNameEndingWith(String endStr);
 
+    @Procedure("total_books_by_author")
+    int countAuthorBooks(String firstName, String lastName);
 }

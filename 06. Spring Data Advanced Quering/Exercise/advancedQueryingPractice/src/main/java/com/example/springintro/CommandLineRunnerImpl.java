@@ -59,6 +59,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
+  /* ================= 14. Stored Procedure ========================= */
   private void storedProcedureForWrittenBooksByAuthorNames() throws IOException {
     System.out.println("Please insert authors name: ");
     String[] tokens = this.bufferedReader.readLine().split(" ");
@@ -69,6 +70,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     System.out.printf("%s %s has written %d books",firstName,lastName, count);
   }
 
+  /* ================= 13. Remove Books ========================= */
   private void removeBooksWithCopiesLowerThan() throws IOException {
     System.out.println("Please enter copies: ");
     int copies = Integer.parseInt(this.bufferedReader.readLine());
@@ -77,6 +79,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     System.out.printf("%d books were deleted!", affectedRows);
   }
 
+
+  /* ============== 12. Increase Books Copies ================= */
   private void increaseBookCopies() throws IOException {
     System.out.println("Please enter after date: ");
     String dateInput = this.bufferedReader.readLine();
@@ -100,6 +104,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   }
 
+  /* ================= 11. Reduced Books ========================= */
   private void printReducedBookInfoByTitle() throws IOException {
     System.out.println("Please enter book title: ");
     String bookInput = bufferedReader.readLine();
@@ -109,12 +114,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             .forEach(System.out::println);
   }
 
+  /* ================ 10. Total Books Copies ==================== */
   private void printTotalBooksCopies() {
     this.authorService
             .findAllAuthorsAndTheirTotalCopies()
             .forEach(System.out::println);
   }
 
+  /* =================== 9. Count Books ========================= */
   private void printAllBooksWithTitleLengthMoreThan() throws IOException {
     System.out.println("Please enter title length: ");
     int titleLength = Integer.parseInt(bufferedReader.readLine());
@@ -124,6 +131,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   }
 
+  /* =================== 8. Book Titles Search ======================== */
   private void printAllBooksWithAuthorsLastNameStartingWith() throws IOException {
     System.out.println("Please enter how the author's first name starts: ");
     String startStr = this.bufferedReader.readLine();

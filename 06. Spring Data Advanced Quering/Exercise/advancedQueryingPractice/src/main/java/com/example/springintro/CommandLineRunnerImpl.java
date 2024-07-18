@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -46,11 +47,35 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 9 -> printAllBooksWithTitleLengthMoreThan();
       case 10 -> printTotalBooksCopies();
       case 11 -> printReducedBookInfoByTitle();
+      case 12 -> increaseBookCopies();
       case 90 -> printAllBooksAfterYear(2000);
       case 91 -> printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
       case 92 -> printAllAuthorsAndNumberOfTheirBooks();
       case 93 -> printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
     }
+  }
+
+  private void increaseBookCopies() throws IOException {
+    System.out.println("Please enter after date: ");
+    String dateInput = this.bufferedReader.readLine();
+
+    System.out.println("Please enter copies: ");
+    int copies = Integer.parseInt(this.bufferedReader.readLine());
+
+    LocalDate date = LocalDate.parse(
+            dateInput,
+            DateTimeFormatter.ofPattern("dd MMM yyyy"));
+
+    List<String> titlesToUpdate =
+            this.bookService.findAllBooksAfterDate(date);
+
+    this.bookService.updateBooksCopiesAfterYear(titlesToUpdate, copies);
+
+    System.out.printf("%d books are released after %s, so total of %d book copies were added",
+            titlesToUpdate.size(),
+            dateInput,
+            copies*titlesToUpdate.size());
+
   }
 
   private void printReducedBookInfoByTitle() throws IOException {

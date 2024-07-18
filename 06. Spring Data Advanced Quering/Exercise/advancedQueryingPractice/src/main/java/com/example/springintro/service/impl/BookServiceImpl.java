@@ -6,6 +6,7 @@ import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -46,6 +47,20 @@ public class BookServiceImpl implements BookService {
 
               bookRepository.save(book);
             });
+  }
+
+  @Override
+  public List<String> findAllBooksAfterDate(LocalDate date) {
+    return this.bookRepository.findAllByReleaseDateAfter(date)
+            .stream()
+            .map(Book::getTitle)
+            .collect(Collectors.toList());
+  }
+
+  @Override
+  @Transactional
+  public int updateBooksCopiesAfterYear(List<String> titles, int copies) {
+    return this.bookRepository.updateBooksCopiesAfterYear(titles, copies);
   }
 
   @Override

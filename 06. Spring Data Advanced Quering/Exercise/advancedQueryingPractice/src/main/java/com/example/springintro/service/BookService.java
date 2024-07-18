@@ -10,6 +10,10 @@ import java.util.List;
 public interface BookService {
   void seedBooks() throws IOException;
 
+  List<String> findAllBooksAfterDate(LocalDate date);
+
+  int updateBooksCopiesAfterYear(List<String> titles, int copies);
+
   List<Book> findAllBooksAfterYear(int year);
 
   List<String> findAllAuthorsWithBooksWithReleaseDateBeforeYear(int year);

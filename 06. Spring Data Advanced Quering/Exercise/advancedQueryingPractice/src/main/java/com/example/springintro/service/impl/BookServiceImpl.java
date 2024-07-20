@@ -72,7 +72,7 @@ public class BookServiceImpl implements BookService {
 
   @Override
   public List<String> findAllAuthorsWithBooksWithReleaseDateBeforeYear(int year) {
-    
+
 
     return bookRepository
             .findAllByReleaseDateBefore(LocalDate.of(year, 1, 1))

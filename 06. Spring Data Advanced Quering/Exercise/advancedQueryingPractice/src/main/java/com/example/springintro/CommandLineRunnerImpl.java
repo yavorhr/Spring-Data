@@ -1,5 +1,6 @@
 package com.example.springintro;
 
+import com.example.springintro.model.dto.BookTitleDto;
 import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.service.AuthorService;

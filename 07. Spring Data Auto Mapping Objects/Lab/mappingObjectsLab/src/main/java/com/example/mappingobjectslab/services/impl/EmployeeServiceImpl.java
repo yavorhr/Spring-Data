@@ -1,6 +1,8 @@
 package com.example.mappingobjectslab.services.impl;
 
 import com.example.mappingobjectslab.entity.dto.EmployeeDto;
+import com.example.mappingobjectslab.entity.dto.ManagerDto;
+import com.example.mappingobjectslab.entity.model.Employee;
 import com.example.mappingobjectslab.repositories.EmployeeRepository;
 import com.example.mappingobjectslab.services.EmployeeService;
 import org.modelmapper.ModelMapper;
@@ -16,8 +18,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public EmployeeDto findEmployeeById(long id) {
-    var employee = this.employeeRepository.findById(id);
+    var employee = this.employeeRepository.findById(id).orElse(null);
 
     return new ModelMapper().map(employee, EmployeeDto.class);
+  }
+
+  @Override
+  public ManagerDto findManagerById(long id) {
+    var manager = this.employeeRepository.findById(id).orElse(null);
+    return new ModelMapper().map(manager, ManagerDto.class);
   }
 }

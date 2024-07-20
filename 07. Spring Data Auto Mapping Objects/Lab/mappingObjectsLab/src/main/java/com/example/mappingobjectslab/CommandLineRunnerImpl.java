@@ -1,6 +1,7 @@
 package com.example.mappingobjectslab;
 
 import com.example.mappingobjectslab.entity.dto.EmployeeDto;
+import com.example.mappingobjectslab.entity.dto.ManagerDto;
 import com.example.mappingobjectslab.services.EmployeeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   private void advancedMapping() {
     System.out.println("Please select manager id: ");
+    int managerId = Integer.parseInt(scanner.nextLine());
 
+    ManagerDto manager = this.employeeService.findManagerById(managerId);
+    System.out.println();
   }
 
   private void simpleMapping() {

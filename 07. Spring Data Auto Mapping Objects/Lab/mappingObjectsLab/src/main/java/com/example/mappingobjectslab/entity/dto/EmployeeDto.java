@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 
 public class EmployeeDto extends BasicDto {
   private BigDecimal salary;
-  
+
   public EmployeeDto() {
   }
 
@@ -14,6 +14,4 @@ public class EmployeeDto extends BasicDto {
   public void setSalary(BigDecimal salary) {
     this.salary = salary;
   }
-
-
 }

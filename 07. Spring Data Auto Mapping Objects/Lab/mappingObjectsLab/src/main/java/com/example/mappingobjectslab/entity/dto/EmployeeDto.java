@@ -11,9 +11,7 @@ public class EmployeeDto {
   private String firstName;
   private String lastName;
   private BigDecimal salary;
-  private boolean isOnHoliday;
-  private Employee manager;
-  private List<Employee> subordinates;
+
 
   public EmployeeDto() {
   }
@@ -30,19 +28,7 @@ public class EmployeeDto {
     return salary;
   }
 
-  public boolean isOnHoliday() {
-    return isOnHoliday;
-  }
 
-  @ManyToOne
-  public Employee getManager() {
-    return manager;
-  }
-
-  @OneToMany(mappedBy = "manager")
-  public List<Employee> getSubordinates() {
-    return subordinates;
-  }
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
@@ -56,7 +42,5 @@ public class EmployeeDto {
     this.salary = salary;
   }
 
-  public void setOnHoliday(boolean onHoliday) {
-    isOnHoliday = onHoliday;
-  }
+
 }

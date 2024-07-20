@@ -1,9 +1,8 @@
 package com.example.mappingobjectslab.entity.model;
-
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -15,8 +14,26 @@ public class Employee {
   private BigDecimal salary;
   private LocalDate birthday;
   private String address;
+  private boolean isOnHoliday;
+
+  private Employee manager;
+  private List<Employee> subordinates;
 
   public Employee() {
+  }
+
+  public boolean isOnHoliday() {
+    return isOnHoliday;
+  }
+
+  @ManyToOne
+  public Employee getManager() {
+    return manager;
+  }
+
+  @OneToMany(mappedBy = "manager")
+  public List<Employee> getSubordinates() {
+    return subordinates;
   }
 
   @Id
@@ -72,5 +89,17 @@ public class Employee {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public void setOnHoliday(boolean onHoliday) {
+    isOnHoliday = onHoliday;
+  }
+
+  public void setManager(Employee manager) {
+    this.manager = manager;
+  }
+
+  public void setSubordinates(List<Employee> subordinates) {
+    this.subordinates = subordinates;
   }
 }

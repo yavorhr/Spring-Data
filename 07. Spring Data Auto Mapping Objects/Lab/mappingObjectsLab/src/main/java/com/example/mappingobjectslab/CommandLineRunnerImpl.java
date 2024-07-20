@@ -24,7 +24,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     switch (taskNumber) {
       case 1 -> simpleMapping();
+      case 2 -> advancedMapping();
     }
+
+  }
+
+  private void advancedMapping() {
+    System.out.println("Please select manager id: ");
 
   }
 

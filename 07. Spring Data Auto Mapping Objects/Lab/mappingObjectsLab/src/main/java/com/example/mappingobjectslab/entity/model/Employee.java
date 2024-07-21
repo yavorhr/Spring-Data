@@ -31,7 +31,7 @@ public class Employee {
     return manager;
   }
 
-  @OneToMany(mappedBy = "manager")
+  @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER)
   public List<Employee> getSubordinates() {
     return subordinates;
   }

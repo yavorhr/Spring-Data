@@ -5,16 +5,16 @@ import com.example.mappingobjectslab.entity.model.Employee;
 import java.util.List;
 
 public class ManagerDto extends BasicDto {
-  private List<Employee> subordinates;
+  private List<EmployeeDto> subordinates;
 
   public ManagerDto() {
   }
 
-  public List<Employee> getSubordinates() {
-    return subordinates;
+  public List<EmployeeDto> getSubordinates() {
+    return this.subordinates;
   }
 
-  public void setSubordinates(List<Employee> subordinates) {
+  public void setSubordinates(List<EmployeeDto> subordinates) {
     this.subordinates = subordinates;
   }
 }

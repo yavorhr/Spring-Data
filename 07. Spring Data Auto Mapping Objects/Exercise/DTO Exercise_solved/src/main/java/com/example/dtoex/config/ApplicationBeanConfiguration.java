@@ -15,27 +15,28 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class ApplicationBeanConfiguration {
 
-    @Bean
-    public ModelMapper modelMapper() {
-        ModelMapper modelMapper = new ModelMapper();
+  @Bean
+  public ModelMapper modelMapper() {
+    ModelMapper modelMapper = new ModelMapper();
 
-        modelMapper.
-                typeMap(GameAddDto.class, Game.class)
-                .addMappings(mapper ->
-                        mapper.map(GameAddDto::getThumbnail,
-                                Game::setImageThumbnail));
-//
-//        Converter<String, LocalDate> localDateConverter = new Converter<String, LocalDate>() {
-//
-//            @Override
-//            public LocalDate convert(MappingContext<String, LocalDate> mappingContext) {
-//                return
-//                        LocalDate.parse(mappingContext.getSource(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-//            }
-//        };
-//
-//        modelMapper.addConverter(localDateConverter);
+    modelMapper.
+            typeMap(GameAddDto.class, Game.class)
+            .addMappings(mapper ->
+                    mapper.map(GameAddDto::getThumbnail,
+                            Game::setImageThumbnail));
 
-        return modelMapper;
-    }
+//    Converter<String, LocalDate> localDateConverter = new Converter<String, LocalDate>() {
+//
+//      @Override
+//      public LocalDate convert(MappingContext<String, LocalDate> mappingContext) {
+//        return mappingContext.getSource() == null
+//                ? LocalDate.now()
+//                : LocalDate.parse(mappingContext.getSource(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+//      }
+//    };
+//
+//    modelMapper.addConverter(localDateConverter);
+
+    return modelMapper;
+  }
 }

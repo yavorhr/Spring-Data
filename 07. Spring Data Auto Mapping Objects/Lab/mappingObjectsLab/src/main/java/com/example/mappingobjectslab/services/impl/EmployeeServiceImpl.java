@@ -35,7 +35,6 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public List<EmployeeDto> findAllEmployeesBornBefore1990(LocalDate date) {
     List<Employee> employees = this.employeeRepository.findAllByBirthdayBefore(date);
-
     return new ModelMapper().map(employees, new TypeToken<List<EmployeeDto>>(){}.getType());
   }
 }

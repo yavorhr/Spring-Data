@@ -4,8 +4,20 @@ public class RegisterUserDto {
   private String email;
   private String password;
   private String confirmPassword;
+  private String fullName;
 
   public RegisterUserDto() {
+  }
+
+  public RegisterUserDto(String email, String password, String confirmPassword, String fullName) {
+    this.email = email;
+    this.password = password;
+    this.confirmPassword = confirmPassword;
+    this.fullName = fullName;
+  }
+
+  public String getFullName() {
+    return fullName;
   }
 
   public RegisterUserDto(String email, String password, String confirmPassword) {
@@ -36,5 +48,9 @@ public class RegisterUserDto {
 
   public void setConfirmPassword(String confirmPassword) {
     this.confirmPassword = confirmPassword;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
   }
 }

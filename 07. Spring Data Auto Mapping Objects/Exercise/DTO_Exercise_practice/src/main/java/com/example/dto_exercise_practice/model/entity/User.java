@@ -1,13 +1,8 @@
 package com.example.dto_exercise_practice.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Entity
 @Table(name = "users")
@@ -17,6 +12,7 @@ public class User extends BaseEntity {
   private String password;
   private boolean isAdmin;
   private Set<Game> games;
+  private Set<Order> orders;
 
   public User() {
   }
@@ -26,6 +22,11 @@ public class User extends BaseEntity {
     this.email = email;
     this.password = password;
     this.games = new HashSet<>();
+  }
+
+  @OneToMany(mappedBy = "user")
+  public Set<Order> getOrders() {
+    return orders;
   }
 
   @Column(name = "full_name", nullable = false)
@@ -71,6 +72,10 @@ public class User extends BaseEntity {
 
   public void setGames(Set<Game> games) {
     this.games = games;
+  }
+
+  public void setOrders(Set<Order> orders) {
+    this.orders = orders;
   }
 }
 

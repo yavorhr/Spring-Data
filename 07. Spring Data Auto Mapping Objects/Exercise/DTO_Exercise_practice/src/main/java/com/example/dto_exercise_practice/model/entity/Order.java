@@ -3,19 +3,17 @@ package com.example.dto_exercise_practice.model.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 import java.util.Set;
 
 @Entity
+@Table(name = "orders")
 public class Order extends BaseEntity {
   private User user;
   private Set<Game> games;
 
   public Order() {
-  }
-
-  public Order(User user, Set<Game> games) {
-    this.user = user;
-    this.games = games;
   }
 
   @ManyToOne

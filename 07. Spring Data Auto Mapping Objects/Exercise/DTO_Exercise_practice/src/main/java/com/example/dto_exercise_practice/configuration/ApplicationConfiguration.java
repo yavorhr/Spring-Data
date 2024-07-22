@@ -1,5 +1,6 @@
 package com.example.dto_exercise_practice.configuration;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,5 +13,10 @@ public class ApplicationConfiguration {
   @Bean
   public BufferedReader bufferedReader() {
     return new BufferedReader(new InputStreamReader(System.in));
+  }
+
+  @Bean
+  public ModelMapper modelMapper() {
+    return new ModelMapper();
   }
 }

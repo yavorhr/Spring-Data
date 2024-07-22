@@ -1,6 +1,8 @@
 package com.example.dto_exercise.util;
 
-import javax.validation.ConstraintViolation;
+
+import jakarta.validation.ConstraintViolation;
+
 import java.util.Set;
 
 public interface ValidationUtil {

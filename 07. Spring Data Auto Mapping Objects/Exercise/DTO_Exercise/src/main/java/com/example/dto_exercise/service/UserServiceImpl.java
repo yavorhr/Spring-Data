@@ -2,6 +2,7 @@ package com.example.dto_exercise.service;
 
 import com.example.dto_exercise.model.dto.UserRegisterDto;
 import com.example.dto_exercise.model.entity.User;
+import com.example.dto_exercise.repository.UserRepository;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
@@ -13,10 +14,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
   private final ValidationUtil validationUtil;
   private final ModelMapper modelMapper;
+  private final UserRepository userRepository;
 
-  public UserServiceImpl(ValidationUtil validationUtil, ModelMapper modelMapper) {
+  public UserServiceImpl(ValidationUtil validationUtil, ModelMapper modelMapper, UserRepository userRepository) {
     this.validationUtil = validationUtil;
     this.modelMapper = modelMapper;
+    this.userRepository = userRepository;
   }
 
   @Override

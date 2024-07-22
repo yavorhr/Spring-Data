@@ -25,10 +25,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       String[] tokens = bufferedReader.readLine().split("\\|");
       String command = tokens[0];
 
-      switch (command){
-        case "RegisterUser" -> {
-          userService.registerUser(new RegisterUserDto(tokens[1], tokens[2], tokens[3], tokens[4]));
-        }
+      switch (command) {
+        case "RegisterUser" -> userService.registerUser(new RegisterUserDto(tokens[1], tokens[2], tokens[3], tokens[4]));
+
       }
     }
   }

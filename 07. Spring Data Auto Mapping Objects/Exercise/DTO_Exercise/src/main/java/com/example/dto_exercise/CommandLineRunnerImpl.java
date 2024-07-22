@@ -1,5 +1,6 @@
 package com.example.dto_exercise;
 
+import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
 import com.example.dto_exercise.service.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -25,6 +26,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
       switch (commands[0]) {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(commands[1], commands[2], commands[3], commands[4]));
+        case "LoginUser" -> userService.loginUser(new UserLoginDto(commands[1], commands[2]));
 
       }
     }

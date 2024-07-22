@@ -12,8 +12,6 @@ public class User extends BaseEntity {
     private Set<Game> games;
     private boolean isAdmin;
 
-
-
     public User() {
     }
 

@@ -1,5 +1,8 @@
 package com.example.dto_exercise_practice.model.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 public class RegisterUserDto {
   private String email;
   private String password;
@@ -26,6 +29,7 @@ public class RegisterUserDto {
     this.confirmPassword = confirmPassword;
   }
 
+  @Email(message = "PLease enter valid email!")
   public String getEmail() {
     return email;
   }
@@ -34,6 +38,7 @@ public class RegisterUserDto {
     this.email = email;
   }
 
+  @Pattern(regexp = "[A-Za-z\\d]{6,}", message = "PLease enter valid password!")
   public String getPassword() {
     return password;
   }

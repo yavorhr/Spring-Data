@@ -31,4 +31,8 @@ public class Order extends BaseEntity {
   public void setUser(User user) {
     this.user = user;
   }
+
+  public void setGames(Set<Game> games) {
+    this.games = games;
+  }
 }

@@ -68,6 +68,30 @@ public class Game extends BaseEntity {
   public void setTitle(String title) {
     this.title = title;
   }
+
+  public void setTrailer(String trailer) {
+    this.trailer = trailer;
+  }
+
+  public void setImageThumbnail(String imageThumbnail) {
+    this.imageThumbnail = imageThumbnail;
+  }
+
+  public void setSize(Double size) {
+    this.size = size;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
+  }
 }
 
 

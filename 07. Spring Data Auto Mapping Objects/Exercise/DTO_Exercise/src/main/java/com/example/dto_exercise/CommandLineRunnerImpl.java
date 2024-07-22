@@ -25,8 +25,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
       switch (commands[0]) {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(commands[1], commands[2], commands[3], commands[4]));
+
       }
     }
+
   }
-  }
+}
 

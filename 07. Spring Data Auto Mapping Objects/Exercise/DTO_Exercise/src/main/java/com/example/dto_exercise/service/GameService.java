@@ -13,4 +13,6 @@ public interface GameService {
   void deleteGameById(long gameId);
 
   void printAllGamesTitlesAndPrices();
+
+  void printGameDetails(String token);
 }

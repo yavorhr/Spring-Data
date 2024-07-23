@@ -2,6 +2,7 @@ package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.GameAddDto;
 import com.example.dto_exercise.model.dto.GameViewDtoTitleAndPrice;
+import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.Game;
 import com.example.dto_exercise.repository.GameRepository;
 import com.example.dto_exercise.service.GameService;
@@ -76,7 +77,7 @@ public class GameServiceImpl implements GameService {
             .orElse(null);
 
     if (game == null) {
-      System.out.println("There is no game with this ID present!");
+      System.out.println("There is no game with this ID!");
       return;
     }
 
@@ -97,5 +98,32 @@ public class GameServiceImpl implements GameService {
                     g.getTitle(),
                     g.getPrice()))
             .forEach(System.out::println);
+  }
+
+  @Override
+  public void printGameDetails(String title) {
+    Game game = this.gameRepository.findByTitle(title).orElse(null);
+
+    if (game == null) {
+      System.out.println("There is no game with this title!");
+    }
+
+    ViewGameDetailsDto gameDto = this.modelMapper.map(game, ViewGameDetailsDto.class);
+    gameDto.setReleaseDate(game.getReleaseDate() == null
+            ? "N/A"
+            : game.getReleaseDate().toString());
+
+    printResult(gameDto);
+  }
+
+  private void printResult(ViewGameDetailsDto gameDto) {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append(String.format("Title: %s", gameDto.getTitle())).append(System.lineSeparator());
+    sb.append(String.format("Price: %.2f",gameDto.getPrice())).append(System.lineSeparator());
+    sb.append(String.format("Description: %s",gameDto.getDescription())).append(System.lineSeparator());
+    sb.append(String.format("Release date: %s",gameDto.getReleaseDate())).append(System.lineSeparator());
+
+    System.out.println(sb.toString());
   }
 }

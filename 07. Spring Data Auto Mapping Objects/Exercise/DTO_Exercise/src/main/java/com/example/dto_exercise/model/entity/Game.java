@@ -21,7 +21,7 @@ public class Game extends BaseEntity {
     public Game() {
     }
 
-    @Column
+    @Column(unique = true)
     public String getTitle() {
         return title;
     }

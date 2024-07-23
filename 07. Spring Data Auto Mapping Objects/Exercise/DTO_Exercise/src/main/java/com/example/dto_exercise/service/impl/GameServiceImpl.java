@@ -80,4 +80,9 @@ public class GameServiceImpl implements GameService {
     System.out.println("Deleted " + game.getTitle());
     this.gameRepository.deleteById(gameId);
   }
+
+  @Override
+  public void printAllGamesTitlesAndPrices() {
+
+  }
 }

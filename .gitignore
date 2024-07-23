@@ -128,3 +128,7 @@
 06. Spring Data Advanced Quering/Exercise/advanced queryng - solved/.idea/modules.xml
 06. Spring Data Advanced Quering/Exercise/advanced queryng - solved/springintro/springintro.iml
 06. Spring Data Advanced Quering/Exercise/advanced queryng - solved/.idea/modules.xml
+*.java
+*.xml
+08. JSON Processing/carDealer/springdataautomappinobject.iml
+08. JSON Processing/carDealer/springdataautomappinobject.iml

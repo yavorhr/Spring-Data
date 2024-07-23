@@ -2,10 +2,12 @@ package com.example.dto_exercise.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "games")
@@ -17,8 +19,18 @@ public class Game extends BaseEntity {
     private BigDecimal price;
     private String description;
     private LocalDate releaseDate;
+    private Set<User> users;
 
     public Game() {
+    }
+
+    @ManyToMany(mappedBy = "users")
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Column(unique = true)
@@ -79,4 +91,5 @@ public class Game extends BaseEntity {
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
+
 }

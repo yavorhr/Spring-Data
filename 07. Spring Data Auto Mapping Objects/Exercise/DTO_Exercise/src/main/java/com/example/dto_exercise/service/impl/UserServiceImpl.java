@@ -2,14 +2,17 @@ package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
+import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.UserRepository;
 import com.example.dto_exercise.service.UserService;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -85,6 +88,29 @@ public class UserServiceImpl implements UserService {
 
     System.out.printf("User %s successfully logged out\n", this.user.getFullName());
     this.user = null;
+  }
+
+  @Override
+  public void printGamesByUserId() {
+    User user = this.userRepository
+            .findById(this.user.getId())
+            .orElse(null);
+
+    if (user == null) {
+      System.out.println("There is no logged in user currently!");
+    }
+
+    if (user.getGames().isEmpty()) {
+      System.out.println("User has no games added!");
+      return;
+    }
+
+    List<ViewGameDetailsDto> games =
+            this.modelMapper.map(
+                    user.getGames(),
+                    new TypeToken<List<ViewGameDetailsDto>>() {
+                    }.getType());
+
   }
 
   // Helpers

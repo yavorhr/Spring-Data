@@ -10,4 +10,6 @@ public interface UserService {
   void loginUser(UserLoginDto userLoginDto);
 
   void logout();
+
+  void printGamesByUserId();
 }

@@ -12,7 +12,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,8 +42,10 @@ public class GameServiceImpl implements GameService {
               .forEach(System.out::println);
       return;
     }
+
     Game game = this.modelMapper.map(gameAddDto, Game.class);
     game.setReleaseDate(LocalDate.parse(gameAddDto.getReleaseDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+
 //    game.setImageThumbnail(gameAddDto.getThumbnail());
     this.gameRepository.save(game);
 
@@ -131,6 +132,4 @@ public class GameServiceImpl implements GameService {
     }
     return false;
   }
-
-
 }

@@ -57,8 +57,7 @@ public class GameServiceImpl implements GameService {
             .findById(gameId)
             .orElse(null);
 
-    if (game == null) {
-      System.out.println("There is no game with this ID present!");
+    if (gameNotExisting(game, "There is no game with this ID present!")) {
       return;
     }
 
@@ -76,8 +75,7 @@ public class GameServiceImpl implements GameService {
             .findById(gameId)
             .orElse(null);
 
-    if (game == null) {
-      System.out.println("There is no game with this ID!");
+    if (gameNotExisting(game, "There is no game with this Id!")) {
       return;
     }
 
@@ -104,26 +102,35 @@ public class GameServiceImpl implements GameService {
   public void printGameDetails(String title) {
     Game game = this.gameRepository.findByTitle(title).orElse(null);
 
-    if (game == null) {
-      System.out.println("There is no game with this title!");
+    if (gameNotExisting(game, "There is no game with this title!")) {
+      return;
     }
 
     ViewGameDetailsDto gameDto = this.modelMapper.map(game, ViewGameDetailsDto.class);
-    gameDto.setReleaseDate(game.getReleaseDate() == null
-            ? "N/A"
-            : game.getReleaseDate().toString());
+    gameDto.setReleaseDate(game.getReleaseDate().toString());
 
     printResult(gameDto);
   }
 
+  // Helpers
   private void printResult(ViewGameDetailsDto gameDto) {
     StringBuilder sb = new StringBuilder();
 
     sb.append(String.format("Title: %s", gameDto.getTitle())).append(System.lineSeparator());
-    sb.append(String.format("Price: %.2f",gameDto.getPrice())).append(System.lineSeparator());
-    sb.append(String.format("Description: %s",gameDto.getDescription())).append(System.lineSeparator());
-    sb.append(String.format("Release date: %s",gameDto.getReleaseDate())).append(System.lineSeparator());
+    sb.append(String.format("Price: %.2f", gameDto.getPrice())).append(System.lineSeparator());
+    sb.append(String.format("Description: %s", gameDto.getDescription())).append(System.lineSeparator());
+    sb.append(String.format("Release date: %s", gameDto.getReleaseDate())).append(System.lineSeparator());
 
-    System.out.println(sb.toString());
+    System.out.println(sb);
   }
+
+  private boolean gameNotExisting(Game game, String message) {
+    if (game == null) {
+      System.out.println(message);
+      return true;
+    }
+    return false;
+  }
+
+
 }

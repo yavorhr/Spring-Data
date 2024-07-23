@@ -1,18 +1,21 @@
 package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.GameAddDto;
+import com.example.dto_exercise.model.dto.GameViewDtoTitleAndPrice;
 import com.example.dto_exercise.model.entity.Game;
 import com.example.dto_exercise.repository.GameRepository;
 import com.example.dto_exercise.service.GameService;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -83,6 +86,16 @@ public class GameServiceImpl implements GameService {
 
   @Override
   public void printAllGamesTitlesAndPrices() {
+    List<GameViewDtoTitleAndPrice> games =
+            this.modelMapper.map(this.gameRepository.findAll(),
+                    new TypeToken<List<GameViewDtoTitleAndPrice>>() {
+                    }.getType());
 
+    games
+            .stream()
+            .map(g -> String.format("%s - %.2f",
+                    g.getTitle(),
+                    g.getPrice()))
+            .forEach(System.out::println);
   }
 }

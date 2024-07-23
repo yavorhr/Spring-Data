@@ -1,5 +1,10 @@
 package com.example.dto_exercise.model.dto;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 import java.math.BigDecimal;
 
 public class GameAddDto {
@@ -21,26 +26,33 @@ public class GameAddDto {
     this.releaseDate = releaseDate;
   }
 
+  @Pattern(regexp = "^[A-Z][a-z]{6,100}",message = "Please enter valid title!")
   public String getTitle() {
     return title;
   }
 
+  @DecimalMin(value = "0", message = "Please enter valid price!")
+  //@Min(0)
   public BigDecimal getPrice() {
     return price;
   }
 
+  @Positive(message = "Number must be positive!")
   public Double getSize() {
     return size;
   }
 
+  @Size(min = 11,max = 11,message = "Trailer must be 11 characters!")
   public String getTrailer() {
     return trailer;
   }
 
+  @Pattern(regexp = "(http?).+",message = "Please enter valid URL!")
   public String getThumbnail() {
     return thumbnail;
   }
 
+  @Size(min = 20,message = "Please enter valid description!")
   public String getDescription() {
     return description;
   }

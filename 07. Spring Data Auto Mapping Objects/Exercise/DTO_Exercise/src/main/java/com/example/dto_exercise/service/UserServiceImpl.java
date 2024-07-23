@@ -30,7 +30,9 @@ public class UserServiceImpl implements UserService {
       System.out.println("Password and Confirm password doesn't match!");
       return;
     }
-    Set<ConstraintViolation<UserRegisterDto>> violation = validationUtil.violation(userRegisterDto);
+
+    Set<ConstraintViolation<UserRegisterDto>> violation =
+            validationUtil.violation(userRegisterDto);
 
     if (!violation.isEmpty()) {
       violation
@@ -51,7 +53,8 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void loginUser(UserLoginDto userLoginDto) {
-    Set<ConstraintViolation<UserLoginDto>> violation = this.validationUtil.violation(userLoginDto);
+    Set<ConstraintViolation<UserLoginDto>> violation =
+            this.validationUtil.violation(userLoginDto);
 
     if (!violation.isEmpty()) {
       violation
@@ -70,6 +73,17 @@ public class UserServiceImpl implements UserService {
 
     this.user = getUser(email, password);
     System.out.printf("Successfully logged in %s%n", user.getFullName());
+  }
+
+  @Override
+  public void logout() {
+    if (this.user == null) {
+      System.out.println("Cannot log out. No user was logged in.");
+      return;
+    }
+
+    System.out.printf("User %s successfully logged out\n", this.user.getFullName());
+    this.user = null;
   }
 
   // Helpers

@@ -9,6 +9,7 @@ import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
@@ -43,5 +44,23 @@ public class GameServiceImpl implements GameService {
     this.gameRepository.save(game);
 
     System.out.printf("Added %s\n", game.getTitle());
+  }
+
+  @Override
+  public void editGame(long gameId, BigDecimal updatedPrice, double updatedSize) {
+    Game game = this.gameRepository
+            .findById(gameId)
+            .orElse(null);
+
+    if (game == null) {
+      System.out.println("There is no game with this ID present!");
+      return;
+    }
+
+    game.setPrice(updatedPrice);
+    game.setSize(updatedSize);
+
+    this.gameRepository.save(game);
+    System.out.println("Edited " + game.getTitle());
   }
 }

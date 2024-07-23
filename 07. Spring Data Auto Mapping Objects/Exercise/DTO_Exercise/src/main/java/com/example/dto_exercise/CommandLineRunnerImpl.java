@@ -41,6 +41,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                         commands[5],
                         commands[6],
                         commands[7]));
+        case "EditGame" -> {
+          BigDecimal price = BigDecimal.valueOf(Double.parseDouble(commands[2].split("=")[1]));
+          double size = Double.parseDouble(commands[3].split("=")[1]);
+
+          gameService.editGame(
+                  Long.parseLong(commands[1]),
+                  price,
+                  size);
+        }
       }
     }
 

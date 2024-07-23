@@ -28,6 +28,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(commands[1], commands[2], commands[3], commands[4]));
         case "LoginUser" -> this.userService.loginUser(new UserLoginDto(commands[1], commands[2]));
         case "Logout" -> this.userService.logout();
+        case "AddGame" ->
       }
     }
 

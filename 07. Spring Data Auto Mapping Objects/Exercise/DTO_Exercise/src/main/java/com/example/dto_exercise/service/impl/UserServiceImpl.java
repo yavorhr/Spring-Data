@@ -1,9 +1,10 @@
-package com.example.dto_exercise.service;
+package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
 import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.UserRepository;
+import com.example.dto_exercise.service.UserService;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;

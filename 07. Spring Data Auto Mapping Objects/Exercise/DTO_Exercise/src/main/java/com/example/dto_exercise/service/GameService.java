@@ -11,4 +11,6 @@ public interface GameService {
   void editGame(long gameId, BigDecimal updatedPrice, double updatedSize);
 
   void deleteGameById(long gameId);
+
+  void printAllGamesTitlesAndPrices();
 }

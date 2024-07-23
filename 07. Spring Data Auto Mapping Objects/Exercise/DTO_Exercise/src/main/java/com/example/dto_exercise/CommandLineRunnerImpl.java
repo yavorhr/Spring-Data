@@ -27,29 +27,30 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   public void run(String... args) throws Exception {
     while (true) {
       System.out.println("Enter your commands: ");
-      String[] commands = bufferedReader.readLine().split("\\|");
+      String[] tokens = bufferedReader.readLine().split("\\|");
 
-      switch (commands[0]) {
-        case "RegisterUser" -> userService.registerUser(new UserRegisterDto(commands[1], commands[2], commands[3], commands[4]));
-        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(commands[1], commands[2]));
+      switch (tokens[0]) {
+        case "RegisterUser" -> userService.registerUser(new UserRegisterDto(tokens[1], tokens[2], tokens[3], tokens[4]));
+        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]));
         case "Logout" -> this.userService.logout();
         case "AddGame" -> this.gameService.addGame(
-                new GameAddDto(commands[1],
-                        new BigDecimal(commands[2]),
-                        Double.parseDouble(commands[3]),
-                        commands[4],
-                        commands[5],
-                        commands[6],
-                        commands[7]));
+                new GameAddDto(tokens[1],
+                        new BigDecimal(tokens[2]),
+                        Double.parseDouble(tokens[3]),
+                        tokens[4],
+                        tokens[5],
+                        tokens[6],
+                        tokens[7]));
         case "EditGame" -> {
-          BigDecimal price = BigDecimal.valueOf(Double.parseDouble(commands[2].split("=")[1]));
-          double size = Double.parseDouble(commands[3].split("=")[1]);
+          BigDecimal price = BigDecimal.valueOf(Double.parseDouble(tokens[2].split("=")[1]));
+          double size = Double.parseDouble(tokens[3].split("=")[1]);
 
           gameService.editGame(
-                  Long.parseLong(commands[1]),
+                  Long.parseLong(tokens[1]),
                   price,
                   size);
         }
+        case "DeleteGame" -> this.gameService.deleteGameById(Long.parseLong(tokens[1]));
       }
     }
 

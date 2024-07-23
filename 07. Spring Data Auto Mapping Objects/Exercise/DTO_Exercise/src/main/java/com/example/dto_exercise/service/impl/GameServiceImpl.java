@@ -8,6 +8,7 @@ import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -62,5 +63,21 @@ public class GameServiceImpl implements GameService {
 
     this.gameRepository.save(game);
     System.out.println("Edited " + game.getTitle());
+  }
+
+  @Override
+  @Transactional
+  public void deleteGameById(long gameId) {
+    Game game = this.gameRepository
+            .findById(gameId)
+            .orElse(null);
+
+    if (game == null) {
+      System.out.println("There is no game with this ID present!");
+      return;
+    }
+
+    System.out.println("Deleted " + game.getTitle());
+    this.gameRepository.deleteById(gameId);
   }
 }

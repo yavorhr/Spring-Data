@@ -29,10 +29,12 @@ public class Game extends BaseEntity {
     public String getTrailer() {
         return trailer;
     }
+
     @Column(name = "image_thumbnail")
     public String getImageThumbnail() {
         return imageThumbnail;
     }
+
     @Column
     public Double getSize() {
         return size;

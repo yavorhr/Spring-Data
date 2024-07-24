@@ -21,12 +21,13 @@ public class UserServiceImpl implements UserService {
   private final ValidationUtil validationUtil;
   private final ModelMapper modelMapper;
   private final UserRepository userRepository;
+  private final UserContext userContext;
 
-
-  public UserServiceImpl(ValidationUtil validationUtil, ModelMapper modelMapper, UserRepository userRepository) {
+  public UserServiceImpl(ValidationUtil validationUtil, ModelMapper modelMapper, UserRepository userRepository, UserContext userContext) {
     this.validationUtil = validationUtil;
     this.modelMapper = modelMapper;
     this.userRepository = userRepository;
+    this.userContext = userContext;
   }
 
   @Override
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void loginUser(UserLoginDto userLoginDto, UserContext context) {
+  public void loginUser(UserLoginDto userLoginDto) {
     Set<ConstraintViolation<UserLoginDto>> violation =
             this.validationUtil.violation(userLoginDto);
 
@@ -77,34 +78,36 @@ public class UserServiceImpl implements UserService {
     }
 
     User user = getUser(email, password);
-    context.saveSession(
+
+    this.userContext.saveSession(
             user.getId(),
             user.getEmail(),
-            user.getFullName());
+            user.getFullName(),
+            user.getPassword());
 
     System.out.printf("Successfully logged in %s%n", user.getFullName());
   }
 
   @Override
-  public void logout(UserContext context) {
-    if (context.getId() == 0) {
+  public void logout() {
+    if (this.userContext.getId() == 0) {
       System.out.println("Cannot log out. No user was logged in.");
       return;
     }
 
-    System.out.printf("User %s successfully logged out\n", context.getFullName());
-    context.removeSession();
+    System.out.printf("User %s successfully logged out\n", this.userContext.getFullName());
+    this.userContext.removeSession();
   }
 
   @Override
-  public void printGamesByUserId(Long id) {
-    User user = this.userRepository
-            .findById(id)
-            .orElse(null);
-
-    if (user == null) {
+  public void printGamesByUserId() {
+    if (userContext.getId() == null) {
       System.out.println("There is no logged in user currently!");
     }
+
+    User user = this.userRepository
+            .findById(this.userContext.getId())
+            .orElse(null);
 
     if (user.getGames().isEmpty()) {
       System.out.println("User has no games added!");
@@ -116,6 +119,8 @@ public class UserServiceImpl implements UserService {
                     user.getGames(),
                     new TypeToken<List<ViewGameDetailsDto>>() {
                     }.getType());
+
+    games.forEach(g -> System.out.println(g.getTitle()));
 
   }
 
@@ -142,7 +147,7 @@ public class UserServiceImpl implements UserService {
     return true;
   }
 
-  private User getUser(String email, String password) {
+  public User getUser(String email, String password) {
     return this.userRepository
             .findUserByEmailAndPassword(
                     email,

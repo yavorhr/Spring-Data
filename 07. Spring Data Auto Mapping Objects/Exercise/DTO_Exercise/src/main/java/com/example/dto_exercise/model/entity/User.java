@@ -18,7 +18,12 @@ public class User extends BaseEntity {
     this.games = new HashSet<>();
   }
 
-  @ManyToMany(fetch = FetchType.EAGER)
+  @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+  @JoinTable(
+          name = "users_games",
+          joinColumns = @JoinColumn(name = "users_id"),
+          inverseJoinColumns = @JoinColumn(name = "games_id")
+  )
   public Set<Game> getGames() {
     return games;
   }

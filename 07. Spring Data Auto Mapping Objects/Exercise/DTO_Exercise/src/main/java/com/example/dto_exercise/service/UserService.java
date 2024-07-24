@@ -8,9 +8,9 @@ public interface UserService {
 
   void registerUser(UserRegisterDto userRegisterDto);
 
-  void loginUser(UserLoginDto userLoginDto, UserContext userContext);
+  void loginUser(UserLoginDto userLoginDto);
 
-  void logout(UserContext context);
+  void logout();
 
-  void printGamesByUserId(Long id);
+  void printGamesByUserId();
 }

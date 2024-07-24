@@ -17,13 +17,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private final BufferedReader bufferedReader;
   private final UserService userService;
   private final GameService gameService;
-  private UserContext userContext;
 
-  public CommandLineRunnerImpl(BufferedReader bufferedReader, UserService userService, GameService gameService) {
+  public CommandLineRunnerImpl(BufferedReader bufferedReader, UserService userService, GameService gameService, UserContext userContext) {
     this.bufferedReader = bufferedReader;
     this.userService = userService;
     this.gameService = gameService;
-    this.userContext = new UserContext();
   }
 
   @Override
@@ -34,8 +32,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
       switch (tokens[0]) {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(tokens[1], tokens[2], tokens[3], tokens[4]));
-        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]), userContext  );
-        case "Logout" -> this.userService.logout(userContext);
+        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]) );
+        case "Logout" -> this.userService.logout();
         case "AddGame" -> this.gameService.addGame(
                 new GameAddDto(tokens[1],
                         new BigDecimal(tokens[2]),
@@ -56,7 +54,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         case "DeleteGame" -> this.gameService.deleteGameById(Long.parseLong(tokens[1]));
         case "AllGames" -> this.gameService.printAllGamesTitlesAndPrices();
         case "DetailGame" -> this.gameService.printGameDetails(tokens[1]);
-        case "OwnedGames" -> this.userService.printGamesByUserId(userContext.getId());
+        case "OwnedGames" -> this.userService.printGamesByUserId();
       }
     }
 

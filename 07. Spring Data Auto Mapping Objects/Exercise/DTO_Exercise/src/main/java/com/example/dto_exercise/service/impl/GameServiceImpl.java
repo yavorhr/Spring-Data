@@ -4,14 +4,19 @@ import com.example.dto_exercise.model.dto.GameAddDto;
 import com.example.dto_exercise.model.dto.GameViewDtoTitleAndPrice;
 import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.Game;
+import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.GameRepository;
+import com.example.dto_exercise.repository.UserRepository;
 import com.example.dto_exercise.service.GameService;
+import com.example.dto_exercise.service.UserService;
+import com.example.dto_exercise.userContext.UserContext;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,15 +28,25 @@ public class GameServiceImpl implements GameService {
   private final GameRepository gameRepository;
   private final ModelMapper modelMapper;
   private final ValidationUtil validationUtil;
+  private final UserContext userContext;
+  private final UserRepository userRepository;
 
-  public GameServiceImpl(GameRepository gameRepository, ModelMapper modelMapper, ValidationUtil validationUtil) {
+  public GameServiceImpl(GameRepository gameRepository, ModelMapper modelMapper, ValidationUtil validationUtil, UserContext userContext, UserService userService, UserRepository userRepository) {
     this.gameRepository = gameRepository;
+    this.userRepository = userRepository;
     this.modelMapper = modelMapper;
     this.validationUtil = validationUtil;
+    this.userContext = userContext;
   }
 
   @Override
+  @Transactional
   public void addGame(GameAddDto gameAddDto) {
+    if (this.userContext.getId() == null) {
+      System.out.println("You need to be logged in in order to add game!");
+      return;
+    }
+
     Set<ConstraintViolation<GameAddDto>> violation =
             validationUtil.violation(gameAddDto);
 
@@ -46,8 +61,13 @@ public class GameServiceImpl implements GameService {
     Game game = this.modelMapper.map(gameAddDto, Game.class);
     game.setReleaseDate(LocalDate.parse(gameAddDto.getReleaseDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 
-//    game.setImageThumbnail(gameAddDto.getThumbnail());
+    User user = this.userRepository.findById(userContext.getId()).orElse(null);
+
+    game.getUsers().add(user);
+    user.getGames().add(game);
+
     this.gameRepository.save(game);
+    this.userRepository.save(user);
 
     System.out.printf("Added %s\n", game.getTitle());
   }

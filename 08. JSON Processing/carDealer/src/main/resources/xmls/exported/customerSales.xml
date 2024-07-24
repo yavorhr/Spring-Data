@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<customers>
-    <customer full-name="Zada Attwood" boughtCars="1" spentMoney="1416.80"/>
-    <customer full-name="Carole Witman" boughtCars="1" spentMoney="584.21"/>
-    <customer full-name="Taina Achenbach" boughtCars="1" spentMoney="1992.51"/>
-    <customer full-name="Cinthia Lasala" boughtCars="1" spentMoney="2556.09"/>
-    <customer full-name="Daniele Zarate" boughtCars="1" spentMoney="1174.86"/>
-</customers>

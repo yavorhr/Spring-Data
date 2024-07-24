@@ -6,6 +6,7 @@ import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.UserRepository;
 import com.example.dto_exercise.service.UserService;
+import com.example.dto_exercise.userContext.UserContext;
 import com.example.dto_exercise.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
@@ -56,7 +57,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void loginUser(UserLoginDto userLoginDto) {
+  public void loginUser(UserLoginDto userLoginDto, UserContext context) {
     Set<ConstraintViolation<UserLoginDto>> violation =
             this.validationUtil.violation(userLoginDto);
 
@@ -77,6 +78,8 @@ public class UserServiceImpl implements UserService {
 
     this.user = getUser(email, password);
     System.out.printf("Successfully logged in %s%n", user.getFullName());
+
+
   }
 
   @Override

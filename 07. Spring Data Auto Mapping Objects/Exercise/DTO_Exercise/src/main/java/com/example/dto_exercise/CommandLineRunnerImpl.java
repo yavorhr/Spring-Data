@@ -5,6 +5,7 @@ import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
 import com.example.dto_exercise.service.GameService;
 import com.example.dto_exercise.service.UserService;
+import com.example.dto_exercise.userContext.UserContext;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +17,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private final BufferedReader bufferedReader;
   private final UserService userService;
   private final GameService gameService;
+  private UserContext userContext;
 
   public CommandLineRunnerImpl(BufferedReader bufferedReader, UserService userService, GameService gameService) {
     this.bufferedReader = bufferedReader;
     this.userService = userService;
     this.gameService = gameService;
+    this.userContext = new UserContext();
   }
 
   @Override
@@ -31,7 +34,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
       switch (tokens[0]) {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(tokens[1], tokens[2], tokens[3], tokens[4]));
-        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]));
+        case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]), userContext  );
         case "Logout" -> this.userService.logout();
         case "AddGame" -> this.gameService.addGame(
                 new GameAddDto(tokens[1],

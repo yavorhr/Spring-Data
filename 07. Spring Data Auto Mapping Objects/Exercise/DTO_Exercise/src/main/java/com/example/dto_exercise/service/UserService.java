@@ -12,5 +12,5 @@ public interface UserService {
 
   void logout(UserContext context);
 
-  void printGamesByUserId();
+  void printGamesByUserId(Long id);
 }

@@ -96,9 +96,9 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public void printGamesByUserId() {
+  public void printGamesByUserId(Long id) {
     User user = this.userRepository
-            .findById(this.user.getId())
+            .findById(id)
             .orElse(null);
 
     if (user == null) {

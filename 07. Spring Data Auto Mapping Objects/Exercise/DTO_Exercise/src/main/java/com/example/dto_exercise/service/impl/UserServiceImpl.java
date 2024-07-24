@@ -83,7 +83,8 @@ public class UserServiceImpl implements UserService {
             user.getId(),
             user.getEmail(),
             user.getFullName(),
-            user.getPassword());
+            user.getPassword(),
+            user.isAdmin());
 
     System.out.printf("Successfully logged in %s%n", user.getFullName());
   }
@@ -122,6 +123,24 @@ public class UserServiceImpl implements UserService {
 
     games.forEach(g -> System.out.println(g.getTitle()));
 
+  }
+
+  @Override
+  public void deleteUser(long userId) {
+    if (this.userContext.getId() == null || !this.userContext.isAdmin()) {
+      System.out.println("Only logged in admins are allowed to delete users!");
+      return;
+    }
+
+    String email = this.userRepository.findById(userId).orElse(null).getEmail();
+
+    if (this.userContext.getId() == userId) {
+      System.out.println("Admin can't be deleted!");
+      return;
+    }
+
+    this.userRepository.deleteById(userId);
+    System.out.printf("User with %s was removed!\n",email);
   }
 
   // Helpers

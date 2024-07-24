@@ -28,7 +28,7 @@ public class User extends BaseEntity {
     return games;
   }
 
-  @Column
+  @Column(unique = true)
   public String getEmail() {
     return email;
   }

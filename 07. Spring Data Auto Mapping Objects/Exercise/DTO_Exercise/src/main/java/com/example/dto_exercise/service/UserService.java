@@ -2,7 +2,6 @@ package com.example.dto_exercise.service;
 
 import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
-import com.example.dto_exercise.userContext.UserContext;
 
 public interface UserService {
 
@@ -13,4 +12,6 @@ public interface UserService {
   void logout();
 
   void printGamesByUserId();
+
+  void deleteUser(long l);
 }

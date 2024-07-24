@@ -77,9 +77,10 @@ public class UserServiceImpl implements UserService {
     }
 
     User user = getUser(email, password);
-
-    context.setId(user.getId());
-    context.setEmail(user.getEmail());
+    context.saveSession(
+            user.getId(),
+            user.getEmail(),
+            user.getFullName());
 
     System.out.printf("Successfully logged in %s%n", user.getFullName());
   }

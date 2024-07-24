@@ -47,6 +47,11 @@ public class GameServiceImpl implements GameService {
       return;
     }
 
+    if (this.gameRepository.findByTitle(gameAddDto.getTitle()).isPresent()) {
+      System.out.printf("Game with title %s already exists!\n", gameAddDto.getTitle());
+      return;
+    }
+
     Set<ConstraintViolation<GameAddDto>> violation =
             validationUtil.violation(gameAddDto);
 

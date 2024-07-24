@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
       return;
     }
 
+    if (this.userRepository.findUserByEmail(userRegisterDto.getEmail()).isPresent()){
+      System.out.printf("User with %s is already existing!", userRegisterDto.getEmail());
+      return;
+    }
+
     Set<ConstraintViolation<UserRegisterDto>> violation =
             validationUtil.violation(userRegisterDto);
 
@@ -140,7 +145,7 @@ public class UserServiceImpl implements UserService {
     }
 
     this.userRepository.deleteById(userId);
-    System.out.printf("User with %s was removed!\n",email);
+    System.out.printf("User with %s was removed!\n", email);
   }
 
   // Helpers

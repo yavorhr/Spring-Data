@@ -10,7 +10,7 @@ public interface UserService {
 
   void loginUser(UserLoginDto userLoginDto, UserContext userContext);
 
-  void logout();
+  void logout(UserContext context);
 
   void printGamesByUserId();
 }

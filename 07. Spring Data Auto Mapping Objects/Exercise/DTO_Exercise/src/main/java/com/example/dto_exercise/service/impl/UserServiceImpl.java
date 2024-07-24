@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
   private final ValidationUtil validationUtil;
   private final ModelMapper modelMapper;
   private final UserRepository userRepository;
-  private User user;
+
 
   public UserServiceImpl(ValidationUtil validationUtil, ModelMapper modelMapper, UserRepository userRepository) {
     this.validationUtil = validationUtil;
@@ -76,21 +76,23 @@ public class UserServiceImpl implements UserService {
       return;
     }
 
-    this.user = getUser(email, password);
+    User user = getUser(email, password);
+
+    context.setId(user.getId());
+    context.setEmail(user.getEmail());
+
     System.out.printf("Successfully logged in %s%n", user.getFullName());
-
-
   }
 
   @Override
-  public void logout() {
-    if (this.user == null) {
+  public void logout(UserContext context) {
+    if (context.getId() == 0) {
       System.out.println("Cannot log out. No user was logged in.");
       return;
     }
 
-    System.out.printf("User %s successfully logged out\n", this.user.getFullName());
-    this.user = null;
+    System.out.printf("User %s successfully logged out\n", context.getFullName());
+    context.removeSession();
   }
 
   @Override

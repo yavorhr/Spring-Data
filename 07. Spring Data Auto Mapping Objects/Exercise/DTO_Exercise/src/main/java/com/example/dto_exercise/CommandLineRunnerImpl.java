@@ -35,7 +35,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       switch (tokens[0]) {
         case "RegisterUser" -> userService.registerUser(new UserRegisterDto(tokens[1], tokens[2], tokens[3], tokens[4]));
         case "LoginUser" -> this.userService.loginUser(new UserLoginDto(tokens[1], tokens[2]), userContext  );
-        case "Logout" -> this.userService.logout();
+        case "Logout" -> this.userService.logout(userContext);
         case "AddGame" -> this.gameService.addGame(
                 new GameAddDto(tokens[1],
                         new BigDecimal(tokens[2]),

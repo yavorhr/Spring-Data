@@ -24,7 +24,7 @@ public class Game extends BaseEntity {
     public Game() {
     }
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "games")
     public Set<User> getUsers() {
         return users;
     }

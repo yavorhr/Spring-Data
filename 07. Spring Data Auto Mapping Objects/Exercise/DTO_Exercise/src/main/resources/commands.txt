@@ -1,0 +1,29 @@
+
+1. Register :
+RegisterUser|petar@abv.bg|123321sss|123321sss|Petar Petrov
+
+2. Login :
+LoginUser|petar@abv.bg|123321sss|123321sss
+
+3. AddGames :
+AddGame|Spriderman|100.00|15.5|FqnKB22pOC0|https://us.battle.net/forums/static/images/social-thumbs/overwatch.png|Overwatch is a team-based multiplayer online first-person shooter video game developed and published by Blizzard Entertainment.|24-05-2016
+AddGame|Batman|100.00|15.5|FqnKB22pOC0|https://us.battle.net/forums/static/images/social-thumbs/overwatch.png|Overwatch is a team-based multiplayer online first-person shooter video game developed and published by Blizzard Entertainment.|24-05-2016
+AddGame|Catwoman|100.00|15.5|FqnKB22pOC0|https://us.battle.net/forums/static/images/social-thumbs/overwatch.png|Overwatch is a team-based multiplayer online first-person shooter video game developed and published by Blizzard Entertainment.|24-05-2016
+
+4. Edit Game
+EditGame|1|price=1820.00|size=112.0
+
+5. Delete Game :
+DeleteGame|1
+
+6. Delete User :
+DeleteUser|2
+
+7. DetailGame :
+DetailGame|1
+
+8. OwnedGames :
+OwnedGames
+
+9 AllGames :
+AllGames

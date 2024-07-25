@@ -1,5 +1,6 @@
 package com.example.mappingobjectslab;
 
+import com.example.mappingobjectslab.entity.dto.CreateManagerDto;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;
 import com.example.mappingobjectslab.services.EmployeeService;
 import com.google.gson.Gson;
@@ -30,13 +31,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (command) {
       case "find" -> findById(Long.parseLong(tokens[1]));
       case "findAll" -> findAll();
-
+      case "save" -> saveManager(tokens[1]);
       default -> System.out.println("Invalid command");
     }
   }
 
+  private void saveManager(String json) {
+    CreateManagerDto manager = this.gson.fromJson(json, CreateManagerDto.class);
+    System.out.println();
+  }
+
   private void findAll() {
-  List<ManagerDto> managersList = this.employeeService.findAll();
+    List<ManagerDto> managersList = this.employeeService.findAll();
     System.out.println(gson.toJson(managersList));
   }
 

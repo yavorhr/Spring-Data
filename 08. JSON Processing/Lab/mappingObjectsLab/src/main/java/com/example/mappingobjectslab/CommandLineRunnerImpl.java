@@ -5,6 +5,8 @@ import com.example.mappingobjectslab.services.EmployeeService;
 import com.google.gson.Gson;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -26,13 +28,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     String command = tokens[0];
 
     switch (command) {
-      case "find" -> printManagerToJson(Long.parseLong(tokens[1]));
+      case "find" -> findById(Long.parseLong(tokens[1]));
+      case "findAll" -> findAll();
 
       default -> System.out.println("Invalid command");
     }
   }
 
-  private void printManagerToJson(long managerId) {
+  private void findAll() {
+  List<ManagerDto> managersList = this.employeeService.findAll();
+  }
+
+  private void findById(long managerId) {
     ManagerDto manager = this.employeeService.findManagerById(managerId);
     String managerJSON = this.gson.toJson(manager);
     System.out.println(managerJSON);

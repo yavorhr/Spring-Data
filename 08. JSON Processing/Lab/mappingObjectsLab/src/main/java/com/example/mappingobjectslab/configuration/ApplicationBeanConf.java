@@ -2,6 +2,7 @@ package com.example.mappingobjectslab.configuration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,5 +22,10 @@ public class ApplicationBeanConf {
             .setPrettyPrinting()
             .excludeFieldsWithoutExposeAnnotation()
             .create();
+  }
+
+  @Bean
+  public ModelMapper modelMapper() {
+    return new ModelMapper();
   }
 }

@@ -1,13 +1,30 @@
 package com.example.mappingobjectslab.entity.dto;
 import com.example.mappingobjectslab.entity.model.Employee;
+import com.google.gson.annotations.Expose;
 
 import java.math.BigDecimal;
 
 public class EmployeeDto extends BasicDto {
+  @Expose
+  private String firstName;
+  @Expose
+  private String lastName;
+  @Expose
   private BigDecimal salary;
-  private Employee manager;
+  @Expose
+  private String manager;
 
   public EmployeeDto() {
+  }
+
+  @Override
+  public String getFirstName() {
+    return firstName;
+  }
+
+  @Override
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public BigDecimal getSalary() {
@@ -18,11 +35,23 @@ public class EmployeeDto extends BasicDto {
     this.salary = salary;
   }
 
-  public Employee getManager() {
-    return manager;
+  public String getManager() {
+    return this.manager;
   }
 
   public void setManager(Employee manager) {
-    this.manager = manager;
+    this.manager = manager.getFirstName();
   }
+
+  @Override
+  public String getLastName() {
+    return lastName;
+  }
+
+  @Override
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
 }

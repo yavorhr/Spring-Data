@@ -42,9 +42,6 @@ public class UserContext {
     this.email = email;
   }
 
-  public boolean isUserLoggedIn() {
-    return this.id == 0;
-  }
 
   public String getFullName() {
     return fullName;

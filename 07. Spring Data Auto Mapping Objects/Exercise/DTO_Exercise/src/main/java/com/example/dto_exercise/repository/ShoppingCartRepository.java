@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long> {
 
-  @Query("SELECT count(g) FROM ShoppingCart s JOIN Game g WHERE g.title = : title ")
+  @Query("SELECT count(g) FROM ShoppingCart s JOIN Game g ON s.id = g.id  WHERE g.title = :title")
   long doesGameExistInShoppingCart(@Param(value = "title") String title);
 
 }

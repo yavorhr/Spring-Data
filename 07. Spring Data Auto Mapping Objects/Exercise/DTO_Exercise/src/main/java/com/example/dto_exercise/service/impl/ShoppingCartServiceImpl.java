@@ -28,8 +28,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
   @Override
   @Transactional
   public void addItem(String gameTitle) {
-    if (!this.userContext.isUserLoggedIn()) {
-      System.out.println("PLease login to be able to add game to the shopping cart!");
+    if (this.userContext.getId() == 0L) {
+      System.out.println("Please login to be able to add game to the shopping cart!");
       return;
     }
 

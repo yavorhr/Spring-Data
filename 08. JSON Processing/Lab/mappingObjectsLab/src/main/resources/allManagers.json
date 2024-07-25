@@ -1,0 +1,29 @@
+[
+  {
+    "salary": 3000.00,
+    "subordinates": [
+      {
+        "salary": 2200.00,
+        "manager": "Ivan",
+        "firstName": "Dragan",
+        "lastName": "Draganov"
+      },
+      {
+        "salary": 1500.00,
+        "manager": "Ivan",
+        "firstName": "Petko",
+        "lastName": "Petkov"
+      }
+    ],
+    "firstName": "Ivan",
+    "lastName": "Ivanov"
+  },
+  {
+    "salary": 3000.00,
+    "subordinates": [],
+    "firstName": "Joro",
+    "lastName": "Ignatov"
+  },
+  {
+    "salary": 3000.00,
+   

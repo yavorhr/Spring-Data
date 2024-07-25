@@ -2,7 +2,7 @@ package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
-import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
+import com.example.dto_exercise.model.dto.view.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.UserRepository;
 import com.example.dto_exercise.service.UserService;

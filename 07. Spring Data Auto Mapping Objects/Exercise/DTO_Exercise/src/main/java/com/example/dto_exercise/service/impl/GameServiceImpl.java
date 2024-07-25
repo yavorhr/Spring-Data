@@ -1,8 +1,8 @@
 package com.example.dto_exercise.service.impl;
 
 import com.example.dto_exercise.model.dto.GameAddDto;
-import com.example.dto_exercise.model.dto.GameViewDtoTitleAndPrice;
-import com.example.dto_exercise.model.dto.ViewGameDetailsDto;
+import com.example.dto_exercise.model.dto.view.GameViewDtoTitleAndPrice;
+import com.example.dto_exercise.model.dto.view.ViewGameDetailsDto;
 import com.example.dto_exercise.model.entity.Game;
 import com.example.dto_exercise.model.entity.User;
 import com.example.dto_exercise.repository.GameRepository;

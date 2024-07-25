@@ -25,33 +25,6 @@ public class OrderServiceImpl implements OrderService {
     this.userContext = userContext;
     this.userRepository = userRepository;
     this.gameRepository = gameRepository;
-
   }
 
-  @Override
-  public void addItem(String gameTitle) {
-
-//    if (!userContext.isUserLoggedIn()) {
-//      System.out.println("You need to log in to be able to add game to the shopping cart!");
-//      return;
-//    }
-//
-//    User currentUser = this.userRepository
-//            .findById(userContext.getId())
-//            .orElse(null);
-//
-//    Game game = this.gameRepository.findByTitle(gameTitle).orElse(null);
-//
-//    if (currentUser.getGames().contains(game)){
-//      System.out.println("You have already add this game to the shopping cart!");
-//      return;
-//    }
-//
-//    Order order = new Order();
-//
-//    order.setBuyer(currentUser);
-//    order.getGames().add();
-//
-//    this.orderRepository.save(order);
-  }
 }

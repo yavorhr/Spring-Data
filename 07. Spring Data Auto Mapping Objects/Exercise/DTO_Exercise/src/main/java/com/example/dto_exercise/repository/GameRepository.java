@@ -11,5 +11,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
   Optional<Game> findByTitle(String title);
 
-  boolean findGameById(Long id);
+
 }

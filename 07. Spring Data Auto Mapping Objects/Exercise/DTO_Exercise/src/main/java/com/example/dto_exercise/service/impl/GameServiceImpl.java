@@ -97,13 +97,15 @@ public class GameServiceImpl implements GameService {
   @Override
   @Transactional
   public void deleteGameById(long gameId) {
-    boolean doesGameExist = this.gameRepository.findGameById(gameId);
+    Game game = this.gameRepository
+            .findById(gameId)
+            .orElse(null);
 
-    if (!doesGameExist) {
-      System.out.println("There is no game with this Id!");
+    if (gameNotExisting(game, "There is no game with this Id!")) {
+      return;
     }
 
-    System.out.println("Deleted " + gameId);
+    System.out.println("Deleted " + game.getTitle());
     this.gameRepository.deleteById(gameId);
   }
 

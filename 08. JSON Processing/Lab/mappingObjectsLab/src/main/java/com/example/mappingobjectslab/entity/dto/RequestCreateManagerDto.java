@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-public class CreateManagerDto {
+public class RequestCreateManagerDto {
   @Expose
   private String firstName;
   @Expose
@@ -14,15 +14,13 @@ public class CreateManagerDto {
   @Expose
   private BigDecimal salary;
   @Expose
-  private List<EmployeeDto> subordinates;employees
-  @Expose
   private String birthday;
   @Expose
   private String address;
   @Expose
   private boolean isOnHoliday;
 
-  public CreateManagerDto() {
+  public RequestCreateManagerDto() {
   }
 
   public String getFirstName() {
@@ -47,14 +45,6 @@ public class CreateManagerDto {
 
   public void setSalary(BigDecimal salary) {
     this.salary = salary;
-  }
-
-  public List<EmployeeDto> getSubordinates() {
-    return subordinates;
-  }
-
-  public void setSubordinates(List<EmployeeDto> subordinates) {
-    this.subordinates = subordinates;
   }
 
   public String getBirthday() {

@@ -1,7 +1,8 @@
 package com.example.mappingobjectslab;
 
-import com.example.mappingobjectslab.entity.dto.CreateManagerDto;
+import com.example.mappingobjectslab.entity.dto.RequestCreateManagerDto;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;
+import com.example.mappingobjectslab.entity.dto.ResponseCreateManagerDto;
 import com.example.mappingobjectslab.services.EmployeeService;
 import com.google.gson.Gson;
 import org.springframework.boot.CommandLineRunner;
@@ -24,21 +25,26 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    System.out.println("Please insert command: ");
-    String[] tokens = scanner.nextLine().split(" ");
-    String command = tokens[0];
 
-    switch (command) {
-      case "find" -> findById(Long.parseLong(tokens[1]));
-      case "findAll" -> findAll();
-      case "save" -> saveManager(tokens[1]);
-      default -> System.out.println("Invalid command");
+    while (true) {
+      System.out.println("Please insert command: ");
+      String[] tokens = scanner.nextLine().split(" ");
+      String command = tokens[0];
+
+      switch (command) {
+        case "find" -> findById(Long.parseLong(tokens[1]));
+        case "findAll" -> findAll();
+        case "save" -> saveManager(tokens[1]);
+        default -> System.out.println("Invalid command");
+      }
     }
   }
 
   private void saveManager(String json) {
-    CreateManagerDto manager = this.gson.fromJson(json, CreateManagerDto.class);
-    System.out.println();
+    RequestCreateManagerDto manager = this.gson.fromJson(json, RequestCreateManagerDto.class);
+    ResponseCreateManagerDto savedManager = this.employeeService.save(manager);
+
+    System.out.println(this.gson.toJson(savedManager));
   }
 
   private void findAll() {

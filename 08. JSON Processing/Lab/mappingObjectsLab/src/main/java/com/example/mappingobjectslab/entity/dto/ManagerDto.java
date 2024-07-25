@@ -4,11 +4,7 @@ import com.google.gson.annotations.Expose;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ManagerDto extends BasicDto {
-  @Expose
-  private String firstName;
-  @Expose
-  private String lastName;
+public class ManagerDto extends BasicDto { ;
   @Expose
   private BigDecimal salary;
   @Expose
@@ -33,23 +29,5 @@ public class ManagerDto extends BasicDto {
     this.subordinates = subordinates;
   }
 
-  @Override
-  public String getFirstName() {
-    return firstName;
-  }
 
-  @Override
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  @Override
-  public String getLastName() {
-    return lastName;
-  }
-
-  @Override
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
 }

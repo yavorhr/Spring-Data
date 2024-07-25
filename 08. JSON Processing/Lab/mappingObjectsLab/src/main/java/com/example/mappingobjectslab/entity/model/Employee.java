@@ -1,7 +1,10 @@
 package com.example.mappingobjectslab.entity.model;
+
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,6 +23,7 @@ public class Employee {
   private List<Employee> subordinates;
 
   public Employee() {
+    this.subordinates = new ArrayList<>();
   }
 
   public boolean isOnHoliday() {

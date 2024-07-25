@@ -5,6 +5,7 @@ import com.example.dto_exercise.model.dto.UserLoginDto;
 import com.example.dto_exercise.model.dto.UserRegisterDto;
 import com.example.dto_exercise.service.GameService;
 import com.example.dto_exercise.service.OrderService;
+import com.example.dto_exercise.service.ShoppingCartService;
 import com.example.dto_exercise.service.UserService;
 import com.example.dto_exercise.userContext.UserContext;
 import org.springframework.boot.CommandLineRunner;
@@ -19,12 +20,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private final UserService userService;
   private final GameService gameService;
   private final OrderService orderService;
+  private final ShoppingCartService shoppingCartService;
 
-  public CommandLineRunnerImpl(BufferedReader bufferedReader, UserService userService, GameService gameService, UserContext userContext, OrderService orderService) {
+  public CommandLineRunnerImpl(BufferedReader bufferedReader, UserService userService, GameService gameService, UserContext userContext, OrderService orderService, ShoppingCartService shoppingCartService) {
     this.bufferedReader = bufferedReader;
     this.userService = userService;
     this.gameService = gameService;
     this.orderService = orderService;
+    this.shoppingCartService = shoppingCartService;
   }
 
   @Override
@@ -59,7 +62,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         case "AllGames" -> this.gameService.printAllGamesTitlesAndPrices();
         case "DetailGame" -> this.gameService.printGameDetails(tokens[1]);
         case "OwnedGames" -> this.userService.printGamesByUserId();
-        case "AddItem" -> this.orderService.addItem(tokens[1]);
+        case "AddItem" -> this.shoppingCartService.addItem(tokens[1]);
       }
     }
 

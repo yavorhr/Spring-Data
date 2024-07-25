@@ -15,12 +15,12 @@ public class ShoppingCart extends BaseEntity {
     this.addedGames = new HashSet<>();
   }
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.PERSIST)
   public User getUser() {
     return user;
   }
 
-  @OneToMany
+  @OneToMany(cascade = CascadeType.PERSIST)
   public Set<Game> getAddedGames() {
     return addedGames;
   }

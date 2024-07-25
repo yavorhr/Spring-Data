@@ -1,6 +1,7 @@
 package com.example.dto_exercise.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,17 +14,25 @@ public class User extends BaseEntity {
   private Set<Game> games;
   private boolean isAdmin;
   private Set<Order> orders;
+  private ShoppingCart shoppingCart;
 
   public User() {
     this.games = new HashSet<>();
     this.orders = new HashSet<>();
   }
 
-  @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+  @OneToOne(mappedBy = "user")
+  public ShoppingCart getShoppingCart() {
+    return shoppingCart;
+  }
+
+  @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
           name = "users_games",
           joinColumns = @JoinColumn(name = "users_id"),
           inverseJoinColumns = @JoinColumn(name = "games_id")
+
+
   )
   public Set<Game> getGames() {
     return games;
@@ -76,5 +85,9 @@ public class User extends BaseEntity {
 
   public void setOrders(Set<Order> orders) {
     this.orders = orders;
+  }
+
+  public void setShoppingCart(ShoppingCart shoppingCart) {
+    this.shoppingCart = shoppingCart;
   }
 }

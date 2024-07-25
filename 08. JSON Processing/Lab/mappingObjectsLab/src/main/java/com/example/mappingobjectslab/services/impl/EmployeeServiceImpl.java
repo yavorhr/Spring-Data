@@ -1,9 +1,13 @@
 package com.example.mappingobjectslab.services.impl;
+
+import com.example.mappingobjectslab.entity.dto.EmployeeDto;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;
+import com.example.mappingobjectslab.entity.model.Employee;
 import com.example.mappingobjectslab.repositories.EmployeeRepository;
 import com.example.mappingobjectslab.services.EmployeeService;
 import org.modelmapper.ModelMapper;
 
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +23,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     this.modelMapper = modelMapper;
   }
 
-
   @Override
   public ManagerDto findManagerById(long id) {
     var manager = this.employeeRepository.findById(id).orElse(null);
@@ -28,8 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public List<ManagerDto> findAll() {
-
+    List<Employee> employees = this.employeeRepository.findAllByManagerIsNull();
+    return this.modelMapper.map(employees, new TypeToken<List<ManagerDto>>(){}.getType());
   }
-
-
 }

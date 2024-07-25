@@ -37,6 +37,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   private void findAll() {
   List<ManagerDto> managersList = this.employeeService.findAll();
+    System.out.println(gson.toJson(managersList));
   }
 
   private void findById(long managerId) {

@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.math.BigDecimal;
 
-
-
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
   private final BufferedReader bufferedReader;

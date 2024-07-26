@@ -9,4 +9,6 @@ public class GlobalConstants {
   public static final String PRODUCTS_INPUT_FILE_PATH = "products.json";
 
   public static final String SEED_CATEGORIES_PATH = INPUT_RESOURCES_FILE_PATH + CATEGORIES_INPUT_FILE_PATH;
+  public static final String SEED_USERS_PATH = INPUT_RESOURCES_FILE_PATH + USERS_INPUT_FILE_PATH;
+  public static final String SEED_PRODUCTS_PATH = INPUT_RESOURCES_FILE_PATH + PRODUCTS_INPUT_FILE_PATH;
 }

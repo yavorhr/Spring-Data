@@ -5,4 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CategoriesServiceImpl implements CategoriesService {
+
+  @Override
+  public void seedCategories() {
+
+  }
 }

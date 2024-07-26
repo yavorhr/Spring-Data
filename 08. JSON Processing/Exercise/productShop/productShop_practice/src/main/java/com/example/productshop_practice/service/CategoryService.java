@@ -5,7 +5,7 @@ import com.example.productshop_practice.model.entity.Category;
 import java.io.IOException;
 import java.util.Set;
 
-public interface CategoriesService {
+public interface CategoryService {
   void seedCategories() throws IOException;
 
   Set<Category> findRandomCategories();

@@ -1,6 +1,6 @@
 package com.example.productshop_practice;
 
-import com.example.productshop_practice.service.CategoriesService;
+import com.example.productshop_practice.service.CategoryService;
 import com.example.productshop_practice.service.ProductService;
 import com.example.productshop_practice.service.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -10,11 +10,11 @@ import java.io.IOException;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
-  private final CategoriesService categoriesService;
+  private final CategoryService categoriesService;
   private final UserService userService;
   private final ProductService productService;
 
-  public CommandLineRunnerImpl(CategoriesService categoriesService, UserService userService, ProductService productService) {
+  public CommandLineRunnerImpl(CategoryService categoriesService, UserService userService, ProductService productService) {
     this.categoriesService = categoriesService;
     this.userService = userService;
     this.productService = productService;

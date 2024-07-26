@@ -4,6 +4,7 @@ import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.ProductSeedDto;
 import com.example.productshop_practice.model.entity.Product;
 import com.example.productshop_practice.repository.ProductRepository;
+import com.example.productshop_practice.service.CategoryService;
 import com.example.productshop_practice.service.ProductService;
 import com.example.productshop_practice.service.UserService;
 import com.example.productshop_practice.util.ValidationUtil;
@@ -24,34 +25,39 @@ public class ProductServiceImpl implements ProductService {
   private final ValidationUtil validationUtil;
   private final ProductRepository productRepository;
   private final UserService userService;
+  private final CategoryService categoryService;
 
-  public ProductServiceImpl(Gson gson, ModelMapper modelMapper, ValidationUtil validationUtil, ProductRepository productRepository, UserService userService) {
+  public ProductServiceImpl(Gson gson, ModelMapper modelMapper, ValidationUtil validationUtil, ProductRepository productRepository, UserService userService, CategoryService categoryService) {
     this.gson = gson;
     this.modelMapper = modelMapper;
     this.validationUtil = validationUtil;
     this.productRepository = productRepository;
     this.userService = userService;
+    this.categoryService = categoryService;
   }
 
   @Override
   public void seedProducts() throws IOException {
-    String productsJson = Files.readString(Path.of(GlobalConstants.SEED_PRODUCTS_PATH));
+    if (productRepository.count() == 0) {
+      String productsJson = Files.readString(Path.of(GlobalConstants.SEED_PRODUCTS_PATH));
 
-    ProductSeedDto[] productSeedDtos = this.gson.fromJson(productsJson, ProductSeedDto[].class);
-    Arrays.stream(productSeedDtos)
-            .filter(validationUtil::isValid)
-            .map(dto -> {
-              Product product = this.modelMapper.map(dto, Product.class);
-              product.setSeller(this.userService.findRandomUser());
+      ProductSeedDto[] productSeedDtos = this.gson.fromJson(productsJson, ProductSeedDto[].class);
+      Arrays.stream(productSeedDtos)
+              .filter(validationUtil::isValid)
+              .map(dto -> {
+                Product product = this.modelMapper.map(dto, Product.class);
 
-              if (product.getPrice().compareTo(BigDecimal.valueOf(900)) > 0) {
-                product.setBuyer(userService.findRandomUser());
-              }
+                product.setSeller(this.userService.findRandomUser());
 
-              return product;
-            })
-            .forEach(productRepository::save);
+                if (product.getPrice().compareTo(BigDecimal.valueOf(900)) > 0) {
+                  product.setBuyer(userService.findRandomUser());
+                }
 
-    System.out.println();
+                product.setCategories(this.categoryService.findRandomCategories());
+
+                return product;
+              })
+              .forEach(productRepository::save);
+    }
   }
 }

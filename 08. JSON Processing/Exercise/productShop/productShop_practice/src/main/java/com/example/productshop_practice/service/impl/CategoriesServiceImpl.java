@@ -4,7 +4,7 @@ import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.CategorySeedDto;
 import com.example.productshop_practice.model.entity.Category;
 import com.example.productshop_practice.repository.CategoryRepository;
-import com.example.productshop_practice.service.CategoriesService;
+import com.example.productshop_practice.service.CategoryService;
 import com.example.productshop_practice.util.ValidationUtil;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
-public class CategoriesServiceImpl implements CategoriesService {
+public class CategoriesServiceImpl implements CategoryService {
   private final Gson gson;
   private final ModelMapper modelMapper;
   private final CategoryRepository categoryRepository;

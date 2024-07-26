@@ -34,10 +34,11 @@ public class CategoriesServiceImpl implements CategoryService {
 
   @Override
   public void seedCategories() throws IOException {
+    if (this.categoryRepository.count() == 0) {
     String string = Files.readString(Path.of(GlobalConstants.SEED_CATEGORIES_PATH));
     CategorySeedDto[] categorySeedDtos = this.gson.fromJson(string, CategorySeedDto[].class);
 
-    if (this.categoryRepository.count() == 0) {
+
       Arrays.stream(categorySeedDtos)
               .filter(this.validationUtil::isValid)
               .map(d -> this.modelMapper.map(d, Category.class))

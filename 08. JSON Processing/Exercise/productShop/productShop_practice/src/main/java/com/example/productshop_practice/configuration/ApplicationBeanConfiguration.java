@@ -6,6 +6,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 @Component
 public class ApplicationBeanConfiguration {
 
@@ -15,10 +19,15 @@ public class ApplicationBeanConfiguration {
   }
 
   @Bean
-  public Gson gson(){
+  public Gson gson() {
     return new GsonBuilder()
             .excludeFieldsWithoutExposeAnnotation()
             .setPrettyPrinting()
             .create();
+  }
+
+  @Bean
+  public BufferedReader bufferedReader() {
+    return new BufferedReader(new InputStreamReader(System.in));
   }
 }

@@ -2,6 +2,7 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.ProductSeedDto;
+import com.example.productshop_practice.model.dto.view.ProductDtoWithNamePriceAndSellerName;
 import com.example.productshop_practice.model.entity.Product;
 import com.example.productshop_practice.repository.ProductRepository;
 import com.example.productshop_practice.service.CategoryService;
@@ -17,6 +18,8 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ProductServiceImpl implements ProductService {
@@ -59,5 +62,26 @@ public class ProductServiceImpl implements ProductService {
               })
               .forEach(productRepository::save);
     }
+  }
+
+  @Override
+  public List<ProductDtoWithNamePriceAndSellerName> findAllUsersWithMoreThanOneSoldProducts() {
+    List<Product> products = this.productRepository
+            .findAllByPriceBetweenAndBuyerIsNullOrderByPrice(BigDecimal.valueOf(500), BigDecimal.valueOf(1000));
+
+   return  products
+            .stream()
+            .map(product -> {
+              ProductDtoWithNamePriceAndSellerName dto =
+                      this.modelMapper.map(product, ProductDtoWithNamePriceAndSellerName.class);
+
+              dto.setSeller(String.format("%s %s"
+                      ,product.getSeller().getFirstName()
+                      ,product.getSeller().getLastName()));
+
+              return dto;
+            })
+            .collect(Collectors.toList());
+
   }
 }

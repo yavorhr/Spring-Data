@@ -10,11 +10,8 @@ public class User extends BaseEntity {
     private String firstName;
     private String lastName;
     private Integer age;
-
     private Set<User> fiends;
     private Set <Product> soldProducts;
-
-
 
     public User() {
     }

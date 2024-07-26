@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Component
 public class UserServiceImpl implements UserService {
@@ -40,5 +41,13 @@ public class UserServiceImpl implements UserService {
               .map(u -> this.modelMapper.map(u, User.class))
               .forEach(this.userRepository::save);
     }
+  }
+
+  @Override
+  public User findRandomUser() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.userRepository.count() + 1);
+    return this.userRepository
+            .findById(randomId)
+            .orElse(null);
   }
 }

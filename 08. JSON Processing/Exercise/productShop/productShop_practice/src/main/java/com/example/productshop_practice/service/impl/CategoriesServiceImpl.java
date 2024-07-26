@@ -40,7 +40,5 @@ public class CategoriesServiceImpl implements CategoriesService {
               .map(d -> this.modelMapper.map(d, Category.class))
               .forEach(this.categoryRepository::save);
     }
-
-
   }
 }

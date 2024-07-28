@@ -1,8 +1,8 @@
 package com.example.productshop_practice.constant;
 
 public class GlobalConstants {
+  // Read from input dir
   public static final String INPUT_RESOURCES_FILE_PATH = "src/main/resources/input_files/";
-  public static final String OUTPUT_RESOURCES_FILE_PATH = "src/main/resources/output_files/";
 
   public static final String CATEGORIES_INPUT_FILE_PATH = "categories.json";
   public static final String USERS_INPUT_FILE_PATH = "users.json";
@@ -12,7 +12,12 @@ public class GlobalConstants {
   public static final String SEED_USERS_PATH = INPUT_RESOURCES_FILE_PATH + USERS_INPUT_FILE_PATH;
   public static final String SEED_PRODUCTS_PATH = INPUT_RESOURCES_FILE_PATH + PRODUCTS_INPUT_FILE_PATH;
 
+  // Save to output dir
+  public static final String OUTPUT_RESOURCES_FILE_PATH = "src/main/resources/output_files/";
+
+  public static final String PRODUCTS_IN_RANGE_OUTPUT = "products_in_range.json";
+
+  public static final String PRODUCTS_IN_RANGE = OUTPUT_RESOURCES_FILE_PATH + PRODUCTS_IN_RANGE_OUTPUT;
   public static final String SAVE_CATEGORIES_OUTPUT = OUTPUT_RESOURCES_FILE_PATH + CATEGORIES_INPUT_FILE_PATH;
   public static final String SAVE_USERS_OUTPUT = OUTPUT_RESOURCES_FILE_PATH+ USERS_INPUT_FILE_PATH;
-  public static final String SAVE_PRODUCTS_OUTPUT = OUTPUT_RESOURCES_FILE_PATH + PRODUCTS_INPUT_FILE_PATH;
 }

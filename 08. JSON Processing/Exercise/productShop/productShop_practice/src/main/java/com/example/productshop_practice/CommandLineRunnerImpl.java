@@ -51,7 +51,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     String content = this.gson.toJson(dtos);
 
     Files
-            .write(Path.of(GlobalConstants.SAVE_PRODUCTS_OUTPUT),
+            .write(Path.of(GlobalConstants.PRODUCTS_IN_RANGE),
                     Collections.singleton(content));
   }
 

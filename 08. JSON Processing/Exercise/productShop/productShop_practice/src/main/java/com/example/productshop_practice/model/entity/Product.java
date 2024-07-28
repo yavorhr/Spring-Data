@@ -10,7 +10,6 @@ import java.util.Set;
 public class Product extends BaseEntity {
   private String name;
   private BigDecimal price;
-
   private User buyer;
   private User seller;
   private Set<Category> categories;

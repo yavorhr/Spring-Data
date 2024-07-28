@@ -2,6 +2,7 @@ package com.example.productshop_practice;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.view.ProductDtoWithNamePriceAndSellerName;
+import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
 import com.example.productshop_practice.service.CategoryService;
 import com.example.productshop_practice.service.ProductService;
 import com.example.productshop_practice.service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,7 +43,19 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     switch (task) {
       case 1 -> productsInRange();
+      case 2 -> soldProducts();
     }
+  }
+
+  private void soldProducts() throws IOException {
+    List<SellerDtoWithSoldProducts> sellers =
+            this.userService.findAllUsersWithMoreThanOneSoldProducts();
+
+    String content = this.gson.toJson(sellers);
+
+    Files
+            .write(Path.of(GlobalConstants.SOLD_PRODUCTS),
+                    Collections.singleton(content));
   }
 
   private void productsInRange() throws IOException {
@@ -53,6 +67,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     Files
             .write(Path.of(GlobalConstants.PRODUCTS_IN_RANGE),
                     Collections.singleton(content));
+
   }
 
   private void seedData() throws IOException {

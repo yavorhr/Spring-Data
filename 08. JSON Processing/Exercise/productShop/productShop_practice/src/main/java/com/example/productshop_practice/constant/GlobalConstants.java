@@ -16,8 +16,9 @@ public class GlobalConstants {
   public static final String OUTPUT_RESOURCES_FILE_PATH = "src/main/resources/output_files/";
 
   public static final String PRODUCTS_IN_RANGE_OUTPUT = "products_in_range.json";
+  public static final String SOLD_PRODUCTS_OUTPUT = "sold_products.json";
 
   public static final String PRODUCTS_IN_RANGE = OUTPUT_RESOURCES_FILE_PATH + PRODUCTS_IN_RANGE_OUTPUT;
-  public static final String SAVE_CATEGORIES_OUTPUT = OUTPUT_RESOURCES_FILE_PATH + CATEGORIES_INPUT_FILE_PATH;
+  public static final String SOLD_PRODUCTS = OUTPUT_RESOURCES_FILE_PATH + SOLD_PRODUCTS_OUTPUT;
   public static final String SAVE_USERS_OUTPUT = OUTPUT_RESOURCES_FILE_PATH+ USERS_INPUT_FILE_PATH;
 }

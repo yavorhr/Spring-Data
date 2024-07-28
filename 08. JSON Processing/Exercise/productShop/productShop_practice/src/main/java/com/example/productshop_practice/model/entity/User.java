@@ -1,10 +1,8 @@
 package com.example.productshop_practice.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,13 +12,21 @@ public class User extends BaseEntity {
   private String lastName;
   private int age;
   private Set<User> friends;
+  private Set <Product> soldProducts;
 
   public User() {
+    this.friends = new HashSet<>();
+    this.soldProducts = new HashSet<>();
   }
 
   @ManyToMany
   public Set<User> getFriends() {
     return friends;
+  }
+
+  @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
+  public Set<Product> getSoldProducts() {
+    return soldProducts;
   }
 
   @Column
@@ -36,6 +42,10 @@ public class User extends BaseEntity {
   @Column(name = "last_name", nullable = false)
   public String getLastName() {
     return lastName;
+  }
+
+  public void setSoldProducts(Set<Product> soldProducts) {
+    this.soldProducts = soldProducts;
   }
 
   public void setFriends(Set<User> friends) {

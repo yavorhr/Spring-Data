@@ -2,6 +2,7 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.UserSeedDto;
+import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
 import com.example.productshop_practice.model.entity.User;
 import com.example.productshop_practice.repository.UserRepository;
 import com.example.productshop_practice.service.UserService;
@@ -14,7 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Component
 public class UserServiceImpl implements UserService {
@@ -49,5 +52,16 @@ public class UserServiceImpl implements UserService {
     return this.userRepository
             .findById(randomId)
             .orElse(null);
+  }
+
+  @Override
+  public List<SellerDtoWithSoldProducts> findAllUsersWithMoreThanOneSoldProducts() {
+    List<User> users = this.userRepository
+            .findAllUsersWithMoreThanOneSoldProductsOrderByLastNameThanFirstName();
+
+   return
+          users.stream().map(u -> modelMapper.map(u, SellerDtoWithSoldProducts.class))
+            .collect(Collectors.toList());
+
   }
 }

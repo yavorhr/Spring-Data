@@ -2,7 +2,7 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.CategorySeedDto;
-import com.example.productshop_practice.model.dto.view.CategoryDtoWithProductCountAvgTotalSum;
+import com.example.productshop_practice.model.dto.view.thirdQuery.CategoryDtoWithProductCountAvgTotalSum;
 import com.example.productshop_practice.model.entity.Category;
 import com.example.productshop_practice.repository.CategoryRepository;
 import com.example.productshop_practice.service.CategoryService;

@@ -2,7 +2,9 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.UserSeedDto;
-import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
+import com.example.productshop_practice.model.dto.view.secondQuery.SellerWithSoldProductsDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.SellersCountAndSellersSoldProductsDataDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.SellerDataAndProductCountAndDataDto;
 import com.example.productshop_practice.model.entity.User;
 import com.example.productshop_practice.repository.UserRepository;
 import com.example.productshop_practice.service.UserService;
@@ -55,13 +57,42 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public List<SellerDtoWithSoldProducts> findAllUsersWithMoreThanOneSoldProducts() {
+  public List<SellerWithSoldProductsDto> findAllUsersWithMoreThanOneSoldProducts() {
     List<User> users = this.userRepository
             .findAllUsersWithMoreThanOneSoldProductsOrderByLastNameThanFirstName();
 
-   return
-          users.stream().map(u -> modelMapper.map(u, SellerDtoWithSoldProducts.class))
-            .collect(Collectors.toList());
+    return
+            users.stream().map(u -> modelMapper.map(u, SellerWithSoldProductsDto.class))
+                    .collect(Collectors.toList());
 
   }
+
+  @Override
+  public SellersCountAndSellersSoldProductsDataDto findAllUsersCountWithMoreThanOneSoldProducts() {
+    List<User> users = this.userRepository
+            .findAllBySoldProductsCount();
+
+    SellersCountAndSellersSoldProductsDataDto dto = new SellersCountAndSellersSoldProductsDataDto();
+    dto.setUsersCount(users.size());
+
+    List<SellerDataAndProductCountAndDataDto> innerDto =
+            users
+                    .stream()
+                    .map(u -> {
+                              SellerDataAndProductCountAndDataDto map =
+                                      this.modelMapper.map(u, SellerDataAndProductCountAndDataDto.class);
+                              int size = map.getSoldProducts().size();
+
+
+                            }
+                    ).collect(Collectors.toList());
+
+
+    return null;
+  }
+
+  ;
+
+
 }
+

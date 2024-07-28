@@ -1,6 +1,7 @@
 package com.example.productshop_practice.service;
 
-import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
+import com.example.productshop_practice.model.dto.view.secondQuery.SellerWithSoldProductsDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.SellersCountAndSellersSoldProductsDataDto;
 import com.example.productshop_practice.model.entity.User;
 
 import java.io.IOException;
@@ -11,5 +12,7 @@ public interface UserService {
 
   User findRandomUser();
 
-  List<SellerDtoWithSoldProducts> findAllUsersWithMoreThanOneSoldProducts();
+  List<SellerWithSoldProductsDto> findAllUsersWithMoreThanOneSoldProducts();
+
+  SellersCountAndSellersSoldProductsDataDto findAllUsersCountWithMoreThanOneSoldProducts();
 }

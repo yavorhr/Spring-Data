@@ -2,7 +2,7 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.ProductSeedDto;
-import com.example.productshop_practice.model.dto.view.ProductDtoWithNamePriceAndSellerName;
+import com.example.productshop_practice.model.dto.view.firstQuery.ProductWithNamePriceAndSellerNameDto;
 import com.example.productshop_practice.model.entity.Product;
 import com.example.productshop_practice.repository.ProductRepository;
 import com.example.productshop_practice.service.CategoryService;
@@ -65,15 +65,15 @@ public class ProductServiceImpl implements ProductService {
   }
 
   @Override
-  public List<ProductDtoWithNamePriceAndSellerName> findAllUsersWithMoreThanOneSoldProducts() {
+  public List<ProductWithNamePriceAndSellerNameDto> findAllUsersWithMoreThanOneSoldProducts() {
     List<Product> products = this.productRepository
             .findAllByPriceBetweenAndBuyerIsNullOrderByPrice(BigDecimal.valueOf(500), BigDecimal.valueOf(1000));
 
    return  products
             .stream()
             .map(product -> {
-              ProductDtoWithNamePriceAndSellerName dto =
-                      this.modelMapper.map(product, ProductDtoWithNamePriceAndSellerName.class);
+              ProductWithNamePriceAndSellerNameDto dto =
+                      this.modelMapper.map(product, ProductWithNamePriceAndSellerNameDto.class);
 
               dto.setSeller(String.format("%s %s"
                       ,product.getSeller().getFirstName()

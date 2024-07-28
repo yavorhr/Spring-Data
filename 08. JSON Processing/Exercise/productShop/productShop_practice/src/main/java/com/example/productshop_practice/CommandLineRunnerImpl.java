@@ -1,9 +1,10 @@
 package com.example.productshop_practice;
 
 import com.example.productshop_practice.constant.GlobalConstants;
-import com.example.productshop_practice.model.dto.view.CategoryDtoWithProductCountAvgTotalSum;
-import com.example.productshop_practice.model.dto.view.ProductDtoWithNamePriceAndSellerName;
-import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
+import com.example.productshop_practice.model.dto.view.thirdQuery.CategoryDtoWithProductCountAvgTotalSum;
+import com.example.productshop_practice.model.dto.view.firstQuery.ProductWithNamePriceAndSellerNameDto;
+import com.example.productshop_practice.model.dto.view.secondQuery.SellerWithSoldProductsDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.SellersCountAndSellersSoldProductsDataDto;
 import com.example.productshop_practice.service.CategoryService;
 import com.example.productshop_practice.service.ProductService;
 import com.example.productshop_practice.service.UserService;
@@ -12,7 +13,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,7 +46,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> productsInRange();
       case 2 -> soldProducts();
       case 3 -> categoriesByProductsCount();
+      case 4 -> usersAndProducts();
     }
+  }
+
+  private void usersAndProducts() {
+    SellersCountAndSellersSoldProductsDataDto usersDto = this.userService.findAllUsersCountWithMoreThanOneSoldProducts();
+    System.out.println();
   }
 
   private void categoriesByProductsCount() throws IOException {
@@ -61,7 +67,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void soldProducts() throws IOException {
-    List<SellerDtoWithSoldProducts> sellers =
+    List<SellerWithSoldProductsDto> sellers =
             this.userService.findAllUsersWithMoreThanOneSoldProducts();
 
     String content = this.gson.toJson(sellers);
@@ -72,7 +78,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void productsInRange() throws IOException {
-    List<ProductDtoWithNamePriceAndSellerName> dtos =
+    List<ProductWithNamePriceAndSellerNameDto> dtos =
             this.productService.findAllUsersWithMoreThanOneSoldProducts();
 
     String content = this.gson.toJson(dtos);

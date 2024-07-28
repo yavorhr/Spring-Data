@@ -1,6 +1,7 @@
 package com.example.productshop_practice;
 
 import com.example.productshop_practice.constant.GlobalConstants;
+import com.example.productshop_practice.model.dto.view.CategoryDtoWithProductCountAvgTotalSum;
 import com.example.productshop_practice.model.dto.view.ProductDtoWithNamePriceAndSellerName;
 import com.example.productshop_practice.model.dto.view.SellerDtoWithSoldProducts;
 import com.example.productshop_practice.service.CategoryService;
@@ -44,7 +45,19 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (task) {
       case 1 -> productsInRange();
       case 2 -> soldProducts();
+      case 3 -> categoriesByProductsCount();
     }
+  }
+
+  private void categoriesByProductsCount() throws IOException {
+    List<CategoryDtoWithProductCountAvgTotalSum> categories =
+            this.categoriesService.findAllProductsWithAggregatedStats();
+
+    String content = this.gson.toJson(categories);
+
+    Files
+            .write(Path.of(GlobalConstants.CATEGORIES_BY_PRODUCTS),
+                    Collections.singleton(content));
   }
 
   private void soldProducts() throws IOException {

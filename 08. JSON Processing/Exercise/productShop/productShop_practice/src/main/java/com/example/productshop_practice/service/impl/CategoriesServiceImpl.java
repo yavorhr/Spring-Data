@@ -2,6 +2,7 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.CategorySeedDto;
+import com.example.productshop_practice.model.dto.view.CategoryDtoWithProductCountAvgTotalSum;
 import com.example.productshop_practice.model.entity.Category;
 import com.example.productshop_practice.repository.CategoryRepository;
 import com.example.productshop_practice.service.CategoryService;
@@ -15,8 +16,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoriesServiceImpl implements CategoryService {
@@ -35,8 +38,8 @@ public class CategoriesServiceImpl implements CategoryService {
   @Override
   public void seedCategories() throws IOException {
     if (this.categoryRepository.count() == 0) {
-    String string = Files.readString(Path.of(GlobalConstants.SEED_CATEGORIES_PATH));
-    CategorySeedDto[] categorySeedDtos = this.gson.fromJson(string, CategorySeedDto[].class);
+      String string = Files.readString(Path.of(GlobalConstants.SEED_CATEGORIES_PATH));
+      CategorySeedDto[] categorySeedDtos = this.gson.fromJson(string, CategorySeedDto[].class);
 
 
       Arrays.stream(categorySeedDtos)
@@ -59,5 +62,31 @@ public class CategoriesServiceImpl implements CategoryService {
       categories.add(category);
     }
     return categories;
+  }
+
+  @Override
+  public List<CategoryDtoWithProductCountAvgTotalSum> findAllProductsWithAggregatedStats() {
+    return this.categoryRepository
+            .findAll()
+            .stream()
+            .map(c -> {
+              CategoryDtoWithProductCountAvgTotalSum dto = new CategoryDtoWithProductCountAvgTotalSum();
+
+              dto.setCategory(c.getName());
+              dto.setProductsCount(c.getProducts().size());
+              dto.setAveragePrice(
+                      c.getProducts()
+                              .stream()
+                              .mapToDouble(cat -> cat.getPrice().doubleValue())
+                              .average()
+                              .orElse(0));
+              dto.setTotalRevenue(
+                      c.getProducts()
+                              .stream()
+                              .mapToDouble(cat -> cat.getPrice().doubleValue())
+                              .sum());
+              return dto;
+            })
+            .collect(Collectors.toList());
   }
 }

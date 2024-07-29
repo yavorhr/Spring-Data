@@ -50,8 +50,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  private void usersAndProducts() {
+  private void usersAndProducts() throws IOException {
     SellersCountAndSellersSoldProductsDataDto usersDto = this.userService.findAllUsersCountWithMoreThanOneSoldProducts();
+    String content = this.gson.toJson(usersDto);
+
+    Files
+            .write(Path.of(GlobalConstants.USERS_AND_PRODUCTS ),
+                    Collections.singleton(content));
     System.out.println();
   }
 

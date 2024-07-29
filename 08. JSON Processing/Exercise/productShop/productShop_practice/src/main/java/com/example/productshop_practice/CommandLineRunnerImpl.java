@@ -54,10 +54,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     SellersCountAndSellersSoldProductsDataDto usersDto = this.userService.findAllUsersCountWithMoreThanOneSoldProducts();
     String content = this.gson.toJson(usersDto);
 
-    Files
-            .write(Path.of(GlobalConstants.USERS_AND_PRODUCTS ),
-                    Collections.singleton(content));
-    System.out.println();
+    writeToFile(content, GlobalConstants.USERS_AND_PRODUCTS);
   }
 
   private void categoriesByProductsCount() throws IOException {
@@ -66,9 +63,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     String content = this.gson.toJson(categories);
 
-    Files
-            .write(Path.of(GlobalConstants.CATEGORIES_BY_PRODUCTS),
-                    Collections.singleton(content));
+    writeToFile(content, GlobalConstants.CATEGORIES_BY_PRODUCTS);
   }
 
   private void soldProducts() throws IOException {
@@ -77,9 +72,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     String content = this.gson.toJson(sellers);
 
-    Files
-            .write(Path.of(GlobalConstants.SOLD_PRODUCTS),
-                    Collections.singleton(content));
+    writeToFile(content, GlobalConstants.SOLD_PRODUCTS);
   }
 
   private void productsInRange() throws IOException {
@@ -88,10 +81,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     String content = this.gson.toJson(dtos);
 
-    Files
-            .write(Path.of(GlobalConstants.PRODUCTS_IN_RANGE),
-                    Collections.singleton(content));
+    writeToFile(content, GlobalConstants.PRODUCTS_IN_RANGE);
+  }
 
+  // Helpers
+
+  private void writeToFile(String content, String path) throws IOException {
+    Files
+            .write(Path.of(path),
+                    Collections.singleton(content));
   }
 
   private void seedData() throws IOException {

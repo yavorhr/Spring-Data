@@ -2,7 +2,10 @@ package com.example.cardealer_practice.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")
@@ -10,6 +13,7 @@ public class Car extends BaseEntity {
   private String make;
   private String model;
   private int travelledDistance;
+  private Set<Part> parts;
 
   public Car() {
   }
@@ -29,6 +33,11 @@ public class Car extends BaseEntity {
     return travelledDistance;
   }
 
+  @ManyToMany
+  public Set<Part> getParts() {
+    return parts;
+  }
+
   public void setMake(String make) {
     this.make = make;
   }
@@ -39,5 +48,9 @@ public class Car extends BaseEntity {
 
   public void setTravelledDistance(int travelledDistance) {
     this.travelledDistance = travelledDistance;
+  }
+
+  public void setParts(Set<Part> parts) {
+    this.parts = parts;
   }
 }

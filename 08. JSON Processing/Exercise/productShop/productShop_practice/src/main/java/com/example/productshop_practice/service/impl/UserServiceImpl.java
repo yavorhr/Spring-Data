@@ -2,6 +2,8 @@ package com.example.productshop_practice.service.impl;
 
 import com.example.productshop_practice.constant.GlobalConstants;
 import com.example.productshop_practice.model.dto.UserSeedDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.ProductDto;
+import com.example.productshop_practice.model.dto.view.fourthQuery.ProductsCountAndDataDto;
 import com.example.productshop_practice.model.dto.view.secondQuery.SellerWithSoldProductsDto;
 import com.example.productshop_practice.model.dto.view.fourthQuery.SellersCountAndSellersSoldProductsDataDto;
 import com.example.productshop_practice.model.dto.view.fourthQuery.SellerDataAndProductCountAndDataDto;
@@ -72,27 +74,30 @@ public class UserServiceImpl implements UserService {
     List<User> users = this.userRepository
             .findAllBySoldProductsCount();
 
-    SellersCountAndSellersSoldProductsDataDto dto = new SellersCountAndSellersSoldProductsDataDto();
-    dto.setUsersCount(users.size());
+    SellersCountAndSellersSoldProductsDataDto sellersDto = new SellersCountAndSellersSoldProductsDataDto();
+    sellersDto.setUsersCount(users.size());
 
-    List<SellerDataAndProductCountAndDataDto> innerDto =
-            users
-                    .stream()
-                    .map(u -> {
-                              SellerDataAndProductCountAndDataDto map =
-                                      this.modelMapper.map(u, SellerDataAndProductCountAndDataDto.class);
-                              int size = map.getSoldProducts().size();
+//    {
+//      "usersCount":35,
+//            "users": {}
 
+    List<SellerDataAndProductCountAndDataDto> collect = users
+            .stream()
+            .map(u -> {
+                      SellerDataAndProductCountAndDataDto sellerDataAndProductCountAndDataDto =
+                              this.modelMapper.map(u, SellerDataAndProductCountAndDataDto.class);
 
-                            }
-                    ).collect(Collectors.toList());
+                      List<ProductDto> productDtos =
+                              Arrays.stream(modelMapper.map(u.getSoldProducts(), ProductDto[].class)).toList();
 
+                      sellerDataAndProductCountAndDataDto.setSoldProducts(productDtos);
+                      return sellerDataAndProductCountAndDataDto;
+                    }
+            ).collect(Collectors.toList());
 
-    return null;
+    sellersDto.setUsers(collect);
+
+    return sellersDto;
   }
-
-  ;
-
-
 }
 

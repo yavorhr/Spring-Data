@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -21,11 +22,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   seedData();
   }
 
-  private void seedData() {
+  private void seedData() throws IOException {
     seedSuppliers();
   }
 
-  private void seedSuppliers() {
+  private void seedSuppliers() throws IOException {
     this.supplierService.seedSuppliers();
   }
 }

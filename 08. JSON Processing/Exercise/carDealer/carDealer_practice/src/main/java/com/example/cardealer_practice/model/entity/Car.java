@@ -1,5 +1,6 @@
 package com.example.cardealer_practice.model.entity;
 import jakarta.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")

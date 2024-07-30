@@ -2,6 +2,7 @@ package com.example.cardealer_practice.model.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table

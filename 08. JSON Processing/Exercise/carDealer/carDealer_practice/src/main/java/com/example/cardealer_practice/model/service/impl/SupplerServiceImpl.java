@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SupplerServiceImpl implements SupplierService {
@@ -42,5 +43,11 @@ public class SupplerServiceImpl implements SupplierService {
               .map(d -> this.modelMapper.map(d, Supplier.class))
               .forEach(this.supplierRepository::save);
     }
+  }
+
+  @Override
+  public Supplier findRandomSupplier() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count()+1);
+    return this.supplierRepository.findById(randomId).orElse(null);
   }
 }

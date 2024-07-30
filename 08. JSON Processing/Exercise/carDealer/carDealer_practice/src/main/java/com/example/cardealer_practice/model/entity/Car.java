@@ -18,29 +18,19 @@ public class Car extends BaseEntity{
         return make;
     }
 
-    public void setMake(String make) {
-        this.make = make;
-    }
     @Column
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
     @Column(name = "travelled_distance")
     public Long getTravelledDistance() {
         return travelledDistance;
     }
 
-    public void setTravelledDistance(Long distance) {
-        this.travelledDistance = distance;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "cars_parts",
-            joinColumns = @JoinColumn(name = "car_is"),
+            joinColumns = @JoinColumn(name = "car_id"),
             inverseJoinColumns = @JoinColumn(name = "part_id"))
     public Set<Part> getParts() {
         return parts;
@@ -49,4 +39,17 @@ public class Car extends BaseEntity{
     public void setParts(Set<Part> parts) {
         this.parts = parts;
     }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setTravelledDistance(Long distance) {
+        this.travelledDistance = distance;
+    }
+
 }

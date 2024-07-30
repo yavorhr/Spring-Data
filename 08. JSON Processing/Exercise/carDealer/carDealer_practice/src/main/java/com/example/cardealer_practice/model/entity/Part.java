@@ -1,7 +1,6 @@
 package com.example.cardealer_practice.model.entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -22,17 +21,9 @@ public class Part extends BaseEntity {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Column
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     @Column
@@ -40,12 +31,7 @@ public class Part extends BaseEntity {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    @ManyToOne()
-    @JoinColumn(name = "supplier_id")
+    @ManyToOne
     public Supplier getSupplier() {
         return supplier;
     }
@@ -61,5 +47,17 @@ public class Part extends BaseEntity {
 
     public void setCars(Set<Car> cars) {
         this.cars = cars;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

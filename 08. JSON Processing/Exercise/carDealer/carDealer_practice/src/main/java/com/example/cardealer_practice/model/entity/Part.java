@@ -2,6 +2,7 @@ package com.example.cardealer_practice.model.entity;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -59,5 +60,18 @@ public class Part extends BaseEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Part part = (Part) o;
+        return quantity == part.quantity && Objects.equals(name, part.name) && Objects.equals(price, part.price) && Objects.equals(cars, part.cars) && Objects.equals(supplier, part.supplier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, quantity, cars, supplier);
     }
 }

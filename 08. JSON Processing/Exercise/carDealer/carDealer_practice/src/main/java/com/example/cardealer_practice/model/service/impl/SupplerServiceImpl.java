@@ -7,7 +7,6 @@ import com.example.cardealer_practice.model.repository.SupplierRepository;
 import com.example.cardealer_practice.model.service.SupplierService;
 import com.example.cardealer_practice.model.util.ValidationUtil;
 import com.google.gson.Gson;
-import jakarta.validation.Validator;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +33,7 @@ public class SupplerServiceImpl implements SupplierService {
   @Override
   public void seedSuppliers() throws IOException {
     if (this.supplierRepository.count() == 0) {
-      String suppliersJson = Files.readString(Path.of(ProjectConstants.SAVE_SUPPLIERS_TO_FILE));
+      String suppliersJson = Files.readString(Path.of(ProjectConstants.SUPPLIERS_INPUT_PATH));
 
       SupplierDto[] dtos = this.gson.fromJson(suppliersJson, SupplierDto[].class);
 

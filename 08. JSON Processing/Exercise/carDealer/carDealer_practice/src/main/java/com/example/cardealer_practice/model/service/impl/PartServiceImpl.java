@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PartServiceImpl implements PartService {
@@ -45,7 +48,24 @@ public class PartServiceImpl implements PartService {
                 part.setSupplier(this.supplierService.findRandomSupplier());
 
                 return part;
-              }).forEach((this.partRepository::save));
+              })
+              .forEach((this.partRepository::save));
     }
+  }
+
+  @Override
+  public Set<Part> findRandomParts() {
+    long randomCountPartsToBeAdded = ThreadLocalRandom.current().nextLong(3, 5);
+    long repositorySize = this.partRepository.count();
+
+    Set<Part> randomParts = new HashSet<>();
+
+    for (int i = 0; i < randomCountPartsToBeAdded; i++) {
+      long randomId = ThreadLocalRandom.current().nextLong(1, repositorySize + 1);
+      Part part = this.partRepository.findById(randomId).orElse(null);
+      randomParts.add(part);
+    }
+
+    return randomParts;
   }
 }

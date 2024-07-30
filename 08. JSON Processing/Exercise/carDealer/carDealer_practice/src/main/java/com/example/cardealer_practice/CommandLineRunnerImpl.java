@@ -19,11 +19,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-  seedData();
+    seedData();
   }
 
   private void seedData() throws IOException {
     seedSuppliers();
+    seedParts();
+  }
+
+  // Helpers
+
+  private void seedParts() {
   }
 
   private void seedSuppliers() throws IOException {

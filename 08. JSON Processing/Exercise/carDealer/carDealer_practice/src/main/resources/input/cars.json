@@ -1,5 +1,4 @@
-[ 
-{"make":"Opel", "model":"Omega", "travelledDistance": 2147483647},
+[{"make":"Opel", "model":"Omega", "travelledDistance": 2147483647},
 {"make":"Opel", "model":"Astra", "travelledDistance": 9223372036854775807},
 {"make":"Opel", "model":"Astra", "travelledDistance": 922337203685807},
 {"make":"Opel", "model":"Corsa", "travelledDistance": 214747},

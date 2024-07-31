@@ -1,6 +1,7 @@
 package com.example.cardealer_practice.model.service.impl;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
+import com.example.cardealer_practice.model.entity.Car;
 import com.example.cardealer_practice.model.entity.Part;
 import com.example.cardealer_practice.model.entity.dto.seed.PartDto;
 import com.example.cardealer_practice.model.repository.PartRepository;
@@ -55,17 +56,18 @@ public class PartServiceImpl implements PartService {
 
   @Override
   public Set<Part> findRandomParts() {
-    long randomCountPartsToBeAdded = ThreadLocalRandom.current().nextLong(3, 5);
+    int randomCountPartsToBeAdded = ThreadLocalRandom.current().nextInt(3, 5);
     long repositorySize = this.partRepository.count();
 
-    Set<Part> randomParts = new HashSet<>();
+    Set<Part> partsSet = new HashSet<>();
 
     for (int i = 0; i < randomCountPartsToBeAdded; i++) {
       long randomId = ThreadLocalRandom.current().nextLong(1, repositorySize + 1);
       Part part = this.partRepository.findById(randomId).orElse(null);
-      randomParts.add(part);
+      part.setSupplier(this.supplierService.findRandomSupplier());
+      partsSet.add(part);
     }
 
-    return randomParts;
+    return partsSet;
   }
 }

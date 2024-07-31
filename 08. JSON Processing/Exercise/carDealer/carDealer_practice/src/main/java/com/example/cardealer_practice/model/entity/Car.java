@@ -1,5 +1,7 @@
 package com.example.cardealer_practice.model.entity;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,6 +13,7 @@ public class Car extends BaseEntity{
     private Set<Part> parts;
 
     public Car() {
+        this.parts = new HashSet<>();
     }
 
     @Column
@@ -29,7 +32,8 @@ public class Car extends BaseEntity{
     }
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "cars_parts",
+    @JoinTable(
+            name = "cars_parts",
             joinColumns = @JoinColumn(name = "car_id"),
             inverseJoinColumns = @JoinColumn(name = "part_id"))
     public Set<Part> getParts() {

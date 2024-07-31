@@ -23,7 +23,6 @@ public class SupplerServiceImpl implements SupplierService {
   private final Gson gson;
   private final ValidationUtil validationUtil;
 
-
   public SupplerServiceImpl(SupplierRepository supplierRepository, ModelMapper modelMapper, Gson gson, ValidationUtil validationUtil) {
     this.supplierRepository = supplierRepository;
     this.modelMapper = modelMapper;

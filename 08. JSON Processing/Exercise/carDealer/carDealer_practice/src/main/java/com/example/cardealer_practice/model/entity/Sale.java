@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table
 public class Sale extends BaseEntity{
-    private int discount;
+    private double discount;
     private Car car;
     private Customer customer;
 
@@ -13,7 +13,7 @@ public class Sale extends BaseEntity{
     }
 
     @Column
-    public int getDiscount() {
+    public double getDiscount() {
         return discount;
     }
 
@@ -32,7 +32,7 @@ public class Sale extends BaseEntity{
         this.customer = customer;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(double discount) {
         this.discount = discount;
     }
 

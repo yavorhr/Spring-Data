@@ -1,9 +1,7 @@
 package com.example.cardealer_practice;
 
-import com.example.cardealer_practice.model.service.CarService;
-import com.example.cardealer_practice.model.service.CustomerService;
-import com.example.cardealer_practice.model.service.PartService;
-import com.example.cardealer_practice.model.service.SupplierService;
+import com.example.cardealer_practice.model.repository.SaleRepository;
+import com.example.cardealer_practice.model.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +15,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private final PartService partService;
   private final CarService carService;
   private final CustomerService customerService;
+  private final SaleService saleService;
 
-  public CommandLineRunnerImpl(BufferedReader bufferedReader, SupplierService supplierService, PartService partService, CarService carService, CustomerService customerService) {
+  public CommandLineRunnerImpl(BufferedReader bufferedReader, SupplierService supplierService, PartService partService, CarService carService, CustomerService customerService, SaleService saleService) {
     this.bufferedReader = bufferedReader;
     this.supplierService = supplierService;
     this.partService = partService;
     this.carService = carService;
     this.customerService = customerService;
+    this.saleService = saleService;
   }
 
   @Override
@@ -34,12 +34,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private void seedData() throws IOException {
     seedSuppliers();
     seedParts();
-    seedCars();
     seedCustomers();
+    seedSales();
+    seedCars();
+  }
+
+  private void seedSales() {
+    this.saleService.seedSales();
   }
 
   private void seedCustomers() throws IOException {
-  this.customerService.seedCustomers();
+    this.customerService.seedCustomers();
   }
 
 

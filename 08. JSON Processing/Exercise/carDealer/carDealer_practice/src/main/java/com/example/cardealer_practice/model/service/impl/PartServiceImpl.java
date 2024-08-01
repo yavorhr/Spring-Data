@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -59,7 +60,7 @@ public class PartServiceImpl implements PartService {
     int randomCountPartsToBeAdded = ThreadLocalRandom.current().nextInt(3, 5);
     long repositorySize = this.partRepository.count();
 
-    Set<Part> partsSet = new HashSet<>();
+    Set<Part> partsSet = new LinkedHashSet<>();
 
     for (int i = 0; i < randomCountPartsToBeAdded; i++) {
       long randomId = ThreadLocalRandom.current().nextLong(1, repositorySize + 1);

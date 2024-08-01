@@ -34,6 +34,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     seedSuppliers();
     seedParts();
     seedCars();
+    seedCustomers();
+  }
+
+  private void seedCustomers() {
+
   }
 
 

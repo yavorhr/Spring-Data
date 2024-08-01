@@ -3,7 +3,6 @@ package com.example.cardealer_practice.constant;
 public class ProjectConstants {
   // Input
   private static final String INPUT_FOLDER = "src/main/resources/input/";
-  private static final String OUTPUT = "src/main/resources/input/";
 
   public static final String SUPPLIERS = "suppliers.json";
   public static final String CARS = "cars.json";
@@ -17,6 +16,7 @@ public class ProjectConstants {
   public static final String PARTS_INPUT_PATH = INPUT_FOLDER + PARTS;
   public static final String SALES_INPUT_PATH = INPUT_FOLDER + SALES;
 
-
+  //Output
+  private static final String OUTPUT = "src/main/resources/input/";
 
 }

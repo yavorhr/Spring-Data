@@ -2,6 +2,7 @@ package com.example.cardealer_practice;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
+import com.example.cardealer_practice.model.entity.dto.view.CarWithPartsDto;
 import com.example.cardealer_practice.model.entity.dto.view.CustomerViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.SupplierVewDto;
 import com.example.cardealer_practice.model.service.*;
@@ -46,7 +47,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> orderedCustomers();
       case 2 -> carsFromMakeToyota();
       case 3 -> localSuppliers();
+      case 4 -> carsWithParts();
     }
+  }
+
+  private void carsWithParts() throws IOException {
+    List<CarWithPartsDto> dtos = this.carService.findCarsWithParts();
+
+    String content = this.gson.toJson(dtos);
+    String path = ProjectConstants.CARS_WITH_PARTS;
+
+    writeToFile(content, path);
   }
 
   private void localSuppliers() throws IOException {
@@ -54,15 +65,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             this.supplierService.findLocalSuppliers();
 
     String content = this.gson.toJson(dtos);
+    String path = ProjectConstants.LOCAL_SUPPLIERS;
 
-    writeToFile(content);
+    writeToFile(content, path);
   }
 
   private void carsFromMakeToyota() throws IOException {
-  List<CarViewDto> dtos = this.carService.findCarsByMake("Toyota");
+    List<CarViewDto> dtos = this.carService.findCarsByMake("Toyota");
 
     String content = this.gson.toJson(dtos);
-    writeToFile(content);
+    String path = ProjectConstants.TOYOTA_CARS;
+
+    writeToFile(content, path);
   }
 
   private void orderedCustomers() throws IOException {
@@ -70,7 +84,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             this.customerService.findCustomersOrderByBirthDateAscYoungDriverAsc();
 
     String content = this.gson.toJson(dtos);
-    writeToFile(content);
+    String path = ProjectConstants.ORDERED_CUSTOMERS;
+
+    writeToFile(content, path);
   }
 
   private void seedData() throws IOException {
@@ -81,20 +97,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     seedCars();
   }
 
-  private void seedSales() {
-    this.saleService.seedSales();
-  }
-
-  private void seedCustomers() throws IOException {
-    this.customerService.seedCustomers();
-  }
-
-
   // Helpers
 
-  private void writeToFile(String content) throws IOException {
+  private void writeToFile(String content, String path) throws IOException {
     Files
-            .write(Path.of(ProjectConstants.LOCAL_SUPPLIERS ),
+            .write(Path.of(path),
                     Collections.singleton(content));
   }
 
@@ -109,4 +116,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private void seedSuppliers() throws IOException {
     this.supplierService.seedSuppliers();
   }
+
+  private void seedSales() {
+    this.saleService.seedSales();
+  }
+
+  private void seedCustomers() throws IOException {
+    this.customerService.seedCustomers();
+  }
+
 }

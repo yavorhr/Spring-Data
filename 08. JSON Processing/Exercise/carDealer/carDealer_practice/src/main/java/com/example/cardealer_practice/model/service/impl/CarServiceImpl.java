@@ -5,6 +5,7 @@ import com.example.cardealer_practice.model.entity.Car;
 import com.example.cardealer_practice.model.entity.Part;
 import com.example.cardealer_practice.model.entity.dto.seed.CarDto;
 import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
+import com.example.cardealer_practice.model.entity.dto.view.CarWithPartsDto;
 import com.example.cardealer_practice.model.repository.CarRepository;
 import com.example.cardealer_practice.model.service.CarService;
 import com.example.cardealer_practice.model.service.PartService;
@@ -73,6 +74,17 @@ public class CarServiceImpl implements CarService {
             .stream()
             .map(c -> this.modelMapper.map(c, CarViewDto.class))
             .collect(Collectors.toList());
+  }
+
+  @Override
+  public List<CarWithPartsDto> findCarsWithParts() {
+    List<Car> cars = this.carRepository.findAll();
+
+    return cars
+            .stream()
+            .map(c -> this.modelMapper.map(c, CarWithPartsDto.class))
+            .collect(Collectors.toList());
+
   }
 }
 

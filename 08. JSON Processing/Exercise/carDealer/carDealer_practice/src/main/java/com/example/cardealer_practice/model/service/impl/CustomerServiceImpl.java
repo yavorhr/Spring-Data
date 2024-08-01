@@ -74,38 +74,48 @@ public class CustomerServiceImpl implements CustomerService {
               return dto;
             })
             .collect(Collectors.toList());
-
   }
 
   @Override
   public List<CustomerBoughtCarsViewDto> findCustomersByTopSales() {
     List<CustomerBoughtCarsViewDto> dtos = this.customerRepository.findAllByBoughtCars()
             .stream()
-            .map(c -> {
-              BigDecimal totalPrice = BigDecimal.ZERO;
-
-              CustomerBoughtCarsViewDto dto =
-                      this.modelMapper.map(c, CustomerBoughtCarsViewDto.class);
-
-              for (Sale sale : c.getSales()) {
-                totalPrice = calcTotalMoney(totalPrice, sale);
-              }
-
-              dto.setSpentMoney(totalPrice);
-              dto.setBoughtCars(c.getSales().size());
-
-              return dto;
-            })
+            .map(this::mapToCustomerBoughtCarsViewDto)
             .collect(Collectors.toList());
 
-    dtos = dtos
-            .stream()
-            .sorted(new ComparatorByTotalMoneyAndBoughtCars())
-            .collect(Collectors.toList());
+    dtos = sortDtos(dtos);
 
     return dtos;
   }
 
+  // Helpers methods
+
+  // map from Customer to CustomerDto
+  private CustomerBoughtCarsViewDto mapToCustomerBoughtCarsViewDto(Customer c) {
+    BigDecimal totalPrice = BigDecimal.ZERO;
+
+    CustomerBoughtCarsViewDto dto =
+            this.modelMapper.map(c, CustomerBoughtCarsViewDto.class);
+
+    for (Sale sale : c.getSales()) {
+      totalPrice = calcTotalMoney(totalPrice, sale);
+    }
+
+    dto.setSpentMoney(totalPrice);
+    dto.setBoughtCars(c.getSales().size());
+    return dto;
+  }
+
+  // sort dto using comparator
+  private List<CustomerBoughtCarsViewDto> sortDtos(List<CustomerBoughtCarsViewDto> dtos) {
+    dtos = dtos
+            .stream()
+            .sorted(new ComparatorByTotalMoneyAndBoughtCars())
+            .collect(Collectors.toList());
+    return dtos;
+  }
+
+  // calc total car money spend
   private BigDecimal calcTotalMoney(BigDecimal totalPrice, Sale sale) {
     totalPrice = totalPrice.add(BigDecimal.valueOf(
             sale

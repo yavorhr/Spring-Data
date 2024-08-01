@@ -1,0 +1,145 @@
+[
+  {
+    "car": {
+      "make": "Fiat",
+      "model": "Panda 4x4",
+      "travelledDistance": 2147447
+    },
+    "customerName": "Louann Holzworth",
+    "discount": 0.0,
+    "price": 1781.31,
+    "priceWithDiscount": 1781.31
+  },
+  {
+    "car": {
+      "make": "Opel",
+      "model": "Astra",
+      "travelledDistance": 922336854775807
+    },
+    "customerName": "Faustina Burgher",
+    "discount": 0.0,
+    "price": 268.97,
+    "priceWithDiscount": 268.97
+  },
+  {
+    "car": {
+      "make": "BMW",
+      "model": "M6 E63",
+      "travelledDistance": 214747
+    },
+    "customerName": "Hipolito Lamoreaux",
+    "discount": 0.05,
+    "price": 8083.959999999999,
+    "priceWithDiscount": 7679.761999999999
+  },
+  {
+    "car": {
+      "make": "Opel",
+      "model": "Omega",
+      "travelledDistance": 2147483647
+    },
+    "customerName": "Johnette Derryberry",
+    "discount": 0.05,
+    "price": 2396.89,
+    "priceWithDiscount": 2277.0454999999997
+  },
+  {
+    "car": {
+      "make": "BMW",
+      "model": "F04",
+      "travelledDistance": 100000
+    },
+    "customerName": "Taina Achenbach",
+    "discount": 0.0,
+    "price": 225.96999999999997,
+    "priceWithDiscount": 225.96999999999997
+  },
+  {
+    "car": {
+      "make": "BMW",
+      "model": "X6 M",
+      "travelledDistance": 2036854775807
+    },
+    "customerName": "Daniele Zarate",
+    "discount": 0.0,
+    "price": 533.97,
+    "priceWithDiscount": 533.97
+  },
+  {
+    "car": {
+      "make": "Fiat",
+      "model": "Panda 4x4 Antarctica",
+      "travelledDistance": 214747
+    },
+    "customerName": "Francis Mckim",
+    "discount": 0.05,
+    "price": 360.96,
+    "priceWithDiscount": 342.912
+  },
+  {
+    "car": {
+      "make": "Opel",
+      "model": "Omega",
+      "travelledDistance": 1
+    },
+    "customerName": "Daniele Zarate",
+    "discount": 0.0,
+    "price": 218.88,
+    "priceWithDiscount": 218.88
+  },
+  {
+    "car": {
+      "make": "Fiat",
+      "model": "Panda",
+      "travelledDistance": 92233854775807
+    },
+    "customerName": "Carole Witman",
+    "discount": 0.0,
+    "price": 326.96000000000004,
+    "priceWithDiscount": 326.96000000000004
+  },
+  {
+    "car": {
+      "make": "Fiat",
+      "model": "Panda 4x4 Antarctica",
+      "travelledDistance": 2183647
+    },
+    "customerName": "Marcelle Griego",
+    "discount": 0.05,
+    "price": 328.97,
+    "priceWithDiscount": 312.5215
+  },
+  {
+    "car": {
+      "make": "Opel",
+      "model": "Kadet",
+      "travelledDistance": 21474847
+    },
+    "customerName": "Brett Brickley",
+    "discount": 0.05,
+    "price": 212.23000000000002,
+    "priceWithDiscount": 201.6185
+  },
+  {
+    "car": {
+      "make": "BMW",
+      "model": "F20",
+      "travelledDistance": 2147483647
+    },
+    "customerName": "Natalie Poli",
+    "discount": 0.0,
+    "price": 1462.98,
+    "priceWithDiscount": 1462.98
+  },
+  {
+    "car": {
+      "make": "Opel",
+      "model": "Insignia",
+      "travelledDistance": 2147483647
+    },
+    "customerName": "Ann Mcenaney",
+    "discount": 0.05,
+    "price": 224.97,
+    "priceWithDiscount": 213.7215
+  }
+]

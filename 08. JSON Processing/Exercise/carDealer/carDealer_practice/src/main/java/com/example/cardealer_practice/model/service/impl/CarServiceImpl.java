@@ -4,7 +4,7 @@ import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.Car;
 import com.example.cardealer_practice.model.entity.Part;
 import com.example.cardealer_practice.model.entity.dto.seed.CarDto;
-import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
+import com.example.cardealer_practice.model.entity.dto.view.fifthQuery.CarViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.CarWithPartsDto;
 import com.example.cardealer_practice.model.repository.CarRepository;
 import com.example.cardealer_practice.model.service.CarService;

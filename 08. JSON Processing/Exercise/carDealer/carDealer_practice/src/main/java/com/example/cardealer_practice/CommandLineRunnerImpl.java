@@ -2,6 +2,8 @@ package com.example.cardealer_practice;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.dto.view.*;
+import com.example.cardealer_practice.model.entity.dto.view.fifthQuery.CarViewDto;
+import com.example.cardealer_practice.model.entity.dto.view.fifthQuery.CustomerWithPricesViewDto;
 import com.example.cardealer_practice.model.service.*;
 import com.google.gson.Gson;
 import org.springframework.boot.CommandLineRunner;
@@ -50,8 +52,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  private void salesWithAppliedDiscount() {
+  private void salesWithAppliedDiscount() throws IOException {
+    List<CustomerWithPricesViewDto> dto = this.saleService.findSalesWithAppliedDiscounts();
+    String content = this.gson.toJson(dto);
+    String path = ProjectConstants.SALES_WITH_APPLIED_DISCOUNTS;
 
+    writeToFile(content, path);
   }
 
   private void totalSalesByCustomer() throws IOException {

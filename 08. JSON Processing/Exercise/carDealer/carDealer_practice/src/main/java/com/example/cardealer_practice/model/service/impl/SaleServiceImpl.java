@@ -3,6 +3,7 @@ package com.example.cardealer_practice.model.service.impl;
 import com.example.cardealer_practice.model.entity.Car;
 import com.example.cardealer_practice.model.entity.Customer;
 import com.example.cardealer_practice.model.entity.Sale;
+import com.example.cardealer_practice.model.entity.dto.view.fifthQuery.CustomerWithPricesViewDto;
 import com.example.cardealer_practice.model.repository.SaleRepository;
 import com.example.cardealer_practice.model.service.CarService;
 import com.example.cardealer_practice.model.service.CustomerService;
@@ -11,6 +12,9 @@ import com.example.cardealer_practice.model.util.ValidationUtil;
 import com.google.gson.Gson;;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SaleServiceImpl implements SaleService {
@@ -52,5 +56,27 @@ public class SaleServiceImpl implements SaleService {
       }
     }
 
+  }
+
+  @Override
+  public List<CustomerWithPricesViewDto> findSalesWithAppliedDiscounts() {
+    return this.saleRepository.findAll()
+            .stream()
+            .map(s -> {
+              CustomerWithPricesViewDto dto = this.modelMapper.map(s, CustomerWithPricesViewDto.class);
+              dto.setName(s.getCustomer().getName());
+              dto.setDiscount(s.getDiscount());
+
+              double price = s.getCar().getParts()
+                      .stream()
+                      .mapToDouble(p -> Double.parseDouble(String.valueOf(p.getPrice()))).sum();
+
+
+              dto.setPrice(price);
+              dto.setPriceWithDiscount(price - (price * s.getDiscount()));
+
+              return dto;
+            })
+            .collect(Collectors.toList());
   }
 }

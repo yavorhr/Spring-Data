@@ -15,4 +15,5 @@ public interface CustomerService {
   List<CustomerViewDto> findCustomersOrderByBirthDateAscYoungDriverAsc();
 
   List<CustomerBoughtCarsViewDto> findCustomersByTopSales();
+
 }

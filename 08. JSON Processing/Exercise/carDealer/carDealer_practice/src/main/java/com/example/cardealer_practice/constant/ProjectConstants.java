@@ -19,9 +19,11 @@ public class ProjectConstants {
   //Output
   private static final String OUTPUT = "src/main/resources/output/";
 
-  public static final String FIRST_QUERY = "ordered_customers";
-  public static final String SECOND_QUERY = "cars_toyota";
+  public static final String FIRST_QUERY = "ordered_customers.json";
+  public static final String SECOND_QUERY = "cars_toyota.json";
+  public static final String THIRD_QUERY = "local_suppliers.json";
 
-  public static final String FIRST_QUERY_PATH = OUTPUT + FIRST_QUERY;
-  public static final String SECOND_QUERY_PATH = OUTPUT + SECOND_QUERY;
+  public static final String ORDERED_CUSTOMERS = OUTPUT + FIRST_QUERY;
+  public static final String TOYOTA_CARS = OUTPUT + SECOND_QUERY;
+  public static final String LOCAL_SUPPLIERS = OUTPUT + THIRD_QUERY ;
 }

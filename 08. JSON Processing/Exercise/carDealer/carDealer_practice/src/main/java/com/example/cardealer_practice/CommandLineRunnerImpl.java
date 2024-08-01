@@ -3,6 +3,7 @@ package com.example.cardealer_practice;
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.CustomerViewDto;
+import com.example.cardealer_practice.model.entity.dto.view.SupplierVewDto;
 import com.example.cardealer_practice.model.service.*;
 import com.google.gson.Gson;
 import org.springframework.boot.CommandLineRunner;
@@ -48,28 +49,28 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  private void localSuppliers() {
+  private void localSuppliers() throws IOException {
+    List<SupplierVewDto> dtos =
+            this.supplierService.findLocalSuppliers();
 
+    String content = this.gson.toJson(dtos);
+
+    writeToFile(content);
   }
 
   private void carsFromMakeToyota() throws IOException {
   List<CarViewDto> dtos = this.carService.findCarsByMake("Toyota");
-    String content = this.gson.toJson(dtos);
 
-    Files
-            .write(Path.of(ProjectConstants.SECOND_QUERY_PATH),
-                    Collections.singleton(content));
+    String content = this.gson.toJson(dtos);
+    writeToFile(content);
   }
 
   private void orderedCustomers() throws IOException {
-    List<CustomerViewDto> customersDtos =
+    List<CustomerViewDto> dtos =
             this.customerService.findCustomersOrderByBirthDateAscYoungDriverAsc();
 
-    String content = this.gson.toJson(customersDtos);
-
-    Files
-            .write(Path.of(ProjectConstants.FIRST_QUERY_PATH),
-                    Collections.singleton(content));
+    String content = this.gson.toJson(dtos);
+    writeToFile(content);
   }
 
   private void seedData() throws IOException {
@@ -90,6 +91,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
 
   // Helpers
+
+  private void writeToFile(String content) throws IOException {
+    Files
+            .write(Path.of(ProjectConstants.LOCAL_SUPPLIERS ),
+                    Collections.singleton(content));
+  }
+
   private void seedCars() throws IOException {
     this.carService.seedCars();
   }

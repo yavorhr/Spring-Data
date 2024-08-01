@@ -3,6 +3,7 @@ package com.example.cardealer_practice.model.service.impl;
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.Supplier;
 import com.example.cardealer_practice.model.entity.dto.seed.SupplierDto;
+import com.example.cardealer_practice.model.entity.dto.view.SupplierVewDto;
 import com.example.cardealer_practice.model.repository.SupplierRepository;
 import com.example.cardealer_practice.model.service.SupplierService;
 import com.example.cardealer_practice.model.util.ValidationUtil;
@@ -14,7 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class SupplerServiceImpl implements SupplierService {
@@ -50,5 +53,19 @@ public class SupplerServiceImpl implements SupplierService {
   public Supplier findRandomSupplier() {
     long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count() + 1);
     return this.supplierRepository.findById(randomId).orElse(null);
+  }
+
+  @Override
+  public List<SupplierVewDto> findLocalSuppliers() {
+    List<Supplier> suppliers = this.supplierRepository.findAllByImporterFalse();
+
+    return suppliers
+            .stream()
+            .map(s -> {
+              SupplierVewDto dto = this.modelMapper.map(s, SupplierVewDto.class);
+              dto.setPartsCount(s.getParts().size());
+              return dto;
+            })
+            .collect(Collectors.toList());
   }
 }

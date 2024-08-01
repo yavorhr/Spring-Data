@@ -1,7 +1,7 @@
 package com.example.cardealer_practice;
 
-import com.example.cardealer_practice.model.entity.Part;
 import com.example.cardealer_practice.model.service.CarService;
+import com.example.cardealer_practice.model.service.CustomerService;
 import com.example.cardealer_practice.model.service.PartService;
 import com.example.cardealer_practice.model.service.SupplierService;
 import org.springframework.boot.CommandLineRunner;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Set;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -17,12 +16,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private final SupplierService supplierService;
   private final PartService partService;
   private final CarService carService;
+  private final CustomerService customerService;
 
-  public CommandLineRunnerImpl(BufferedReader bufferedReader, SupplierService supplierService, PartService partService, CarService carService) {
+  public CommandLineRunnerImpl(BufferedReader bufferedReader, SupplierService supplierService, PartService partService, CarService carService, CustomerService customerService) {
     this.bufferedReader = bufferedReader;
     this.supplierService = supplierService;
     this.partService = partService;
     this.carService = carService;
+    this.customerService = customerService;
   }
 
   @Override
@@ -38,12 +39,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void seedCustomers() {
-
+  this.customerService.seedCustomers();
   }
 
 
   // Helpers
-
   private void seedCars() throws IOException {
     this.carService.seedCars();
   }

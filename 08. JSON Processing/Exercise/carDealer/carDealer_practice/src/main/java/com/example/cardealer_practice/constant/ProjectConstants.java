@@ -17,6 +17,9 @@ public class ProjectConstants {
   public static final String SALES_INPUT_PATH = INPUT_FOLDER + SALES;
 
   //Output
-  private static final String OUTPUT = "src/main/resources/input/";
+  private static final String OUTPUT = "src/main/resources/output/";
 
+  public static final String FIRST_QUERY = "ordered_customers";
+
+  public static final String FIRST_QUERY_PATH = OUTPUT + FIRST_QUERY;
 }

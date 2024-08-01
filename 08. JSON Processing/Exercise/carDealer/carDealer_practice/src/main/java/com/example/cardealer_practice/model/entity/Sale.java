@@ -22,7 +22,7 @@ public class Sale extends BaseEntity{
         return car;
     }
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     public Customer getCustomer() {
         return customer;

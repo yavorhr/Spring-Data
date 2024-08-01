@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -53,6 +54,12 @@ public class CarServiceImpl implements CarService {
               return car;
             })
             .forEach(this.carRepository::save);
+  }
+
+  @Override
+  public Car findRandomCar() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.carRepository.count() + 1);
+    return this.carRepository.findById(randomId).orElse(null);
   }
 }
 

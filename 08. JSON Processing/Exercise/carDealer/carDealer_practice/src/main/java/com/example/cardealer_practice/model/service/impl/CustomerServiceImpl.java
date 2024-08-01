@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -42,5 +43,11 @@ public class CustomerServiceImpl implements CustomerService {
             .filter(validationUtil::isValid)
             .map(dto -> this.modelMapper.map(dto, Customer.class))
             .forEach(this.customerRepository::save);
+  }
+
+  @Override
+  public Customer findRandomCustomer() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.customerRepository.count() + 1);
+    return this.customerRepository.findById(randomId).orElse(null);
   }
 }

@@ -1,5 +1,6 @@
 package com.example.cardealer_practice.model.service.impl;
 
+import com.example.cardealer_practice.comparator.ComparatorByTotalMoneyAndBoughtCars;
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.Customer;
 import com.example.cardealer_practice.model.entity.Sale;
@@ -10,8 +11,6 @@ import com.example.cardealer_practice.model.repository.CustomerRepository;
 import com.example.cardealer_practice.model.service.CustomerService;
 import com.example.cardealer_practice.model.util.ValidationUtil;
 import com.google.gson.Gson;
-
-import java.math.*;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -89,14 +88,7 @@ public class CustomerServiceImpl implements CustomerService {
                       this.modelMapper.map(c, CustomerBoughtCarsViewDto.class);
 
               for (Sale sale : c.getSales()) {
-                totalPrice = totalPrice.add(BigDecimal.valueOf(
-                        sale
-                                .getCar()
-                                .getParts()
-                                .stream()
-                                .mapToDouble(part ->
-                                        Double.parseDouble(String.valueOf(part.getPrice())))
-                                .sum()));
+                totalPrice = calcTotalMoney(totalPrice, sale);
               }
 
               dto.setSpentMoney(totalPrice);
@@ -106,16 +98,24 @@ public class CustomerServiceImpl implements CustomerService {
             })
             .collect(Collectors.toList());
 
-    dtos = dtos.stream().sorted((dto1, dto2) -> {
-      int result = Double.compare(dto2.getSpentMoney().doubleValue(), dto1.getSpentMoney().doubleValue());
-      if (result == 0) {
-        result = Integer.compare(dto2.getBoughtCars(), dto1.getBoughtCars());
-      }
-      return result;
-    })
+    dtos = dtos
+            .stream()
+            .sorted(new ComparatorByTotalMoneyAndBoughtCars())
             .collect(Collectors.toList());
 
     return dtos;
+  }
+
+  private BigDecimal calcTotalMoney(BigDecimal totalPrice, Sale sale) {
+    totalPrice = totalPrice.add(BigDecimal.valueOf(
+            sale
+                    .getCar()
+                    .getParts()
+                    .stream()
+                    .mapToDouble(part ->
+                            Double.parseDouble(String.valueOf(part.getPrice())))
+                    .sum()));
+    return totalPrice;
   }
 }
 

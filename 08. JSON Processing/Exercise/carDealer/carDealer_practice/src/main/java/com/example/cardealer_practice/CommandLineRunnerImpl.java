@@ -42,7 +42,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     int number = Integer.parseInt(this.bufferedReader.readLine());
     switch (number) {
       case 1 -> orderedCustomers();
+      case 2 -> carsFromMakeToyota();
     }
+  }
+
+  private void carsFromMakeToyota() {
+
   }
 
   private void orderedCustomers() throws IOException {

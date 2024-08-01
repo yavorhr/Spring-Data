@@ -22,9 +22,11 @@ public class ProjectConstants {
   public static final String SECOND_QUERY = "cars_toyota.json";
   public static final String THIRD_QUERY = "local_suppliers.json";
   public static final String FOURTH_QUERY = "cars_with_parts.json";
+  public static final String FIFTH_QUERY = "top_sales_by_customer.json";
 
   public static final String ORDERED_CUSTOMERS = OUTPUT + FIRST_QUERY;
   public static final String TOYOTA_CARS = OUTPUT + SECOND_QUERY;
   public static final String LOCAL_SUPPLIERS = OUTPUT + THIRD_QUERY ;
   public static final String CARS_WITH_PARTS = OUTPUT + FOURTH_QUERY ;
+  public static final String TOP_SALES = OUTPUT + FIFTH_QUERY ;
 }

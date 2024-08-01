@@ -1,6 +1,7 @@
 package com.example.cardealer_practice.model.service;
 
 import com.example.cardealer_practice.model.entity.Customer;
+import com.example.cardealer_practice.model.entity.dto.view.CustomerBoughtCarsViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.CustomerViewDto;
 
 import java.io.IOException;
@@ -12,4 +13,6 @@ public interface CustomerService {
   Customer findRandomCustomer();
 
   List<CustomerViewDto> findCustomersOrderByBirthDateAscYoungDriverAsc();
+
+  List<CustomerBoughtCarsViewDto> findCustomersByTopSales();
 }

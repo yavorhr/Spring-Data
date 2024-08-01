@@ -2,16 +2,22 @@ package com.example.cardealer_practice.model.service.impl;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.Customer;
+import com.example.cardealer_practice.model.entity.Sale;
 import com.example.cardealer_practice.model.entity.dto.seed.CustomerDto;
+import com.example.cardealer_practice.model.entity.dto.view.CustomerBoughtCarsViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.CustomerViewDto;
 import com.example.cardealer_practice.model.repository.CustomerRepository;
 import com.example.cardealer_practice.model.service.CustomerService;
 import com.example.cardealer_practice.model.util.ValidationUtil;
 import com.google.gson.Gson;
+
+import java.math.*;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.format.DateTimeFormatter;
@@ -71,4 +77,45 @@ public class CustomerServiceImpl implements CustomerService {
             .collect(Collectors.toList());
 
   }
+
+  @Override
+  public List<CustomerBoughtCarsViewDto> findCustomersByTopSales() {
+    List<CustomerBoughtCarsViewDto> dtos = this.customerRepository.findAllByBoughtCars()
+            .stream()
+            .map(c -> {
+              BigDecimal totalPrice = BigDecimal.ZERO;
+
+              CustomerBoughtCarsViewDto dto =
+                      this.modelMapper.map(c, CustomerBoughtCarsViewDto.class);
+
+              for (Sale sale : c.getSales()) {
+                totalPrice = totalPrice.add(BigDecimal.valueOf(
+                        sale
+                                .getCar()
+                                .getParts()
+                                .stream()
+                                .mapToDouble(part ->
+                                        Double.parseDouble(String.valueOf(part.getPrice())))
+                                .sum()));
+              }
+
+              dto.setSpentMoney(totalPrice);
+              dto.setBoughtCars(c.getSales().size());
+
+              return dto;
+            })
+            .collect(Collectors.toList());
+
+    dtos = dtos.stream().sorted((dto1, dto2) -> {
+      int result = Double.compare(dto2.getSpentMoney().doubleValue(), dto1.getSpentMoney().doubleValue());
+      if (result == 0) {
+        result = Integer.compare(dto2.getBoughtCars(), dto1.getBoughtCars());
+      }
+      return result;
+    })
+            .collect(Collectors.toList());
+
+    return dtos;
+  }
 }
+

@@ -1,6 +1,7 @@
 package com.example.cardealer_practice;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
+import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
 import com.example.cardealer_practice.model.entity.dto.view.CustomerViewDto;
 import com.example.cardealer_practice.model.service.*;
 import com.google.gson.Gson;
@@ -46,8 +47,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  private void carsFromMakeToyota() {
+  private void carsFromMakeToyota() throws IOException {
+  List<CarViewDto> dtos = this.carService.findCarsByMake("Toyota");
+    String content = this.gson.toJson(dtos);
 
+    Files
+            .write(Path.of(ProjectConstants.SECOND_QUERY_PATH),
+                    Collections.singleton(content));
   }
 
   private void orderedCustomers() throws IOException {

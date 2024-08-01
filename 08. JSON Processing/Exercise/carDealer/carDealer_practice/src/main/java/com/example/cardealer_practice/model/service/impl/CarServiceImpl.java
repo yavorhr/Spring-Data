@@ -4,6 +4,7 @@ import com.example.cardealer_practice.constant.ProjectConstants;
 import com.example.cardealer_practice.model.entity.Car;
 import com.example.cardealer_practice.model.entity.Part;
 import com.example.cardealer_practice.model.entity.dto.seed.CarDto;
+import com.example.cardealer_practice.model.entity.dto.view.CarViewDto;
 import com.example.cardealer_practice.model.repository.CarRepository;
 import com.example.cardealer_practice.model.service.CarService;
 import com.example.cardealer_practice.model.service.PartService;
@@ -16,8 +17,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -60,6 +63,16 @@ public class CarServiceImpl implements CarService {
   public Car findRandomCar() {
     long randomId = ThreadLocalRandom.current().nextLong(1, this.carRepository.count() + 1);
     return this.carRepository.findById(randomId).orElse(null);
+  }
+
+  @Override
+  public List<CarViewDto> findCarsByMake(String make) {
+    List<Car> cars = this.carRepository.findAllByMake(make);
+
+    return cars
+            .stream()
+            .map(c -> this.modelMapper.map(c, CarViewDto.class))
+            .collect(Collectors.toList());
   }
 }
 

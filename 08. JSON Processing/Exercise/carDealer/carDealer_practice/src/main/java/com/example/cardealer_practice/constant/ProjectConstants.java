@@ -20,6 +20,8 @@ public class ProjectConstants {
   private static final String OUTPUT = "src/main/resources/output/";
 
   public static final String FIRST_QUERY = "ordered_customers";
+  public static final String SECOND_QUERY = "cars_toyota";
 
   public static final String FIRST_QUERY_PATH = OUTPUT + FIRST_QUERY;
+  public static final String SECOND_QUERY_PATH = OUTPUT + SECOND_QUERY;
 }

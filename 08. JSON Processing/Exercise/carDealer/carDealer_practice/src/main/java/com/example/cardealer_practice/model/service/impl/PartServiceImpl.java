@@ -39,20 +39,22 @@ public class PartServiceImpl implements PartService {
 
   @Override
   public void seedParts() throws IOException {
-    if (this.partRepository.count() == 0) {
-      String partsJson = Files.readString(Path.of(ProjectConstants.PARTS_INPUT_PATH));
-      PartDto[] partsDtos = this.gson.fromJson(partsJson, PartDto[].class);
-
-      Arrays.stream(partsDtos)
-              .filter(this.validationUtil::isValid)
-              .map(dto -> {
-                Part part = this.modelMapper.map(dto, Part.class);
-                part.setSupplier(this.supplierService.findRandomSupplier());
-
-                return part;
-              })
-              .forEach((this.partRepository::save));
+    if (this.partRepository.count() > 0) {
+      return;
     }
+
+    String partsJson = Files.readString(Path.of(ProjectConstants.PARTS_INPUT_PATH));
+    PartDto[] partsDtos = this.gson.fromJson(partsJson, PartDto[].class);
+
+    Arrays.stream(partsDtos)
+            .filter(this.validationUtil::isValid)
+            .map(dto -> {
+              Part part = this.modelMapper.map(dto, Part.class);
+              part.setSupplier(this.supplierService.findRandomSupplier());
+
+              return part;
+            })
+            .forEach((this.partRepository::save));
   }
 
   @Override

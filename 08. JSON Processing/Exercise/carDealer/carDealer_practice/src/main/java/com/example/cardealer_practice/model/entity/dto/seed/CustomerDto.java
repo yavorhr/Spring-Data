@@ -11,7 +11,7 @@ public class CustomerDto {
   @Size(min = 2)
   private String name;
   @Expose
-  private LocalDate birthDate;
+  private String birthDate;
   @Expose
   private boolean isYoungDriver;
 
@@ -26,11 +26,11 @@ public class CustomerDto {
     this.name = name;
   }
 
-  public LocalDate getBirthDate() {
+  public String getBirthDate() {
     return birthDate;
   }
 
-  public void setBirthDate(LocalDate birthDate) {
+  public void setBirthDate(String birthDate) {
     this.birthDate = birthDate;
   }
 

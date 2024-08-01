@@ -37,7 +37,7 @@ public class ApplicationBeanConfiguration {
       public LocalDate convert(MappingContext<String, LocalDate> mappingContext) {
         return mappingContext.getSource() == null
                 ? LocalDate.now()
-                : LocalDate.parse(mappingContext.getSource(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                : LocalDate.parse(mappingContext.getSource(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
       }
     };
 

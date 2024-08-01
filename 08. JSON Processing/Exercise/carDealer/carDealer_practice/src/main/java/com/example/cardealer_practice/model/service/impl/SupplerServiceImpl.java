@@ -32,21 +32,23 @@ public class SupplerServiceImpl implements SupplierService {
 
   @Override
   public void seedSuppliers() throws IOException {
-    if (this.supplierRepository.count() == 0) {
-      String suppliersJson = Files.readString(Path.of(ProjectConstants.SUPPLIERS_INPUT_PATH));
-
-      SupplierDto[] dtos = this.gson.fromJson(suppliersJson, SupplierDto[].class);
-
-      Arrays.stream(dtos)
-              .filter(validationUtil::isValid)
-              .map(d -> this.modelMapper.map(d, Supplier.class))
-              .forEach(this.supplierRepository::save);
+    if (this.supplierRepository.count() > 0) {
+      return;
     }
+
+    String suppliersJson = Files.readString(Path.of(ProjectConstants.SUPPLIERS_INPUT_PATH));
+
+    SupplierDto[] dtos = this.gson.fromJson(suppliersJson, SupplierDto[].class);
+
+    Arrays.stream(dtos)
+            .filter(validationUtil::isValid)
+            .map(d -> this.modelMapper.map(d, Supplier.class))
+            .forEach(this.supplierRepository::save);
   }
 
   @Override
   public Supplier findRandomSupplier() {
-    long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count()+1);
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count() + 1);
     return this.supplierRepository.findById(randomId).orElse(null);
   }
 }

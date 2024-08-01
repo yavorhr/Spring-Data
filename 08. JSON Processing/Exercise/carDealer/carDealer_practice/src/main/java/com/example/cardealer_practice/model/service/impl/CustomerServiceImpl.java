@@ -1,6 +1,8 @@
 package com.example.cardealer_practice.model.service.impl;
 
 import com.example.cardealer_practice.constant.ProjectConstants;
+import com.example.cardealer_practice.model.entity.Customer;
+import com.example.cardealer_practice.model.entity.dto.seed.CustomerDto;
 import com.example.cardealer_practice.model.repository.CustomerRepository;
 import com.example.cardealer_practice.model.service.CustomerService;
 import com.example.cardealer_practice.model.util.ValidationUtil;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -28,7 +31,16 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public void seedCustomers() throws IOException {
-    String customersJson = Files.readString(Path.of(ProjectConstants.CUSTOMERS_INPUT_PATH));
+    if (this.customerRepository.count() > 1) {
+      return;
+    }
 
+    String customersJson = Files.readString(Path.of(ProjectConstants.CUSTOMERS_INPUT_PATH));
+    CustomerDto[] customerDtos = this.gson.fromJson(customersJson, CustomerDto[].class);
+
+    Arrays.stream(customerDtos)
+            .filter(validationUtil::isValid)
+            .map(dto -> this.modelMapper.map(dto, Customer.class))
+            .forEach(this.customerRepository::save);
   }
 }

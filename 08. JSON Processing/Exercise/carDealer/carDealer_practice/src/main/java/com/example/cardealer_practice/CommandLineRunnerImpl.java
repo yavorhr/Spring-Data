@@ -38,7 +38,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     seedCustomers();
   }
 
-  private void seedCustomers() {
+  private void seedCustomers() throws IOException {
   this.customerService.seedCustomers();
   }
 

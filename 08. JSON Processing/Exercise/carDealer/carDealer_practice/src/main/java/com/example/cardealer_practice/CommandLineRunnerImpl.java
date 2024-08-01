@@ -48,7 +48,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 2 -> carsFromMakeToyota();
       case 3 -> localSuppliers();
       case 4 -> carsWithParts();
+      case 5 -> totalSalesByCustomer();
     }
+  }
+
+  private void totalSalesByCustomer() {
+
   }
 
   private void carsWithParts() throws IOException {

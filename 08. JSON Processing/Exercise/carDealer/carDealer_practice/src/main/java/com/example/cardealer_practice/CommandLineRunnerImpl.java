@@ -44,7 +44,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (number) {
       case 1 -> orderedCustomers();
       case 2 -> carsFromMakeToyota();
+      case 3 -> localSuppliers();
     }
+  }
+
+  private void localSuppliers() {
+
   }
 
   private void carsFromMakeToyota() throws IOException {

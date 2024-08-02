@@ -5,7 +5,7 @@ import jakarta.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "manager")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ManagerDto extends BasicDto { ;
 

@@ -3,8 +3,10 @@ package com.example.mappingobjectslab.entity.dto;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlTransient
 public class BasicDto {
 
   @XmlAttribute

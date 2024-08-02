@@ -1,6 +1,7 @@
 package com.example.mappingobjectslab;
 
 
+import com.example.mappingobjectslab.entity.dto.ManagerCollection;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;;
 import com.example.mappingobjectslab.services.EmployeeService;
 import jakarta.xml.bind.JAXBContext;
@@ -74,9 +75,14 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //    System.out.println(this.gson.toJson(savedManager));
   }
 
-  private void findAll() {
+  private void findAll() throws JAXBException {
+    JAXBContext jaxbContext = JAXBContext.newInstance(ManagerCollection.class);
+    Marshaller managerCollection = jaxbContext.createMarshaller();
+    managerCollection.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
     List<ManagerDto> managersList = this.employeeService.findAll();
-//    System.out.println(gson.toJson(managersList));
+
+    managerCollection.marshal(new ManagerCollection(managersList), System.out);
   }
 
   private void findById(long managerId) throws JAXBException, JAXBException {
@@ -86,7 +92,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     ManagerDto manager = this.employeeService.findManagerById(managerId);
     managerMarshaller.marshal(manager, System.out);
-
   }
 
 }

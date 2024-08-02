@@ -3,10 +3,12 @@ import com.example.mappingobjectslab.entity.model.Employee;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlType;
 
 import java.math.BigDecimal;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"firstName", "lastName", "salary"})
 public class EmployeeDto extends BasicDto {
 
   @XmlAttribute

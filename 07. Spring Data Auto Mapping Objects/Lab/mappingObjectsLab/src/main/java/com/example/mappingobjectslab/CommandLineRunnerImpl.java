@@ -2,7 +2,6 @@ package com.example.mappingobjectslab;
 
 import com.example.mappingobjectslab.entity.dto.EmployeeDto;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;
-import com.example.mappingobjectslab.entity.model.Employee;
 import com.example.mappingobjectslab.services.EmployeeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

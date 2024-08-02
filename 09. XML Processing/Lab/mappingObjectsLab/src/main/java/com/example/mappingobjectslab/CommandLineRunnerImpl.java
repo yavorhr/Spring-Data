@@ -45,14 +45,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       String command = tokens[0];
 
       switch (command) {
-        //find 1
         case "find" -> findById(Long.parseLong(tokens[1]));
         case "findAll" -> findAll();
-        //save {"firstName":"Ivan","lastName":"Ivanov","salary":3000.00,"birthday":"2024-07-04","address":"Chirpan","isOnHoliday":true}
         case "save" -> saveManager(tokens[1]);
-        //save-from-file src/main/resources/manager.json
         case "save-from-file" -> saveManagerFromFilePath(tokens[1]);
-        //findAll-to src/main/resources/allManagers.json
         case "findAll-to" -> saveAllManagersToFile(tokens[1]);
         default -> System.out.println("Invalid command");
       }

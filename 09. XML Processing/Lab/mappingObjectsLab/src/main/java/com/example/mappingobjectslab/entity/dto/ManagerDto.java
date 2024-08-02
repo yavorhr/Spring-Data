@@ -1,13 +1,16 @@
 package com.example.mappingobjectslab.entity.dto;
-import com.google.gson.annotations.Expose;
+
+
+
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@XmlRootElement
 public class ManagerDto extends BasicDto { ;
-  @Expose
+
   private BigDecimal salary;
-  @Expose
   private List<EmployeeDto> subordinates;
 
   public ManagerDto() {

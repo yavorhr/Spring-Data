@@ -1,11 +1,11 @@
 package com.example.mappingobjectslab.entity.dto;
 
-import com.google.gson.annotations.Expose;
+
 
 public class BasicDto {
-  @Expose
+
   private String firstName;
-  @Expose
+
   private String lastName;
 
   public BasicDto() {

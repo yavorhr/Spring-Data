@@ -1,23 +1,18 @@
 package com.example.mappingobjectslab.entity.dto;
 
-import com.google.gson.annotations.Expose;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 public class RequestCreateManagerDto {
-  @Expose
+
   private String firstName;
-  @Expose
   private String lastName;
-  @Expose
   private BigDecimal salary;
-  @Expose
   private String birthday;
-  @Expose
   private String address;
-  @Expose
   private boolean isOnHoliday;
 
   public RequestCreateManagerDto() {

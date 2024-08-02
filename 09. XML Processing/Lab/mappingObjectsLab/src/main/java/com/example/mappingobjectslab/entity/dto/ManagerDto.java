@@ -1,16 +1,18 @@
 package com.example.mappingobjectslab.entity.dto;
 
-
-
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ManagerDto extends BasicDto { ;
 
   private BigDecimal salary;
+
+  @XmlElementWrapper(name = "subordinates")
+  @XmlElement(name = "employee")
   private List<EmployeeDto> subordinates;
 
   public ManagerDto() {
@@ -31,6 +33,4 @@ public class ManagerDto extends BasicDto { ;
   public void setSubordinates(List<EmployeeDto> subordinates) {
     this.subordinates = subordinates;
   }
-
-
 }

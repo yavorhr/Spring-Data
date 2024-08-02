@@ -82,6 +82,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   private void findById(long managerId) throws JAXBException, JAXBException {
     JAXBContext jaxbContext = JAXBContext.newInstance(ManagerDto.class);
     Marshaller managerMarshaller = jaxbContext.createMarshaller();
+    managerMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
     ManagerDto manager = this.employeeService.findManagerById(managerId);
     managerMarshaller.marshal(manager, System.out);

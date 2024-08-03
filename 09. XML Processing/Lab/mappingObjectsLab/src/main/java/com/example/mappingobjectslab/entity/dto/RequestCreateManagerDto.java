@@ -1,15 +1,20 @@
 package com.example.mappingobjectslab.entity.dto;
-
-
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
 
+@XmlRootElement(name = "manager")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RequestCreateManagerDto {
 
+  @XmlElement
   private String firstName;
+  @XmlElement
   private String lastName;
+  @XmlElement
   private BigDecimal salary;
   private String birthday;
   private String address;

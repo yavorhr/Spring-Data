@@ -3,13 +3,14 @@ package com.example.mappingobjectslab;
 
 import com.example.mappingobjectslab.entity.dto.ManagerCollection;
 import com.example.mappingobjectslab.entity.dto.ManagerDto;;
+import com.example.mappingobjectslab.entity.dto.RequestCreateManagerDto;
+import com.example.mappingobjectslab.entity.dto.ResponseCreateManagerDto;
 import com.example.mappingobjectslab.services.EmployeeService;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -62,17 +63,32 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void saveManagerFromFilePath(String path) throws FileNotFoundException {
-//    RequestCreateManagerDto manager = this.gson.fromJson(new FileReader(path), RequestCreateManagerDto.class);
+////    RequestCreateManagerDto manager = this.gson.fromJson(new FileReader(path), RequestCreateManagerDto.class);
 //    ResponseCreateManagerDto savedManager = this.employeeService.save(manager);
 
 //    System.out.println(this.gson.toJson(savedManager));
   }
 
-  private void saveManager(String json) {
-//    RequestCreateManagerDto manager = this.gson.fromJson(json, RequestCreateManagerDto.class);
-//    ResponseCreateManagerDto savedManager = this.employeeService.save(manager);
+  private void saveManager(String input) throws JAXBException {
 
-//    System.out.println(this.gson.toJson(savedManager));
+    /*
+* <employee first_name="..." last_name="..." >
+    <salary>2000</salary>
+    <address>Mladost</address>
+* </employee>
+*
+** <employee>first_name="XML" last_name="XML"><salary>2000</salary><address>Mladost</address></employee>
+* */
+
+    JAXBContext jaxbContext = JAXBContext.newInstance(ManagerCollection.class);
+    Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+    unmarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+    RequestCreateManagerDto request = (RequestCreateManagerDto)
+            unmarshaller.unmarshal(new ByteArrayInputStream(input.getBytes()));
+
+    this.employeeService.save(request);
+
   }
 
   private void findAll() throws JAXBException {

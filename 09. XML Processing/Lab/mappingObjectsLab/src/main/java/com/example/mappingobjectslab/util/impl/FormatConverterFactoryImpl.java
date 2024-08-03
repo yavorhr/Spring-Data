@@ -1,5 +1,7 @@
 package com.example.mappingobjectslab.util.impl;
 
+import com.example.mappingobjectslab.util.FormatConverter;
+import com.example.mappingobjectslab.util.FormatConverterFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -34,13 +36,10 @@ public class FormatConverterFactoryImpl implements FormatConverterFactory {
 //            e.printStackTrace();
 //        }
 
-        switch (formatType.toLowerCase(Locale.ROOT)) {
-            case "xml":
-                return this.xml;
-            case "json":
-                return this.json;
-            default:
-                return null;
-        }
+        return switch (formatType.toLowerCase(Locale.ROOT)) {
+            case "xml" -> this.xml;
+            case "json" -> this.json;
+            default -> null;
+        };
     }
 }

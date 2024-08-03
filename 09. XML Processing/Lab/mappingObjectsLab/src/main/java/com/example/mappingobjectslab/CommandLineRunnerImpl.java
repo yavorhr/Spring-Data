@@ -1,35 +1,38 @@
-package com.example.objectmapping;
+package com.example.mappingobjectslab;
 
-import com.example.objectmapping.models.dto.*;
-import com.example.objectmapping.models.dto.datetimetest.DateTimeSource;
-import com.example.objectmapping.models.dto.datetimetest.DateTimeTarget;
-import com.example.objectmapping.models.dto.firstlastnametest.FirstLastNameSource;
-import com.example.objectmapping.models.dto.firstlastnametest.FullNameTarget;
-import com.example.objectmapping.repositories.EmployeeRepository;
-import com.example.objectmapping.services.EmployeeService;
-import com.example.objectmapping.services.util.FormatConverter;
-import com.example.objectmapping.services.util.FormatConverterFactory;
+
+import com.example.mappingobjectslab.entity.dto.ManagerCollection;
+import com.example.mappingobjectslab.entity.dto.ManagerDto;;
+import com.example.mappingobjectslab.repositories.EmployeeRepository;
+import com.example.mappingobjectslab.services.EmployeeService;
+import com.example.mappingobjectslab.util.FormatConverter;
+import com.example.mappingobjectslab.util.FormatConverterFactory;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * 1. find X -> return JSON for Manager with subordinates
+ * 2. findAll -> return JSON[] for all managers with their subordinates
+ * 3. save JSON object -> save manager from JSON text to the database and return ResponseCreateDto
+ * 4. save-from-file -> save Manager from json file from resources folder
+ * 5. findAll-to -> fid all managers and write them into file
+ *
+ * -- insert manually employees in DB for testing
+ * */
+
 @Component
-public class Main implements CommandLineRunner {
-
+public class CommandLineRunnerImpl implements CommandLineRunner {
   private final EmployeeService employeeService;
-
   private final FormatConverterFactory factory;
-
   private final EmployeeRepository employeeRepository;
-
   private final ModelMapper modelMapper;
 
-  public Main(EmployeeService employeeService, FormatConverterFactory factory, EmployeeRepository employeeRepository, ModelMapper modelMapper) {
+  public CommandLineRunnerImpl(EmployeeService employeeService, FormatConverterFactory factory, EmployeeRepository employeeRepository, ModelMapper modelMapper) {
     this.employeeService = employeeService;
     this.factory = factory;
     this.employeeRepository = employeeRepository;
@@ -44,8 +47,6 @@ public class Main implements CommandLineRunner {
             .peek(el -> System.out.println(el * 2))
             .collect(Collectors.toList());
 
-
-
 //        var source = new DateTimeSource();
 //        source.setDate("2020-11-11 12:34:56");
 //
@@ -53,7 +54,6 @@ public class Main implements CommandLineRunner {
 //                source,
 //                DateTimeTarget.class
 //        );
-
 
     var source = new FirstLastNameSource();
     source.setFirstName("pesho");
@@ -64,8 +64,10 @@ public class Main implements CommandLineRunner {
             FullNameTarget.class
     );
 
-    List<EmployeeAverageSalaryDto> allWithAvgSalary = this.employeeRepository.findAllWithAvgSalary();
+    List<EmployeeAverageSalaryDto> allWithAvgSalary =
+            this.employeeRepository.findAllWithAvgSalary();
 //        "2020-05-05 16:40:50"
+
     var sc = new Scanner(System.in);
 
     System.out.println("Enter format type: ");
@@ -80,8 +82,6 @@ public class Main implements CommandLineRunner {
     );
 
     var line = sc.nextLine();
-
-
 
     while (!line.equals("end")) {
       var cmdParts = line.split(" ", 2);

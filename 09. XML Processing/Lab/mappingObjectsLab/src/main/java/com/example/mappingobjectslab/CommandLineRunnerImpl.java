@@ -86,59 +86,50 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     while (!line.equals("end")) {
       var cmdParts = line.split(" ", 2);
       switch (cmdParts[0]) {
-        case "find":
+        case "find" -> {
           Long id = Long.parseLong(cmdParts[1]);
           ManagerDto managerById = this.employeeService.findOne(id);
-
           System.out.println(converter.serialize(managerById));
-          break;
-        case "findAll":
+        }
+        case "findAll" -> {
           List<ManagerDto> allManagers = this.employeeService.findAll();
           System.out.println(converter.serialize(new ManagerCollection(allManagers)));
-          break;
-        case "save":
+        }
+        case "save" -> {
           String input = cmdParts[1];
-
           EmployeeCreateRequest request
                   = converter.deserialize(input, EmployeeCreateRequest.class);
-
-
           EmployeeCreateResponse response = this.employeeService.save(
                   request
           );
-
           System.out.println(converter.serialize(response));
-          break;
-        case "save-from-file":
+        }
+        case "save-from-file" -> {
           EmployeeCreateRequest fileRequest = converter.deserializeFromFile(
                   cmdParts[1],
                   EmployeeCreateRequest.class
           );
-
           EmployeeCreateResponse fileResponse = this.employeeService.save(
                   fileRequest
           );
-
           System.out.println(converter.serialize(fileResponse));
-          break;
-        case "findAll-to":
+        }
+        case "findAll-to" -> {
           List<ManagerDto> managers = this.employeeService.findAll();
           converter.serialize(
                   new ManagerCollection(managers),
                   cmdParts[1] + "." + formatType
           );
-
           System.out.println("Written to file " + cmdParts[1]);
-
-          break;
-        case "change-format":
+        }
+        case "change-format" -> {
           converter = this.factory.create(cmdParts[1]);
           System.out.println("Format changed to " + cmdParts[1]);
-          break;
-        case "pretty-print":
+        }
+        case "pretty-print" -> {
           converter.setPrettyPrint();
           System.out.println("Success");
-          break;
+        }
       }
 
       line = sc.nextLine();

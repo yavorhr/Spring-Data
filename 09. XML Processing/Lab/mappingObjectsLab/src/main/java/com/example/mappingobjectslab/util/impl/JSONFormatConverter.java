@@ -12,9 +12,7 @@ import java.io.IOException;
 
 @Component("json_format_converter")
 public class JSONFormatConverter implements FormatConverter {
-
     private final GsonBuilder gsonBuilder;
-
     private Gson gson = null;
 
     public JSONFormatConverter(GsonBuilder gsonBuilder) {

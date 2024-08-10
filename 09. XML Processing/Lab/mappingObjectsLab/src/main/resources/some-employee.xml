@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee first_name="Ot XML " last_name="File :)">
+    <salary>3000</salary>
+    <address>Lyulin 4</address>
+</employee>

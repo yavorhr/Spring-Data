@@ -1,6 +1,7 @@
 package com.example.mappingobjectslab.configuration;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
+import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

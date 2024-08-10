@@ -1,7 +1,6 @@
 package com.example.mappingobjectslab.util.impl;
 
 import com.example.mappingobjectslab.util.FormatConverter;
-import com.example.objectmapping.exception.UnableToConvertException;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import org.springframework.stereotype.Component;

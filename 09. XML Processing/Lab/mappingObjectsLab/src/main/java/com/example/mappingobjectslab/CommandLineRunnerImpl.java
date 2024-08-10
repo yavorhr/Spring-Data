@@ -1,5 +1,8 @@
 package com.example.mappingobjectslab;
 
+import com.example.mappingobjectslab.entity.dto.*;
+import com.example.mappingobjectslab.entity.dto.firstlastnametest.FirstLastNameSource;
+import com.example.mappingobjectslab.entity.dto.firstlastnametest.FullNameTarget;
 import com.example.mappingobjectslab.repositories.EmployeeRepository;
 import com.example.mappingobjectslab.services.EmployeeService;
 import com.example.mappingobjectslab.util.FormatConverter;
@@ -7,6 +10,7 @@ import com.example.mappingobjectslab.util.FormatConverterFactory;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -139,7 +143,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
       line = sc.nextLine();
     }
-
 
 //
 //        List<ManagerDto> managers = this.employeeService.findAll();

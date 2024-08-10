@@ -1,6 +1,6 @@
 package com.example.mappingobjectslab.util;
 
-import com.example.objectmapping.exception.UnableToConvertException;
+import com.example.mappingobjectslab.exception.UnableToConvertException;
 
 public interface FormatConverter {
 
@@ -9,7 +9,6 @@ public interface FormatConverter {
     String serialize(Object obj) throws UnableToConvertException;
 
     void serialize(Object obj, String fileName);
-
 
     <T> T deserialize(String input, Class<T> toType);
 

@@ -10,11 +10,8 @@ import java.util.Locale;
 
 @Component
 public class FormatConverterFactoryImpl implements FormatConverterFactory {
-
     private final FormatConverter xml;
-
     private final FormatConverter json;
-
     private final ApplicationContext ctx;
 
     public FormatConverterFactoryImpl(
@@ -24,7 +21,6 @@ public class FormatConverterFactoryImpl implements FormatConverterFactory {
         this.json = json;
         this.ctx = ctx;
     }
-
 
     @Override
     public FormatConverter create(String formatType) {

@@ -42,10 +42,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    Stream.of(1,2,3,4,6)
-            .map(el -> el * 2)
-            .peek(el -> System.out.println(el * 2))
-            .collect(Collectors.toList());
+//    Stream.of(1,2,3,4,6)
+//            .map(el -> el * 2)
+//            .peek(el -> System.out.println(el * 2))
+//            .collect(Collectors.toList());
 
 //        var source = new DateTimeSource();
 //        source.setDate("2020-11-11 12:34:56");
@@ -55,18 +55,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //                DateTimeTarget.class
 //        );
 
-    var source = new FirstLastNameSource();
-    source.setFirstName("pesho");
-    source.setLastName("petrov");
-
-    var target = this.modelMapper.map(
-            source,
-            FullNameTarget.class
-    );
-
-    List<EmployeeAverageSalaryDto> allWithAvgSalary =
-            this.employeeRepository.findAllWithAvgSalary();
-//        "2020-05-05 16:40:50"
+//    var source = new FirstLastNameSource();
+//    source.setFirstName("pesho");
+//    source.setLastName("petrov");
+//
+//    var target = this.modelMapper.map(
+//            source,
+//            FullNameTarget.class
+//    );
+//
+//    List<EmployeeAverageSalaryDto> allWithAvgSalary =
+//            this.employeeRepository.findAllWithAvgSalary();
+////        "2020-05-05 16:40:50"
 
     var sc = new Scanner(System.in);
 
@@ -76,10 +76,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     FormatConverter converter = this.factory.create(formatType);
     converter.setPrettyPrint();
 
-    TestDto testDto = converter.deserializeFromFile(
-            "./src/main/resources/test-za-dati.xml",
-            TestDto.class
-    );
+//    TestDto testDto = converter.deserializeFromFile(
+//            "./src/main/resources/test-za-dati.xml",
+//            TestDto.class
+//    );
 
     var line = sc.nextLine();
 

@@ -1,7 +1,7 @@
 package com.example.mappingobjectslab.util.impl;
 
+import com.example.mappingobjectslab.exception.UnableToConvertException;
 import com.example.mappingobjectslab.util.FormatConverter;
-import com.example.objectmapping.exception.UnableToConvertException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.stereotype.Component;

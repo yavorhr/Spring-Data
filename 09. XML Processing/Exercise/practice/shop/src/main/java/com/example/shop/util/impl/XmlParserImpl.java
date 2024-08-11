@@ -1,6 +1,7 @@
 package com.example.shop.util.impl;
 
 import com.example.shop.util.XmlParser;
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+@Component
 public class XmlParserImpl implements XmlParser {
   private JAXBContext jaxbContext;
 

@@ -2,16 +2,15 @@ package com.example.shop.model.entity;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
 public class Product extends BaseEntity{
-
     private String name;
     private BigDecimal price;
     private User seller;
     private User buyer;
-
     private List<Category> categories;
 
     public Product() {

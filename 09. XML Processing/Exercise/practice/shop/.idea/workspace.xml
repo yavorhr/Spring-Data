@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/util/impl/XmlParserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/constant/ProjectConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/constant/ProjectConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +78,7 @@
       <recent name="com.example.shop" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.shop.conf" />
       <recent name="com.example.shop.util" />
       <recent name="com.example.shop.service" />
       <recent name="com.example.shop.repository" />
@@ -123,7 +124,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
-      <workItem from="1723368653845" duration="2711000" />
+      <workItem from="1723368653845" duration="3410000" />
     </task>
     <servers />
   </component>

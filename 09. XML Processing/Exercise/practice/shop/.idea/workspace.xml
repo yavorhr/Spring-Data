@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="" />
+    <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/util/impl/ValidationUtilImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +64,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.util.impl" />
+      <recent name="com.example.shop.service.impl" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Repositories\Spring-Data\09. XML Processing\Exercise\practice\shop\src\main\resources" />
     </key>
@@ -72,6 +78,8 @@
       <recent name="com.example.shop" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.shop.util" />
+      <recent name="com.example.shop.service" />
       <recent name="com.example.shop.repository" />
       <recent name="com.example.shop.model.entity" />
     </key>
@@ -115,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
-      <workItem from="1723368653845" duration="1913000" />
+      <workItem from="1723368653845" duration="2316000" />
     </task>
     <servers />
   </component>

@@ -27,6 +27,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     seedData();
+
+    System.out.println("Please select task: ");
+    int task = Integer.parseInt(this.bufferedReader.readLine());
+    switch (task) {
+      case 1 -> productsInRange();
+    }
+  }
+
+  private void productsInRange() {
+
   }
 
   private void seedData() throws JAXBException, FileNotFoundException {

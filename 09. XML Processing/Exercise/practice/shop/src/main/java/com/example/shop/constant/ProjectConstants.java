@@ -8,8 +8,8 @@ public class ProjectConstants {
   public static final String USERS_FILE_NAME = "users.xml";
   public static final String PRODUCTS_FILE_NAME = "products.xml";
 
-  public static final String SEED_CATEGORIES_PATH = INPUT_RESOURCES_FILES_PATH + CATEGORIES_FILE_NAME;
-  public static final String SEED_USERS_PATH = INPUT_RESOURCES_FILES_PATH + USERS_FILE_NAME;
+  public static final String SEED_CATEGORIES = INPUT_RESOURCES_FILES_PATH + CATEGORIES_FILE_NAME;
+  public static final String SEED_USERS = INPUT_RESOURCES_FILES_PATH + USERS_FILE_NAME;
   public static final String SEED_PRODUCTS = INPUT_RESOURCES_FILES_PATH + PRODUCTS_FILE_NAME;
 
   // OUTPUT

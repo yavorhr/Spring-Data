@@ -1,19 +1,40 @@
 package com.example.shop.model.dto.view.FirstQuery;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 @XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ProductViewDtoWithNamePriceAndSellerName {
 
-  @XmlElement
+  @XmlAttribute(name = "name")
   private String name;
-  @XmlElement
+  @XmlAttribute(name = "price")
   private BigDecimal price;
-  @XmlElement
+  @XmlAttribute(name = "seller")
   private String seller;
+
+  public String getName() {
+    return name;
+  }
+
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public String getSeller() {
+    return seller;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public void setSeller(String seller) {
+    this.seller = seller;
+  }
 }

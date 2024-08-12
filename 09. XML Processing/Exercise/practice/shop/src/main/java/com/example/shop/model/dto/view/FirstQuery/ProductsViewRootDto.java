@@ -13,4 +13,7 @@ public class ProductsViewRootDto {
   @XmlElement(name = "product")
   private List<ProductViewDtoWithNamePriceAndSellerName> products;
 
+  public void setProducts(List<ProductViewDtoWithNamePriceAndSellerName> products) {
+    this.products = products;
+  }
 }

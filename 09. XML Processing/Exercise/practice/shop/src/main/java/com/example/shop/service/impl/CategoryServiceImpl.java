@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -40,5 +43,21 @@ public class CategoryServiceImpl implements CategoryService {
             .filter(this.validationUtil::isValid)
             .map(dto -> this.modelMapper.map(dto, Category.class))
             .forEach(this.categoryRepository::save);
+  }
+
+  @Override
+  public List<Category> getRandomCategories() {
+    List<Category> categories = new ArrayList<>();
+
+    int randomCount = ThreadLocalRandom.current().nextInt(1, 3);
+    long count = categoryRepository.count();
+
+    for (int i = 0; i < randomCount; i++) {
+      long randomId = ThreadLocalRandom.current().nextLong(1, count + 1);
+      Category category = categoryRepository.findById(randomId).orElse(null);
+      categories.add(category);
+    }
+
+    return categories;
   }
 }

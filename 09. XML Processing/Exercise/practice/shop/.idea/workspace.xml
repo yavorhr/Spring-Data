@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/UserSeedDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/UserSeedDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/UserSeedRootDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/UserSeedRootDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/UserService.java" afterDir="false" />
@@ -132,7 +132,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="897000" />
+      <workItem from="1723464441220" duration="2606000" />
     </task>
     <servers />
   </component>

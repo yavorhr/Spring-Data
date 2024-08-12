@@ -11,9 +11,13 @@ import java.util.List;
 public class UserSeedRootDto {
 
   @XmlElement(name = "user")
-  List<UserSeedDto> users;
+  private List<UserSeedDto> users;
 
   public List<UserSeedDto> getUsers() {
     return users;
+  }
+
+  public void setUsers(List<UserSeedDto> users) {
+    this.users = users;
   }
 }

@@ -1,9 +1,10 @@
 package com.example.shop.model.dto.seed;
 
 import jakarta.validation.constraints.Size;
-import jakarta.xml.bind.annotation.XmlAttribute;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "user")
@@ -15,7 +16,7 @@ public class UserSeedDto {
   @XmlAttribute(name = "last-name")
   private String lastName;
   @XmlAttribute(name = "age")
-  private int age;
+  private Integer age;
 
   public String getFirstName() {
     return firstName;
@@ -26,7 +27,7 @@ public class UserSeedDto {
     return lastName;
   }
 
-  public int getAge() {
+  public Integer getAge() {
     return age;
   }
 }

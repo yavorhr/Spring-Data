@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedRootDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedRootDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +132,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="2749000" />
+      <workItem from="1723464441220" duration="3337000" />
     </task>
     <servers />
   </component>
@@ -147,5 +150,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

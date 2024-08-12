@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     UserSeedRootDto userSeedRootDto =
-            this.xmlParser.fromFile(ProjectConstants.SEED_USERS_PATH, UserSeedRootDto.class);
+            this.xmlParser.fromFile(ProjectConstants.SEED_USERS, UserSeedRootDto.class);
 
     System.out.println();
 

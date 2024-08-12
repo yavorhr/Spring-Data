@@ -37,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     CategorySeedRootDto categorySeedRootDto =
-            xmlParser.fromFile(ProjectConstants.SEED_CATEGORIES_PATH, CategorySeedRootDto.class);
+            xmlParser.fromFile(ProjectConstants.SEED_CATEGORIES, CategorySeedRootDto.class);
     categorySeedRootDto.getCategories()
             .stream()
             .filter(this.validationUtil::isValid)

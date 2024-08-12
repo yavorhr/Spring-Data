@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -43,5 +44,11 @@ public class UserServiceImpl implements UserService {
             .filter(this.validationUtil::isValid)
             .map(u -> this.modelMapper.map(u, User.class))
             .forEach(this.userRepository::save);
+  }
+
+  @Override
+  public User getRandomUser() {
+    Long randomId = ThreadLocalRandom.current().nextLong(1, userRepository.count() + 1);
+    return userRepository.findById(randomId).orElse(null);
   }
 }

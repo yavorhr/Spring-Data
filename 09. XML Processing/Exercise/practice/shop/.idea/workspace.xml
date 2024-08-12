@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/constant/ProjectConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/constant/ProjectConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/shop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/CategoryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../~$. XML-Processing-Exercises.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/util/impl/XmlParserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/util/impl/XmlParserImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +93,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="shop" />
       <extension name="coverage">
@@ -119,7 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="110000" />
+      <workItem from="1723464441220" duration="438000" />
     </task>
     <servers />
   </component>
@@ -137,5 +152,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

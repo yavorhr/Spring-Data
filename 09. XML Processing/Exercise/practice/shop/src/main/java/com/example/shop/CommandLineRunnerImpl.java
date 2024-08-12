@@ -4,7 +4,9 @@ import com.example.shop.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBException;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 
 @Service
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -21,7 +23,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     seedData();
   }
 
-  private void seedData() {
+  private void seedData() throws JAXBException, FileNotFoundException {
     this.categoryService.seedCategories();
   }
 }

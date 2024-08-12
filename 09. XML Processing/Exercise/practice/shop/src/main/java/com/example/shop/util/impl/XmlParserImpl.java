@@ -2,7 +2,6 @@ package com.example.shop.util.impl;
 
 import com.example.shop.util.XmlParser;
 import org.springframework.stereotype.Component;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;

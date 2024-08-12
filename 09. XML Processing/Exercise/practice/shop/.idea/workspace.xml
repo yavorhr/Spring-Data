@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedRootDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/seed/ProductSeedRootDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/FirstQuery/ProductViewDtoWithNamePriceAndSellerName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/FirstQuery/ProductViewDtoWithNamePriceAndSellerName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/FirstQuery/ProductsViewRootDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/FirstQuery/ProductsViewRootDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java" afterDir="false" />
     </list>
@@ -69,6 +71,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.model.dto.view.FirstQuery" />
       <recent name="com.example.shop.model.dto.seed" />
       <recent name="com.example.shop.util.impl" />
       <recent name="com.example.shop.service.impl" />
@@ -132,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="3337000" />
+      <workItem from="1723464441220" duration="5934000" />
     </task>
     <servers />
   </component>
@@ -150,16 +153,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/ProductServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

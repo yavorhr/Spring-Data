@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +66,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.model.dto.view.SecondQuery" />
       <recent name="com.example.shop.model.dto.view.FirstQuery" />
       <recent name="com.example.shop.model.dto.seed" />
       <recent name="com.example.shop.util.impl" />
@@ -129,7 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="6417000" />
+      <workItem from="1723464441220" duration="8089000" />
     </task>
     <servers />
   </component>

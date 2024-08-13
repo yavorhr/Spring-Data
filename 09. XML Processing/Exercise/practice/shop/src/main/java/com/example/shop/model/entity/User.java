@@ -59,4 +59,6 @@ public class User extends BaseEntity {
     public void setSoldProducts(Set<Product> soldProducts) {
         this.soldProducts = soldProducts;
     }
+
+
 }

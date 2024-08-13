@@ -13,6 +13,8 @@ public class ProductsWithBuyerViewDto {
   private BigDecimal price;
   @XmlAttribute(name = "buyer-first-name")
   private String buyerFirstName;
+  @XmlAttribute(name = "buyer-last-name")
+  private String buyerLastName;
 
   public String getName() {
     return name;
@@ -36,5 +38,13 @@ public class ProductsWithBuyerViewDto {
 
   public void setBuyerFirstName(String buyerFirstName) {
     this.buyerFirstName = buyerFirstName;
+  }
+
+  public String getBuyerLastName() {
+    return buyerLastName;
+  }
+
+  public void setBuyerLastName(String buyerLastName) {
+    this.buyerLastName = buyerLastName;
   }
 }

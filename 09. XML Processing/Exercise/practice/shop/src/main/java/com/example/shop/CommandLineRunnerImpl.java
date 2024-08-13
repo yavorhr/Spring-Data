@@ -2,6 +2,7 @@ package com.example.shop;
 
 import com.example.shop.constant.ProjectConstants;
 import com.example.shop.model.dto.view.FirstQuery.ProductsViewRootDto;
+import com.example.shop.model.dto.view.SecondQuery.UsersRootViewDto;
 import com.example.shop.service.CategoryService;
 import com.example.shop.service.ProductService;
 import com.example.shop.service.UserService;
@@ -37,7 +38,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     int task = Integer.parseInt(this.bufferedReader.readLine());
     switch (task) {
       case 1 -> productsInRange();
+      case 2 -> successfullySoldProducts();
     }
+  }
+
+  private void successfullySoldProducts() throws JAXBException {
+    UsersRootViewDto rootDto = this.userService.findUsersWithMoreThanOneSoldProducts();
+    this.xmlParser.writeToFile(ProjectConstants.SECOND_QUERY, rootDto);
   }
 
   private void productsInRange() throws JAXBException {

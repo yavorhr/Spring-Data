@@ -16,7 +16,6 @@ public class UserWithSoldProductsViewDto {
   @XmlElementWrapper(name = "sold-products")
   private List<ProductsWithBuyerViewDto> products;
 
-
   public String getFirstName() {
     return firstName;
   }

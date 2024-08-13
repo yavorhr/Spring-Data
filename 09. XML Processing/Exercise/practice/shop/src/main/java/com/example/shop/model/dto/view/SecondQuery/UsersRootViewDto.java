@@ -11,9 +11,9 @@ import java.util.List;
 public class UsersRootViewDto {
 
   @XmlElement(name = "user")
-  List<UserWithSoldProductsViewDto> user;
+  List<UserWithSoldProductsViewDto> users;
 
-  public void setUser(List<UserWithSoldProductsViewDto> user) {
-    this.user = user;
+  public void setUsers(List<UserWithSoldProductsViewDto> users) {
+    this.users = users;
   }
 }

@@ -7,12 +7,6 @@
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/ProductsWithBuyerViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/ProductsWithBuyerViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/UserWithSoldProductsViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/UserWithSoldProductsViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/UsersRootViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/SecondQuery/UsersRootViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="10594000" />
+      <workItem from="1723464441220" duration="11489000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ package com.example.shop;
 import com.example.shop.constant.ProjectConstants;
 import com.example.shop.model.dto.view.FirstQuery.ProductsViewRootDto;
 import com.example.shop.model.dto.view.SecondQuery.UsersRootViewDto;
+import com.example.shop.model.dto.view.ThirdQuery.CategoryViewDto;
 import com.example.shop.service.CategoryService;
 import com.example.shop.service.ProductService;
 import com.example.shop.service.UserService;
@@ -43,8 +44,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
   }
 
-  private void categoriesByProductsCount() {
-
+  private void categoriesByProductsCount() throws JAXBException {
+    var categoryRootDto = this.categoryService.findAllCategoriesByProductsCount();
+    this.xmlParser.writeToFile(ProjectConstants.THIRD_QUERY, categoryRootDto);
   }
 
   private void successfullySoldProducts() throws JAXBException {

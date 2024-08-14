@@ -7,6 +7,11 @@
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/ThirdQuery/CategoriesRootViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/ThirdQuery/CategoriesRootViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/ThirdQuery/CategoryViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/dto/view/ThirdQuery/CategoryViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/model/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/model/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/service/impl/CategoryServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.model.dto.view.ThirdQuery" />
       <recent name="com.example.shop.model.dto.view.SecondQuery" />
       <recent name="com.example.shop.model.dto.view.FirstQuery" />
       <recent name="com.example.shop.model.dto.seed" />
       <recent name="com.example.shop.util.impl" />
-      <recent name="com.example.shop.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Repositories\Spring-Data\09. XML Processing\Exercise\practice\shop\src\main\resources" />
@@ -131,7 +136,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="11489000" />
+      <workItem from="1723464441220" duration="13602000" />
     </task>
     <servers />
   </component>
@@ -149,5 +154,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

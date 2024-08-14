@@ -13,10 +13,6 @@ public class CategoriesRootViewDto {
   @XmlElement(name = "category")
   List<CategoryViewDto> categories;
 
-  public List<CategoryViewDto> getCategories() {
-    return categories;
-  }
-
   public void setCategories(List<CategoryViewDto> categories) {
     this.categories = categories;
   }

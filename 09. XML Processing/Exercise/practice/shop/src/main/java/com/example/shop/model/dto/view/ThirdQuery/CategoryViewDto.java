@@ -9,33 +9,33 @@ public class CategoryViewDto {
   @XmlAttribute(name = "name")
   private String name;
   @XmlElement(name = "products-count")
-  private long productsCount;
+  private int productsCount;
   @XmlElement(name = "average-price")
   private double averagePrice;
   @XmlElement(name = "total-revenue")
-  private int totalRevenue;
+  private double totalRevenue;
 
-  public long getProductsCount() {
+  public int getProductsCount() {
     return productsCount;
   }
 
-  public void setProductsCount(long productsCount) {
-    this.productsCount = productsCount;
+  public String getName() {
+    return name;
   }
 
-  public double getAveragePrice() {
-    return averagePrice;
+  public void setProductsCount(Integer productsCount) {
+    this.productsCount = productsCount;
   }
 
   public void setAveragePrice(double averagePrice) {
     this.averagePrice = averagePrice;
   }
 
-  public int getTotalRevenue() {
-    return totalRevenue;
+  public void setTotalRevenue(double totalRevenue) {
+    this.totalRevenue = totalRevenue;
   }
 
-  public void setTotalRevenue(int totalRevenue) {
-    this.totalRevenue = totalRevenue;
+  public void setName(String name) {
+    this.name = name;
   }
 }

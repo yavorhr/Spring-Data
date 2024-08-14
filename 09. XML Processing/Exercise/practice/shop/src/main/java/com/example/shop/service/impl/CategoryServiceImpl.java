@@ -2,7 +2,10 @@ package com.example.shop.service.impl;
 
 import com.example.shop.constant.ProjectConstants;
 import com.example.shop.model.dto.seed.CategorySeedRootDto;
+import com.example.shop.model.dto.view.ThirdQuery.CategoriesRootViewDto;
+import com.example.shop.model.dto.view.ThirdQuery.CategoryViewDto;
 import com.example.shop.model.entity.Category;
+import com.example.shop.model.entity.Product;
 import com.example.shop.repository.CategoryRepository;
 import com.example.shop.service.CategoryService;
 import com.example.shop.util.ValidationUtil;
@@ -12,9 +15,11 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -59,5 +64,32 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     return categories;
+  }
+
+  @Override
+  public CategoriesRootViewDto findAllCategoriesByProductsCount() {
+    List<CategoryViewDto> innerDtos =
+            this.categoryRepository
+                    .findAll()
+                    .stream()
+                    .map(e -> {
+                      var categoryViewDto = new CategoryViewDto();
+                      categoryViewDto.setName(e.getName());
+                      categoryViewDto.setProductsCount(e.getProducts().size());
+
+                      double avgPrice = e.getProducts().stream().mapToDouble(p -> p.getPrice().doubleValue()).average().getAsDouble();
+                      categoryViewDto.setAveragePrice(avgPrice);
+
+                      double totalRevenue = e.getProducts().stream().mapToDouble(p -> p.getPrice().doubleValue()).sum();
+                      categoryViewDto.setTotalRevenue(totalRevenue);
+                      return categoryViewDto;
+                    })
+                    .sorted((c1, c2) -> Integer.compare(c2.getProductsCount(), c1.getProductsCount()))
+                    .collect(Collectors.toList());
+
+    CategoriesRootViewDto rootDto = new CategoriesRootViewDto();
+    rootDto.setCategories(innerDtos);
+
+    return rootDto;
   }
 }

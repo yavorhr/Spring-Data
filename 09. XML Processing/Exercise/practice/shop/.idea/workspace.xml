@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/output/extract-categories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/shop/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +67,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.model.dto.view.FourthQuery" />
       <recent name="com.example.shop.model.dto.view.ThirdQuery" />
       <recent name="com.example.shop.model.dto.view.SecondQuery" />
       <recent name="com.example.shop.model.dto.view.FirstQuery" />
       <recent name="com.example.shop.model.dto.seed" />
-      <recent name="com.example.shop.util.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Repositories\Spring-Data\09. XML Processing\Exercise\practice\shop\src\main\resources" />
@@ -130,7 +132,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723368652244</updated>
       <workItem from="1723368653845" duration="4224000" />
-      <workItem from="1723464441220" duration="13748000" />
+      <workItem from="1723464441220" duration="14628000" />
     </task>
     <servers />
   </component>

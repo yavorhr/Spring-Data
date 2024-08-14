@@ -41,7 +41,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> productsInRange();
       case 2 -> successfullySoldProducts();
       case 3 -> categoriesByProductsCount();
+      case 4 -> usersAndProducts();
     }
+  }
+
+  private void usersAndProducts() {
+
   }
 
   private void categoriesByProductsCount() throws JAXBException {

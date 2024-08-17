@@ -5,6 +5,7 @@ import com.example.cardealer.model.dto.seed.CarsRootDto;
 import com.example.cardealer.model.entity.Car;
 import com.example.cardealer.repository.CarRepository;
 import com.example.cardealer.service.CarService;
+import com.example.cardealer.service.PartService;
 import com.example.cardealer.service.SupplierService;
 import com.example.cardealer.util.ValidationUtil;
 import com.example.cardealer.util.XmlParser;
@@ -21,13 +22,15 @@ public class CarServiceImpl implements CarService {
   private final ValidationUtil validationUtil;
   private final XmlParser xmlParser;
   private final SupplierService supplierService;
+  private final PartService partService;
 
-  public CarServiceImpl(CarRepository carRepository, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser, SupplierService supplierService) {
+  public CarServiceImpl(CarRepository carRepository, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser, SupplierService supplierService, PartService partService) {
     this.carRepository = carRepository;
     this.modelMapper = modelMapper;
     this.validationUtil = validationUtil;
     this.xmlParser = xmlParser;
     this.supplierService = supplierService;
+    this.partService = partService;
   }
 
   @Override
@@ -40,8 +43,9 @@ public class CarServiceImpl implements CarService {
             .map(dto -> {
               Car entity = this.modelMapper.map(dto, Car.class);
 
-
-              entity.setParts();
+              entity.setParts(partService.findRandomParts());
+              return entity;
             })
+            .forEach(this.carRepository::save);
   }
 }

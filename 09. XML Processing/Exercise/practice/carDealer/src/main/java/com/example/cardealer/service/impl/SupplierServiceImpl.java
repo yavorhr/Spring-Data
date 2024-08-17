@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
@@ -42,5 +43,11 @@ public class SupplierServiceImpl implements SupplierService {
             .filter(this.validationUtil::isValid)
             .map(dto -> this.modelMapper.map(dto, Supplier.class))
             .forEach(this.supplierRepository::save);
+  }
+
+  @Override
+  public Supplier findRandomSupplier() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count() + 1);
+    return this.supplierRepository.findById(randomId).orElse(null);
   }
 }

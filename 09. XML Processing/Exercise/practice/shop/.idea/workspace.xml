@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/repository/PartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/repository/PartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/PartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/PartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/PartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/PartServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/dto/seed/CustomerNameBdayYoungDriverDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/dto/seed/CustomersRootDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

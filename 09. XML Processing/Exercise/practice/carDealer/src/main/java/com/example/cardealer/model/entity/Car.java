@@ -9,10 +9,10 @@ import jakarta.persistence.Table;
 @Table(name = "cars")
 public class Car extends BaseEntity{
 
-    @Column(name = "make")
+    @Column(name = "make", nullable = false)
     private String make;
 
-    @Column(name = "model")
+    @Column(name = "model", nullable = false)
     private String model;
 
     @Column(name = "travelled_distance")

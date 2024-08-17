@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,5 +44,11 @@ public class CustomerServiceImpl implements CustomerService {
             .filter(this.validationUtil::isValid)
             .map(dto -> this.modelMapper.map(dto, Customer.class))
             .forEach(this.customerRepository::save);
+  }
+
+  @Override
+  public Customer findRandomCustomer() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.customerRepository.count()+1);
+    return this.customerRepository.findById(randomId).orElse(null);
   }
 }

@@ -10,8 +10,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "parts")
 public class Part extends BaseEntity {
-
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "price")
     private BigDecimal price;

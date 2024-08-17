@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "suppliers")
 public class Supplier extends BaseEntity {
 
-  @Column(name = "name")
+  @Column(name = "name", nullable = false)
   private String name;
   @Column(name = "is_importer")
   private boolean isImporter;

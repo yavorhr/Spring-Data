@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/constant/ProjectConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/constant/ProjectConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,6 +121,7 @@
       <workItem from="1723368653845" duration="4224000" />
       <workItem from="1723464441220" duration="15184000" />
       <workItem from="1723881547402" duration="1623000" />
+      <workItem from="1723886563923" duration="622000" />
     </task>
     <servers />
   </component>

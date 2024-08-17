@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/constant/ProjectConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/constant/ProjectConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/CommandLineRunnerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/config/ApplicationBeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/config/ApplicationBeanConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

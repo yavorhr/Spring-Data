@@ -10,13 +10,10 @@ import java.util.List;
 @Entity
 @Table(name = "cars")
 public class Car extends BaseEntity{
-
     @Column(name = "make", nullable = false)
     private String make;
-
     @Column(name = "model", nullable = false)
     private String model;
-
     @Column(name = "travelled_distance")
     private long travelledDistance;
 

@@ -37,5 +37,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
   private void seedData() throws JAXBException, FileNotFoundException {
     this.supplierService.seedSuppliers();
+    this.partService.seedParts();
   }
 }

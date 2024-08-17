@@ -1,5 +1,6 @@
 package com.example.shop.service;
 
+import com.example.shop.model.dto.view.FourthQuery.UsersAndCountRootViewDto;
 import com.example.shop.model.dto.view.SecondQuery.UsersRootViewDto;
 import com.example.shop.model.entity.User;
 
@@ -13,4 +14,6 @@ public interface UserService {
   User getRandomUser();
 
   UsersRootViewDto findUsersWithMoreThanOneSoldProducts();
+
+  UsersAndCountRootViewDto findAllUsersWithSoldProducts();
 }

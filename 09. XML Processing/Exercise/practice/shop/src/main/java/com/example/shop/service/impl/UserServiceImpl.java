@@ -2,6 +2,8 @@ package com.example.shop.service.impl;
 
 import com.example.shop.constant.ProjectConstants;
 import com.example.shop.model.dto.seed.UserSeedRootDto;
+import com.example.shop.model.dto.view.FourthQuery.UsersAndCountRootViewDto;
+import com.example.shop.model.dto.view.FourthQuery.UsersViewDtoWithSoldProducts;
 import com.example.shop.model.dto.view.SecondQuery.UserWithSoldProductsViewDto;
 import com.example.shop.model.dto.view.SecondQuery.UsersRootViewDto;
 import com.example.shop.model.entity.User;
@@ -69,6 +71,23 @@ public class UserServiceImpl implements UserService {
             .collect(Collectors.toList());
 
     rootDto.setUsers(innerDtos);
+    return rootDto;
+  }
+
+  @Override
+  public UsersAndCountRootViewDto findAllUsersWithSoldProducts() {
+    var rootDto = new UsersAndCountRootViewDto();
+
+    List<UsersViewDtoWithSoldProducts> innerDtos =
+            this.userRepository
+                    .findAllUsersWithAtLeastOneProductSold()
+                    .stream()
+                    .map(e -> this.modelMapper.map(e, UsersViewDtoWithSoldProducts.class))
+                    .collect(Collectors.toList());
+
+    rootDto.setUsers(innerDtos);
+    rootDto.setCount(innerDtos.size());
+
     return rootDto;
   }
 }

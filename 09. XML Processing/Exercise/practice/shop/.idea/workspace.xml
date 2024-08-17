@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CarService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/entity/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/SupplierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/SupplierService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/SupplierServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

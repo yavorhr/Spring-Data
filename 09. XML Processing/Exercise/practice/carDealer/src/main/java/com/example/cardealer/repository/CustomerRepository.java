@@ -1,6 +1,6 @@
 package com.example.cardealer.repository;
 
-import org.modelmapper.flattening.example1.Customer;
+import com.example.cardealer.model.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

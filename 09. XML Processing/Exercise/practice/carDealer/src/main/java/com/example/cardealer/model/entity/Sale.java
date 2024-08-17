@@ -1,6 +1,5 @@
 package com.example.cardealer.model.entity;
 import jakarta.persistence.*;
-import org.modelmapper.flattening.example1.Customer;
 
 @Entity
 @Table(name = "sales")

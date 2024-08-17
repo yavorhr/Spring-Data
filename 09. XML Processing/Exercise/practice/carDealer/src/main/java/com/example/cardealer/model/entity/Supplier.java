@@ -7,7 +7,6 @@ import java.util.List;
 @Entity
 @Table(name = "suppliers")
 public class Supplier extends BaseEntity {
-
   @Column(name = "name", nullable = false)
   private String name;
   @Column(name = "is_importer")

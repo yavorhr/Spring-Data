@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91847d5a-04bd-4b3e-94a8-adaae390b214" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/config/ApplicationBeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/config/ApplicationBeanConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/model/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/SaleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../carDealer/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

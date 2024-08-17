@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -49,5 +50,11 @@ public class CarServiceImpl implements CarService {
               return entity;
             })
             .forEach(this.carRepository::save);
+  }
+
+  @Override
+  public Car findRandomCar() {
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.carRepository.count() + 1);
+    return this.carRepository.findById(randomId).orElse(null);
   }
 }

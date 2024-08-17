@@ -21,20 +21,22 @@ public class CarServiceImpl implements CarService {
   private final ModelMapper modelMapper;
   private final ValidationUtil validationUtil;
   private final XmlParser xmlParser;
-  private final SupplierService supplierService;
   private final PartService partService;
 
-  public CarServiceImpl(CarRepository carRepository, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser, SupplierService supplierService, PartService partService) {
+  public CarServiceImpl(CarRepository carRepository, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser, PartService partService) {
     this.carRepository = carRepository;
     this.modelMapper = modelMapper;
     this.validationUtil = validationUtil;
     this.xmlParser = xmlParser;
-    this.supplierService = supplierService;
     this.partService = partService;
   }
 
   @Override
   public void seedCars() throws JAXBException, FileNotFoundException {
+    if (carRepository.count() > 0) {
+      return;
+    }
+
     CarsRootDto rootDto = this.xmlParser.fromFile(ProjectConstants.SEED_CARS, CarsRootDto.class);
 
     rootDto.getCars()

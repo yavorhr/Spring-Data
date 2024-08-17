@@ -39,5 +39,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     this.supplierService.seedSuppliers();
     this.partService.seedParts();
     this.carService.seedCars();
+    this.customerService.seedCustomers();
   }
 }

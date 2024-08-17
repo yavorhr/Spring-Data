@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PartServiceImpl implements PartService {
@@ -37,8 +40,7 @@ public class PartServiceImpl implements PartService {
     }
 
     PartsRootDto rootDto =
-            this.xmlParser.fromFile(ProjectConstants.SEED_PARTS, PartsRootDto.class)
-            ;
+            this.xmlParser.fromFile(ProjectConstants.SEED_PARTS, PartsRootDto.class);
     rootDto.getParts()
             .stream()
             .filter(this.validationUtil::isValid)
@@ -49,5 +51,20 @@ public class PartServiceImpl implements PartService {
               return entity;
             })
             .forEach(this.partRepository::save);
+  }
+
+  @Override
+  public Set<Part> findRandomParts() {
+    long upperBound = this.partRepository.count() + 1;
+    long partsCount = ThreadLocalRandom.current().nextInt(10, 21);
+
+    Set<Part> randomParts = new HashSet<>();
+    for (int i = 0; i < partsCount; i++) {
+      long randomPartId = ThreadLocalRandom.current().nextLong(1, upperBound);
+      Part partEntity = this.partRepository.findById(randomPartId).orElse(null);
+
+      randomParts.add(partEntity);
+    }
+    return randomParts;
   }
 }

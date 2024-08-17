@@ -1,40 +1,44 @@
 package com.example.cardealer.model.entity;
+
 import jakarta.persistence.*;
+
+import java.util.Random;
 
 @Entity
 @Table(name = "sales")
 public class Sale extends BaseEntity {
-    @Column(name = "discount")
-    private double discount;
-    @OneToOne
-    private Car car;
-    @ManyToOne
-    private Customer customer;
+  @Column(name = "discount")
+  private double discount;
+  @OneToOne
+  private Car car;
+  @ManyToOne
+  private Customer customer;
 
-    public Sale() {
-    }
+  public Sale() {
+  }
 
-    public double getDiscount() {
-        return discount;
-    }
+  public double getDiscount() {
+    return discount;
+  }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
+  public void setDiscount(double discount) {
+    this.discount = discount;
+  }
 
-    public Car getCar() {
-        return car;
-    }
+  public Car getCar() {
+    return car;
+  }
 
-    public void setCar(Car car) {
-        this.car = car;
-    }
+  public void setCar(Car car) {
+    this.car = car;
+  }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+  public Customer getCustomer() {
+    return customer;
+  }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
 }

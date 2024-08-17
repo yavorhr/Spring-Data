@@ -9,7 +9,7 @@ public class SupplierNameIsImporterDto {
   @XmlAttribute(name = "name")
   private String name;
   @XmlAttribute(name = "is-importer")
-  private boolean isImported;
+  private boolean isImporter;
 
   public String getName() {
     return name;
@@ -19,11 +19,11 @@ public class SupplierNameIsImporterDto {
     this.name = name;
   }
 
-  public boolean isImported() {
-    return isImported;
+  public boolean isImporter() {
+    return isImporter;
   }
 
-  public void setImported(boolean imported) {
-    isImported = imported;
+  public void setImporter(boolean importer) {
+    isImporter = importer;
   }
 }

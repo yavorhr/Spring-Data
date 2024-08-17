@@ -2,6 +2,7 @@ package com.example.cardealer.service.impl;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.seed.SupplierRootDto;
+import com.example.cardealer.model.entity.Supplier;
 import com.example.cardealer.repository.SupplierRepository;
 import com.example.cardealer.service.SupplierService;
 import com.example.cardealer.util.ValidationUtil;
@@ -35,6 +36,11 @@ public class SupplierServiceImpl implements SupplierService {
     SupplierRootDto rootDto =
             this.xmlParser.fromFile(ProjectConstants.SEED_SUPPLIERS, SupplierRootDto.class);
 
-    System.out.println();
+    rootDto
+            .getSuppliers()
+            .stream()
+            .filter(this.validationUtil::isValid)
+            .map(dto -> this.modelMapper.map(dto, Supplier.class))
+            .forEach(this.supplierRepository::save);
   }
 }

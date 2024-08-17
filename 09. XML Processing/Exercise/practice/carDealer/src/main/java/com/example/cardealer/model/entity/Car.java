@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
+import java.util.List;
+
 @Entity
 @Table(name = "cars")
 public class Car extends BaseEntity{

@@ -1,5 +1,6 @@
 package com.example.cardealer.service;
 
+import com.example.cardealer.model.dto.view.FourthQuery.CarsWithPartsRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
 import com.example.cardealer.model.entity.Car;
 
@@ -13,4 +14,6 @@ public interface CarService {
   Car findRandomCar();
 
   CarsRootViewDto findAllToyotaCarsOrderedByModelAscAndDistanceDesc(String toyota);
+
+  CarsWithPartsRootViewDto findAllCarsWithTheirParts();
 }

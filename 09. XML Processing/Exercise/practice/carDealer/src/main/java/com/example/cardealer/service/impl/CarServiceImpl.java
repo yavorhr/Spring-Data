@@ -2,6 +2,8 @@ package com.example.cardealer.service.impl;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.seed.CarsRootDto;
+import com.example.cardealer.model.dto.view.FourthQuery.CarMakeModelDistanceViewDto;
+import com.example.cardealer.model.dto.view.FourthQuery.CarsWithPartsRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarIdMakeModelDistance;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
 import com.example.cardealer.model.entity.Car;
@@ -75,5 +77,19 @@ public class CarServiceImpl implements CarService {
     carsRootViewDto.setCars(innerDtos);
 
     return carsRootViewDto;
+  }
+
+  @Override
+  public CarsWithPartsRootViewDto findAllCarsWithTheirParts() {
+    var rootDto = new CarsWithPartsRootViewDto();
+
+    List<CarMakeModelDistanceViewDto> innerDtos = this.carRepository.findAll()
+            .stream()
+            .map(e -> this.modelMapper.map(e, CarMakeModelDistanceViewDto.class))
+            .collect(Collectors.toList());
+
+    rootDto.setCars(innerDtos);
+
+    return rootDto;
   }
 }

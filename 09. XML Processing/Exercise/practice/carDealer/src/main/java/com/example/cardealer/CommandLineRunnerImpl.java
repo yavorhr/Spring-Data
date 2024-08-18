@@ -2,6 +2,7 @@ package com.example.cardealer;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
+import com.example.cardealer.model.dto.view.FourthQuery.CarsWithPartsRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
 import com.example.cardealer.model.dto.view.ThirdQuery.SuppliersViewRootDto;
 import com.example.cardealer.service.*;
@@ -44,7 +45,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 1 -> orderedCustomers();
       case 2 -> carsFromMakeToyota();
       case 3 -> localSuppliers();
+      case 4 -> carsWithTheirParts();
     }
+  }
+
+  private void carsWithTheirParts() throws JAXBException {
+    CarsWithPartsRootViewDto rootViewDto = this.carService.findAllCarsWithTheirParts();
+    writeDtoToFile(ProjectConstants.FOURTH_QUERY, rootViewDto);
   }
 
   private void localSuppliers() throws JAXBException {

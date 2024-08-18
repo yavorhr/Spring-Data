@@ -8,7 +8,7 @@ import java.util.List;
 public class CarMakeModelDistanceViewDto {
 
   @XmlAttribute
-  private String name;
+  private String make;
   @XmlAttribute
   private String model;
   @XmlAttribute(name = "travelled-distance")
@@ -18,8 +18,8 @@ public class CarMakeModelDistanceViewDto {
   @XmlElement(name = "part")
   private List<PartNamePriceViewDto> parts;
 
-  public String getName() {
-    return name;
+  public String getMake() {
+    return make;
   }
 
   public String getModel() {
@@ -30,8 +30,8 @@ public class CarMakeModelDistanceViewDto {
     return travelledDistance;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setMake(String make) {
+    this.make = make;
   }
 
   public void setModel(String model) {
@@ -40,5 +40,13 @@ public class CarMakeModelDistanceViewDto {
 
   public void setTravelledDistance(long travelledDistance) {
     this.travelledDistance = travelledDistance;
+  }
+
+  public List<PartNamePriceViewDto> getParts() {
+    return parts;
+  }
+
+  public void setParts(List<PartNamePriceViewDto> parts) {
+    this.parts = parts;
   }
 }

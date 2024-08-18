@@ -3,6 +3,7 @@ package com.example.cardealer;
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
+import com.example.cardealer.model.dto.view.ThirdQuery.SuppliersViewRootDto;
 import com.example.cardealer.service.*;
 import com.example.cardealer.util.XmlParser;
 import org.springframework.boot.CommandLineRunner;
@@ -42,7 +43,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     switch (taskNumber) {
       case 1 -> orderedCustomers();
       case 2 -> carsFromMakeToyota();
+      case 3 -> localSuppliers();
     }
+  }
+
+  private void localSuppliers() throws JAXBException {
+    var rootViewDto =
+            this.supplierService.findAllLocalSuppliers();
+
+    writeDtoToFile(ProjectConstants.THIRD_QUERY, rootViewDto);
   }
 
   private void carsFromMakeToyota() throws JAXBException {
@@ -50,7 +59,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             this.carService.findAllToyotaCarsOrderedByModelAscAndDistanceDesc("Toyota");
 
     writeDtoToFile(ProjectConstants.SECOND_QUERY, rootViewDto);
-
   }
 
   private void orderedCustomers() throws JAXBException {

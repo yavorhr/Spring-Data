@@ -2,6 +2,8 @@ package com.example.cardealer.service.impl;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.seed.SupplierRootDto;
+import com.example.cardealer.model.dto.view.ThirdQuery.SupplierIdNamePartsCountViewDto;
+import com.example.cardealer.model.dto.view.ThirdQuery.SuppliersViewRootDto;
 import com.example.cardealer.model.entity.Supplier;
 import com.example.cardealer.repository.SupplierRepository;
 import com.example.cardealer.service.SupplierService;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
@@ -49,5 +53,24 @@ public class SupplierServiceImpl implements SupplierService {
   public Supplier findRandomSupplier() {
     long randomId = ThreadLocalRandom.current().nextLong(1, this.supplierRepository.count() + 1);
     return this.supplierRepository.findById(randomId).orElse(null);
+  }
+
+  @Override
+  public SuppliersViewRootDto findAllLocalSuppliers() {
+    var rootDto = new SuppliersViewRootDto();
+
+    List<SupplierIdNamePartsCountViewDto> innerDto = this.supplierRepository
+            .findAllByImporterFalse()
+            .stream()
+            .map(e -> {
+              var dto =
+                      this.modelMapper.map(e, SupplierIdNamePartsCountViewDto.class);
+              dto.setPartsCount(e.getParts().size());
+              return dto;
+            })
+            .collect(Collectors.toList());
+
+    rootDto.setSuppliers(innerDto);
+    return rootDto;
   }
 }

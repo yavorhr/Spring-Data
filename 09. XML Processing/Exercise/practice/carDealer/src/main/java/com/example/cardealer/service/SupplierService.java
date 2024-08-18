@@ -1,5 +1,6 @@
 package com.example.cardealer.service;
 
+import com.example.cardealer.model.dto.view.ThirdQuery.SuppliersViewRootDto;
 import com.example.cardealer.model.entity.Supplier;
 
 import javax.xml.bind.JAXBException;
@@ -10,4 +11,6 @@ public interface SupplierService {
     void seedSuppliers() throws JAXBException, FileNotFoundException;
 
     Supplier findRandomSupplier();
+
+    SuppliersViewRootDto findAllLocalSuppliers();
 }

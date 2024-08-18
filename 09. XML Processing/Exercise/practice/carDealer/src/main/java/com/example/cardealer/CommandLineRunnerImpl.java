@@ -1,6 +1,7 @@
 package com.example.cardealer;
 
 import com.example.cardealer.constant.ProjectConstants;
+import com.example.cardealer.model.dto.view.FifthQuery.CustomersWithTotalSalesRootViewDto;
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.dto.view.FourthQuery.CarsWithPartsRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
@@ -46,11 +47,19 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 2 -> carsFromMakeToyota();
       case 3 -> localSuppliers();
       case 4 -> carsWithTheirParts();
+      case 5 -> totalSalesByCustomer();
     }
   }
 
+  private void totalSalesByCustomer() throws JAXBException {
+    var rootViewDto =
+            this.customerService.findAllCustomersWithAtLeastOneBoughtCar();
+
+    writeDtoToFile(ProjectConstants.FIFTH_QUERY, rootViewDto);
+  }
+
   private void carsWithTheirParts() throws JAXBException {
-    CarsWithPartsRootViewDto rootViewDto = this.carService.findAllCarsWithTheirParts();
+    var rootViewDto = this.carService.findAllCarsWithTheirParts();
     writeDtoToFile(ProjectConstants.FOURTH_QUERY, rootViewDto);
   }
 
@@ -62,7 +71,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
   }
 
   private void carsFromMakeToyota() throws JAXBException {
-    CarsRootViewDto rootViewDto =
+    var rootViewDto =
             this.carService.findAllToyotaCarsOrderedByModelAscAndDistanceDesc("Toyota");
 
     writeDtoToFile(ProjectConstants.SECOND_QUERY, rootViewDto);

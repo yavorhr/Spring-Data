@@ -1,5 +1,6 @@
 package com.example.cardealer.service;
 
+import com.example.cardealer.model.dto.view.FifthQuery.CustomersWithTotalSalesRootViewDto;
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.entity.Customer;
 
@@ -13,4 +14,6 @@ public interface CustomerService {
   Customer findRandomCustomer();
 
   CustomersRootViewDto findAllCustomersOrderedByBdayAscAndYoungDrivers();
+
+  CustomersWithTotalSalesRootViewDto findAllCustomersWithAtLeastOneBoughtCar();
 }

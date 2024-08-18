@@ -1,6 +1,7 @@
 package com.example.cardealer.model.entity;
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,13 @@ public class Car extends BaseEntity {
 
   public void setParts(Set<Part> parts) {
     this.parts = parts;
+  }
+
+  public double calcCarPrice() {
+    return this.parts
+            .stream()
+            .mapToDouble(p -> p.getPrice().doubleValue())
+            .sum();
   }
 
 

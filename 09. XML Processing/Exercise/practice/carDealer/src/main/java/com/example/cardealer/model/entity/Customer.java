@@ -1,8 +1,8 @@
 package com.example.cardealer.model.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -13,6 +13,17 @@ public class Customer extends BaseEntity {
     private LocalDateTime birthDate;
     @Column(name = "is_young_driver")
     private boolean isYoungDriver;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    private List<Sale> purchases;
+
+    public List<Sale> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Sale> purchases) {
+        this.purchases = purchases;
+    }
 
     public Customer() {
     }

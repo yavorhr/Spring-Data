@@ -2,8 +2,6 @@ package com.example.cardealer.model.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Random;
-
 @Entity
 @Table(name = "sales")
 public class Sale extends BaseEntity {

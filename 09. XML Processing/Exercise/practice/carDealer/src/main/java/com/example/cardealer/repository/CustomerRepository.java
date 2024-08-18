@@ -13,4 +13,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
   @Query("Select c from Customer  c ORDER BY c.birthDate ASC, c.isYoungDriver ASC")
   List<Customer> findAllCustomersOrderedByBirthdayAndExperience();
 
+  @Query("SELECT c FROM Customer c JOIN Sale s ON c.id = s.customer.id WHERE c.id = s.customer.id")
+  List<Customer> findAllCustomersWithAtLeast1BoughtCar();
+
 }

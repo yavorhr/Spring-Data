@@ -2,6 +2,7 @@ package com.example.cardealer;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
+import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
 import com.example.cardealer.service.*;
 import com.example.cardealer.util.XmlParser;
 import org.springframework.boot.CommandLineRunner;
@@ -38,15 +39,25 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     System.out.println("Please select task number");
     int taskNumber = Integer.parseInt(this.bufferedReader.readLine());
 
-    switch (taskNumber){
+    switch (taskNumber) {
       case 1 -> orderedCustomers();
+      case 2 -> carsFromMakeToyota();
     }
   }
 
+  private void carsFromMakeToyota() throws JAXBException {
+    CarsRootViewDto rootViewDto =
+            this.carService.findAllToyotaCarsOrderedByModelAscAndDistanceDesc("Toyota");
+
+    writeDtoToFile(ProjectConstants.SECOND_QUERY, rootViewDto);
+
+  }
+
   private void orderedCustomers() throws JAXBException {
-    CustomersRootViewDto rootDto =
+    CustomersRootViewDto rootViewDto =
             this.customerService.findAllCustomersOrderedByBdayAscAndYoungDrivers();
-   this.xmlParser.writeToFile(ProjectConstants.FIRST_QUERY, rootDto);
+
+    writeDtoToFile(ProjectConstants.FIRST_QUERY, rootViewDto);
   }
 
   // Helpers
@@ -56,5 +67,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     this.carService.seedCars();
     this.customerService.seedCustomers();
     this.saleService.seedSales();
+  }
+
+  public <T> void writeDtoToFile(String fileName, T rootDto) throws JAXBException {
+    this.xmlParser.writeToFile(fileName, rootDto);
   }
 }

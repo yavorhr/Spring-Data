@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="32508e73-0066-45f7-bd71-9c90feadd661" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FourthQuery/CarMakeModelDistanceViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FourthQuery/CarMakeModelDistanceViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/CarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomerFullNameCountCarsMoneySpentViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomerFullNameCountCarsMoneySpentViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomersRootViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomersRootViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/repository/CustomerRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +66,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.cardealer.model.dto.view.FifthQuery" />
       <recent name="com.example.cardealer.model.dto.view.FourthQuery" />
       <recent name="com.example.cardealer.model.dto.view.ThirdQuery" />
       <recent name="com.example.cardealer.model.dto.view.SecondQuery" />
       <recent name="com.example.cardealer.model.dto.view.FirstQuery" />
-      <recent name="com.example.cardealer.model.dto.seed" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Repositories\Spring-Data\09. XML Processing\Exercise\practice\carDealer\src\main\resources\input" />
@@ -125,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723884034868</updated>
-      <workItem from="1723884036339" duration="19567000" />
+      <workItem from="1723884036339" duration="20215000" />
     </task>
     <servers />
   </component>

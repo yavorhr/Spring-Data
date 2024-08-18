@@ -1,12 +1,7 @@
 package com.example.cardealer.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,7 +14,7 @@ public class Car extends BaseEntity {
   @Column(name = "travelled_distance")
   private long travelledDistance;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   Set<Part> parts;
 
   public Car() {

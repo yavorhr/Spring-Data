@@ -11,7 +11,8 @@ public class CarsRootViewDto {
 
   private List<CarIdMakeModelDistance> cars;
 
-  public List<CarIdMakeModelDistance> getCars() {
-    return cars;
+  public void setCars(List<CarIdMakeModelDistance> cars) {
+    this.cars = cars;
   }
 }
+

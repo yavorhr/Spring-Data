@@ -15,7 +15,7 @@ public class CarIdMakeModelDistance {
   @XmlAttribute
   private String model;
   @XmlAttribute(name = "travelled-distance")
-  private int travelledDistance;
+  private long travelledDistance;
 
   public long getId() {
     return id;
@@ -31,7 +31,7 @@ public class CarIdMakeModelDistance {
     return model;
   }
 
-  public int getTravelledDistance() {
+  public long getTravelledDistance() {
     return travelledDistance;
   }
 
@@ -47,7 +47,7 @@ public class CarIdMakeModelDistance {
     this.model = model;
   }
 
-  public void setTravelledDistance(int travelledDistance) {
+  public void setTravelledDistance(long travelledDistance) {
     this.travelledDistance = travelledDistance;
   }
 }

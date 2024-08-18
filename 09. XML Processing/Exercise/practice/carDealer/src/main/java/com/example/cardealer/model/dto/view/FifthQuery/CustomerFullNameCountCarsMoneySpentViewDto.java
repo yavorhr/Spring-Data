@@ -10,15 +10,15 @@ import java.math.BigDecimal;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CustomerFullNameCountCarsMoneySpentViewDto {
 
-  @XmlAttribute
-  private String fullName;
+  @XmlAttribute(name = "full-name")
+  private String name;
   @XmlAttribute
   private int boughtCars;
   @XmlAttribute
   private BigDecimal spentMoney;
 
-  public String getFullName() {
-    return fullName;
+  public String getName() {
+    return name;
   }
 
   public int getBoughtCars() {
@@ -29,8 +29,8 @@ public class CustomerFullNameCountCarsMoneySpentViewDto {
     return spentMoney;
   }
 
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public void setBoughtCars(int boughtCars) {

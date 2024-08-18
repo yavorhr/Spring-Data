@@ -2,6 +2,8 @@ package com.example.cardealer.service.impl;
 
 import com.example.cardealer.constant.ProjectConstants;
 import com.example.cardealer.model.dto.seed.CustomersRootDto;
+import com.example.cardealer.model.dto.view.FirstQuery.CustomerIdNameBdayIsYoungDriverDto;
+import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.entity.Customer;
 import com.example.cardealer.repository.CustomerRepository;
 import com.example.cardealer.service.CustomerService;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -48,7 +51,22 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public Customer findRandomCustomer() {
-    long randomId = ThreadLocalRandom.current().nextLong(1, this.customerRepository.count()+1);
+    long randomId = ThreadLocalRandom.current().nextLong(1, this.customerRepository.count() + 1);
     return this.customerRepository.findById(randomId).orElse(null);
+  }
+
+  @Override
+  public CustomersRootViewDto findAllCustomersOrderedByBdayAscAndYoungDrivers() {
+    var rootViewDto = new CustomersRootViewDto();
+
+    var innerDtos = this.customerRepository
+            .findAllCustomersOrderedByBirthdayAndExperience()
+            .stream()
+            .map(e -> this.modelMapper.map(e, CustomerIdNameBdayIsYoungDriverDto.class))
+            .collect(Collectors.toList());
+
+    rootViewDto.setCustomers(innerDtos);
+
+    return rootViewDto;
   }
 }

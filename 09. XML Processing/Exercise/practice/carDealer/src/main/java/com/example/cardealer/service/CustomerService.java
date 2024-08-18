@@ -1,5 +1,6 @@
 package com.example.cardealer.service;
 
+import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.entity.Customer;
 
 import javax.xml.bind.JAXBException;
@@ -10,4 +11,6 @@ public interface CustomerService {
   void seedCustomers() throws JAXBException, FileNotFoundException;
 
   Customer findRandomCustomer();
+
+  CustomersRootViewDto findAllCustomersOrderedByBdayAscAndYoungDrivers();
 }

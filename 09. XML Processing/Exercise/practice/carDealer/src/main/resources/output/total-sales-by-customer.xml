@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customers>
+    <customer full-name="Emmitt Benally" boughtCars="1" spentMoney="3306.3699999999998908606357872486114501953125"/>
+    <customer full-name="Natalie Poli" boughtCars="1" spentMoney="4721.5399999999999636202119290828704833984375"/>
+    <customer full-name="Zada Attwood" boughtCars="2" spentMoney="8739.88000000000101863406598567962646484375"/>
+    <customer full-name="Hai Everton" boughtCars="1" spentMoney="875.6100000000000136424205265939235687255859375"/>
+    <customer full-name="Lino Subia" boughtCars="1" spentMoney="3096.12999999999965439201332628726959228515625"/>
+    <customer full-name="Teddy Hobby" boughtCars="1" spentMoney="4275.1099999999996725819073617458343505859375"/>
+    <customer full-name="Audrea Cardinal" boughtCars="1" spentMoney="11868.399999999999636202119290828704833984375"/>
+    <customer full-name="Francis Mckim" boughtCars="3" spentMoney="9152.5999999999985448084771633148193359375"/>
+    <customer full-name="Carri Knapik" boughtCars="2" spentMoney="6971.9599999999991268850862979888916015625"/>
+    <customer full-name="Taina Achenbach" boughtCars="2" spentMoney="4587.850000000000363797880709171295166015625"/>
+    <customer full-name="Yvonne Mccalla" boughtCars="1" spentMoney="3647.34999999999990905052982270717620849609375"/>
+    <customer full-name="Nisha Markwell" boughtCars="2" spentMoney="3313.15000000000009094947017729282379150390625"/>
+    <customer full-name="Cinthia Lasala" boughtCars="1" spentMoney="4802.329999999999927240423858165740966796875"/>
+    <customer full-name="Daniele Zarate" boughtCars="2" spentMoney="4339.52000000000043655745685100555419921875"/>
+    <customer full-name="Faustina Burgher" boughtCars="1" spentMoney="2408.079999999999927240423858165740966796875"/>
+    <customer full-name="Jimmy Grossi" boughtCars="5" spentMoney="21974.5199999999967985786497592926025390625"/>
+    <customer full-name="Louann Holzworth" boughtCars="2" spentMoney="6064.0799999999990177457220852375030517578125"/>
+    <customer full-name="Ann Mcenaney" boughtCars="1" spentMoney="1372.2100000000000363797880709171295166015625"/>
+</customers>

@@ -6,10 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="32508e73-0066-45f7-bd71-9c90feadd661" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/SixthQuery/SaleDataViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/SixthQuery/SaleDataViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/SaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/artifacts/exam_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/artifacts/exam_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_4_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_hibernate_hibernate_core_5_3_10_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_javassist_javassist_3_23_2_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/exam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/exam.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/ExportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/ExportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/ImportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/web/controllers/ImportController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/input" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -126,7 +140,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723884034868</updated>
-      <workItem from="1723884036339" duration="23996000" />
+      <workItem from="1723884036339" duration="25420000" />
     </task>
     <servers />
   </component>

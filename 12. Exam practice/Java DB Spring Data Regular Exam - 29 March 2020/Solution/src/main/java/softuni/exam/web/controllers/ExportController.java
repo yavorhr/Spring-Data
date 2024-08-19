@@ -11,13 +11,11 @@ import softuni.exam.service.OfferService;
 @Controller
 @RequestMapping("/export")
 public class ExportController extends BaseController {
-
     private final CarService carService;
 
     @Autowired
     public ExportController(CarService carService) {
         this.carService = carService;
-   
     }
 
     @GetMapping("/cars-by-pictures")

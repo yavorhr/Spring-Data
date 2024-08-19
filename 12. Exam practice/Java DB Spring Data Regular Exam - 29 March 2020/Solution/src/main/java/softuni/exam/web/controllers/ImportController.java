@@ -10,7 +10,6 @@ import softuni.exam.service.CarService;
 import softuni.exam.service.OfferService;
 import softuni.exam.service.PictureService;
 import softuni.exam.service.SellerService;
-
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,7 +17,6 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/import")
 public class ImportController extends BaseController {
-
     private final CarService carService;
     private final OfferService offerService;
     private final PictureService pictureService;
@@ -54,7 +52,6 @@ public class ImportController extends BaseController {
 
         return super.view("xml/import-xml", "areImported", areImported);
     }
-
 
     @GetMapping("/sellers")
     public ModelAndView importSellers() throws IOException, JAXBException {

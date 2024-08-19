@@ -11,7 +11,6 @@ import softuni.exam.service.SellerService;
 
 @Controller
 public class HomeController extends BaseController {
-
     private final CarService carService;
     private final OfferService offerService;
     private final PictureService pictureService;
@@ -24,7 +23,6 @@ public class HomeController extends BaseController {
         this.pictureService = pictureService;
         this.sellerService = sellerService;
     }
-
 
     @GetMapping("/")
     public ModelAndView index() {

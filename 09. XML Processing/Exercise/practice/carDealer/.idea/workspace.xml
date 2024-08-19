@@ -7,14 +7,9 @@
     <list default="true" id="32508e73-0066-45f7-bd71-9c90feadd661" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/CommandLineRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomerFullNameCountCarsMoneySpentViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomerFullNameCountCarsMoneySpentViewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/FifthQuery/CustomersRootViewDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/entity/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/SixthQuery/SaleDataViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/model/dto/view/SixthQuery/SaleDataViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/SaleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,15 +62,16 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.cardealer.model.dto.view.SixthQuery" />
       <recent name="com.example.cardealer.model.dto.view.FifthQuery" />
       <recent name="com.example.cardealer.model.dto.view.FourthQuery" />
       <recent name="com.example.cardealer.model.dto.view.ThirdQuery" />
       <recent name="com.example.cardealer.model.dto.view.SecondQuery" />
-      <recent name="com.example.cardealer.model.dto.view.FirstQuery" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Repositories\Spring-Data\09. XML Processing\Exercise\practice\carDealer\src\main\resources\input" />
@@ -130,7 +126,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723884034868</updated>
-      <workItem from="1723884036339" duration="22510000" />
+      <workItem from="1723884036339" duration="23996000" />
     </task>
     <servers />
   </component>
@@ -147,5 +143,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/CustomerServiceImpl.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/cardealer/service/impl/SaleServiceImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

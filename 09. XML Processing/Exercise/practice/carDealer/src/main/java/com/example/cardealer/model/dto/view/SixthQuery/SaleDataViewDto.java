@@ -31,4 +31,12 @@ public class SaleDataViewDto {
   public void setDiscount(double discount) {
     this.discount = discount;
   }
+
+  public CarInfoViewDto getCar() {
+    return car;
+  }
+
+  public void setCar(CarInfoViewDto car) {
+    this.car = car;
+  }
 }

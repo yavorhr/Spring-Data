@@ -1,5 +1,7 @@
 package com.example.cardealer.service.impl;
 
+import com.example.cardealer.model.dto.view.SixthQuery.SaleDataViewDto;
+import com.example.cardealer.model.dto.view.SixthQuery.SalesAppDiscRootViewDto;
 import com.example.cardealer.model.entity.Car;
 import com.example.cardealer.model.entity.Customer;
 import com.example.cardealer.model.entity.Sale;
@@ -8,24 +10,23 @@ import com.example.cardealer.service.CarService;
 import com.example.cardealer.service.CustomerService;
 import com.example.cardealer.service.SaleService;
 import com.example.cardealer.util.ValidationUtil;
-import com.example.cardealer.util.XmlParser;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 public class SaleServiceImpl implements SaleService {
   private final SaleRepository saleRepository;
   private final ModelMapper modelMapper;
-  private final ValidationUtil validationUtil;
   private final CarService carService;
   private final CustomerService customerService;
 
-  public SaleServiceImpl(SaleRepository saleRepository, ModelMapper modelMapper, ValidationUtil validationUtil, CarService carService, CustomerService customerService) {
+  public SaleServiceImpl(SaleRepository saleRepository, ModelMapper modelMapper, CarService carService, CustomerService customerService) {
     this.saleRepository = saleRepository;
     this.modelMapper = modelMapper;
-    this.validationUtil = validationUtil;
     this.carService = carService;
     this.customerService = customerService;
   }
@@ -40,6 +41,21 @@ public class SaleServiceImpl implements SaleService {
       Sale sale = createSale();
       this.saleRepository.save(sale);
     }
+  }
+
+  @Override
+  public SalesAppDiscRootViewDto findAllSales() {
+    var rootViewDto = new SalesAppDiscRootViewDto();
+
+    List<SaleDataViewDto> innerDtos = this.saleRepository
+            .findAll()
+            .stream()
+            .map(dto -> this.modelMapper.map(dto, SaleDataViewDto.class))
+            .collect(Collectors.toList());
+
+    rootViewDto.setSales(innerDtos);
+
+    return rootViewDto;
   }
 
   // Helpers

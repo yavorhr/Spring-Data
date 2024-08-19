@@ -5,6 +5,7 @@ import com.example.cardealer.model.dto.view.FifthQuery.CustomersWithTotalSalesRo
 import com.example.cardealer.model.dto.view.FirstQuery.CustomersRootViewDto;
 import com.example.cardealer.model.dto.view.FourthQuery.CarsWithPartsRootViewDto;
 import com.example.cardealer.model.dto.view.SecondQuery.CarsRootViewDto;
+import com.example.cardealer.model.dto.view.SixthQuery.SalesAppDiscRootViewDto;
 import com.example.cardealer.model.dto.view.ThirdQuery.SuppliersViewRootDto;
 import com.example.cardealer.service.*;
 import com.example.cardealer.util.XmlParser;
@@ -48,7 +49,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
       case 3 -> localSuppliers();
       case 4 -> carsWithTheirParts();
       case 5 -> totalSalesByCustomer();
+      case 6 -> salesWithAppliedDiscount();
     }
+  }
+
+  private void salesWithAppliedDiscount() throws JAXBException {
+    var rootViewDto = this.saleService.findAllSales();
+    writeDtoToFile(ProjectConstants.SIXTH_QUERY, rootViewDto);
   }
 
   private void totalSalesByCustomer() throws JAXBException {

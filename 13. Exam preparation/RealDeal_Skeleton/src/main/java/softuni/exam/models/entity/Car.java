@@ -1,10 +1,9 @@
 package softuni.exam.models.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")
@@ -52,4 +51,5 @@ public class Car extends BaseEntity {
   public void setRegisteredOn(LocalDate registeredOn) {
     this.registeredOn = registeredOn;
   }
+
 }

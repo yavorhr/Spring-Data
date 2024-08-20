@@ -1,12 +1,11 @@
 package softuni.exam.models.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "offers")
@@ -15,8 +14,26 @@ public class Offer extends BaseEntity {
   private String description;
   private double hasGoldStatus;
   private LocalDateTime addedOn;
+  private Car car;
+  private Seller seller;
+  private Set<Picture> pictures;
 
   public Offer() {
+  }
+
+  @ManyToOne
+  public Car getCar() {
+    return car;
+  }
+
+  @ManyToOne
+  public Seller getSeller() {
+    return seller;
+  }
+
+  @ManyToMany
+  public Set<Picture> getPictures() {
+    return pictures;
   }
 
   @Column
@@ -55,5 +72,17 @@ public class Offer extends BaseEntity {
 
   public void setAddedOn(LocalDateTime addedOn) {
     this.addedOn = addedOn;
+  }
+
+  public void setCar(Car car) {
+    this.car = car;
+  }
+
+  public void setSeller(Seller seller) {
+    this.seller = seller;
+  }
+
+  public void setPictures(Set<Picture> pictures) {
+    this.pictures = pictures;
   }
 }

@@ -4,11 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "constellations")
 public class Constellation extends BaseEntity {
-  
+
   private String name;
   private String description;
   private Set<Star> stars;

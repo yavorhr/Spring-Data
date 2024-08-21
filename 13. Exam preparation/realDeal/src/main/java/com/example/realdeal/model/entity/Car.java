@@ -1,6 +1,8 @@
 package com.example.realdeal.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -8,7 +10,6 @@ import java.util.Set;
 @Entity
 @Table(name = "cars")
 public class Car extends BaseEntity {
-
     private String make;
     private String model;
     private Integer kilometers;
@@ -35,6 +36,7 @@ public class Car extends BaseEntity {
     public String getModel() {
         return model;
     }
+
     @Column(name = "kilometers")
     public Integer getKilometers() {
         return kilometers;

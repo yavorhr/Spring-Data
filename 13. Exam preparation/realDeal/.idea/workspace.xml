@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef3cab64-fa4f-47a5-9ae2-4e339ddd33ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/realdeal/model/entity/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../12. Exam practice/Java DB Spring Data Regular Exam - 29 March 2020/Solution/src/main/java/softuni/exam/models/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/realdeal/model/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/realdeal/model/entity/Car.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724166894236</updated>
       <workItem from="1724166896812" duration="1505000" />
-      <workItem from="1724234854881" duration="286000" />
+      <workItem from="1724234854881" duration="1033000" />
     </task>
     <servers />
   </component>

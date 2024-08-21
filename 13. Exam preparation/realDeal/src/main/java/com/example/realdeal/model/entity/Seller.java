@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "sellers")
 public class Seller extends BaseEntity {
-
     private String firstName;
     private String lastName;
     private String email;
@@ -54,8 +53,7 @@ public class Seller extends BaseEntity {
         this.rating = rating;
     }
 
-    @NotBlank
-    @Column(name = "town")
+    @Column(name = "town", nullable = false)
     public String getTown() {
         return town;
     }

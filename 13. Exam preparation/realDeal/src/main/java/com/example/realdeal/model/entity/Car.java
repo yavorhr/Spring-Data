@@ -1,10 +1,9 @@
 package com.example.realdeal.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "cars")

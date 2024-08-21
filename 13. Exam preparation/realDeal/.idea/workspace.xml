@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef3cab64-fa4f-47a5-9ae2-4e339ddd33ad" name="Default Changelist" comment="" />
+    <list default="true" id="ef3cab64-fa4f-47a5-9ae2-4e339ddd33ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -38,10 +49,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.realdeal.service.impl" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.realdeal" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.realdeal.web" />
       <recent name="com.example.realdeal.repository" />
       <recent name="com.example.realdeal.model.entity" />
     </key>
@@ -88,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724166894236</updated>
       <workItem from="1724166896812" duration="1505000" />
-      <workItem from="1724234854881" duration="1961000" />
+      <workItem from="1724234854881" duration="2702000" />
     </task>
     <servers />
   </component>

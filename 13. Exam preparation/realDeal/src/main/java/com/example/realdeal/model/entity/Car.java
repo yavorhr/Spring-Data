@@ -1,9 +1,6 @@
 package com.example.realdeal.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-
 import java.time.LocalDate;
 import java.util.Set;
 

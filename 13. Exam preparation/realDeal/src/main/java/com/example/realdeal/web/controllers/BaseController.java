@@ -3,7 +3,6 @@ package com.example.realdeal.web.controllers;
 import org.springframework.web.servlet.ModelAndView;
 
 public abstract class BaseController {
-
     public ModelAndView view(String view) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("fragments/base-layout");

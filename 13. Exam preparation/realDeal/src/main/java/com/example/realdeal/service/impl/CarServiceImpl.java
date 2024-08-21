@@ -1,5 +1,6 @@
 package com.example.realdeal.service.impl;
 
+import com.example.realdeal.model.entity.Car;
 import com.example.realdeal.service.CarService;
 import org.springframework.stereotype.Service;
 

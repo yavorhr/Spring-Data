@@ -5,7 +5,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="realDeal" value="0b54a7e2-d503-4980-a058-8feca4ecd822" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>

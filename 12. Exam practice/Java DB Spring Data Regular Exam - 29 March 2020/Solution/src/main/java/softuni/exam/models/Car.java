@@ -11,8 +11,8 @@ public class Car extends BaseEntity {
 
     private String make;
     private String model;
-    private Integer kilometers;
-    private LocalDate registeredOn;
+    private LocalDate registeredOn;    private Integer kilometers;
+
     private Set<Picture> pictures;
 
     public Car() {

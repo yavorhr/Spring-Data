@@ -1,60 +1,79 @@
 package softuni.exam.models.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "stars")
 public class Star extends BaseEntity {
-
   private String name;
-  private double lightYears;
+  private Double lightYears;
   private String description;
-  private StarTypeEnum startType;
-  private Set<Observer> observers;
+  private StarTypeEnum starType;
+  private Constellation constellation;
+  private Set<Astronomer> observers;
 
   public Star() {
   }
 
-  @Column(length = 30, unique = true)
+  @OneToMany(mappedBy = "observingStar", fetch = FetchType.EAGER)
+  public Set<Astronomer> getObservers() {
+    return observers;
+  }
+
+  @ManyToOne
+  public Constellation getConstellation() {
+    return constellation;
+  }
+
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  public StarTypeEnum getStarType() {
+    return starType;
+  }
+
+  @Column(unique = true, nullable = false)
   public String getName() {
     return name;
   }
 
-  @Column
-  public double getLightYears() {
+
+  @Column(nullable = false)
+  public Double getLightYears() {
     return lightYears;
   }
 
-  @Column(columnDefinition = "TEXT")
+  @Column(columnDefinition = "TEXT", nullable = false)
   public String getDescription() {
     return description;
   }
-  @Enumerated(EnumType.STRING)
-  public StarTypeEnum getStartType() {
-    return startType;
-  }
 
-  public Set<Observer> getObservers() {
-    return observers;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setLightYears(double lightYears) {
-    this.lightYears = lightYears;
-  }
-
-  public void setDescription(String description) {
+  public Star setDescription(String description) {
     this.description = description;
+    return this;
   }
 
-  public void setStartType(StarTypeEnum startType) {
-    this.startType = startType;
+  public void setConstellation(Constellation constellation) {
+    this.constellation = constellation;
   }
 
-  public void setObservers(Set<Observer> observers) {
+  public void setObservers(Set<Astronomer> observers) {
     this.observers = observers;
   }
+
+  public Star setStarType(StarTypeEnum dayOfWeek) {
+    this.starType = dayOfWeek;
+    return this;
+  }
+
+  public Star setLightYears(Double distanceLightYears) {
+    this.lightYears = distanceLightYears;
+    return this;
+  }
+
+  public Star setName(String cityName) {
+    this.name = cityName;
+    return this;
+  }
+
 }

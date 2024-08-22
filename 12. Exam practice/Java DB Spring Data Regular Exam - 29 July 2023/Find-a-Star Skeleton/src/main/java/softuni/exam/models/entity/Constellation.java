@@ -1,15 +1,11 @@
 package softuni.exam.models.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "constellations")
 public class Constellation extends BaseEntity {
-
   private String name;
   private String description;
   private Set<Star> stars;
@@ -17,7 +13,12 @@ public class Constellation extends BaseEntity {
   public Constellation() {
   }
 
-  @Column(length = 20, unique = true)
+  @OneToMany(mappedBy = "constellation",fetch = FetchType.EAGER)
+  public Set<Star> getStars() {
+    return stars;
+  }
+
+  @Column(length = 20, unique = true, nullable = false)
   public String getName() {
     return name;
   }
@@ -27,10 +28,6 @@ public class Constellation extends BaseEntity {
     return description;
   }
 
-  @OneToMany
-  public Set<Star> getStars() {
-    return stars;
-  }
 
   public void setName(String name) {
     this.name = name;

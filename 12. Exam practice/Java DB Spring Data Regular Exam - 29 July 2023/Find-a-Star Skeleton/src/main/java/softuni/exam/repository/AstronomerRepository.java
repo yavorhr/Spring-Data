@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import softuni.exam.models.entity.Astronomer;
 
 @Repository
-public interface AstronomerRepository  extends JpaRepository<Astronomer,Long> {
-
+public interface AstronomerRepository extends JpaRepository<Astronomer, Long> {
+  Astronomer findByFirstNameAndLastName(String firstName, String lastName);
 }

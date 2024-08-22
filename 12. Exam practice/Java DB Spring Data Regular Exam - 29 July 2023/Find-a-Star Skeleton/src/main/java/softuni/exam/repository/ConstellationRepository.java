@@ -7,4 +7,6 @@ import softuni.exam.models.entity.Constellation;
 @Repository
 public interface ConstellationRepository extends JpaRepository<Constellation, Long> {
 
+  Constellation findByName(String name);
+
 }

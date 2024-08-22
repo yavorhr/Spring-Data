@@ -1,6 +1,10 @@
 package softuni.exam.repository;
 
-// TODO:
-public interface StarRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import softuni.exam.models.entity.Star;
+
+@Repository
+public interface StarRepository extends JpaRepository<Star, Long> {
 
 }

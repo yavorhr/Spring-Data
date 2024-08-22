@@ -1,6 +1,10 @@
 package softuni.exam.repository;
 
-// TODO:
-public interface ConstellationRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import softuni.exam.models.entity.Constellation;
+
+@Repository
+public interface ConstellationRepository extends JpaRepository<Constellation, Long> {
 
 }

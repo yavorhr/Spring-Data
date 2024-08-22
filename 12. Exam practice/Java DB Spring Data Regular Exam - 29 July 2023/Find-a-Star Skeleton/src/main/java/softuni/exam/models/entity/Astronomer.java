@@ -21,11 +21,10 @@ public class Astronomer extends BaseEntity {
     return observingStar;
   }
 
-  @Column(name = "first_name", length = 30)
+  @Column(name = "first_name", length = 30, nullable = false)
   public String getFirstName() {
     return firstName;
   }
-
   @Column(name = "last_name", length = 30)
   public String getLastName() {
     return lastName;
@@ -42,7 +41,6 @@ public class Astronomer extends BaseEntity {
   public LocalDate getBirthday() {
     return birthday;
   }
-
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;

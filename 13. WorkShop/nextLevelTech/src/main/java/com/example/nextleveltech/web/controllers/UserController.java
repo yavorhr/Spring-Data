@@ -22,9 +22,11 @@ public class UserController {
 
   @PostMapping("users/register")
   public String register(UserRegisterDto userRegisterDto, Model model) {
-    this.userService.registerUser(userRegisterDto);
+    if (this.userService.registerUser(userRegisterDto)) {
+      model.addAttribute("error", "There is an error");
+      return "redirect:login";
+    }
 
-    model.addAttribute("error", "There is an error");
     return "user/register";
   }
 

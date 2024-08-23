@@ -16,8 +16,7 @@ public class Company extends BaseEntity {
   public Company() {
   }
 
-  @NotNull
-  @NotBlank
+  @Column(nullable = false)
   public String getName() {
     return name;
   }

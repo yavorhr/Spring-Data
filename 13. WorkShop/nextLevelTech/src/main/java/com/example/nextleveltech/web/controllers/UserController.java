@@ -1,5 +1,6 @@
 package com.example.nextleveltech.web.controllers;
 
+import com.example.nextleveltech.web.model.dto.UserRegisterDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ public class UserController {
   }
 
   @PostMapping("users/register")
-  public String registerUser(){
+  public String register(UserRegisterDto userRegisterDto){
     return "user/register";
   }
 

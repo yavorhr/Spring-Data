@@ -1,6 +1,7 @@
 package softuni.exam.models.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,6 +15,7 @@ public class Star extends BaseEntity {
   private Set<Astronomer> observers;
 
   public Star() {
+    this.observers = new HashSet<>();
   }
 
   @OneToMany(mappedBy = "observingStar", fetch = FetchType.EAGER)

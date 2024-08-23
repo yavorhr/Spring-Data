@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import softuni.exam.models.dto.json.StarsSeedDto;
 import softuni.exam.models.entity.Constellation;
 import softuni.exam.models.entity.Star;
+import softuni.exam.models.entity.StarTypeEnum;
 import softuni.exam.repository.StarRepository;
 import softuni.exam.service.ConstellationService;
 import softuni.exam.service.StarService;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class StarServiceImpl implements StarService {
@@ -81,7 +83,22 @@ public class StarServiceImpl implements StarService {
 
   @Override
   public String exportStars() {
-    return null;
+    StringBuilder sb = new StringBuilder();
+
+    this.starRepository
+            .findAllByStarTypeAndObserversIsNullOrderByLightYearsAsc(StarTypeEnum.RED_GIANT)
+            .forEach(star ->
+                    sb.append(String.format("Star: %s\n" +
+                                    "   *Distance: %.2f light years\n" +
+                                    "   **Description: %s\n" +
+                                    "   ***Constellation: %s",
+                            star.getName(),
+                            star.getLightYears(),
+                            star.getDescription(),
+                            star.getConstellation().getName()))
+                            .append(System.lineSeparator()));
+
+    return sb.toString().trim();
   }
 
   @Override

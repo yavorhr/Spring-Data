@@ -1,17 +1,22 @@
 package softuni.exam.models.dto.json;
 
+import com.google.gson.annotations.Expose;
 import softuni.exam.models.entity.StarTypeEnum;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 public class StarsSeedDto {
+  @Expose
   private String description;
+  @Expose
   private Double lightYears;
+  @Expose
   private String name;
+  @Expose
   private StarTypeEnum starType;
-  private Long constellationId;
+  @Expose
+  private Long constellation;
 
   @NotNull
   @Size(min = 6)
@@ -37,8 +42,8 @@ public class StarsSeedDto {
   }
 
   @NotNull
-  public Long getConstellationId() {
-    return constellationId;
+  public Long getConstellation() {
+    return constellation;
   }
 
   public void setDescription(String description) {
@@ -57,7 +62,7 @@ public class StarsSeedDto {
     this.starType = starType;
   }
 
-  public void setConstellationId(Long constellationId) {
-    this.constellationId = constellationId;
+  public void setConstellation(Long constellation) {
+    this.constellation = constellation;
   }
 }

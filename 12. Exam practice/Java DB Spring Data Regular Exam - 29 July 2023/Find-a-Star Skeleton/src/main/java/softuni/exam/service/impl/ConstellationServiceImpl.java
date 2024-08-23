@@ -64,6 +64,11 @@ public class ConstellationServiceImpl implements ConstellationService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Constellation findById(Long id) {
+    return this.constellationRepository.findById(id).orElse(null);
+  }
+
   // Helpers
   private boolean isConstellationAlreadyAdded(ConstellationsSeedDto dto, boolean isValid) {
     if (this.constellationRepository.findByName(dto.getName()) != null) {
@@ -71,4 +76,5 @@ public class ConstellationServiceImpl implements ConstellationService {
     }
     return isValid;
   }
+
 }

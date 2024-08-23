@@ -51,12 +51,13 @@ public class AstronomerServiceImpl implements AstronomerService {
     AstronomersRootSeedDto rootDto =
             this.xmlParser.fromFile(ASTRONOMERS_FILE_PATH, AstronomersRootSeedDto.class);
 
-    List<Astronomer> collect = rootDto.getAstronomers()
+    rootDto.getAstronomers()
             .stream()
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
               Long starId = dto.getObservingStarId();
+
               if (this.starService.findStarById(starId) == null) {
                 isValid = false;
               }
@@ -73,9 +74,13 @@ public class AstronomerServiceImpl implements AstronomerService {
 
               return isValid;
             })
-            .map(dto -> this.modelMapper.map(dto, Astronomer.class))
-            .collect(Collectors.toList());
-    System.out.println();
+            .map(dto -> {
+              Astronomer astronomerEntity = this.modelMapper.map(dto, Astronomer.class);
+              astronomerEntity.setObservingStar(this.starService.findStarById(dto.getObservingStarId()));
+
+              return astronomerEntity;
+            })
+            .forEach(this.astronomerRepository::save);
 
     return sb.toString();
   }

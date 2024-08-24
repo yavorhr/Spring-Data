@@ -8,6 +8,7 @@ import com.example.nextleveltech.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -68,8 +69,4 @@ public class UserServiceImpl implements UserService {
     return user.get().getId();
   }
 
-  @Override
-  public boolean areFilesImported() {
-    return this.userRepository.existsAllBy();
-  }
 }

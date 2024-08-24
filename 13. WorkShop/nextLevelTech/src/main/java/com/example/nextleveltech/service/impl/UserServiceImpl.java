@@ -67,4 +67,9 @@ public class UserServiceImpl implements UserService {
 
     return user.get().getId();
   }
+
+  @Override
+  public boolean areFilesImported() {
+    return this.userRepository.existsAllBy();
+  }
 }

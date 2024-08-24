@@ -1,4 +1,6 @@
 package com.example.nextleveltech.service;
 
-public interface CompanyService {
+public interface CompanyService extends BaseService{
+
+
 }

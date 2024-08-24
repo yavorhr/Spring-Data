@@ -1,4 +1,4 @@
 package com.example.nextleveltech.service;
 
-public interface ProjectService {
+public interface ProjectService extends BaseService {
 }

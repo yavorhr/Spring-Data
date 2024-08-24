@@ -3,7 +3,6 @@ package com.example.nextleveltech.web.controllers;
 import com.example.nextleveltech.model.dto.UserLoginDto;
 import com.example.nextleveltech.model.dto.UserRegisterDto;
 import com.example.nextleveltech.service.UserService;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

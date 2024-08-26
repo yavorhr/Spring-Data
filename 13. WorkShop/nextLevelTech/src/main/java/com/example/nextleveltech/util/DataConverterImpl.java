@@ -9,17 +9,14 @@ import java.io.StringReader;
 @Component
 public class DataConverterImpl implements DataConverter {
 
-  public DataConverterImpl() {
-  }
-
   @Override
-  @SuppressWarnings("unchecked")
   public <T> T deserialize(String input, Class<T> type) {
     try {
       var ctx = JAXBContext.newInstance(type);
       var unmarshaller = ctx.createUnmarshaller();
 
       var sr = new StringReader(input);
+
       return (T) unmarshaller.unmarshal(sr);
     } catch (JAXBException e) {
       e.printStackTrace();
@@ -33,3 +30,4 @@ public class DataConverterImpl implements DataConverter {
     return o.toString();
   }
 }
+

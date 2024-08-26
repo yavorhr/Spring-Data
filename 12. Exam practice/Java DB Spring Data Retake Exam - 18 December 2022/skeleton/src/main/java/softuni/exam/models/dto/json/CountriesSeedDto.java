@@ -1,6 +1,8 @@
 package softuni.exam.models.dto.json;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,7 +11,7 @@ public class CountriesSeedDto {
   @Expose
   private String name;
   @Expose
-  private String code;
+  private String countryCode;
   @Expose
   private String currency;
 
@@ -22,7 +24,7 @@ public class CountriesSeedDto {
   @NotNull
   @Size(min = 2, max = 19)
   public String getCode() {
-    return code;
+    return countryCode;
   }
 
   @NotNull
@@ -36,7 +38,7 @@ public class CountriesSeedDto {
   }
 
   public void setCode(String code) {
-    this.code = code;
+    this.countryCode = code;
   }
 
   public void setCurrency(String currency) {

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ff6cd92-b6ee-4818-bb5b-c4178f163f96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../12. Exam practice/Java DB Spring Data Retake Exam - 18 December 2022/skeleton/src/main/java/softuni/exam/config/ApplicationBeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../12. Exam practice/Java DB Spring Data Retake Exam - 18 December 2022/skeleton/src/main/java/softuni/exam/config/ApplicationBeanConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ff6cd92-b6ee-4818-bb5b-c4178f163f96" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724413133901</updated>
-      <workItem from="1724413135538" duration="23749000" />
+      <workItem from="1724413135538" duration="23816000" />
     </task>
     <servers />
   </component>

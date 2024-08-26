@@ -65,6 +65,11 @@ public class CountryServiceImpl implements CountryService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Country findCountryById(Long id) {
+    return this.countryRepository.findById(id).orElse(null);
+  }
+
   private boolean doesCountryNameExist(CountriesSeedDto dto, boolean isValid) {
     if (this.countryRepository.findByName(dto.getName()) != null) {
       isValid = false;

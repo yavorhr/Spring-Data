@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import softuni.exam.models.dto.json.PeopleSeedDto;
 import softuni.exam.models.entity.Person;
 import softuni.exam.repository.PersonRepository;
+import softuni.exam.service.CountryService;
 import softuni.exam.service.PersonService;
 import softuni.exam.util.ValidationUtil;
 
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,12 +22,14 @@ public class PersonServiceImpl implements PersonService {
   private final Gson gson;
   private final ValidationUtil validationUtil;
   private final ModelMapper modelMapper;
+  private final CountryService countryService;
 
-  public PersonServiceImpl(PersonRepository personRepository, Gson gson, ValidationUtil validationUtil, ModelMapper modelMapper) {
+  public PersonServiceImpl(PersonRepository personRepository, Gson gson, ValidationUtil validationUtil, ModelMapper modelMapper, CountryService countryService) {
     this.personRepository = personRepository;
     this.gson = gson;
     this.validationUtil = validationUtil;
     this.modelMapper = modelMapper;
+    this.countryService = countryService;
   }
 
   @Override
@@ -61,7 +63,12 @@ public class PersonServiceImpl implements PersonService {
 
               return isValid;
             })
-            .map(dto -> this.modelMapper.map(dto, Person.class))
+            .map(dto -> {
+              Person person = this.modelMapper.map(dto, Person.class);
+              person.setCountry(this.countryService.findCountryById(dto.getCountry()));
+
+              return person;
+            })
             .forEach(this.personRepository::save);
 
     return sb.toString().trim();

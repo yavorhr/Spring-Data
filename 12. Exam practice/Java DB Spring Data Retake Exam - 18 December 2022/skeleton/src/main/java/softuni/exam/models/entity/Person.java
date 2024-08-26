@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "people")
 public class Person extends BaseEntity {
-
   private String firstName;
   private String lastName;
   private String email;
@@ -17,6 +16,7 @@ public class Person extends BaseEntity {
 
   public Person() {
   }
+
 
   @Column(nullable = false)
   public String getFirstName() {

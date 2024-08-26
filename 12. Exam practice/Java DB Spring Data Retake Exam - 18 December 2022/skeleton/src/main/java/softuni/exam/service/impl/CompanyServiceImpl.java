@@ -81,6 +81,11 @@ public class CompanyServiceImpl implements CompanyService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Company findCompanyById(Long companyId) {
+    return this.companyRepository.findById(companyId).orElse(null);
+  }
+
   // Helpers
   private boolean companyNameExist(CompanyDto dto, boolean isValid) {
     if (this.companyRepository.findByName(dto.getName()) != null) {

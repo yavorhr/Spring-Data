@@ -13,4 +13,5 @@ public interface CompanyService {
 
     String importCompanies() throws IOException, JAXBException;
 
+  Company findCompanyById(Long companyId);
 }

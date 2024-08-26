@@ -7,5 +7,6 @@ import softuni.exam.models.entity.Country;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
-
+  Country findByName(String name);
+  Country findByCode(String code);
 }

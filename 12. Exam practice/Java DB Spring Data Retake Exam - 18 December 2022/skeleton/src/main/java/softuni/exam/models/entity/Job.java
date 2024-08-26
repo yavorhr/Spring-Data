@@ -1,6 +1,7 @@
 package softuni.exam.models.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,7 @@ public class Job extends BaseEntity {
   private List<Company> companies;
 
   public Job() {
+    this.companies = new ArrayList<>();
   }
 
   @Column(nullable = false)

@@ -26,7 +26,7 @@ public class ApplicationBeanConfiguration {
                         DateTimeFormatter.ofPattern("yyyy-MM-dd"));
       }
     });
-    return new ModelMapper();
+    return modelMapper;
   }
 
   @Bean

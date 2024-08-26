@@ -24,9 +24,6 @@ public class CompanyDto {
   @XmlElement
   private Long countryId;
 
-  public CompanyDto() {
-  }
-
   @NotBlank
   @Size(min = 2,max = 40)
   public String getName() {

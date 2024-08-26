@@ -6,19 +6,18 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name = "companies")
+@XmlRootElement(name = "employees")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CompaniesRootDto {
+public class EmployeesRootDto {
 
-  @XmlElement(name = "company")
-  private List<CompanyDto> companies;
+  @XmlElement(name = "employee")
+  List<EmployeeDto> employees;
 
-  public List<CompanyDto> getCompanies() {
-    return companies;
+  public List<EmployeeDto> getEmployees() {
+    return employees;
   }
 
-  public void setCompanies(List<CompanyDto> companies) {
-    this.companies = companies;
+  public void setEmployees(List<EmployeeDto> employees) {
+    this.employees = employees;
   }
 }
-

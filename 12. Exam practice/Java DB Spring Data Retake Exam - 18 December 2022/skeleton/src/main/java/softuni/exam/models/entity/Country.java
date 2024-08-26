@@ -1,12 +1,8 @@
 package softuni.exam.models.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.lang.annotation.Target;
-
 @Entity
 @Table(name = "countries")
 public class Country extends BaseEntity {

@@ -11,17 +11,21 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
-@XmlRootElement(name = "companies")
+@XmlRootElement(name = "company")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CompanyDto {
 
-  @XmlElement
+  @XmlElement(name = "companyName")
   private String name;
   @XmlElement
   private String website;
   @XmlElement
-  private LocalDate dateEstablished;
-  private Long country;
+  private String dateEstablished;
+  @XmlElement
+  private Long countryId;
+
+  public CompanyDto() {
+  }
 
   @NotBlank
   @Size(min = 2,max = 40)
@@ -37,14 +41,12 @@ public class CompanyDto {
 
   @NotBlank
   @NotNull
-  public LocalDate getDateEstablished() {
+  public String getDateEstablished() {
     return dateEstablished;
   }
 
-  @NotBlank
-  @NotNull
-  public Long getCountry() {
-    return country;
+  public Long getCountryId() {
+    return countryId;
   }
 
   public void setName(String name) {
@@ -55,11 +57,11 @@ public class CompanyDto {
     this.website = website;
   }
 
-  public void setDateEstablished(LocalDate dateEstablished) {
+  public void setDateEstablished(String dateEstablished) {
     this.dateEstablished = dateEstablished;
   }
 
-  public void setCountry(Long country) {
-    this.country = country;
+  public void setCountryId(Long country) {
+    this.countryId = country;
   }
 }

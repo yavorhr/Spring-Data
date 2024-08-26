@@ -1,7 +1,11 @@
 package softuni.exam.repository;
 
-// TODO:
-public interface CountryRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import softuni.exam.models.entity.Country;
+
+@Repository
+public interface CountryRepository extends JpaRepository<Country, Long> {
 
 
 }

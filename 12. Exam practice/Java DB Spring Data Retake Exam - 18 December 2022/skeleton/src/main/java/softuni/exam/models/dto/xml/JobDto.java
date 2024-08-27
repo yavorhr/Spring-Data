@@ -20,8 +20,8 @@ public class JobDto {
   private Double salary;
   @XmlElement
   private String description;
-  @XmlElement
-  private Long companyId;
+  @XmlElement(name = "companyId")
+  private Long company;
 
   @NotNull
   @Size(min = 2,max = 40)
@@ -45,8 +45,8 @@ public class JobDto {
     return description;
   }
 
-  public Long getCompanyId() {
-    return companyId;
+  public Long getCompany() {
+    return company;
   }
 
   public void setTitle(String title) {
@@ -65,7 +65,7 @@ public class JobDto {
     this.description = description;
   }
 
-  public void setCompanyId(Long companyId) {
-    this.companyId = companyId;
+  public void setCompany(Long company) {
+    this.company = company;
   }
 }

@@ -15,6 +15,10 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -49,34 +53,38 @@ public class CompanyServiceImpl implements CompanyService {
 
     CompanyRootDto rootDto =
             this.xmlParser.fromFile(COMPANIES_FILE_PATH, CompanyRootDto.class);
+    List<String> names = new ArrayList<>();
 
-    System.out.println();
-
-    System.out.println();
-
-    rootDto.getCompanies()
+    Set<Company> collect = rootDto.getCompanies()
             .stream()
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
-              isValid = companyNameExist(dto, isValid);
+              if (isValid && names.contains(dto.getName())) {
+                isValid = false;
+              } else {
+                names.add(dto.getName());
+              }
 
               sb.append(isValid
                       ? String.format("Successfully imported company %s - %d",
                       dto.getName(),
-                      dto.getCountryId())
-                      : "Invalid country")
+                      dto.getCountry())
+                      : "Invalid company")
                       .append(System.lineSeparator());
 
               return isValid;
             })
             .map(dto -> {
               Company company = this.modelMapper.map(dto, Company.class);
-              company.setCountry(this.countryService.findCountryById(dto.getCountryId()));
 
+              if (this.countryService.findCountryById(dto.getCountry()) != null) {
+                company.setCountry(this.countryService.findCountryById(dto.getCountry()));
+              }
               return company;
-            })
-            .forEach(this.companyRepository::save);
+            }).collect(Collectors.toSet());
+
+    collect.forEach(this.companyRepository::save);
 
     return sb.toString().trim();
   }
@@ -86,13 +94,6 @@ public class CompanyServiceImpl implements CompanyService {
     return this.companyRepository.findById(companyId).orElse(null);
   }
 
-  // Helpers
-  private boolean companyNameExist(CompanyDto dto, boolean isValid) {
-    if (this.companyRepository.findByName(dto.getName()) != null) {
-      isValid = false;
-    }
-    return isValid;
-  }
 
 }
 

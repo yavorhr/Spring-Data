@@ -6,7 +6,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "countries")
 public class Country extends BaseEntity {
-
   private String name;
   private String code;
   private String currency;

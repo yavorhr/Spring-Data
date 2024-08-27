@@ -14,6 +14,8 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
@@ -49,7 +51,6 @@ public class JobServiceImpl implements JobService {
     JobsRootDto rootDto =
             this.xmlParser.fromFile(JOBS_FILE_PATH, JobsRootDto.class);
 
-    System.out.println();
     rootDto.getJobs()
             .stream()
             .filter(dto -> {
@@ -65,7 +66,7 @@ public class JobServiceImpl implements JobService {
             })
             .map(dto -> {
               Job job = this.modelMapper.map(dto, Job.class);
-              job.getCompanies().add(this.companyService.findCompanyById(dto.getCompanyId()));
+              job.getCompanies().add(this.companyService.findCompanyById(dto.getCompany()));
 
               return job;
             })
@@ -76,6 +77,19 @@ public class JobServiceImpl implements JobService {
 
   @Override
   public String getBestJobs() {
-    return null;
+    StringBuilder sb = new StringBuilder();
+
+    this.jobRepository
+            .findAllBySalaryGreaterThanEqualAndHoursAweekLessThanEqualOrderBySalaryDesc(5000.00, 30.00)
+            .forEach(job -> {
+              sb.append(String.format("Job title %s\n" +
+                              "-Salary: %.2f$¬¬\n" +
+                              "--Hours a week: %.2fh.\n",
+                      job.getTitle(),
+                      job.getSalary(),
+                      job.getHoursAweek())).append(System.lineSeparator());
+            });
+
+    return sb.toString().trim();
   }
 }

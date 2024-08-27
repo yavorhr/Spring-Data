@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "companies")
@@ -22,7 +23,7 @@ public class Company extends BaseEntity {
     return country;
   }
 
-  @Column(unique = true,nullable = false)
+  @Column(unique = true, nullable = false)
   public String getName() {
     return name;
   }
@@ -37,7 +38,6 @@ public class Company extends BaseEntity {
     return dateEstablished;
   }
 
-  @Column(nullable = false)
   public void setName(String name) {
     this.name = name;
   }
@@ -53,4 +53,6 @@ public class Company extends BaseEntity {
   public void setCountry(Country country) {
     this.country = country;
   }
+
 }
+

@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.time.LocalDate;
 
 @XmlRootElement(name = "company")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -21,29 +20,26 @@ public class CompanyDto {
   private String website;
   @XmlElement
   private String dateEstablished;
-  @XmlElement
-  private Long countryId;
+  @XmlElement(name = "countryId")
+  private Long country;
 
-  @NotBlank
   @Size(min = 2,max = 40)
   public String getName() {
     return name;
   }
 
-  @NotBlank
   @Size(min = 2,max = 30)
   public String getWebsite() {
     return website;
   }
 
-  @NotBlank
-  @NotNull
+
   public String getDateEstablished() {
     return dateEstablished;
   }
 
-  public Long getCountryId() {
-    return countryId;
+  public Long getCountry() {
+    return country;
   }
 
   public void setName(String name) {
@@ -58,7 +54,7 @@ public class CompanyDto {
     this.dateEstablished = dateEstablished;
   }
 
-  public void setCountryId(Long country) {
-    this.countryId = country;
+  public void setCountry(Long country) {
+    this.country = country;
   }
 }

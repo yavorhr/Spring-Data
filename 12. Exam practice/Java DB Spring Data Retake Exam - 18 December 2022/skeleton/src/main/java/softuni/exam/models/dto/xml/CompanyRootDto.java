@@ -17,7 +17,5 @@ public class CompanyRootDto {
     return companies;
   }
 
-  public void setCompanies(List<CompanyDto> companies) {
-    this.companies = companies;
-  }
+
 }

@@ -1,9 +1,11 @@
 package softuni.exam.service.impl;
 
+import org.springframework.stereotype.Service;
 import softuni.exam.service.MechanicService;
 
 import java.io.IOException;
-// TODO: Implement all methods
+
+@Service
 public class MechanicServiceImpl implements MechanicService {
     @Override
     public boolean areImported() {

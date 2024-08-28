@@ -1,10 +1,11 @@
 package softuni.exam.service.impl;
 
+import org.springframework.stereotype.Service;
 import softuni.exam.service.TaskService;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
-// TODO: Implement all methods
+@Service
 public class TaskServiceImpl implements TaskService {
     private static String TASKS_FILE_PATH = "";
 

@@ -2,9 +2,7 @@ package softuni.exam.models.dto.json;
 
 import com.google.gson.annotations.Expose;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class PartSeedDto {
   @Expose
@@ -21,7 +19,8 @@ public class PartSeedDto {
   }
 
   @NotNull
-  @Positive
+  @Min(10)
+  @Max(2000)
   public Double getPrice() {
     return price;
   }

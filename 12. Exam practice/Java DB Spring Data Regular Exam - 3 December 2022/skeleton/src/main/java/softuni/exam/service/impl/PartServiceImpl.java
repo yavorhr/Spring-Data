@@ -8,13 +8,10 @@ import softuni.exam.models.entity.Part;
 import softuni.exam.repository.PartRepository;
 import softuni.exam.service.PartService;
 import softuni.exam.util.ValidationUtil;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PartServiceImpl implements PartService {
@@ -67,5 +64,10 @@ public class PartServiceImpl implements PartService {
             .forEach(this.partRepository::save);
 
     return sb.toString().trim();
+  }
+
+  @Override
+  public Part findPartById(Long id) {
+    return this.partRepository.findById(id).orElse(null);
   }
 }

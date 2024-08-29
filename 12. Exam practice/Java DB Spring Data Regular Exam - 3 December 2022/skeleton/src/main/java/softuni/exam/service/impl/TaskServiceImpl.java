@@ -3,6 +3,7 @@ package softuni.exam.service.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dto.xml.taskDtos.TasksRootDto;
+import softuni.exam.models.entity.CarTypeEnum;
 import softuni.exam.models.entity.Mechanic;
 import softuni.exam.models.entity.Task;
 import softuni.exam.repository.TaskRepository;
@@ -91,7 +92,22 @@ public class TaskServiceImpl implements TaskService {
 
   @Override
   public String getCoupeCarTasksOrderByPrice() {
-    return null;
+    StringBuilder sb = new StringBuilder();
+
+    this.taskRepository
+            .findAllCoupeCarsFilterByTaskPriceDesc(CarTypeEnum.coupe)
+            .forEach(t ->
+                    sb.append(String.format("Car %s %s with %dkm\n" +
+                                    "-Mechanic: %s %s - task №%d:¬¬\n" +
+                                    "--Engine: %.1f\n" +
+                                    "---Price: %.2f$\n",
+                            t.getCar().getMake(), t.getCar().getModel(), t.getCar().getKilometers(),
+                            t.getMechanic().getFirstName(), t.getMechanic().getLastName(), t.getId(),
+                            t.getCar().getEngine(),
+                            t.getPrice()))
+            );
+
+    return sb.toString().trim();
   }
 
   // Helpers

@@ -66,6 +66,11 @@ public class MechanicServiceImpl implements MechanicService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Mechanic findMechanicByFirstName(String firstName) {
+    return this.mechanicRepository.findByFirstName(firstName).orElse(null);
+  }
+
   // Helpers
   private boolean doUniqueValuesExist(String firstName, String email) {
     return this.mechanicRepository.findByFirstName(firstName).isPresent()

@@ -15,9 +15,6 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -74,5 +71,10 @@ public class CarServiceImpl implements CarService {
 
     System.out.println();
     return sb.toString().trim();
+  }
+
+  @Override
+  public Car findCarById(Long id) {
+    return this.carRepository.findById(id).orElse(null);
   }
 }

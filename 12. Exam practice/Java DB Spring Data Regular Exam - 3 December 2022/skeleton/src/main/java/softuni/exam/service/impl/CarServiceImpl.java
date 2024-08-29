@@ -27,7 +27,8 @@ public class CarServiceImpl implements CarService {
   private final ModelMapper modelMapper;
   private final ValidationUtil validationUtil;
 
-  public CarServiceImpl(CarRepository carRepository, XmlParser xmlParser, ModelMapper modelMapper, ValidationUtil validationUtil) {
+  public CarServiceImpl(CarRepository carRepository, XmlParser xmlParser,
+                        ModelMapper modelMapper, ValidationUtil validationUtil) {
     this.carRepository = carRepository;
     this.xmlParser = xmlParser;
     this.modelMapper = modelMapper;
@@ -48,8 +49,6 @@ public class CarServiceImpl implements CarService {
   public String importCars() throws IOException, JAXBException {
     StringBuilder sb = new StringBuilder();
 
-    List<String> plateNumbers = new ArrayList<>();
-
     CarsRootDto carsRootDto = this.xmlParser.fromFile(CARS_FILE_PATH, CarsRootDto.class);
 
     carsRootDto.getCars()
@@ -57,10 +56,8 @@ public class CarServiceImpl implements CarService {
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
-              if (isValid && plateNumbers.contains(dto.getPlateNumber())) {
+              if (isValid && this.carRepository.findByPlateNumber(dto.getPlateNumber()).isPresent()) {
                 isValid = false;
-              } else {
-                plateNumbers.add(dto.getPlateNumber());
               }
 
               sb.append(isValid

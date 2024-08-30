@@ -1,24 +1,25 @@
-package softuni.exam.models.entity;
+package softuni.exam.models.dto.json;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.google.gson.annotations.Expose;
 
-@Entity
-@Table(name = "towns")
-public class Town extends BaseEntity {
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+public class TownsSeedDtos {
+  @Expose
   private String townName;
+  @Expose
   private int population;
 
-  public Town() {
-  }
-
-  @Column(nullable = false, unique = true)
+  @Size(min = 2)
+  @NotNull
   public String getTownName() {
     return townName;
   }
 
-  @Column(nullable = false)
+  @NotNull
+  @Positive
   public int getPopulation() {
     return population;
   }

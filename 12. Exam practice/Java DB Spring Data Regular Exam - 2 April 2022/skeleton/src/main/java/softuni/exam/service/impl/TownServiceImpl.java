@@ -1,24 +1,72 @@
 package softuni.exam.service.impl;
 
+import com.google.gson.Gson;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.json.TownsSeedDtos;
+import softuni.exam.models.entity.Town;
+import softuni.exam.repository.TownRepository;
 import softuni.exam.service.TownService;
+import softuni.exam.util.ValidationUtil;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class TownServiceImpl implements TownService {
+  private static final String TOWN_FILE_PATH = "src/main/resources/files/json/towns.json";
+  private final TownRepository townRepository;
+  private final Gson gson;
+  private final ModelMapper modelMapper;
+  private final ValidationUtil validationUtil;
+
+  public TownServiceImpl(TownRepository townRepository, Gson gson, ModelMapper modelMapper, ValidationUtil validationUtil) {
+    this.townRepository = townRepository;
+    this.gson = gson;
+    this.modelMapper = modelMapper;
+    this.validationUtil = validationUtil;
+  }
+
   @Override
   public boolean areImported() {
-    return false;
+    return this.townRepository.count() > 0;
   }
 
   @Override
   public String readTownsFileContent() throws IOException {
-    return null;
+    return Files.readString(Path.of(TOWN_FILE_PATH));
   }
 
   @Override
   public String importTowns() throws IOException {
-    return null;
+    StringBuilder sb = new StringBuilder();
+    List<String> townNames = new ArrayList<>();
+
+    Arrays.stream(this.gson.fromJson(readTownsFileContent(), TownsSeedDtos[].class))
+            .filter(dto -> {
+              boolean isValid = this.validationUtil.isValid(dto);
+
+              if (townNames.contains(dto.getTownName())) {
+                isValid = false;
+              } else {
+                townNames.add(dto.getTownName());
+              }
+
+              sb.append(isValid ? String.format("Successfully imported town %s - %d",
+                      dto.getTownName(),
+                      dto.getPopulation())
+                      : "Invalid town")
+                      .append(System.lineSeparator());
+
+              return isValid;
+            })
+            .map(dto -> this.modelMapper.map(dto, Town.class))
+            .forEach(this.townRepository::save);
+
+    return sb.toString().trim();
   }
 }

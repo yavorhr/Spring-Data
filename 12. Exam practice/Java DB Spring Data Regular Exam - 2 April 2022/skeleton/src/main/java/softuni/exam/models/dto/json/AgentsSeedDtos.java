@@ -10,7 +10,7 @@ public class AgentsSeedDtos {
   @Expose
   private String firstName;
   @Expose
-  private String latName;
+  private String lastName;
   @Expose
   private String town;
   @Expose
@@ -25,7 +25,7 @@ public class AgentsSeedDtos {
   @NotNull
   @Size(min = 2)
   public String getLatName() {
-    return latName;
+    return lastName;
   }
 
   @NotNull
@@ -44,7 +44,7 @@ public class AgentsSeedDtos {
   }
 
   public void setLatName(String latName) {
-    this.latName = latName;
+    this.lastName = latName;
   }
 
   public void setTown(String town) {

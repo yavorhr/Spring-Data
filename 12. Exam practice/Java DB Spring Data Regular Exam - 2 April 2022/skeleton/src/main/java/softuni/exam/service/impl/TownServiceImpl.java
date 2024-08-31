@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TownServiceImpl implements TownService {
@@ -69,4 +70,12 @@ public class TownServiceImpl implements TownService {
 
     return sb.toString().trim();
   }
-}
+
+  @Override
+  public Optional<Town> findTownByName(String name) {
+      return this.townRepository.findByTownName(name);
+    }
+  }
+
+
+

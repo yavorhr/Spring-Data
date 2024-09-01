@@ -17,7 +17,7 @@ public class ApartmentDto {
 
   private ApartmentTypeEnum apartmentType;
   private Double area;
-  private Town town;
+  private String town;
 
   @NotNull
   @Enumerated
@@ -31,7 +31,7 @@ public class ApartmentDto {
     return area;
   }
 
-  public Town getTown() {
+  public String getTown() {
     return town;
   }
 
@@ -43,7 +43,7 @@ public class ApartmentDto {
     this.area = area;
   }
 
-  public void setTown(Town town) {
+  public void setTown(String town) {
     this.town = town;
   }
 }

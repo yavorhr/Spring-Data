@@ -7,11 +7,12 @@ import java.util.Optional;
 
 public interface TownService {
 
-    boolean areImported();
+  boolean areImported();
 
-    String readTownsFileContent() throws IOException;
-	
-	String importTowns() throws IOException;
+  String readTownsFileContent() throws IOException;
 
-	Optional<Town> findTownByName(String name);
+  String importTowns() throws IOException;
+
+  Optional<Town> findTownByName(String name);
 }
+

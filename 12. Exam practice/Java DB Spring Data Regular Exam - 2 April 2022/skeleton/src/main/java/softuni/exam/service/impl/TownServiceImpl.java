@@ -73,9 +73,10 @@ public class TownServiceImpl implements TownService {
 
   @Override
   public Optional<Town> findTownByName(String name) {
-      return this.townRepository.findByTownName(name);
-    }
+    return this.townRepository.findByTownName(name);
   }
+
+}
 
 
 

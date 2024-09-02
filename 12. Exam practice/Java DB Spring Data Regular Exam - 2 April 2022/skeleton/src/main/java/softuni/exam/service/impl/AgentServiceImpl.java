@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class AgentServiceImpl implements AgentService {
@@ -82,6 +81,11 @@ public class AgentServiceImpl implements AgentService {
             }).forEach(this.agentRepository::save);
 
     return sb.toString().trim();
+  }
+
+  @Override
+  public Optional<Agent> findAgentByFirstName(String firstName) {
+    return this.agentRepository.findByFirstName(firstName);
   }
 
   // Helpers

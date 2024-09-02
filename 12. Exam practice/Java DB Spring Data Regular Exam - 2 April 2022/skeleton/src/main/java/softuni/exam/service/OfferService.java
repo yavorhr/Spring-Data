@@ -11,5 +11,5 @@ public interface OfferService {
 	
 	String importOffers() throws IOException, JAXBException;
 
-    String exportOffers();
+    String exportOffers() throws JAXBException;
 }

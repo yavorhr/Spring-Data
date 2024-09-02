@@ -84,11 +84,9 @@ public class ApartmentServiceImpl implements ApartmentService {
     return sb.toString().trim();
   }
 
-  private boolean apartmentAlreadyExist(List<ApartmentDto> towns, ApartmentDto dto) {
-    return towns
-            .stream()
-            .anyMatch(t -> t.getTown().equals(dto.getTown()) &&
-                    t.getArea().equals(dto.getArea()) &&
-                    t.getApartmentType().equals(dto.getApartmentType()));
+  @Override
+  public Apartment findById(Long id) {
+    return this.apartmentRepository.findById(id).orElse(null);
   }
+
 }

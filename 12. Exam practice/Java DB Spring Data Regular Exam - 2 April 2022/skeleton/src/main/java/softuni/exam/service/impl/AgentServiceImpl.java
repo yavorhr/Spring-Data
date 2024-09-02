@@ -54,7 +54,7 @@ public class AgentServiceImpl implements AgentService {
     List<String> firstNamesOccurances = new ArrayList<>();
     List<String> emailOccurances = new ArrayList<>();
 
-    List<Agent> collect = Arrays.stream(this.gson.fromJson(readAgentsFromFile(), AgentsSeedDtos[].class))
+    Arrays.stream(this.gson.fromJson(readAgentsFromFile(), AgentsSeedDtos[].class))
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
@@ -79,9 +79,7 @@ public class AgentServiceImpl implements AgentService {
               town.ifPresent(agent::setTown);
 
               return agent;
-            }).collect(Collectors.toList());
-    System.out.println();
-//            .forEach(this.agentRepository::save);
+            }).forEach(this.agentRepository::save);
 
     return sb.toString().trim();
   }

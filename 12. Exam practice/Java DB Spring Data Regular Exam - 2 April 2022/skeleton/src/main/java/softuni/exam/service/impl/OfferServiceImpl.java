@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dto.xml.OffersRootDto;
 import softuni.exam.models.entity.Agent;
+import softuni.exam.models.entity.ApartmentTypeEnum;
 import softuni.exam.models.entity.Offer;
 import softuni.exam.repository.OfferRepository;
 import softuni.exam.service.AgentService;
@@ -16,6 +17,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -88,8 +90,22 @@ public class OfferServiceImpl implements OfferService {
 
   @Override
   public String exportOffers() throws JAXBException {
+    
+    StringBuilder sb = new StringBuilder();
+    this.offerRepository.findAllByApartment_ApartmentTypeOrderByApartment_AreaDescPriceAsc(ApartmentTypeEnum.three_rooms)
+            .stream()
+            .forEach(e -> sb.append(String.format("\"Agent %s %s with offer №%d:\n" +
+                            "\t\t-Apartment area: %.2f\n" +
+                            "\t\t--Town: %s\n" +
+                            "\t\t---Price: %.2f$\n",
+                    e.getAgent().getFirstName(),
+                    e.getAgent().getLatName(),
+                    e.getId(),
+                    e.getApartment().getArea(),
+                    e.getApartment().getTown().getTownName(),
+                    e.getPrice()
+            )).append(System.lineSeparator()));
 
-
-    return null;
+    return sb.toString().trim();
   }
 }

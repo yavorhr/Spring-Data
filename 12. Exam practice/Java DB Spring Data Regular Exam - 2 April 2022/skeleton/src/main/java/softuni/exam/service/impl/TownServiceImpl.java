@@ -45,16 +45,13 @@ public class TownServiceImpl implements TownService {
   @Override
   public String importTowns() throws IOException {
     StringBuilder sb = new StringBuilder();
-    List<String> townNames = new ArrayList<>();
 
     Arrays.stream(this.gson.fromJson(readTownsFileContent(), TownsSeedDtos[].class))
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
-              if (townNames.contains(dto.getTownName())) {
+              if (this.townRepository.findByTownName(dto.getTownName()).isPresent()) {
                 isValid = false;
-              } else {
-                townNames.add(dto.getTownName());
               }
 
               sb.append(isValid ? String.format("Successfully imported town %s - %d",

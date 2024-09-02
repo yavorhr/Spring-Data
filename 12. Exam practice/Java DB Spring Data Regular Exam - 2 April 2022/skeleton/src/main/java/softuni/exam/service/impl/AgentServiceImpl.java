@@ -78,7 +78,8 @@ public class AgentServiceImpl implements AgentService {
               town.ifPresent(agent::setTown);
 
               return agent;
-            }).forEach(this.agentRepository::save);
+            })
+            .forEach(this.agentRepository::save);
 
     return sb.toString().trim();
   }

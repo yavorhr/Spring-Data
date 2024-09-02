@@ -2,6 +2,7 @@ package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.xml.ApartmentDto;
 import softuni.exam.models.dto.xml.ApartmentsRootDto;
 import softuni.exam.models.entity.Apartment;
 import softuni.exam.models.entity.Town;
@@ -15,9 +16,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ApartmentServiceImpl implements ApartmentService {
@@ -51,15 +50,16 @@ public class ApartmentServiceImpl implements ApartmentService {
     StringBuilder sb = new StringBuilder();
 
     ApartmentsRootDto rootDto = this.xmlParser.fromFile(APARTMENTS_FILE_PATH, ApartmentsRootDto.class);
-    Map<String, Double> towns = new HashMap<>();
 
     rootDto.getApartments()
             .stream()
             .filter(dto -> {
               boolean isValid = this.validationUtil.isValid(dto);
 
-              if (towns.get(dto.getTown()) != 0){
-                
+              if (this.apartmentRepository.findByTown_TownNameAndArea(
+                      dto.getTown(),
+                      dto.getArea()) != null) {
+                isValid = false;
               }
 
               sb.append(isValid
@@ -82,5 +82,13 @@ public class ApartmentServiceImpl implements ApartmentService {
             .forEach(this.apartmentRepository::save);
 
     return sb.toString().trim();
+  }
+
+  private boolean apartmentAlreadyExist(List<ApartmentDto> towns, ApartmentDto dto) {
+    return towns
+            .stream()
+            .anyMatch(t -> t.getTown().equals(dto.getTown()) &&
+                    t.getArea().equals(dto.getArea()) &&
+                    t.getApartmentType().equals(dto.getApartmentType()));
   }
 }

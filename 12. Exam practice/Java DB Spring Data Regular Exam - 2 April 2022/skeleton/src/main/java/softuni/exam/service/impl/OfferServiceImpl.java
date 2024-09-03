@@ -90,7 +90,7 @@ public class OfferServiceImpl implements OfferService {
 
   @Override
   public String exportOffers() throws JAXBException {
-    
+
     StringBuilder sb = new StringBuilder();
     this.offerRepository.findAllByApartment_ApartmentTypeOrderByApartment_AreaDescPriceAsc(ApartmentTypeEnum.three_rooms)
             .stream()

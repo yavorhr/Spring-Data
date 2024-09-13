@@ -95,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724413133901</updated>
       <workItem from="1724413135538" duration="23816000" />
+      <workItem from="1726248794405" duration="364000" />
     </task>
     <servers />
   </component>
@@ -111,6 +112,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

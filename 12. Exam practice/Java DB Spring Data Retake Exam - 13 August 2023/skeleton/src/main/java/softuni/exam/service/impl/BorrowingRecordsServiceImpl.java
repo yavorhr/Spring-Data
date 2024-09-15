@@ -7,6 +7,7 @@ import softuni.exam.models.dto.xml.BorrowingRecordsRootElement;
 import softuni.exam.models.entity.Book;
 import softuni.exam.models.entity.BorrowingRecord;
 import softuni.exam.models.entity.LibraryMember;
+import softuni.exam.models.entity.enums.GenreEnum;
 import softuni.exam.repository.BorrowingRecordRepository;
 import softuni.exam.service.BookService;
 import softuni.exam.service.BorrowingRecordsService;
@@ -18,8 +19,10 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -93,7 +96,25 @@ public class BorrowingRecordsServiceImpl implements BorrowingRecordsService {
 
   @Override
   public String exportBorrowingRecords() {
-    return null;
+    Set<BorrowingRecord> allByReturnDateIsNull = borrowingRecordRepository
+            .findAllByBorrowDateBeforeAndBook_GenreOrderByBorrowDateDesc(LocalDate.parse("2021-09-10"), GenreEnum.SCIENCE_FICTION);
+
+    StringBuilder stringBuilder = new StringBuilder();
+
+    allByReturnDateIsNull.forEach(borrowRecord -> {
+      stringBuilder.append(String.format("Book title: %s\n" +
+                      "*Book author: %s\n" +
+                      "**Date borrowed: %s\n" +
+                      "***Borrowed by: %s %s",
+              borrowRecord.getBook().getTitle(),
+              borrowRecord.getBook().getAuthor(),
+              borrowRecord.getBorrowDate().toString(),
+              borrowRecord.getMember().getFirstName(),
+              borrowRecord.getMember().getLastName()))
+              .append(System.lineSeparator());
+    });
+
+    return stringBuilder.toString().trim();
   }
 
   // Helpers

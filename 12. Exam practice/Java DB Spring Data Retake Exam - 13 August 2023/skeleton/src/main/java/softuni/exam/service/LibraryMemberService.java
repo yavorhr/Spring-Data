@@ -1,8 +1,10 @@
 package softuni.exam.service;
 
-import java.io.IOException;
+import softuni.exam.models.entity.LibraryMember;
 
-// TODO: Implement all methods
+import java.io.IOException;
+import java.util.Optional;
+
 public interface LibraryMemberService {
 
     boolean areImported();
@@ -10,4 +12,6 @@ public interface LibraryMemberService {
     String readLibraryMembersFileContent() throws IOException;
 	
 	String importLibraryMembers() throws IOException;
+
+	Optional<LibraryMember> findById(Long id);
 }

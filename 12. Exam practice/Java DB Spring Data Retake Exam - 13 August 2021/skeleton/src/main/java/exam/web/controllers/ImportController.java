@@ -31,7 +31,6 @@ public class ImportController extends BaseController {
         this.laptopService = laptopService;
     }
 
-
     @GetMapping("/json")
     public ModelAndView importJson() {
 
@@ -43,7 +42,6 @@ public class ImportController extends BaseController {
         return super.view("json/import-json", "areImported", areImported);
     }
 
-
     @GetMapping("/xml")
     public ModelAndView importXml() {
         boolean[] areImported = new boolean[]{
@@ -53,7 +51,6 @@ public class ImportController extends BaseController {
 
         return super.view("xml/import-xml", "areImported", areImported);
     }
-
 
     @GetMapping("/customers")
     public ModelAndView importCustomers() throws IOException {

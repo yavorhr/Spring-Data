@@ -1,5 +1,7 @@
 package exam.repository;
 
-//ToDo:
-public interface CustomerRepository {
+import org.springframework.stereotype.Repository;
+
+
+public interface CustomerRepository  {
 }

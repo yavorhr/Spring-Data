@@ -9,5 +9,5 @@ public interface LaptopService {
 
     String importLaptops() throws IOException;
 
-    String exportBestLaptops();
+    String exportBestLaptops() throws IOException;
 }

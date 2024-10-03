@@ -2,7 +2,6 @@ package exam.service.impl;
 
 import com.google.gson.Gson;
 import exam.model.entity.Customer;
-import exam.model.entity.Town;
 import exam.model.service.json.CustomerDetailsModel;
 import exam.repository.CustomerRepository;
 import exam.service.CustomerService;
@@ -69,8 +68,8 @@ public class CustomerServiceImpl implements CustomerService {
       entity.setTown(this.townService.findTownByName(dto.getTown().getName()));
 
       return entity;
-    }).forEach(this.customerRepository::save);
-
+    })
+            .forEach(this.customerRepository::save);
 
     return sb.toString().trim();
   }

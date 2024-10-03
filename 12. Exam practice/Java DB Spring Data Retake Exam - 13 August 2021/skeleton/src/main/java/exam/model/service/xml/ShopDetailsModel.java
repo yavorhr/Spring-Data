@@ -2,6 +2,9 @@ package exam.model.service.xml;
 
 import exam.model.entity.Town;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,8 +28,25 @@ public class ShopDetailsModel {
   @XmlElement
   private TownWithNameModel town;
 
+  @Size(min = 4)
   public String getAddress() {
     return address;
+  }
+
+  @Min(1)
+  @Max(50)
+  public Integer getEmployeeCount() {
+    return employeeCount;
+  }
+
+  @Min(150)
+  public Integer getShopArea() {
+    return shopArea;
+  }
+
+  @Min(20000)
+  public BigDecimal getIncome() {
+    return income;
   }
 
   public ShopDetailsModel setAddress(String address) {
@@ -34,17 +54,9 @@ public class ShopDetailsModel {
     return this;
   }
 
-  public Integer getEmployeeCount() {
-    return employeeCount;
-  }
-
   public ShopDetailsModel setEmployeeCount(Integer employeeCount) {
     this.employeeCount = employeeCount;
     return this;
-  }
-
-  public BigDecimal getIncome() {
-    return income;
   }
 
   public ShopDetailsModel setIncome(BigDecimal income) {
@@ -52,6 +64,7 @@ public class ShopDetailsModel {
     return this;
   }
 
+  @Size(min = 4)
   public String getName() {
     return name;
   }
@@ -59,10 +72,6 @@ public class ShopDetailsModel {
   public ShopDetailsModel setName(String name) {
     this.name = name;
     return this;
-  }
-
-  public Integer getShopArea() {
-    return shopArea;
   }
 
   public ShopDetailsModel setShopArea(Integer shopArea) {

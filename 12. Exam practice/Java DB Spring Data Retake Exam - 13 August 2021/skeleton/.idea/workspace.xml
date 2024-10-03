@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopDetailsModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopsRootModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/TownWithNameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Laptop Shop_Problem Description.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Laptop Shop_Problem Description.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopDetailsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopDetailsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopsRootModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/xml/ShopsRootModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/repository/ShopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/repository/ShopRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/TownService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/TownService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/ShopServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/TownServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/TownServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exam/repository/ShopRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/repository/ShopRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exam/service/TownService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/service/TownService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727779820442</updated>
-      <workItem from="1727779822089" duration="8935000" />
+      <workItem from="1727779822089" duration="11644000" />
     </task>
     <servers />
   </component>

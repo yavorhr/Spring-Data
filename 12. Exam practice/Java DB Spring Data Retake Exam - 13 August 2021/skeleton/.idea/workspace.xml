@@ -6,20 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/entity/WarrantyTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/model/entity/Laptop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/model/entity/Laptop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/repository/LaptopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/repository/LaptopRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/LaptopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/LaptopService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/ShopService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/ShopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/web/controllers/ExportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/web/controllers/ExportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/repository/LaptopRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/repository/LaptopRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/service/LaptopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/service/LaptopService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/service/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/service/ShopService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/service/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/service/impl/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/web/controllers/ExportController.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/json/LaptopDetailsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam/model/service/json/ShopWithNameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727779820442</updated>
-      <workItem from="1727779822089" duration="17875000" />
+      <workItem from="1727779822089" duration="18613000" />
     </task>
     <servers />
   </component>

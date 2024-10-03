@@ -1,9 +1,6 @@
 package exam.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -15,7 +12,7 @@ public class Laptop extends BaseEntity {
   private BigDecimal price;
   private Integer ram;
   private Integer storage;
-  private Integer warrantyType;
+  private WarrantyTypeEnum warrantyType;
   private Shop shop;
 
   public Laptop() {
@@ -51,8 +48,10 @@ public class Laptop extends BaseEntity {
     return storage;
   }
 
+
   @Column(name = "warranty_type", nullable = false)
-  public Integer getWarrantyType() {
+  @Enumerated
+  public WarrantyTypeEnum getWarrantyType() {
     return warrantyType;
   }
 
@@ -91,7 +90,7 @@ public class Laptop extends BaseEntity {
     return this;
   }
 
-  public Laptop setWarrantyType(Integer warrantyType) {
+  public Laptop setWarrantyType(WarrantyTypeEnum warrantyType) {
     this.warrantyType = warrantyType;
     return this;
   }

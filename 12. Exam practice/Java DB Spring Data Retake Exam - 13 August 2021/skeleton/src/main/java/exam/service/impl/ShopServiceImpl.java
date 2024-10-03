@@ -76,6 +76,11 @@ public class ShopServiceImpl implements ShopService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Shop findShopByName(String name) {
+    return this.shopRepository.findByName(name).get();
+  }
+
   // Helpers
   private boolean shopExist(String name) {
     return this.shopRepository.findByName(name).isPresent();

@@ -67,6 +67,11 @@ public class TownServiceImpl implements TownService {
     return sb.toString().trim();
   }
 
+  @Override
+  public Town findTownByName(String name) {
+    return this.townRepository.findByName(name).get();
+  }
+
   private boolean townNameExist(String name) {
     return this.townRepository.findByName(name).isPresent();
   }

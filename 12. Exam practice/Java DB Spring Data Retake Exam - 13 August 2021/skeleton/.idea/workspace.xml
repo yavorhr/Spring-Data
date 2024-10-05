@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="" />
+    <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/.idea/skeleton.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/FootballApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/config/ApplicationBeanConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/repository/PlayerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/repository/StatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/repository/TeamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/repository/TownRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/PlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/StatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/TeamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/TownService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/PlayerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/StatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/TeamServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/TownServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/ExportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/ImportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/test/java/com/example/football/FootballApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$ptop Shop_Problem Description.docx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/exam/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -82,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727779820442</updated>
-      <workItem from="1727779822089" duration="20361000" />
+      <workItem from="1727779822089" duration="21299000" />
     </task>
     <servers />
   </component>
@@ -99,16 +125,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

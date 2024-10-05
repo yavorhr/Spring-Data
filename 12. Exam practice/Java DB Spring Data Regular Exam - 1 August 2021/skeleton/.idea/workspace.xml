@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8bb06bb7-d5dd-46c2-ab58-8c258de06f49" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/skeleton.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/FootballApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/config/ApplicationBeanConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/repository/PlayerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/repository/StatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/repository/TeamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/repository/TownRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/PlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/StatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/TeamService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/TownService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/impl/PlayerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/impl/StatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/impl/TeamServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/service/impl/TownServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/web/controllers/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/web/controllers/ExportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/web/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/main/java/com/example/football/web/controllers/ImportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skeleton/src/test/java/com/example/football/FootballApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Retake Exam - 13 August 2021/skeleton/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Retake Exam - 13 August 2021/skeleton/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Retake Exam - 13 August 2021/~$ptop Shop_Problem Description.docx" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2n0zDtCs2BDOoK7K5iWYFUejdJY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8bb06bb7-d5dd-46c2-ab58-8c258de06f49" name="Default Changelist" comment="" />
+      <created>1728124665852</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728124665852</updated>
+      <workItem from="1728124667221" duration="921000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

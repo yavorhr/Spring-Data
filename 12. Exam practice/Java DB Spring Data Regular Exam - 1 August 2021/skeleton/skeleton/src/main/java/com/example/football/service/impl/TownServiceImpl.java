@@ -36,7 +36,7 @@ public class TownServiceImpl implements TownService {
 
   @Override
   public String readTownsFileContent() throws IOException {
-    return Files.readString(Path.of(TOWNS_FILE_PATH)));
+    return Files.readString(Path.of(TOWNS_FILE_PATH));
   }
 
   @Override
@@ -63,5 +63,10 @@ public class TownServiceImpl implements TownService {
             .forEach(townRepository::save);
 
     return sb.toString().trim();
+  }
+
+  @Override
+  public Town findByTownName(String townName) {
+    return townRepository.findByName(townName).get();
   }
 }

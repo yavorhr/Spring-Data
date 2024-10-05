@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class LaptopServiceImpl implements LaptopService {
@@ -80,7 +81,25 @@ public class LaptopServiceImpl implements LaptopService {
 
   @Override
   public String exportBestLaptops() throws IOException {
-    return "";
+    StringBuilder sb = new StringBuilder();
+
+    this.laptopRepository.findAllLaptopsOrderedCustom()
+            .forEach(l -> sb.append(String.format("Laptop - %s\n" +
+                    "*Cpu speed - %.2f\n" +
+                    "**Ram - %d\n" +
+                    "***Storage - %d\n" +
+                    "****Price - %.2f\n" +
+                    "#Shop name - %s\n" +
+                    "##Town - %s\n",
+                    l.getMacAddress(),
+                    l.getCpuSpeed(),
+                    l.getRam(),
+                    l.getStorage(),
+                    l.getPrice(),
+                    l.getShop().getName(),
+                    l.getShop().getTown().getName())));
+
+    return sb.toString().trim();
   }
 
   private boolean macAddressAlreadyExists(LaptopDetailsModel dto) {

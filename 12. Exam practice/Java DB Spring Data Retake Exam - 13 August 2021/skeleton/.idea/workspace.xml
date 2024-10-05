@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/repository/LaptopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/repository/LaptopRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exam/repository/LaptopRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exam/repository/LaptopRepository.class" afterDir="false" />
-    </list>
+    <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727779820442</updated>
-      <workItem from="1727779822089" duration="20032000" />
+      <workItem from="1727779822089" duration="20361000" />
     </task>
     <servers />
   </component>
@@ -110,7 +105,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/exam/service/impl/LaptopServiceImpl.java</url>
-          <line>87</line>
+          <line>101</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

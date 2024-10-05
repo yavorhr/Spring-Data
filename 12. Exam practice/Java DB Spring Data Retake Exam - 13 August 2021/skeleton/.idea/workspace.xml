@@ -5,6 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece9e199-69bb-416b-946e-4a73c637638a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/config/ApplicationBeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/config/ApplicationBeanConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/TownService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/TownService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/TownServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/service/impl/TownServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/ImportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/src/main/java/com/example/football/web/controllers/ImportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/service/TownService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/service/TownService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/service/impl/TownServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/service/impl/TownServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/web/controllers/ImportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton/skeleton/target/classes/com/example/football/web/controllers/ImportController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java DB Spring Data Regular Exam - 1 August 2021/skeleton" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../11. Regular exam 01.08.2021/player_finder_solved" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -57,17 +64,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ExamApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="exam" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="exam.ExamApplication" />
@@ -85,6 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727779820442</updated>
       <workItem from="1727779822089" duration="22624000" />
+      <workItem from="1728130210809" duration="361000" />
     </task>
     <servers />
   </component>
@@ -101,5 +98,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

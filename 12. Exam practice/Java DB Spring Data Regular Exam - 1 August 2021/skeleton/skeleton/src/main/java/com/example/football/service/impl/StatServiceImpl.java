@@ -72,4 +72,9 @@ public class StatServiceImpl implements StatService {
 
     return sb.toString();
   }
+
+  @Override
+  public Stat findStatsById(Long id) {
+    return statRepository.findById(id).orElse(null);
+  }
 }

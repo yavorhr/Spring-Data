@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.xml.bind.JAXBException;
+
 @Controller
 @RequestMapping("/export")
 public class ExportController extends BaseController {
@@ -19,7 +21,7 @@ public class ExportController extends BaseController {
     }
 
     @GetMapping("/best-players")
-    public ModelAndView exportCarsByPictures() {
+    public ModelAndView exportCarsByPictures() throws JAXBException {
         String players = this.playerService
                 .exportBestPlayers();
         return super.view("export/export-best-players", "players", players);

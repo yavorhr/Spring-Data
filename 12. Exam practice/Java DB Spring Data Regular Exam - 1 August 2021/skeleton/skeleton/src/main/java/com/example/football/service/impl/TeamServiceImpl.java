@@ -15,7 +15,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -51,7 +52,7 @@ public class TeamServiceImpl implements TeamService {
     Arrays.stream(gson.fromJson(readTeamsFileContent(), TeamDetailsModel[].class))
             .filter(dto -> {
 
-              boolean isValid = validationUtil.isValid(dto) && !townAlreadyExists(dto.getName());
+              boolean isValid = validationUtil.isValid(dto) && findTeamByName(dto.getName()).isPresent();
 
               sb
                       .append(isValid
@@ -74,7 +75,9 @@ public class TeamServiceImpl implements TeamService {
     return sb.toString();
   }
 
-  private boolean townAlreadyExists(String teamName) {
-    return teamRepository.existsByName(teamName);
+  @Override
+  public Optional<Team> findTeamByName(String name) {
+    return teamRepository.findByName(name);
   }
+
 }

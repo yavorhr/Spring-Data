@@ -7,11 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import softuni.exam.util.FileUtil;
 import softuni.exam.util.FileUtilImpl;
-import softuni.exam.util.ValidatorUtil;
-import softuni.exam.util.ValidatorUtilImpl;
-
-import javax.validation.Validation;
-import javax.validation.Validator;
 
 @Configuration
 public class ApplicationBeanConfiguration {
@@ -24,16 +19,6 @@ public class ApplicationBeanConfiguration {
     @Bean
     public Gson gson() {
         return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-    }
-
-    @Bean
-    public Validator validator() {
-        return Validation.buildDefaultValidatorFactory().getValidator();
-    }
-
-    @Bean
-    public ValidatorUtil validationUtil() {
-        return new ValidatorUtilImpl(validator());
     }
 
     @Bean

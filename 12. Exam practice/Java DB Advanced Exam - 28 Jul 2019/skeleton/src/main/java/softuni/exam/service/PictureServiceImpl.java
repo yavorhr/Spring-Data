@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PictureServiceImpl implements PictureService {
+
     @Override
     public String importPictures() {
         //TODO Implement me

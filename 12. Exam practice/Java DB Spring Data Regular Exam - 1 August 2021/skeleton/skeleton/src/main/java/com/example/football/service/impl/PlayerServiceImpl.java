@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -95,8 +96,21 @@ public class PlayerServiceImpl implements PlayerService {
   }
 
   @Override
-  public String exportBestPlayers() throws JAXBException {
-    return "";
+  public String exportBestPlayers() {
+    StringBuilder sb = new StringBuilder();
+    Set<Player> bestPlayers = playerRepository.findBestPlayers();
+
+    for (Player player : bestPlayers) {
+      sb.append(String.format("Player - %s %s\n" +
+                      "\tPosition - %s\n" +
+                      "\tTeam - %s\n" +
+                      "\tStadium - %s\n",
+              player.getFirstName(), player.getLastName(),
+              player.getPosition(), player.getTeam().getName(),
+              player.getTeam().getStadiumName()));
+    }
+
+    return sb.toString();
   }
 
   // Helpers

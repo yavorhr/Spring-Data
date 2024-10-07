@@ -76,4 +76,9 @@ public class TeamServiceImpl implements TeamService {
   public String readTeamsXmlFile() throws IOException {
     return Files.readString(Path.of(PICTURES_FILE_PATH));
   }
+
+  @Override
+  public Team findTeamByName(String name) {
+    return this.teamRepository.findByName(name);
+  }
 }

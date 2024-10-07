@@ -1,13 +1,17 @@
 package softuni.exam.service;
 
+import softuni.exam.domain.entities.Team;
+
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 public interface TeamService {
 
-    String importTeams() throws JAXBException;
+  String importTeams() throws JAXBException;
 
-    boolean areImported();
+  boolean areImported();
 
-    String readTeamsXmlFile() throws IOException;
+  String readTeamsXmlFile() throws IOException;
+
+  Team findTeamByName(String name);
 }

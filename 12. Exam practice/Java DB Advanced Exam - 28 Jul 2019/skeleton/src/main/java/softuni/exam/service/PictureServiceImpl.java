@@ -61,4 +61,14 @@ public class PictureServiceImpl implements PictureService {
     return Files.readString(Path.of(PICTURES_FILE_PATH));
   }
 
+  @Override
+  public Picture findPictureByUrl(String url) {
+    return this.pictureRepository.findByUrl(url).get();
+  }
+
+  @Override
+  public boolean doesPictureExistByURL(String url) {
+    return this.pictureRepository.findByUrl(url).isPresent();
+  }
+
 }

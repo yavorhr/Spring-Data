@@ -1,35 +1,107 @@
 package softuni.exam.service;
 
+import com.google.gson.Gson;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.domain.entities.Player;
+import softuni.exam.domain.entities.PositionEnum;
+import softuni.exam.domain.models.json.PlayerModel;
+import softuni.exam.repository.PlayerRepository;
+import softuni.exam.util.ValidationUtil;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
+  private static final String PLAYERS_FILE_PATH = "src/main/resources/files/json/players.json";
+  private final ModelMapper modelMapper;
+  private final PlayerRepository playerRepository;
+  private final ValidationUtil validationUtil;
+  private final Gson gson;
+  private final PictureService pictureService;
+  private final TeamService teamService;
 
-    @Override
-    public String importPlayers() {
-        //TODO Implement me
-        return "";
-    }
+  public PlayerServiceImpl(ModelMapper modelMapper, PlayerRepository playerRepository, ValidationUtil validationUtil, Gson gson, PictureService pictureService, TeamService teamService) {
+    this.modelMapper = modelMapper;
+    this.playerRepository = playerRepository;
+    this.validationUtil = validationUtil;
+    this.gson = gson;
+    this.pictureService = pictureService;
+    this.teamService = teamService;
+  }
 
-    @Override
-    public boolean areImported() {
-        return false;
-    }
+  @Override
+  public String importPlayers() throws IOException {
+    StringBuilder sb = new StringBuilder();
 
-    @Override
-    public String readPlayersJsonFile()  {
-        return "";
-    }
+    Arrays.stream(this.gson.fromJson(readPlayersJsonFile(), PlayerModel[].class))
+            .filter(dto -> {
+              boolean isValid = this.validationUtil.isValid(dto);
 
-    @Override
-    public String exportPlayersWhereSalaryBiggerThan() {
-        //TODO Implement me
-        return "";
-    }
+              if (invalidPosition(dto.getPosition())
+                      || invalidImageUrl(dto.getTeam().getPicture().getUrl())
+                      || invalidImageUrl(dto.getPicture().getUrl())
+                      || invalidTeam(dto.getTeam().getName())) {
+                isValid = false;
+              }
 
-    @Override
-    public String exportPlayersInATeam() {
-        //TODO Implement me
-        return "";
-    }
+              sb.append(isValid
+                      ? String.format("Successfully imported player: %s %s",
+                      dto.getFirstName(),
+                      dto.getLastName())
+                      : "Invalid Player")
+                      .append(System.lineSeparator());
+
+              return isValid;
+            })
+            .map(dto -> {
+              Player entity = this.modelMapper.map(dto, Player.class);
+              entity.setTeam(this.teamService.findTeamByName(dto.getTeam().getName()));
+              entity.setPicture(this.pictureService.findPictureByUrl(dto.getPicture().getUrl()));
+
+              return entity;
+            })
+            .forEach(this.playerRepository::save);
+
+    return sb.toString().trim();
+  }
+
+  @Override
+  public boolean areImported() {
+    return this.playerRepository.count() > 0;
+  }
+
+  @Override
+  public String readPlayersJsonFile() throws IOException {
+    return Files.readString(Path.of(PLAYERS_FILE_PATH));
+  }
+
+  @Override
+  public String exportPlayersWhereSalaryBiggerThan() {
+    //TODO Implement me
+    return "";
+  }
+
+  @Override
+  public String exportPlayersInATeam() {
+    //TODO Implement me
+    return "";
+  }
+
+  // Helpers
+  private boolean invalidPosition(PositionEnum position) {
+    return position == null;
+  }
+
+  private boolean invalidImageUrl(String url) {
+    return !this.pictureService.doesPictureExistByURL(url);
+  }
+
+  private boolean invalidTeam(String name) {
+    return this.teamService.findTeamByName(name) == null;
+  }
+
 }

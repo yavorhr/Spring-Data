@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -87,8 +88,22 @@ public class PlayerServiceImpl implements PlayerService {
 
   @Override
   public String exportPlayersInATeam() {
-    //TODO Implement me
-    return "";
+    StringBuilder sb = new StringBuilder();
+    
+    sb.append(String.format("Team: %s\n", "North Hub"));
+
+    this.playerRepository.findAllByTeamNameOrderById("North Hub")
+            .forEach(p -> {
+              sb.append(String.format("\tPlayer name: %s %s - %s\n" +
+                              "\tNumber: %d\n",
+                      p.getFirstName(),
+                      p.getLastName(),
+                      p.getPosition().name(),
+                      p.getNumber()
+              ));
+            });
+
+    return sb.toString();
   }
 
   // Helpers
